@@ -44,7 +44,7 @@ BarWidget {
     var titles = []
     if (!root.moviesData) return titles
     for (var i = 0; i < root.moviesData.length; i++) {
-      var t = root.moviesData[i].title
+      var t = root.getMovieDisplayTitle(root.moviesData[i])
       if (t && titles.indexOf(t) === -1) {
         titles.push(t)
       }
@@ -62,8 +62,10 @@ BarWidget {
     }
     var list = []
     for (var i = 0; i < root.moviesData.length; i++) {
-      if (root.moviesData[i].title === root.selectedMovieFilter) {
-        list.push(root.moviesData[i])
+      var m = root.moviesData[i]
+      var t = root.getMovieDisplayTitle(m)
+      if (t === root.selectedMovieFilter || m.title === root.selectedMovieFilter) {
+        list.push(m)
       }
     }
     return list
@@ -140,6 +142,34 @@ BarWidget {
       }
     }
     return rows
+  }
+
+  function getMovieDisplayTitle(movie) {
+    if (!movie) return ""
+    if (root.englishMode && movie.movie_title_en) {
+      return movie.movie_title_en
+    }
+    return movie.title || ""
+  }
+
+  function toEnglishScreen(screenName) {
+    if (!screenName) return ""
+    var m = screenName.match(/スクリーン\s*(\d+)/)
+    if (m) {
+      return "Screen " + m[1]
+    }
+    if (screenName.indexOf("未定") !== -1) {
+      return "TBD"
+    }
+    return screenName
+  }
+
+  function getScreenDisplayName(screenName) {
+    if (!screenName) return ""
+    if (root.englishMode) {
+      return toEnglishScreen(screenName)
+    }
+    return screenName
   }
 
   function openExternalUrl(url) {
@@ -289,6 +319,7 @@ BarWidget {
         normalizedMovies.push({
           movie_id: m.movie_id || m.id || "",
           title: title,
+          movie_title_en: m.movie_title_en || null,
           booking_url: (m.booking_url || (filteredShowtimes[0] ? filteredShowtimes[0].booking_url : "")),
           showtimes: filteredShowtimes
         })
@@ -486,7 +517,11 @@ BarWidget {
   function toggleLanguage() {
     englishMode = !englishMode
     persistSettings(undefined, undefined, englishMode)
-    refresh()
+    if (root.rawMoviesData && root.rawMoviesData.length > 0) {
+      applyMovieFilter()
+    } else {
+      refresh()
+    }
   }
 
   function open() {
@@ -1187,7 +1222,7 @@ BarWidget {
 
                   Text {
                     Layout.fillWidth: true
-                    text: modelData.title
+                    text: root.getMovieDisplayTitle(modelData)
                     color: root.bar ? root.bar.foreground : Color.foreground
                     font.pixelSize: Style.font ? Style.font.body : 13
                     font.bold: true
@@ -1262,7 +1297,7 @@ BarWidget {
                       Text {
                         id: screenTxt
                         anchors.centerIn: parent
-                        text: modelData.screen
+                        text: root.getScreenDisplayName(modelData.screen)
                         color: screenHover.containsMouse ? Color.accent : Util.alpha(root.bar ? root.bar.foreground : Color.foreground, 0.8)
                         font.pixelSize: Style.font ? Style.font.caption : 11
                         font.underline: screenHover.containsMouse
@@ -1277,7 +1312,7 @@ BarWidget {
                           mouse.accepted = true
                           root.showScreenDetails(modelData.screen, modelData.screen_facility)
                         }
-                        onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? ("Click to view details for " + modelData.screen) : (modelData.screen + " の設備・座席詳細を表示"))
+                        onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? ("Click to view details for " + root.getScreenDisplayName(modelData.screen)) : (modelData.screen + " の設備・座席詳細を表示"))
                         onExited: if (root.bar) root.bar.hideTooltip(parent)
                       }
                     }
@@ -1429,7 +1464,7 @@ BarWidget {
                 font.pixelSize: Style.font ? Style.font.title : 16
               }
               Text {
-                text: root.currentScreenTitle || (root.currentScreenFacility ? root.currentScreenFacility.name : "")
+                text: root.getScreenDisplayName(root.currentScreenTitle || (root.currentScreenFacility ? root.currentScreenFacility.name : ""))
                 color: root.bar ? root.bar.foreground : Color.foreground
                 font.pixelSize: Style.font ? Style.font.title : 15
                 font.bold: true

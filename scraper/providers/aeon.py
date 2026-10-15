@@ -141,6 +141,11 @@ class AeonCinemaProvider(BaseCinemaProvider):
                 or first_event.get("superEvent", {}).get("name", {}).get("ja")
                 or "名称未設定"
             )
+            title_en = (
+                first_event.get("name", {}).get("en")
+                or first_event.get("superEvent", {}).get("name", {}).get("en")
+                or None
+            )
             movie_id = (
                 first_event.get("superEvent", {}).get("id")
                 or group_id
@@ -203,6 +208,7 @@ class AeonCinemaProvider(BaseCinemaProvider):
                     movie_id=str(movie_id),
                     movie_title=title,
                     screenings=screenings,
+                    movie_title_en=title_en,
                 )
             )
 

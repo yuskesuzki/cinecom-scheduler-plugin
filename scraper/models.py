@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field, asdict
 from enum import Enum
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import json
 
 
@@ -31,6 +31,7 @@ class MovieSchedule:
     movie_id: str
     movie_title: str
     screenings: List[Screening] = field(default_factory=list)
+    movie_title_en: Optional[str] = None
 
 
 @dataclass
