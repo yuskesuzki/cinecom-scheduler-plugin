@@ -42,7 +42,7 @@ cinecom-scheduler-plugin/
 │       ├── base.py            # BaseCinemaProvider (基底クラス)
 │       ├── aeon.py            # AeonCinemaProvider
 │       └── toho.py            # TohoCinemaProvider
-├── tests/                     # ユニットテスト (全36テスト完備)
+├── tests/                     # ユニットテスト (全10テスト完備)
 │   └── test_scraper.py
 └── pyproject.toml
 ```

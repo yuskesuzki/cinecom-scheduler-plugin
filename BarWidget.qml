@@ -155,9 +155,7 @@ BarWidget {
   }
 
   readonly property string pluginDirPath: String(Qt.resolvedUrl(".")).replace(/^file:\/\//, "")
-  readonly property string scriptPath: String(Qt.resolvedUrl("aeoncinema_scraper.py")).replace(/^file:\/\//, "")
   readonly property string theaterJsonPath: String(Qt.resolvedUrl("data/theaters.json")).replace(/^file:\/\//, "")
-  readonly property string legacyTheaterJsonPath: String(Qt.resolvedUrl("theater.json")).replace(/^file:\/\//, "")
 
   // バー上の表示テキスト
   readonly property string barSummaryText: {
@@ -404,29 +402,6 @@ BarWidget {
         }
       }
     }
-
-    onExited: function(exitCode, exitStatus) {
-      if (exitCode !== 0 && root.allChains.length === 0) {
-        console.warn("[CinemaPlugin] Failed to read " + root.theaterJsonPath + ", trying legacy path: " + root.legacyTheaterJsonPath)
-        loadTheatersProcess.command = ["cat", root.legacyTheaterJsonPath]
-        loadTheatersProcess.running = true
-      }
-    }
-  }
-
-  // 設定を config.json に同期する Process
-  Process {
-    id: syncConfigProcess
-    running: false
-    command: [
-      "python3",
-      root.scriptPath,
-      root.selectedTheater,
-      "--within-hours",
-      String(root.withinHours),
-      root.englishMode ? "--en" : "--lang=ja",
-      "--save-config"
-    ]
   }
 
   function refresh() {
@@ -437,22 +412,7 @@ BarWidget {
     }
   }
 
-  function syncConfig() {
-    if (root.selectedChain === "aeon" && !syncConfigProcess.running) {
-      syncConfigProcess.command = [
-        "python3",
-        root.scriptPath,
-        root.selectedTheater,
-        "--within-hours",
-        String(root.withinHours),
-        root.englishMode ? "--en" : "--lang=ja",
-        "--save-config"
-      ]
-      syncConfigProcess.running = true
-    }
-  }
-
-  // 設定の永続化 (Omarchy shell.json + Python config.json)
+  // 設定の永続化 (Omarchy shell.json)
   function persistSettings(newTheater, newHours, newEn, newChain, newAllDay) {
     var entry = { id: root.moduleName || "com.yusuke.cinecom-scheduler" }
     for (var k in root.settings) {
@@ -467,7 +427,6 @@ BarWidget {
     if (root.bar && root.bar.shell && typeof root.bar.shell.updateEntryInline === "function") {
       root.bar.shell.updateEntryInline(root.moduleName || "com.yusuke.cinecom-scheduler", entry)
     }
-    syncConfig()
   }
 
   function toggleShowAllDayToday() {
