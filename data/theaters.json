@@ -16537,6 +16537,292 @@
           "url": "https://hlo.tohotheater.jp/net/schedule/033/TNPI2000J01.do"
         }
       ]
+    },
+    {
+      "id": "united",
+      "name": "ユナイテッド・シネマ",
+      "theaters": [
+        {
+          "id": "sapporo",
+          "code": "sapporo",
+          "name": "ローソン・ユナイテッドシネマ札幌",
+          "region": "北海道地区",
+          "url": "https://www.unitedcinemas.jp/sapporo/index.html"
+        },
+        {
+          "id": "asahikawa",
+          "code": "asahikawa",
+          "name": "シネプレックス旭川",
+          "region": "北海道地区",
+          "url": "https://www.unitedcinemas.jp/asahikawa/index.html"
+        },
+        {
+          "id": "ogawara",
+          "code": "ogawara",
+          "name": "ユナイテッド・シネマ フォルテ宮城大河原",
+          "region": "東北地区",
+          "url": "https://www.unitedcinemas.jp/ogawara/index.html"
+        },
+        {
+          "id": "mito",
+          "code": "mito",
+          "name": "ユナイテッド・シネマ水戸",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/mito/index.html"
+        },
+        {
+          "id": "tsukuba",
+          "code": "tsukuba",
+          "name": "シネプレックスつくば",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/tsukuba/index.html"
+        },
+        {
+          "id": "ashikaga",
+          "code": "ashikaga",
+          "name": "ユナイテッド・シネマ アシコタウンあしかが",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/ashikaga/index.html"
+        },
+        {
+          "id": "maebashi",
+          "code": "maebashi",
+          "name": "ローソン・ユナイテッドシネマ前橋",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/maebashi/index.html"
+        },
+        {
+          "id": "urawa",
+          "code": "urawa",
+          "name": "ユナイテッド・シネマ浦和",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/urawa/index.html"
+        },
+        {
+          "id": "minamifuruya",
+          "code": "minamifuruya",
+          "name": "ユナイテッド・シネマウニクス南古谷",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/minamifuruya/index.html"
+        },
+        {
+          "id": "chichibu",
+          "code": "chichibu",
+          "name": "ユナイテッド・シネマ ウニクス秩父",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/chichibu/index.html"
+        },
+        {
+          "id": "kasukabe",
+          "code": "kasukabe",
+          "name": "ユナイテッド・シネマ春日部",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/kasukabe/index.html"
+        },
+        {
+          "id": "iruma",
+          "code": "iruma",
+          "name": "ローソン・ユナイテッドシネマ入間",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/iruma/index.html"
+        },
+        {
+          "id": "niza",
+          "code": "niza",
+          "name": "ユナイテッド・シネマ新座",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/niza/index.html"
+        },
+        {
+          "id": "satte",
+          "code": "satte",
+          "name": "シネプレックス幸手",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/satte/index.html"
+        },
+        {
+          "id": "wakaba",
+          "code": "wakaba",
+          "name": "ユナイテッド・シネマわかば",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/wakaba/index.html"
+        },
+        {
+          "id": "kamisato",
+          "code": "kamisato",
+          "name": "ユナイテッド・シネマウニクス上里",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/kamisato/index.html"
+        },
+        {
+          "id": "makuhari",
+          "code": "makuhari",
+          "name": "ユナイテッド・シネマ幕張",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/makuhari/index.html"
+        },
+        {
+          "id": "matsudo",
+          "code": "matsudo",
+          "name": "ユナイテッド・シネマ テラスモール松戸",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/matsudo/index.html"
+        },
+        {
+          "id": "toyosu",
+          "code": "toyosu",
+          "name": "ユナイテッド・シネマ豊洲",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/toyosu/index.html"
+        },
+        {
+          "id": "ygc",
+          "code": "ygc",
+          "name": "YEBISU GARDEN CINEMA with UNITED CINEMAS",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/ygc/index.html"
+        },
+        {
+          "id": "toshimaen",
+          "code": "toshimaen",
+          "name": "ユナイテッド・シネマとしまえん",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/toshimaen/index.html"
+        },
+        {
+          "id": "minatomirai",
+          "code": "minatomirai",
+          "name": "ローソン・ユナイテッドシネマ STYLE-S みなとみらい",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/minatomirai/index.html"
+        },
+        {
+          "id": "hiratsuka",
+          "code": "hiratsuka",
+          "name": "シネプレックス平塚",
+          "region": "関東地区",
+          "url": "https://www.unitedcinemas.jp/hiratsuka/index.html"
+        },
+        {
+          "id": "niigata",
+          "code": "niigata",
+          "name": "ユナイテッド・シネマ新潟",
+          "region": "甲信越・北陸地区",
+          "url": "https://www.unitedcinemas.jp/niigata/index.html"
+        },
+        {
+          "id": "kanazawa",
+          "code": "kanazawa",
+          "name": "ユナイテッド・シネマ金沢",
+          "region": "甲信越・北陸地区",
+          "url": "https://www.unitedcinemas.jp/kanazawa/index.html"
+        },
+        {
+          "id": "toyohashi",
+          "code": "toyohashi",
+          "name": "ユナイテッド・シネマ豊橋18",
+          "region": "東海・中部地区",
+          "url": "https://www.unitedcinemas.jp/toyohashi/index.html"
+        },
+        {
+          "id": "okazaki",
+          "code": "okazaki",
+          "name": "ローソン・ユナイテッドシネマ岡崎",
+          "region": "東海・中部地区",
+          "url": "https://www.unitedcinemas.jp/okazaki/index.html"
+        },
+        {
+          "id": "inazawa",
+          "code": "inazawa",
+          "name": "ユナイテッド・シネマ稲沢",
+          "region": "東海・中部地区",
+          "url": "https://www.unitedcinemas.jp/inazawa/index.html"
+        },
+        {
+          "id": "agui",
+          "code": "agui",
+          "name": "ユナイテッド・シネマ阿久比",
+          "region": "東海・中部地区",
+          "url": "https://www.unitedcinemas.jp/agui/index.html"
+        },
+        {
+          "id": "otsu",
+          "code": "otsu",
+          "name": "ユナイテッド・シネマ大津",
+          "region": "近畿・四国地区",
+          "url": "https://www.unitedcinemas.jp/otsu/index.html"
+        },
+        {
+          "id": "kishiwada",
+          "code": "kishiwada",
+          "name": "ローソン・ユナイテッドシネマ岸和田",
+          "region": "近畿・四国地区",
+          "url": "https://www.unitedcinemas.jp/kishiwada/index.html"
+        },
+        {
+          "id": "kashihara",
+          "code": "kashihara",
+          "name": "ユナイテッド・シネマ橿原",
+          "region": "近畿・四国地区",
+          "url": "https://www.unitedcinemas.jp/kashihara/index.html"
+        },
+        {
+          "id": "imabari",
+          "code": "imabari",
+          "name": "ユナイテッド・シネマフジグラン今治",
+          "region": "近畿・四国地区",
+          "url": "https://www.unitedcinemas.jp/imabari/index.html"
+        },
+        {
+          "id": "kokura",
+          "code": "kokura",
+          "name": "ローソン・ユナイテッドシネマ小倉",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/kokura/index.html"
+        },
+        {
+          "id": "canalcity",
+          "code": "canalcity",
+          "name": "ユナイテッド・シネマキャナルシティ13",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/canalcity/index.html"
+        },
+        {
+          "id": "fukuokamomochi",
+          "code": "fukuokamomochi",
+          "name": "ユナイテッド・シネマ 福岡ももち",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/fukuokamomochi/index.html"
+        },
+        {
+          "id": "nakama",
+          "code": "nakama",
+          "name": "ユナイテッド・シネマなかま16",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/nakama/index.html"
+        },
+        {
+          "id": "hisayama",
+          "code": "hisayama",
+          "name": "ユナイテッド・シネマトリアス久山",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/hisayama/index.html"
+        },
+        {
+          "id": "nagasaki",
+          "code": "nagasaki",
+          "name": "ローソン・ユナイテッドシネマ長崎",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/nagasaki/index.html"
+        },
+        {
+          "id": "urasoe",
+          "code": "urasoe",
+          "name": "ローソン・ユナイテッドシネマ PARCO CITY 浦添",
+          "region": "九州・沖縄地区",
+          "url": "https://www.unitedcinemas.jp/urasoe/index.html"
+        }
+      ]
     }
   ]
 }
