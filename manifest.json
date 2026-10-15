@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "com.yusuke.cinecom-scheduler",
+  "name": "Cinecom Scheduler",
+  "version": "1.0.0",
+  "author": "Yusuke Suzuki",
+  "license": "MIT",
+  "description": "シネコン（イオンシネマ・TOHOシネマズ対応）の上映スケジュール、スクリーン設備情報、座席予約リンクを表示するバーウィジェット",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Cinecom Scheduler",
+    "description": "シネコン上映スケジュール・直近作品確認ウィジェット（イオンシネマ / TOHOシネマズ）",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "chain": "aeon",
+      "theater": "ebetsu",
+      "withinHours": 3,
+      "englishMode": false
+    },
+    "schema": [
+      {
+        "key": "chain",
+        "type": "string",
+        "label": "系列ID / Chain ID",
+        "description": "シネコン系列 (aeon, toho)",
+        "defaultValue": "aeon"
+      },
+      {
+        "key": "theater",
+        "type": "string",
+        "label": "劇場ID / Theater ID",
+        "description": "対象劇場の英字IDまたは名称 (例: ebetsu, chofu, 江別)",
+        "defaultValue": "ebetsu"
+      },
+      {
+        "key": "withinHours",
+        "type": "number",
+        "label": "直近抽出時間 / Within Hours",
+        "description": "現在時刻から何時間以内の上映作品を抽出するか (時間単位)",
+        "defaultValue": 3
+      },
+      {
+        "key": "englishMode",
+        "type": "boolean",
+        "label": "英語モード / English Mode",
+        "description": "映画タイトルやUIを英語で表示する",
+        "defaultValue": false
+      }
+    ]
+  }
+}
