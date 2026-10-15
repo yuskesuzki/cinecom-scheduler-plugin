@@ -1,8 +1,8 @@
 # Cinecom Scheduler / Omarchy Plugin (シネコン上映スケジュールプラグイン)
 
-An Omarchy bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema** & **TOHO Cinemas**).
+An Omarchy bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, & **United Cinemas**).
 
-イオンシネマ（全国99劇場）および TOHOシネマズ（全国74劇場、計173劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
+イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場、計213劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
 
 ---
 
@@ -11,6 +11,7 @@ An Omarchy bar widget and lightweight Python scraper for Cinema Complex schedule
 - **複数シネコン対応（Providerアーキテクチャ）**:
   - 🍿 **イオンシネマ**（全99劇場）: 残席数、アップグレードシート・設備情報、公式予約リンク
   - 🎬 **TOHOシネマズ**（全74劇場）: 空席ステータス（◎空席あり / △残少 / ✕満席）、TCX・轟音・IMAX設備、公式予約リンク
+  - 🎟️ **ユナイテッド・シネマ**（全40劇場）: 空席ステータス、4DX・IMAX・ScreenXタグ、公式購入リンク
 - **セレクトボックスによる系列切替**:
   - ドロップダウンUIから直感的にシネコン系列を切り替え可能。今後新たな系列が追加された場合もスムーズに拡張可能。
 - **軽量 & 高速**: 外部ライブラリ不要（Python 3.9以上の標準ライブラリのみで動作）。
@@ -31,7 +32,7 @@ cinecom-scheduler-plugin/
 ├── BarWidget.qml              # Omarchy 用 UI ウィジェット (QML)
 ├── manifest.json              # Omarchy プラグイン定義
 ├── data/
-│   └── theaters.json          # 全シネコン劇場マスタ定義 (イオンシネマ 99館 + TOHO 74館)
+│   └── theaters.json          # 全シネコン劇場マスタ定義 (イオンシネマ 99館 + TOHO 74館 + ユナイテッド 40館)
 ├── scraper/                   # バックエンド Python パッケージ
 │   ├── __init__.py
 │   ├── cli.py                 # 統合CLI (python3 -m scraper.cli)
@@ -41,8 +42,9 @@ cinecom-scheduler-plugin/
 │       ├── __init__.py        # PROVIDER_REGISTRY
 │       ├── base.py            # BaseCinemaProvider (基底クラス)
 │       ├── aeon.py            # AeonCinemaProvider
-│       └── toho.py            # TohoCinemaProvider
-├── tests/                     # ユニットテスト (全10テスト完備)
+│       ├── toho.py            # TohoCinemaProvider
+│       └── united.py          # UnitedCinemaProvider
+├── tests/                     # ユニットテスト (全13テスト完備)
 │   └── test_scraper.py
 └── pyproject.toml
 ```
@@ -71,6 +73,16 @@ python3 -m scraper.cli --chain toho --theater 089
 
 # TOHOシネマズ 日比谷
 python3 -m scraper.cli --chain toho --theater 081 --date 2026-10-16
+```
+
+### 3. ユナイテッド・シネマのスケジュール取得
+
+```bash
+# ローソン・ユナイテッドシネマ 札幌
+python3 -m scraper.cli --chain united --theater sapporo
+
+# ユナイテッド・シネマ 豊洲
+python3 -m scraper.cli --chain united --theater toyosu --date 2026-10-16
 ```
 
 ---

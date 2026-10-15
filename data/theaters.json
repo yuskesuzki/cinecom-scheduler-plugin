@@ -16547,280 +16547,4122 @@
           "code": "sapporo",
           "name": "ローソン・ユナイテッドシネマ札幌",
           "region": "北海道地区",
-          "url": "https://www.unitedcinemas.jp/sapporo/index.html"
+          "url": "https://www.unitedcinemas.jp/sapporo/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/sapporo/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "4dx"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 201,
+                "seats": {
+                  "通常座席": 201
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 178,
+                "seats": {
+                  "通常座席": 178
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 310,
+                "seats": {
+                  "通常座席": 310
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 190,
+                "seats": {
+                  "通常座席": 190
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "ScreenX"
+                ],
+                "total_seats": 245,
+                "seats": {
+                  "通常座席": 245
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 176,
+                "seats": {
+                  "通常座席": 176
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 153,
+                "seats": {
+                  "通常座席": 153
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 286,
+                "seats": {
+                  "通常座席": 286
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 183,
+                "seats": {
+                  "通常座席": 183
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/10.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 338,
+                "seats": {
+                  "通常座席": 338
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/sapporo/seat/11.html",
+                "sound": "IMAX®サウンド"
+              }
+            ]
+          }
         },
         {
           "id": "asahikawa",
           "code": "asahikawa",
           "name": "シネプレックス旭川",
           "region": "北海道地区",
-          "url": "https://www.unitedcinemas.jp/asahikawa/index.html"
+          "url": "https://www.unitedcinemas.jp/asahikawa/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/asahikawa/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 84,
+                "seats": {
+                  "通常座席": 84
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "3dシネマ"
+                ],
+                "total_seats": 375,
+                "seats": {
+                  "通常座席": 375
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/02.html",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "3dシネマ"
+                ],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 192,
+                "seats": {
+                  "通常座席": 192
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 179,
+                "seats": {
+                  "通常座席": 179
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/asahikawa/seat/07.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "ogawara",
           "code": "ogawara",
           "name": "ユナイテッド・シネマ フォルテ宮城大河原",
           "region": "東北地区",
-          "url": "https://www.unitedcinemas.jp/ogawara/index.html"
+          "url": "https://www.unitedcinemas.jp/ogawara/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/ogawara/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター",
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 267,
+                "seats": {
+                  "通常座席": 267
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/01.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 90,
+                "seats": {
+                  "通常座席": 90
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/02.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 90,
+                "seats": {
+                  "通常座席": 90
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/03.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 179,
+                "seats": {
+                  "通常座席": 179
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/04.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/05.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 151,
+                "seats": {
+                  "通常座席": 151
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/06.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター",
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 151,
+                "seats": {
+                  "通常座席": 151
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ogawara/seat/07.html",
+                "sound": "7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "mito",
           "code": "mito",
           "name": "ユナイテッド・シネマ水戸",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/mito/index.html"
+          "url": "https://www.unitedcinemas.jp/mito/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/mito/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 159,
+                "seats": {
+                  "通常座席": 159
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 134,
+                "seats": {
+                  "通常座席": 134
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/03.html?20250501",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 124,
+                "seats": {
+                  "通常座席": 124
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 150,
+                "seats": {
+                  "通常座席": 150
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 460,
+                "seats": {
+                  "通常座席": 460
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/06.html",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 154,
+                "seats": {
+                  "通常座席": 154
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 174,
+                "seats": {
+                  "通常座席": 174
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/mito/seat/08.html",
+                "sound": "5.1ch・HDCS"
+              }
+            ]
+          }
         },
         {
           "id": "tsukuba",
           "code": "tsukuba",
           "name": "シネプレックスつくば",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/tsukuba/index.html"
+          "url": "https://www.unitedcinemas.jp/tsukuba/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/tsukuba/about_facilities.html",
+            "screens": []
+          }
         },
         {
           "id": "ashikaga",
           "code": "ashikaga",
           "name": "ユナイテッド・シネマ アシコタウンあしかが",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/ashikaga/index.html"
+          "url": "https://www.unitedcinemas.jp/ashikaga/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/ashikaga/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 246,
+                "seats": {
+                  "通常座席": 246
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/01.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "通常座席": 117
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/02.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 117,
+                "seats": {
+                  "通常座席": 117
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/03.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 98,
+                "seats": {
+                  "通常座席": 98
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/04.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "通常座席": 88
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/05.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 108,
+                "seats": {
+                  "通常座席": 108
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/06.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 120,
+                "seats": {
+                  "通常座席": 120
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/07.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 391,
+                "seats": {
+                  "通常座席": 391
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ashikaga/seat/08.html",
+                "sound": "7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "maebashi",
           "code": "maebashi",
           "name": "ローソン・ユナイテッドシネマ前橋",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/maebashi/index.html"
+          "url": "https://www.unitedcinemas.jp/maebashi/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/maebashi/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "4dx"
+                ],
+                "total_seats": 108,
+                "seats": {
+                  "通常座席": 108
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 328,
+                "seats": {
+                  "通常座席": 328
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/02.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "通常座席": 164
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "通常座席": 164
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 279,
+                "seats": {
+                  "通常座席": 279
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 372,
+                "seats": {
+                  "通常座席": 372
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "通常座席": 164
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/maebashi/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "urawa",
           "code": "urawa",
           "name": "ユナイテッド・シネマ浦和",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/urawa/index.html"
+          "url": "https://www.unitedcinemas.jp/urawa/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/urawa/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 135,
+                "seats": {
+                  "通常座席": 135
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 268,
+                "seats": {
+                  "通常座席": 268
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 375,
+                "seats": {
+                  "通常座席": 375
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/04.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 123,
+                "seats": {
+                  "通常座席": 123
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 210,
+                "seats": {
+                  "通常座席": 210
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 148,
+                "seats": {
+                  "通常座席": 148
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 175,
+                "seats": {
+                  "通常座席": 175
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/urawa/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "minamifuruya",
           "code": "minamifuruya",
           "name": "ユナイテッド・シネマウニクス南古谷",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/minamifuruya/index.html"
+          "url": "https://www.unitedcinemas.jp/minamifuruya/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/minamifuruya/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 412,
+                "seats": {
+                  "通常座席": 412
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 272,
+                "seats": {
+                  "通常座席": 272
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 180,
+                "seats": {
+                  "通常座席": 180
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "通常座席": 111
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 81,
+                "seats": {
+                  "通常座席": 81
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minamifuruya/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "chichibu",
           "code": "chichibu",
           "name": "ユナイテッド・シネマ ウニクス秩父",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/chichibu/index.html"
+          "url": "https://www.unitedcinemas.jp/chichibu/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/chichibu/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 149,
+                "seats": {
+                  "通常座席": 149
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/01.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター",
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 56,
+                "seats": {
+                  "通常座席": 56
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/02.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 208,
+                "seats": {
+                  "通常座席": 208
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/03.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 65,
+                "seats": {
+                  "通常座席": 65
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/04.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 42,
+                "seats": {
+                  "通常座席": 42
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/05.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 65,
+                "seats": {
+                  "通常座席": 65
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/06.html",
+                "sound": "5.1ch/7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "レーザーシネマプロジェクター"
+                ],
+                "total_seats": 65,
+                "seats": {
+                  "通常座席": 65
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/chichibu/seat/07.html",
+                "sound": "5.1ch/7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "kasukabe",
           "code": "kasukabe",
           "name": "ユナイテッド・シネマ春日部",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/kasukabe/index.html"
+          "url": "https://www.unitedcinemas.jp/kasukabe/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kasukabe/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 258,
+                "seats": {
+                  "通常座席": 258
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 61,
+                "seats": {
+                  "通常座席": 61
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 128,
+                "seats": {
+                  "通常座席": 128
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 222,
+                "seats": {
+                  "通常座席": 222
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 95,
+                "seats": {
+                  "通常座席": 95
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 95,
+                "seats": {
+                  "通常座席": 95
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 199,
+                "seats": {
+                  "通常座席": 199
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 415,
+                "seats": {
+                  "通常座席": 415
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 268,
+                "seats": {
+                  "通常座席": 268
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kasukabe/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "iruma",
           "code": "iruma",
           "name": "ローソン・ユナイテッドシネマ入間",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/iruma/index.html"
+          "url": "https://www.unitedcinemas.jp/iruma/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/iruma/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 108,
+                "seats": {
+                  "通常座席": 108
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 206,
+                "seats": {
+                  "通常座席": 206
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 173,
+                "seats": {
+                  "通常座席": 173
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 118,
+                "seats": {
+                  "通常座席": 118
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "通常座席": 85
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 222,
+                "seats": {
+                  "通常座席": 222
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 118,
+                "seats": {
+                  "通常座席": 118
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 185,
+                "seats": {
+                  "通常座席": 185
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 291,
+                "seats": {
+                  "通常座席": 291
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/iruma/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "niza",
           "code": "niza",
           "name": "ユナイテッド・シネマ新座",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/niza/index.html"
+          "url": "https://www.unitedcinemas.jp/niza/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/niza/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 466,
+                "seats": {
+                  "通常座席": 466
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/01.html",
+                "sound": "HDCS"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 272,
+                "seats": {
+                  "通常座席": 272
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/02.html",
+                "sound": "HDCS"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 181,
+                "seats": {
+                  "通常座席": 181
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/03.html",
+                "sound": ""
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 133,
+                "seats": {
+                  "通常座席": 133
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/04.html",
+                "sound": ""
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 108,
+                "seats": {
+                  "通常座席": 108
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/05.html",
+                "sound": "HDCS"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "通常座席": 130
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/06.html",
+                "sound": ""
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 125,
+                "seats": {
+                  "通常座席": 125
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/07.html",
+                "sound": ""
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 125,
+                "seats": {
+                  "通常座席": 125
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/08.html",
+                "sound": ""
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "通常座席": 130
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niza/seat/09.html",
+                "sound": ""
+              }
+            ]
+          }
         },
         {
           "id": "satte",
           "code": "satte",
           "name": "シネプレックス幸手",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/satte/index.html"
+          "url": "https://www.unitedcinemas.jp/satte/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/satte/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 321,
+                "seats": {
+                  "通常座席": 321
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/01.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 266,
+                "seats": {
+                  "通常座席": 266
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/02.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 287,
+                "seats": {
+                  "通常座席": 287
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/03.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 158,
+                "seats": {
+                  "通常座席": 158
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 158,
+                "seats": {
+                  "通常座席": 158
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 138,
+                "seats": {
+                  "通常座席": 138
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 138,
+                "seats": {
+                  "通常座席": 138
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/satte/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "wakaba",
           "code": "wakaba",
           "name": "ユナイテッド・シネマわかば",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/wakaba/index.html"
+          "url": "https://www.unitedcinemas.jp/wakaba/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/wakaba/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 418,
+                "seats": {
+                  "通常座席": 418
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/01.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 166,
+                "seats": {
+                  "通常座席": 166
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 166,
+                "seats": {
+                  "通常座席": 166
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 166,
+                "seats": {
+                  "通常座席": 166
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/05.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 291,
+                "seats": {
+                  "通常座席": 291
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/06.html",
+                "sound": "5.1ch･HDCS"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 147,
+                "seats": {
+                  "通常座席": 147
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "通常座席": 117
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 147,
+                "seats": {
+                  "通常座席": 147
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/wakaba/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "kamisato",
           "code": "kamisato",
           "name": "ユナイテッド・シネマウニクス上里",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/kamisato/index.html"
+          "url": "https://www.unitedcinemas.jp/kamisato/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kamisato/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 300,
+                "seats": {
+                  "通常座席": 300
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 220,
+                "seats": {
+                  "通常座席": 220
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 400,
+                "seats": {
+                  "通常座席": 400
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "通常座席": 105
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "通常座席": 85
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 103,
+                "seats": {
+                  "通常座席": 103
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 186,
+                "seats": {
+                  "通常座席": 186
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kamisato/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "makuhari",
           "code": "makuhari",
           "name": "ユナイテッド・シネマ幕張",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/makuhari/index.html"
+          "url": "https://www.unitedcinemas.jp/makuhari/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/makuhari/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 212,
+                "seats": {
+                  "通常座席": 212
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 275,
+                "seats": {
+                  "通常座席": 275
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 60,
+                "seats": {
+                  "通常座席": 60
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 352,
+                "seats": {
+                  "通常座席": 352
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/09.html",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 426,
+                "seats": {
+                  "通常座席": 426
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/makuhari/seat/10.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "matsudo",
           "code": "matsudo",
           "name": "ユナイテッド・シネマ テラスモール松戸",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/matsudo/index.html"
+          "url": "https://www.unitedcinemas.jp/matsudo/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/matsudo/about_facilities.html",
+            "screens": []
+          }
         },
         {
           "id": "toyosu",
           "code": "toyosu",
           "name": "ユナイテッド・シネマ豊洲",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/toyosu/index.html"
+          "url": "https://www.unitedcinemas.jp/toyosu/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/toyosu/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 267,
+                "seats": {
+                  "通常座席": 267
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/01.html",
+                "sound": "5.1 x 12.3m"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 109,
+                "seats": {
+                  "通常座席": 109
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/02.html",
+                "sound": "4.7 x 11.2m"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "通常座席": 114
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/03.html",
+                "sound": "4.8 x 11.4m"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 118,
+                "seats": {
+                  "通常座席": 118
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/04.html",
+                "sound": "4.3 x 10.3m"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 70,
+                "seats": {
+                  "通常座席": 70
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/05.html",
+                "sound": "3.2 x 7.5m"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 70,
+                "seats": {
+                  "通常座席": 70
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/06.html",
+                "sound": "3.2 x 7.5m"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 104,
+                "seats": {
+                  "通常座席": 104
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/07.html",
+                "sound": "4.8 x 11.4m"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 233,
+                "seats": {
+                  "通常座席": 233
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/08.html",
+                "sound": "5.9 x 14.2m"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 102,
+                "seats": {
+                  "通常座席": 102
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/09.html",
+                "sound": "3.4 x 8.2m"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 413,
+                "seats": {
+                  "通常座席": 413
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/10.html",
+                "sound": "9.3 x 22.6m"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 78,
+                "seats": {
+                  "通常座席": 78
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/11.html",
+                "sound": "3.3 x 7.8m"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [],
+                "total_seats": 78,
+                "seats": {
+                  "通常座席": 78
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyosu/seat/12.html",
+                "sound": "3.3 x 7.8m"
+              }
+            ]
+          }
         },
         {
           "id": "ygc",
           "code": "ygc",
           "name": "YEBISU GARDEN CINEMA with UNITED CINEMAS",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/ygc/index.html"
+          "url": "https://www.unitedcinemas.jp/ygc/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/ygc/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 187,
+                "seats": {
+                  "通常座席": 187
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ygc/seat/01.html",
+                "sound": "4.5 × 8.3m"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 93,
+                "seats": {
+                  "通常座席": 93
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/ygc/seat/02.html",
+                "sound": "3.4 × 7.6m"
+              }
+            ]
+          }
         },
         {
           "id": "toshimaen",
           "code": "toshimaen",
           "name": "ユナイテッド・シネマとしまえん",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/toshimaen/index.html"
+          "url": "https://www.unitedcinemas.jp/toshimaen/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/toshimaen/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 93,
+                "seats": {
+                  "通常座席": 93
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 380,
+                "seats": {
+                  "通常座席": 380
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 104,
+                "seats": {
+                  "通常座席": 104
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 282,
+                "seats": {
+                  "通常座席": 282
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 93,
+                "seats": {
+                  "通常座席": 93
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 374,
+                "seats": {
+                  "通常座席": 374
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/08.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 185,
+                "seats": {
+                  "通常座席": 185
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toshimaen/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "minatomirai",
           "code": "minatomirai",
           "name": "ローソン・ユナイテッドシネマ STYLE-S みなとみらい",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/minatomirai/index.html"
+          "url": "https://www.unitedcinemas.jp/minatomirai/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/minatomirai/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 71,
+                "seats": {
+                  "通常座席": 71
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/01.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 116,
+                "seats": {
+                  "通常座席": 116
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/02.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 61,
+                "seats": {
+                  "通常座席": 61
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/03.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 58,
+                "seats": {
+                  "通常座席": 58
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/04.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 83,
+                "seats": {
+                  "通常座席": 83
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/05.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 75,
+                "seats": {
+                  "通常座席": 75
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/06.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 56,
+                "seats": {
+                  "通常座席": 56
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/07.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 67,
+                "seats": {
+                  "通常座席": 67
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/08.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 73,
+                "seats": {
+                  "通常座席": 73
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/09.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 59,
+                "seats": {
+                  "通常座席": 59
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/10.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 33,
+                "seats": {
+                  "通常座席": 33
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/11.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [],
+                "total_seats": 298,
+                "seats": {
+                  "通常座席": 298
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/minatomirai/seat/12.html",
+                "sound": "7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "hiratsuka",
           "code": "hiratsuka",
           "name": "シネプレックス平塚",
           "region": "関東地区",
-          "url": "https://www.unitedcinemas.jp/hiratsuka/index.html"
+          "url": "https://www.unitedcinemas.jp/hiratsuka/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/hiratsuka/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "通常座席": 172
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 209,
+                "seats": {
+                  "通常座席": 209
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 134,
+                "seats": {
+                  "通常座席": 134
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 204,
+                "seats": {
+                  "通常座席": 204
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 160,
+                "seats": {
+                  "通常座席": 160
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 190,
+                "seats": {
+                  "通常座席": 190
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 254,
+                "seats": {
+                  "通常座席": 254
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 377,
+                "seats": {
+                  "通常座席": 377
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hiratsuka/seat/08.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "niigata",
           "code": "niigata",
           "name": "ユナイテッド・シネマ新潟",
           "region": "甲信越・北陸地区",
-          "url": "https://www.unitedcinemas.jp/niigata/index.html"
+          "url": "https://www.unitedcinemas.jp/niigata/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/niigata/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 382,
+                "seats": {
+                  "通常座席": 382
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 309,
+                "seats": {
+                  "通常座席": 309
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 116,
+                "seats": {
+                  "通常座席": 116
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 75,
+                "seats": {
+                  "通常座席": 75
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 109,
+                "seats": {
+                  "通常座席": 109
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 147,
+                "seats": {
+                  "通常座席": 147
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "通常座席": 120
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 253,
+                "seats": {
+                  "通常座席": 253
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 219,
+                "seats": {
+                  "通常座席": 219
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 75,
+                "seats": {
+                  "通常座席": 75
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/niigata/seat/10.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "kanazawa",
           "code": "kanazawa",
           "name": "ユナイテッド・シネマ金沢",
           "region": "甲信越・北陸地区",
-          "url": "https://www.unitedcinemas.jp/kanazawa/index.html"
+          "url": "https://www.unitedcinemas.jp/kanazawa/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kanazawa/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 324,
+                "seats": {
+                  "通常座席": 324
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 171,
+                "seats": {
+                  "通常座席": 171
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 218,
+                "seats": {
+                  "通常座席": 218
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 272,
+                "seats": {
+                  "通常座席": 272
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 204,
+                "seats": {
+                  "通常座席": 204
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/05.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 338,
+                "seats": {
+                  "通常座席": 338
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 262,
+                "seats": {
+                  "通常座席": 262
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "通常座席": 171
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 324,
+                "seats": {
+                  "通常座席": 324
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kanazawa/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "toyohashi",
           "code": "toyohashi",
           "name": "ユナイテッド・シネマ豊橋18",
           "region": "東海・中部地区",
-          "url": "https://www.unitedcinemas.jp/toyohashi/index.html"
+          "url": "https://www.unitedcinemas.jp/toyohashi/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/toyohashi/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 101,
+                "seats": {
+                  "通常座席": 101
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 150,
+                "seats": {
+                  "通常座席": 150
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 72,
+                "seats": {
+                  "通常座席": 72
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 235,
+                "seats": {
+                  "通常座席": 235
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 235,
+                "seats": {
+                  "通常座席": 235
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 150,
+                "seats": {
+                  "通常座席": 150
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 150,
+                "seats": {
+                  "通常座席": 150
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 101,
+                "seats": {
+                  "通常座席": 101
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/10.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 101,
+                "seats": {
+                  "通常座席": 101
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/11.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/12.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "13スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 308,
+                "seats": {
+                  "通常座席": 308
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/13.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "14スクリーン",
+                "features": [],
+                "total_seats": 358,
+                "seats": {
+                  "通常座席": 358
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/14.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "15スクリーン",
+                "features": [
+                  "IMAX®デジタルシアター",
+                  "IMAX"
+                ],
+                "total_seats": 269,
+                "seats": {
+                  "通常座席": 269
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/15.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "16スクリーン",
+                "features": [],
+                "total_seats": 307,
+                "seats": {
+                  "通常座席": 307
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/16.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "17スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 126,
+                "seats": {
+                  "通常座席": 126
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/17.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "18スクリーン",
+                "features": [],
+                "total_seats": 101,
+                "seats": {
+                  "通常座席": 101
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/toyohashi/seat/18.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "okazaki",
           "code": "okazaki",
           "name": "ローソン・ユナイテッドシネマ岡崎",
           "region": "東海・中部地区",
-          "url": "https://www.unitedcinemas.jp/okazaki/index.html"
+          "url": "https://www.unitedcinemas.jp/okazaki/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/okazaki/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 175,
+                "seats": {
+                  "通常座席": 175
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 175,
+                "seats": {
+                  "通常座席": 175
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 206,
+                "seats": {
+                  "通常座席": 206
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 132,
+                "seats": {
+                  "通常座席": 132
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 161,
+                "seats": {
+                  "通常座席": 161
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 161,
+                "seats": {
+                  "通常座席": 161
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 271,
+                "seats": {
+                  "通常座席": 271
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/07.html",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 271,
+                "seats": {
+                  "通常座席": 271
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/08.html",
+                "sound": "5.1ch・HDCS"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 242,
+                "seats": {
+                  "通常座席": 242
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/okazaki/seat/09.html",
+                "sound": "IMAX®サウンド"
+              }
+            ]
+          }
         },
         {
           "id": "inazawa",
           "code": "inazawa",
           "name": "ユナイテッド・シネマ稲沢",
           "region": "東海・中部地区",
-          "url": "https://www.unitedcinemas.jp/inazawa/index.html"
+          "url": "https://www.unitedcinemas.jp/inazawa/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/inazawa/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 508,
+                "seats": {
+                  "通常座席": 508
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/01.html",
+                "sound": "5.1ch・THX、補聴器システムあり"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 397,
+                "seats": {
+                  "通常座席": 397
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 347,
+                "seats": {
+                  "通常座席": 347
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 323,
+                "seats": {
+                  "通常座席": 323
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 302,
+                "seats": {
+                  "通常座席": 302
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 299,
+                "seats": {
+                  "通常座席": 299
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 151,
+                "seats": {
+                  "通常座席": 151
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 151,
+                "seats": {
+                  "通常座席": 151
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 218,
+                "seats": {
+                  "通常座席": 218
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/inazawa/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "agui",
           "code": "agui",
           "name": "ユナイテッド・シネマ阿久比",
           "region": "東海・中部地区",
-          "url": "https://www.unitedcinemas.jp/agui/index.html"
+          "url": "https://www.unitedcinemas.jp/agui/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/agui/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 234,
+                "seats": {
+                  "通常座席": 234
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 234,
+                "seats": {
+                  "通常座席": 234
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 184,
+                "seats": {
+                  "通常座席": 184
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 283,
+                "seats": {
+                  "通常座席": 283
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 397,
+                "seats": {
+                  "通常座席": 397
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/05.html",
+                "sound": "5.1ch・THX"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 283,
+                "seats": {
+                  "通常座席": 283
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 184,
+                "seats": {
+                  "通常座席": 184
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 204,
+                "seats": {
+                  "通常座席": 204
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 244,
+                "seats": {
+                  "通常座席": 244
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/agui/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "otsu",
           "code": "otsu",
           "name": "ユナイテッド・シネマ大津",
           "region": "近畿・四国地区",
-          "url": "https://www.unitedcinemas.jp/otsu/index.html"
+          "url": "https://www.unitedcinemas.jp/otsu/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/otsu/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 133,
+                "seats": {
+                  "通常座席": 133
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 110,
+                "seats": {
+                  "通常座席": 110
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 341,
+                "seats": {
+                  "通常座席": 341
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 218,
+                "seats": {
+                  "通常座席": 218
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 272,
+                "seats": {
+                  "通常座席": 272
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 148,
+                "seats": {
+                  "通常座席": 148
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/otsu/seat/07.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "kishiwada",
           "code": "kishiwada",
           "name": "ローソン・ユナイテッドシネマ岸和田",
           "region": "近畿・四国地区",
-          "url": "https://www.unitedcinemas.jp/kishiwada/index.html"
+          "url": "https://www.unitedcinemas.jp/kishiwada/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kishiwada/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 233,
+                "seats": {
+                  "通常座席": 233
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 233,
+                "seats": {
+                  "通常座席": 233
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 323,
+                "seats": {
+                  "通常座席": 323
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 323,
+                "seats": {
+                  "通常座席": 323
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 254,
+                "seats": {
+                  "通常座席": 254
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 254,
+                "seats": {
+                  "通常座席": 254
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 291,
+                "seats": {
+                  "通常座席": 291
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/07.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "4dx"
+                ],
+                "total_seats": 56,
+                "seats": {
+                  "通常座席": 56
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 189,
+                "seats": {
+                  "通常座席": 189
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kishiwada/seat/09.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "kashihara",
           "code": "kashihara",
           "name": "ユナイテッド・シネマ橿原",
           "region": "近畿・四国地区",
-          "url": "https://www.unitedcinemas.jp/kashihara/index.html"
+          "url": "https://www.unitedcinemas.jp/kashihara/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kashihara/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 325,
+                "seats": {
+                  "通常座席": 325
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/01.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 482,
+                "seats": {
+                  "通常座席": 482
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/02.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 166,
+                "seats": {
+                  "通常座席": 166
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/04.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 116,
+                "seats": {
+                  "通常座席": 116
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/05.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 152,
+                "seats": {
+                  "通常座席": 152
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/06.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 174,
+                "seats": {
+                  "通常座席": 174
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/07.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 197,
+                "seats": {
+                  "通常座席": 197
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/08.html",
+                "sound": "7.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "通常座席": 172
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kashihara/seat/09.html",
+                "sound": "7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "imabari",
           "code": "imabari",
           "name": "ユナイテッド・シネマフジグラン今治",
           "region": "近畿・四国地区",
-          "url": "https://www.unitedcinemas.jp/imabari/index.html"
+          "url": "https://www.unitedcinemas.jp/imabari/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/imabari/about_facilities.html",
+            "screens": []
+          }
         },
         {
           "id": "kokura",
           "code": "kokura",
           "name": "ローソン・ユナイテッドシネマ小倉",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/kokura/index.html"
+          "url": "https://www.unitedcinemas.jp/kokura/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/kokura/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 240,
+                "seats": {
+                  "通常座席": 240
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/01.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 310,
+                "seats": {
+                  "通常座席": 310
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 162,
+                "seats": {
+                  "通常座席": 162
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 192,
+                "seats": {
+                  "通常座席": 192
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 142,
+                "seats": {
+                  "通常座席": 142
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 154,
+                "seats": {
+                  "通常座席": 154
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 139,
+                "seats": {
+                  "通常座席": 139
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 154,
+                "seats": {
+                  "通常座席": 154
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/kokura/seat/10.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "canalcity",
           "code": "canalcity",
           "name": "ユナイテッド・シネマキャナルシティ13",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/canalcity/index.html"
+          "url": "https://www.unitedcinemas.jp/canalcity/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/canalcity/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "通常座席": 119
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 129,
+                "seats": {
+                  "通常座席": 129
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 142,
+                "seats": {
+                  "通常座席": 142
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 123,
+                "seats": {
+                  "通常座席": 123
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 163,
+                "seats": {
+                  "通常座席": 163
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "通常座席": 120
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 58,
+                "seats": {
+                  "通常座席": 58
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 146,
+                "seats": {
+                  "通常座席": 146
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 123,
+                "seats": {
+                  "通常座席": 123
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/10.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "通常座席": 120
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/11.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 270,
+                "seats": {
+                  "通常座席": 270
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/12.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "13スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 375,
+                "seats": {
+                  "通常座席": 375
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/canalcity/seat/13.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "fukuokamomochi",
           "code": "fukuokamomochi",
           "name": "ユナイテッド・シネマ 福岡ももち",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/fukuokamomochi/index.html"
+          "url": "https://www.unitedcinemas.jp/fukuokamomochi/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/fukuokamomochi/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/01.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 96,
+                "seats": {
+                  "通常座席": 96
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/02.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 142,
+                "seats": {
+                  "通常座席": 142
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/03.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 84,
+                "seats": {
+                  "通常座席": 84
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/04.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 81,
+                "seats": {
+                  "通常座席": 81
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/05.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 82,
+                "seats": {
+                  "通常座席": 82
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/06.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 215,
+                "seats": {
+                  "通常座席": 215
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/07.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 209,
+                "seats": {
+                  "通常座席": 209
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/08.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 128,
+                "seats": {
+                  "通常座席": 128
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/09.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 210,
+                "seats": {
+                  "通常座席": 210
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/10.html",
+                "sound": "5.1/7.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 331,
+                "seats": {
+                  "通常座席": 331
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/fukuokamomochi/seat/11.html",
+                "sound": "5.1/7.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "nakama",
           "code": "nakama",
           "name": "ユナイテッド・シネマなかま16",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/nakama/index.html"
+          "url": "https://www.unitedcinemas.jp/nakama/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/nakama/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "デジタル3D"
+                ],
+                "total_seats": 264,
+                "seats": {
+                  "通常座席": 264
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 86,
+                "seats": {
+                  "通常座席": 86
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [],
+                "total_seats": 76,
+                "seats": {
+                  "通常座席": 76
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 87,
+                "seats": {
+                  "通常座席": 87
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 101,
+                "seats": {
+                  "通常座席": 101
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "通常座席": 88
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 143,
+                "seats": {
+                  "通常座席": 143
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 187,
+                "seats": {
+                  "通常座席": 187
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 187,
+                "seats": {
+                  "通常座席": 187
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 143,
+                "seats": {
+                  "通常座席": 143
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/10.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "通常座席": 88
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/11.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [],
+                "total_seats": 87,
+                "seats": {
+                  "通常座席": 87
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/12.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "13スクリーン",
+                "features": [
+                  "4dx"
+                ],
+                "total_seats": 56,
+                "seats": {
+                  "通常座席": 56
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/13.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "14スクリーン",
+                "features": [],
+                "total_seats": 76,
+                "seats": {
+                  "通常座席": 76
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/14.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "15スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 86,
+                "seats": {
+                  "通常座席": 86
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/15.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "16スクリーン",
+                "features": [],
+                "total_seats": 264,
+                "seats": {
+                  "通常座席": 264
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nakama/seat/16.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "hisayama",
           "code": "hisayama",
           "name": "ユナイテッド・シネマトリアス久山",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/hisayama/index.html"
+          "url": "https://www.unitedcinemas.jp/hisayama/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/hisayama/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [],
+                "total_seats": 95,
+                "seats": {
+                  "通常座席": 95
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [],
+                "total_seats": 100,
+                "seats": {
+                  "通常座席": 100
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/02.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "3dデジタル"
+                ],
+                "total_seats": 255,
+                "seats": {
+                  "通常座席": 255
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 255,
+                "seats": {
+                  "通常座席": 255
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "通常座席": 130
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "3dデジタル"
+                ],
+                "total_seats": 95,
+                "seats": {
+                  "通常座席": 95
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [
+                  "3dデジタル"
+                ],
+                "total_seats": 143,
+                "seats": {
+                  "通常座席": 143
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 102,
+                "seats": {
+                  "通常座席": 102
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/08.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "9スクリーン",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "通常座席": 130
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/09.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "10スクリーン",
+                "features": [],
+                "total_seats": 95,
+                "seats": {
+                  "通常座席": 95
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/10.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "11スクリーン",
+                "features": [],
+                "total_seats": 144,
+                "seats": {
+                  "通常座席": 144
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/11.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "12スクリーン",
+                "features": [],
+                "total_seats": 100,
+                "seats": {
+                  "通常座席": 100
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/hisayama/seat/12.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "nagasaki",
           "code": "nagasaki",
           "name": "ローソン・ユナイテッドシネマ長崎",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/nagasaki/index.html"
+          "url": "https://www.unitedcinemas.jp/nagasaki/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/nagasaki/about_facilities.html",
+            "screens": [
+              {
+                "name": "1スクリーン",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "通常座席": 112
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/01.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "2スクリーン",
+                "features": [
+                  "IMAX®レーザー",
+                  "IMAX"
+                ],
+                "total_seats": 202,
+                "seats": {
+                  "通常座席": 202
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/02.html",
+                "sound": "IMAX®サウンド"
+              },
+              {
+                "name": "3スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 208,
+                "seats": {
+                  "通常座席": 208
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/03.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "4スクリーン",
+                "features": [],
+                "total_seats": 192,
+                "seats": {
+                  "通常座席": 192
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/04.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "5スクリーン",
+                "features": [],
+                "total_seats": 113,
+                "seats": {
+                  "通常座席": 113
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/05.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "6スクリーン",
+                "features": [
+                  "デジタル3Dシネマ"
+                ],
+                "total_seats": 98,
+                "seats": {
+                  "通常座席": 98
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/06.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "7スクリーン",
+                "features": [],
+                "total_seats": 148,
+                "seats": {
+                  "通常座席": 148
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/07.html",
+                "sound": "5.1ch"
+              },
+              {
+                "name": "8スクリーン",
+                "features": [],
+                "total_seats": 139,
+                "seats": {
+                  "通常座席": 139
+                },
+                "seat_map_url": "https://www.unitedcinemas.jp/nagasaki/seat/08.html",
+                "sound": "5.1ch"
+              }
+            ]
+          }
         },
         {
           "id": "urasoe",
           "code": "urasoe",
           "name": "ローソン・ユナイテッドシネマ PARCO CITY 浦添",
           "region": "九州・沖縄地区",
-          "url": "https://www.unitedcinemas.jp/urasoe/index.html"
+          "url": "https://www.unitedcinemas.jp/urasoe/index.html",
+          "facility": {
+            "url": "https://www.unitedcinemas.jp/urasoe/about_facilities.html",
+            "screens": []
+          }
         }
       ]
     }

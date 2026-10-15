@@ -19,6 +19,13 @@ BarWidget {
   property string selectedDate: "today" // "yesterday", "today", "tomorrow"
 
   property string theaterDisplayName: "江別"
+  readonly property string theaterShortName: {
+    var name = root.theaterDisplayName || ""
+    if (name.length > 5) {
+      return name.slice(-5)
+    }
+    return name
+  }
   property var rawMoviesData: []
   property var moviesData: []
   property var allChains: []
@@ -64,7 +71,8 @@ BarWidget {
 
   readonly property var availableChains: [
     { id: "aeon", nameJa: "イオンシネマ", nameEn: "AEON CINEMA" },
-    { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" }
+    { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
+    { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" }
   ]
 
   function getChainDisplayName(chainId) {
@@ -597,7 +605,7 @@ BarWidget {
 
                 Text {
                   id: theaterLabel
-                  text: root.theaterDisplayName
+                  text: root.theaterShortName
                   color: root.showSettingsPanel ? Color.background : (root.bar ? root.bar.foreground : Color.foreground)
                   font.pixelSize: Style.font ? Style.font.caption : 11
                   font.bold: true
@@ -619,7 +627,7 @@ BarWidget {
             onClicked: {
               root.showSettingsPanel = true
             }
-            onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? "Click to configure chain, theater & hours" : "クリックして系列・劇場・抽出範囲を設定")
+            onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? (root.theaterDisplayName + " - Click to configure") : (root.theaterDisplayName + " (クリックして設定変更)"))
             onExited: if (root.bar) root.bar.hideTooltip(parent)
           }
         }
@@ -651,6 +659,8 @@ BarWidget {
               var url = ""
               if (root.selectedChain === "toho") {
                 url = "https://hlo.tohotheater.jp/net/schedule/" + encodeURIComponent(root.selectedTheater) + "/TNPI2000J01.do"
+              } else if (root.selectedChain === "united") {
+                url = "https://www.unitedcinemas.jp/" + encodeURIComponent(root.selectedTheater) + "/index.html"
               } else {
                 url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
               }

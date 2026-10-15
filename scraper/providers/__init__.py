@@ -2,10 +2,12 @@ from typing import Dict, Type
 from .base import BaseCinemaProvider
 from .aeon import AeonCinemaProvider
 from .toho import TohoCinemaProvider
+from .united import UnitedCinemaProvider
 
 PROVIDER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
     "aeon": AeonCinemaProvider,
     "toho": TohoCinemaProvider,
+    "united": UnitedCinemaProvider,
 }
 
 

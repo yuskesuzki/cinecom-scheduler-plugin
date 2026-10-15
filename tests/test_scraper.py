@@ -109,6 +109,36 @@ class TestScraperPackage(unittest.TestCase):
             exit_code = scraper.cli.main()
             self.assertEqual(exit_code, 2)
 
+    def test_united_provider_registration(self):
+        from scraper.providers.united import UnitedCinemaProvider
+        provider = get_provider("united")
+        self.assertIsInstance(provider, UnitedCinemaProvider)
+        info = provider.get_theater_info("sapporo")
+        self.assertEqual(info.get("name"), "ローソン・ユナイテッドシネマ札幌")
+
+    def test_united_booking_url_safety(self):
+        from scraper.providers.united import UnitedCinemaProvider
+        provider = UnitedCinemaProvider()
+        safe_href = "/all/cc.php?tc=004&amp;sd=20261015&amp;sc=010&amp;st=20261015194000&amp;mc=25278"
+        url = provider._build_safe_booking_url(safe_href)
+        self.assertIsNotNone(url)
+        self.assertTrue(url.startswith("https://www.unitedcinemas.jp/all/cc.php?"))
+        self.assertIn("tc=004", url)
+        self.assertIn("st=20261015194000", url)
+
+        # 悪意あるリンクの検証
+        malicious_href = "javascript:alert(1)"
+        self.assertIsNone(provider._build_safe_booking_url(malicious_href))
+
+        malicious_href_domain = "https://evil.com/all/cc.php?tc=004"
+        self.assertIsNone(provider._build_safe_booking_url(malicious_href_domain))
+
+    @patch("sys.argv", ["scraper.cli", "--chain", "united", "--theater", "sapporo;malicious"])
+    def test_united_cli_injection_exit_code_2(self):
+        with patch("sys.stderr"):
+            exit_code = scraper.cli.main()
+            self.assertEqual(exit_code, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
