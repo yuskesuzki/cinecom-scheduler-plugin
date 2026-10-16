@@ -3,12 +3,15 @@ from .base import BaseCinemaProvider
 from .aeon import AeonCinemaProvider
 from .toho import TohoCinemaProvider
 from .united import UnitedCinemaProvider
+from .sunshine import CinemaSunshineProvider
 
 PROVIDER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
     "aeon": AeonCinemaProvider,
     "toho": TohoCinemaProvider,
     "united": UnitedCinemaProvider,
+    "sunshine": CinemaSunshineProvider,
 }
+
 
 
 def get_provider(chain_id: str) -> BaseCinemaProvider:

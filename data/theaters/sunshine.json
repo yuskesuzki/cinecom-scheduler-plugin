@@ -1,0 +1,1945 @@
+{
+  "id": "sunshine",
+  "name": "シネマサンシャイン",
+  "theaters": [
+    {
+      "id": "gdcs",
+      "name": "グランドシネマサンシャイン 池袋",
+      "code": "gdcs",
+      "smart_theater_no": "020",
+      "area": "関東地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/gdcs/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/gdcs/floor-guide/",
+        "screens": [
+          {
+            "name": "シアター1 (4Fフロア)",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 2,
+              "合計": 83
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シアター2 (4Fフロア)",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 111,
+              "車椅子席": 2,
+              "合計": 113
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W8.3m×H4.4m"
+          },
+          {
+            "name": "シアター3 (6Fフロア)",
+            "features": [],
+            "total_seats": 383,
+            "seats": {
+              "一般座席": 381,
+              "車椅子席": 2,
+              "合計": 383
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W16.1m×H6.7m"
+          },
+          {
+            "name": "ULTRA 4DX (6Fフロア)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 160,
+            "seats": {
+              "一般座席": 160,
+              "合計": 160
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W13.6m×H5.8m"
+          },
+          {
+            "name": "シアター5 (BESTIA) (8Fフロア)",
+            "features": [
+              "BESTIA",
+              "Dolby Atmos",
+              "DTS:X"
+            ],
+            "total_seats": 348,
+            "seats": {
+              "一般座席": 346,
+              "車椅子席": 2,
+              "合計": 348
+            },
+            "sound": "Dolby Atmos / DTS:X",
+            "screen_size": "W15.6m×H6.5m"
+          },
+          {
+            "name": "シアター6 (BESTIA) (8Fフロア)",
+            "features": [
+              "BESTIA",
+              "Dolby Atmos",
+              "DTS:X"
+            ],
+            "total_seats": 237,
+            "seats": {
+              "一般座席": 235,
+              "車椅子席": 2,
+              "合計": 237
+            },
+            "sound": "Dolby Atmos / DTS:X",
+            "screen_size": "W12.7m×H6.3m"
+          },
+          {
+            "name": "シアター7 (10Fフロア)",
+            "features": [],
+            "total_seats": 81,
+            "seats": {
+              "一般座席": 79,
+              "車椅子席": 2,
+              "合計": 81
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シアター8 (10Fフロア)",
+            "features": [],
+            "total_seats": 81,
+            "seats": {
+              "一般座席": 79,
+              "車椅子席": 2,
+              "合計": 81
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シアター9 (10Fフロア)",
+            "features": [],
+            "total_seats": 105,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 2,
+              "合計": 105
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.3m×H5m"
+          },
+          {
+            "name": "シアター10 (sola)(10Fフロア)",
+            "features": [
+              "Sculpted Surround"
+            ],
+            "total_seats": 154,
+            "seats": {
+              "一般座席": 152,
+              "車椅子席": 2,
+              "合計": 154
+            },
+            "sound": "Sculpted Surround",
+            "screen_size": "W10.5m×H5.6m"
+          },
+          {
+            "name": "シアター11 (10Fフロア)",
+            "features": [],
+            "total_seats": 175,
+            "seats": {
+              "一般座席": 173,
+              "車椅子席": 2,
+              "合計": 175
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.4m×H5.6m"
+          },
+          {
+            "name": "IMAX (12Fフロア)",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 536,
+            "seats": {
+              "一般座席": 532,
+              "車椅子席": 4,
+              "合計": 536
+            },
+            "sound": "IMAX 12ch",
+            "screen_size": "W25.8m×H18.9m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "heiwajima",
+      "name": "平和島",
+      "code": "heiwajima",
+      "smart_theater_no": "002",
+      "area": "関東地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/heiwajima/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/heiwajima/floor-guide/",
+        "screens": [
+          {
+            "name": "Dolby Atmos",
+            "features": [
+              "Dolby Atmos"
+            ],
+            "total_seats": 289,
+            "seats": {
+              "一般座席": 287,
+              "車椅子席": 2,
+              "合計": 289
+            },
+            "sound": "デジタル6ch / Dolby Atmos",
+            "screen_size": "W13.7m×H6.1m"
+          },
+          {
+            "name": "4DX®シアター",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 128,
+            "seats": {
+              "一般座席": 128,
+              "合計": 128
+            },
+            "sound": "デジタル6ch",
+            "screen_size": " W12.0m×H5.0m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 143,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 143
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 380,
+            "seats": {
+              "一般座席": 378,
+              "車椅子席": 2,
+              "合計": 380
+            },
+            "sound": "デジタル6ch",
+            "screen_size": " W11.9m×H4.9m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.2m×H3.8m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.2m×H3.8m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 143,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 143
+            },
+            "sound": "デジタル6ch",
+            "screen_size": " W7.1m×H3.8m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yukarigaoka",
+      "name": "ユーカリが丘",
+      "code": "yukarigaoka",
+      "smart_theater_no": "019",
+      "area": "関東地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/yukarigaoka/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/yukarigaoka/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 184,
+            "seats": {
+              "一般座席": 182,
+              "車椅子席": 2,
+              "合計": 184
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W11.41m×H4.73m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 122,
+            "seats": {
+              "一般座席": 121,
+              "車椅子席": 1,
+              "合計": 122
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.01m×H4.54m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 149,
+            "seats": {
+              "一般座席": 148,
+              "車椅子席": 1,
+              "合計": 149
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.48m×H5.06m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 105,
+              "車椅子席": 1,
+              "合計": 106
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.35m×H3.95m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 102,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.29m×H4.46m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 160,
+            "seats": {
+              "一般座席": 158,
+              "車椅子席": 2,
+              "合計": 160
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.8m×H5.16m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 84,
+              "車椅子席": 1,
+              "合計": 85
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W6.89m×H3.84m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 342,
+            "seats": {
+              "一般座席": 340,
+              "車椅子席": 2,
+              "合計": 342
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W13.8m×H5.77m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "misato",
+      "name": "三郷",
+      "code": "misato",
+      "smart_theater_no": "023",
+      "area": "関東地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/misato/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/misato/floor-guide/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 251,
+            "seats": {
+              "一般座席": 249,
+              "車椅子席": 2,
+              "合計": 251
+            },
+            "sound": "7.1ch",
+            "screen_size": "W13.00m×H5.40m"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 139,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "sound": "7.1ch",
+            "screen_size": "W7.90m×H4.30m"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 139,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "sound": "7.1ch",
+            "screen_size": "W7.90m×H4.30m"
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 139,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "sound": "7.1ch",
+            "screen_size": "W7.90m×H4.30m"
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 133,
+            "seats": {
+              "一般座席": 131,
+              "車椅子席": 2,
+              "合計": 133
+            },
+            "sound": "7.1ch",
+            "screen_size": "W7.90m×H4.30m"
+          },
+          {
+            "name": "シアター6(sola)",
+            "features": [],
+            "total_seats": 189,
+            "seats": {
+              "一般座席": 187,
+              "車椅子席": 2,
+              "合計": 189
+            },
+            "sound": "7.1ch",
+            "screen_size": "W11.40m×H4.80m"
+          },
+          {
+            "name": "シアター7",
+            "features": [],
+            "total_seats": 130,
+            "seats": {
+              "一般座席": 128,
+              "車椅子席": 2,
+              "合計": 130
+            },
+            "sound": "7.1ch",
+            "screen_size": "W7.50m×H4.00m"
+          },
+          {
+            "name": "シアター8",
+            "features": [],
+            "total_seats": 185,
+            "seats": {
+              "一般座席": 183,
+              "車椅子席": 2,
+              "合計": 185
+            },
+            "sound": "7.1ch",
+            "screen_size": "W10.10m×H4.20m"
+          },
+          {
+            "name": "シアター9(sola)",
+            "features": [],
+            "total_seats": 174,
+            "seats": {
+              "一般座席": 172,
+              "車椅子席": 2,
+              "合計": 174
+            },
+            "sound": "7.1ch",
+            "screen_size": "W9.80m×H4.00m"
+          },
+          {
+            "name": "シアター10",
+            "features": [],
+            "total_seats": 225,
+            "seats": {
+              "一般座席": 223,
+              "車椅子席": 2,
+              "合計": 225
+            },
+            "sound": "7.1ch",
+            "screen_size": "W9.00m×H4.90m"
+          },
+          {
+            "name": "シアター11",
+            "features": [],
+            "total_seats": 514,
+            "seats": {
+              "一般座席": 510,
+              "車椅子席": 4,
+              "合計": 514
+            },
+            "sound": "7.1ch",
+            "screen_size": "W18.20m×H7.50m"
+          },
+          {
+            "name": "シアター12（BESTIA IN Dolby Vision+Atmos）",
+            "features": [
+              "BESTIA",
+              "Dolby Atmos"
+            ],
+            "total_seats": 283,
+            "seats": {
+              "一般座席": 281,
+              "車椅子席": 2,
+              "合計": 283
+            },
+            "sound": "7.1ch/Dolby Atmos",
+            "screen_size": "W11.2m×H6.054m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tsuchiura",
+      "name": "土浦",
+      "code": "tsuchiura",
+      "smart_theater_no": "013",
+      "area": "関東地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/tsuchiura/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/tsuchiura/floor-guide/",
+        "screens": [
+          {
+            "name": "IMAX",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 253,
+            "seats": {
+              "一般座席": 251,
+              "車椅子席": 2,
+              "合計": 253
+            },
+            "sound": "12ch sound system"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 155,
+            "seats": {
+              "一般座席": 153,
+              "車椅子席": 2,
+              "合計": 155
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W10.9m×H4.5m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 150,
+            "seats": {
+              "一般座席": 148,
+              "車椅子席": 2,
+              "合計": 150
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.4m×H3.9m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 117,
+            "seats": {
+              "一般座席": 115,
+              "車椅子席": 2,
+              "合計": 117
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.7m×H4.1m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 139,
+            "seats": {
+              "一般座席": 137,
+              "車椅子席": 2,
+              "合計": 139
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.3m×H4.5m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 106,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 106,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 207,
+            "seats": {
+              "一般座席": 205,
+              "車椅子席": 2,
+              "合計": 207
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W10.8m×H4.5m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 207,
+            "seats": {
+              "一般座席": 205,
+              "車椅子席": 2,
+              "合計": 207
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W10.8m×H4.5m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lalaportnumazu",
+      "name": "ららぽーと沼津",
+      "code": "lalaportnumazu",
+      "smart_theater_no": "021",
+      "area": "北陸・中部地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/lalaportnumazu/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/lalaportnumazu/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 206,
+            "seats": {
+              "一般座席": 204,
+              "車椅子席": 2,
+              "合計": 206
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W13.3m×H7.2m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 200,
+            "seats": {
+              "一般座席": 198,
+              "車椅子席": 2,
+              "合計": 200
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.4m×H6.7m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.9m×H3.75m"
+          },
+          {
+            "name": "シネマ4(ULTRA 4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 120,
+            "seats": {
+              "一般座席": 120,
+              "合計": 120
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.4m×H6.7m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 91,
+            "seats": {
+              "一般座席": 90,
+              "車椅子席": 1,
+              "合計": 91
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W5.9m×H3.19m"
+          },
+          {
+            "name": "シネマ6(BESTIA)",
+            "features": [
+              "BESTIA",
+              "DTS:X"
+            ],
+            "total_seats": 348,
+            "seats": {
+              "一般座席": 346,
+              "車椅子席": 2,
+              "合計": 348
+            },
+            "sound": "DTS:X",
+            "screen_size": "W18.4m×H7.7m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 206,
+            "seats": {
+              "一般座席": 204,
+              "車椅子席": 2,
+              "合計": 206
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W13.3m×H6.8m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.9m×H3.75m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 97,
+            "seats": {
+              "一般座席": 96,
+              "車椅子席": 1,
+              "合計": 97
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.9m×H3.75m"
+          },
+          {
+            "name": "シネマ10(IMAX)",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 330,
+            "seats": {
+              "一般座席": 328,
+              "車椅子席": 2,
+              "合計": 330
+            },
+            "sound": "12ch sound system"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kahoku",
+      "name": "かほく",
+      "code": "kahoku",
+      "smart_theater_no": "014",
+      "area": "北陸・中部地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/kahoku/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/kahoku/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.0m×H3.8m"
+          },
+          {
+            "name": "シネマ2 / ScreenX",
+            "features": [],
+            "total_seats": 172,
+            "seats": {
+              "一般座席": 170,
+              "車椅子席": 2,
+              "合計": 172
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.70m×H5.68m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 172,
+            "seats": {
+              "一般座席": 170,
+              "車椅子席": 2,
+              "合計": 172
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.5m×H4.4m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 172,
+            "seats": {
+              "一般座席": 170,
+              "車椅子席": 2,
+              "合計": 172
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.5m×H4.4m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 172,
+            "seats": {
+              "一般座席": 170,
+              "車椅子席": 2,
+              "合計": 172
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.5m×H4.4m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 315,
+            "seats": {
+              "一般座席": 312,
+              "車椅子席": 3,
+              "合計": 315
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W14.7m×H6.1m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 315,
+            "seats": {
+              "一般座席": 312,
+              "車椅子席": 3,
+              "合計": 315
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W14.7m×H6.1m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.0m×H3.8m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yamatokoriyama",
+      "name": "大和郡山",
+      "code": "yamatokoriyama",
+      "smart_theater_no": "016",
+      "area": "関西地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/yamatokoriyama/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/yamatokoriyama/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 139,
+            "seats": {
+              "一般座席": 137,
+              "車椅子席": 2,
+              "合計": 139
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.6m×H5.1m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 167,
+            "seats": {
+              "一般座席": 165,
+              "車椅子席": 2,
+              "合計": 167
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.6m×H5.1m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 281,
+            "seats": {
+              "一般座席": 279,
+              "車椅子席": 2,
+              "合計": 281
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.9m×H7.0m"
+          },
+          {
+            "name": "IMAX",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 374,
+            "seats": {
+              "一般座席": 372,
+              "車椅子席": 2,
+              "合計": 374
+            },
+            "sound": "12ch sound system"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 206,
+            "seats": {
+              "一般座席": 204,
+              "車椅子席": 2,
+              "合計": 206
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.0m×H6.5m"
+          },
+          {
+            "name": "4DXシアター",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 48,
+            "seats": {
+              "一般座席": 48,
+              "合計": 48
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 140,
+            "seats": {
+              "一般座席": 138,
+              "車椅子席": 2,
+              "合計": 140
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.8m×H5.3m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shimonoseki",
+      "name": "下関",
+      "code": "shimonoseki",
+      "smart_theater_no": "017",
+      "area": "中国・四国地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/shimonoseki/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/shimonoseki/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.55m×H4.22m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.55m×H4.22m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.1m×H3.98m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 51,
+            "seats": {
+              "一般座席": 50,
+              "車椅子席": 1,
+              "合計": 51
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W5.5m×H3.11m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 203,
+            "seats": {
+              "一般座席": 201,
+              "車椅子席": 2,
+              "合計": 203
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W11.7m×H6.46m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [
+              "Dolby Atmos"
+            ],
+            "total_seats": 304,
+            "seats": {
+              "一般座席": 302,
+              "車椅子席": 2,
+              "合計": 304
+            },
+            "sound": "デジタル6ch(DOLBY ATMOS)",
+            "screen_size": "W11.7m×H6.46m"
+          },
+          {
+            "name": "シネマ7 / ScreenX",
+            "features": [],
+            "total_seats": 143,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 143
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.70m×H4.90m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 106,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.65m×H4.27m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kinuyama",
+      "name": "衣山",
+      "code": "kinuyama",
+      "smart_theater_no": "008",
+      "area": "中国・四国地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/kinuyama/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/kinuyama/floor-guide/",
+        "screens": [
+          {
+            "name": "IMAX",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 265,
+            "seats": {
+              "一般座席": 263,
+              "車椅子席": 2,
+              "合計": 265
+            },
+            "sound": "IMAX 12ch",
+            "screen_size": "IMAX"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 178,
+            "seats": {
+              "一般座席": 176,
+              "車椅子席": 2,
+              "合計": 178
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.7m×H4.0m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 171,
+            "seats": {
+              "一般座席": 169,
+              "車椅子席": 2,
+              "合計": 171
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.7m×H4.0m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 105,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 1,
+              "合計": 105
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.7m×H3.6m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 225,
+            "seats": {
+              "一般座席": 223,
+              "車椅子席": 2,
+              "合計": 225
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W12.6m×H5.3m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 150,
+            "seats": {
+              "一般座席": 148,
+              "車椅子席": 2,
+              "合計": 150
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W9.1m×H3.8m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 145,
+            "seats": {
+              "一般座席": 144,
+              "車椅子席": 1,
+              "合計": 145
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.2m×H3.4m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 131,
+              "車椅子席": 1,
+              "合計": 132
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.2m×H3.4m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W5.8m×H2.4m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shigenobu",
+      "name": "重信",
+      "code": "shigenobu",
+      "smart_theater_no": "009",
+      "area": "中国・四国地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/shigenobu/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/shigenobu/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 315,
+            "seats": {
+              "一般座席": 313,
+              "車椅子席": 2,
+              "合計": 315
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W13.0m×H5.4m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 215,
+            "seats": {
+              "一般座席": 213,
+              "車椅子席": 2,
+              "合計": 215
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W12.8m×H5.2m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 179,
+            "seats": {
+              "一般座席": 177,
+              "車椅子席": 2,
+              "合計": 179
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W11.1m×H4.6m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 107,
+            "seats": {
+              "一般座席": 107,
+              "合計": 107
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W8.3m×H4.5m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 94,
+              "車椅子席": 2,
+              "合計": 96
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 70,
+            "seats": {
+              "一般座席": 69,
+              "車椅子席": 1,
+              "合計": 70
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W6.0m×H3.2m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "sound": "デジタル6ch",
+            "screen_size": "W7.8m×H4.2m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "masaki",
+      "name": "エミフルMASAKI",
+      "code": "masaki",
+      "smart_theater_no": "015",
+      "area": "中国・四国地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/masaki/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/masaki/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 121,
+            "seats": {
+              "一般座席": 119,
+              "車椅子席": 2,
+              "合計": 121
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W8.4m×H3.5m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 202,
+            "seats": {
+              "一般座席": 200,
+              "車椅子席": 2,
+              "合計": 202
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.1m×H4.6m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 155,
+            "seats": {
+              "一般座席": 153,
+              "車椅子席": 2,
+              "合計": 155
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.5m×H4.4m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 155,
+            "seats": {
+              "一般座席": 153,
+              "車椅子席": 2,
+              "合計": 155
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.7m×H4.5m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 155,
+            "seats": {
+              "一般座席": 153,
+              "車椅子席": 2,
+              "合計": 155
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.7m×H4.5m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 121,
+            "seats": {
+              "一般座席": 119,
+              "車椅子席": 2,
+              "合計": 121
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W8.4m×H3.5m"
+          },
+          {
+            "name": "シネマ7 / ScreenX",
+            "features": [],
+            "total_seats": 340,
+            "seats": {
+              "一般座席": 338,
+              "車椅子席": 2,
+              "合計": 340
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W13.0m×H5.4m"
+          },
+          {
+            "name": "4DXシアター",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 128,
+            "seats": {
+              "一般座席": 128,
+              "合計": 128
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.1m×H4.6m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 121,
+            "seats": {
+              "一般座席": 119,
+              "車椅子席": 2,
+              "合計": 121
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W8.9m×H3.7m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kitajima",
+      "name": "北島",
+      "code": "kitajima",
+      "smart_theater_no": "012",
+      "area": "中国・四国地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/kitajima/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/kitajima/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 102,
+            "seats": {
+              "一般座席": 101,
+              "車椅子席": 1,
+              "合計": 102
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.0m×H3.8m"
+          },
+          {
+            "name": "4DXシアター",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 96,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.2m×H5.0m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 199,
+            "seats": {
+              "一般座席": 197,
+              "車椅子席": 2,
+              "合計": 199
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.7m×H5.2m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 271,
+            "seats": {
+              "一般座席": 269,
+              "車椅子席": 2,
+              "合計": 271
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.9m×H4.6m"
+          },
+          {
+            "name": "シネマ5",
+            "features": [],
+            "total_seats": 300,
+            "seats": {
+              "一般座席": 298,
+              "車椅子席": 2,
+              "合計": 300
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.5m×H4.8m"
+          },
+          {
+            "name": "シネマ6",
+            "features": [],
+            "total_seats": 145,
+            "seats": {
+              "一般座席": 143,
+              "車椅子席": 2,
+              "合計": 145
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W8.7m×H4.7m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 84,
+              "車椅子席": 1,
+              "合計": 85
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 84,
+              "車椅子席": 1,
+              "合計": 85
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.1m×H3.8m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "iizuka",
+      "name": "飯塚",
+      "code": "iizuka",
+      "smart_theater_no": "022",
+      "area": "九州地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/iizuka/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/iizuka/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ１(IMAX)",
+            "features": [
+              "IMAX"
+            ],
+            "total_seats": 318,
+            "seats": {
+              "一般座席": 311,
+              "車椅子席": 7,
+              "合計": 318
+            },
+            "sound": "12ch sound system"
+          },
+          {
+            "name": "シネマ２(BESTIA)",
+            "features": [
+              "BESTIA",
+              "Dolby Atmos"
+            ],
+            "total_seats": 210,
+            "seats": {
+              "一般座席": 205,
+              "車椅子席": 5,
+              "合計": 210
+            },
+            "sound": "BESTIA 7.1ch / Dolby Atmos",
+            "screen_size": "W11.00mxH4.60m"
+          },
+          {
+            "name": "シネマ３",
+            "features": [],
+            "total_seats": 210,
+            "seats": {
+              "一般座席": 205,
+              "車椅子席": 5,
+              "合計": 210
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.55mxH4.83m"
+          },
+          {
+            "name": "シネマ４",
+            "features": [],
+            "total_seats": 73,
+            "seats": {
+              "一般座席": 71,
+              "車椅子席": 2,
+              "合計": 73
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.15mxH3.32m"
+          },
+          {
+            "name": "シネマ５",
+            "features": [],
+            "total_seats": 68,
+            "seats": {
+              "一般座席": 66,
+              "車椅子席": 2,
+              "合計": 68
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.15mxH3.32m"
+          },
+          {
+            "name": "シネマ６",
+            "features": [],
+            "total_seats": 54,
+            "seats": {
+              "一般座席": 52,
+              "車椅子席": 2,
+              "合計": 54
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W6.15mxH3.32m"
+          },
+          {
+            "name": "シネマ７",
+            "features": [],
+            "total_seats": 149,
+            "seats": {
+              "一般座席": 145,
+              "車椅子席": 4,
+              "合計": 149
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.55mxH4.83m"
+          },
+          {
+            "name": "シネマ８",
+            "features": [],
+            "total_seats": 98,
+            "seats": {
+              "一般座席": 96,
+              "車椅子席": 2,
+              "合計": 98
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.05mxH3.81m"
+          },
+          {
+            "name": "シネマ９",
+            "features": [],
+            "total_seats": 98,
+            "seats": {
+              "一般座席": 96,
+              "車椅子席": 2,
+              "合計": 98
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.05mxH3.81m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aira",
+      "name": "姶良",
+      "code": "aira",
+      "smart_theater_no": "018",
+      "area": "九州地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/aira/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/aira/floor-guide/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [],
+            "total_seats": 252,
+            "seats": {
+              "一般座席": 250,
+              "車椅子席": 2,
+              "合計": 252
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W13.4m×H5.9m"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 157,
+            "seats": {
+              "一般座席": 155,
+              "車椅子席": 2,
+              "合計": 157
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W11.1m×H5.3m"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 2,
+              "合計": 83
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.4m×H4.2m"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 2,
+              "合計": 83
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.4m×H4.2m"
+          },
+          {
+            "name": "BESTIA",
+            "features": [
+              "BESTIA",
+              "DTS:X"
+            ],
+            "total_seats": 303,
+            "seats": {
+              "一般座席": 301,
+              "車椅子席": 2,
+              "合計": 303
+            },
+            "sound": "DTS:X",
+            "screen_size": "W16.5m×H7.1m"
+          },
+          {
+            "name": "4DX®シアター",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "合計": 92
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W12.1m×H5.7m"
+          },
+          {
+            "name": "シネマ7",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.7m×H4.2m"
+          },
+          {
+            "name": "シネマ8",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.4m×H4.2m"
+          },
+          {
+            "name": "シネマ9",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.6m×H4.3m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tomakomai",
+      "name": "苫小牧",
+      "code": "tomakomai",
+      "smart_theater_no": "033",
+      "area": "北海道地区",
+      "url": "https://www.cinemasunshine.co.jp/theater/tomakomai/",
+      "facility": {
+        "url": "https://www.cinemasunshine.co.jp/theater/tomakomai/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 146,
+            "seats": {
+              "一般座席": 144,
+              "車椅子席": 2,
+              "合計": 146
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.1m×H4.5m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 146,
+            "seats": {
+              "一般座席": 144,
+              "車椅子席": 2,
+              "合計": 146
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W9.1m×H4.5m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 101,
+              "車椅子席": 2,
+              "合計": 103
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.6m×H3.7m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 102,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.3m×H3.7m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 1,
+              "合計": 96
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W7.3m×H3.7m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 143,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 143
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W10.2m×H5.0m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 305,
+            "seats": {
+              "一般座席": 302,
+              "車椅子席": 3,
+              "合計": 305
+            },
+            "sound": "デジタル7.1ch",
+            "screen_size": "W15.1m×H6.2m"
+          }
+        ]
+      }
+    }
+  ]
+}

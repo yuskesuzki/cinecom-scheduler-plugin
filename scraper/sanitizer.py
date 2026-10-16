@@ -11,6 +11,8 @@ ALLOWED_DOMAINS: Set[str] = {
     "theater.aeoncinema.com",
     "hlo.tohotheater.jp",
     "www.unitedcinemas.jp",
+    "transaction.ticket-cinemasunshine.com",
+    "ticket-cinemasunshine.com",
 }
 
 # 制御文字の検出パターン
@@ -26,10 +28,12 @@ def sanitize_identifier(raw_id: str, max_length: int = 64) -> str:
     """
     外部APIから取得した event_id や theater_code を検証する。
     英数字・ハイフン・アンダースコア・ドットのみを許容し、
-    シェルメタ文字（; & | ` $ ' " 等）を含む場合は例外を送出する。
+    パストラバーサル（..）や先頭ハイフン、シェルメタ文字を含む場合は例外を送出する。
     """
     if not raw_id or not isinstance(raw_id, str) or len(raw_id) > max_length:
         raise UnsafeUrlError(f"Invalid identifier length or type: {raw_id!r}")
+    if ".." in raw_id or raw_id.startswith("-") or raw_id.startswith("."):
+        raise UnsafeUrlError(f"Unsafe sequence in identifier: {raw_id!r}")
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", raw_id):
         raise UnsafeUrlError(f"Unsafe characters detected in identifier: {raw_id!r}")
     return raw_id

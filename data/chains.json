@@ -1,0 +1,28 @@
+{
+  "chains": [
+    {
+      "id": "aeon",
+      "name": "イオンシネマ",
+      "theaters_count": 99,
+      "file": "data/theaters/aeon.json"
+    },
+    {
+      "id": "toho",
+      "name": "TOHOシネマズ",
+      "theaters_count": 74,
+      "file": "data/theaters/toho.json"
+    },
+    {
+      "id": "united",
+      "name": "ユナイテッド・シネマ",
+      "theaters_count": 40,
+      "file": "data/theaters/united.json"
+    },
+    {
+      "id": "sunshine",
+      "name": "シネマサンシャイン",
+      "theaters_count": 16,
+      "file": "data/theaters/sunshine.json"
+    }
+  ]
+}

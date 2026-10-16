@@ -82,8 +82,9 @@ class UnitedCinemaProvider(BaseCinemaProvider):
 
     def _fetch_daily_html(self, theater_id: str, target_date: date) -> str:
         """指定日の daily.php HTML を取得する"""
+        safe_theater = sanitize_identifier(theater_id)
         date_str = target_date.strftime("%Y-%m-%d")
-        url = f"{self.BASE_URL}/{theater_id}/daily.php?date={date_str}"
+        url = f"{self.BASE_URL}/{safe_theater}/daily.php?date={date_str}"
         req = urllib.request.Request(url, headers=self.default_headers)
         with urllib.request.urlopen(req, timeout=self.timeout) as resp:
             raw = resp.read()
@@ -123,10 +124,11 @@ class UnitedCinemaProvider(BaseCinemaProvider):
         """
         ユナイテッド・シネマの daily.php をパースし、MovieScheduleのリストを構築する。
         """
-        html = self._fetch_daily_html(theater_id, target_date)
+        safe_theater = sanitize_identifier(theater_id)
+        html = self._fetch_daily_html(safe_theater, target_date)
         date_str = target_date.strftime("%Y-%m-%d")
 
-        theater_info = self.get_theater_info(theater_id)
+        theater_info = self.get_theater_info(safe_theater)
         fac_screens = theater_info.get("facility", {}).get("screens") or []
         # スクリーン番号によるマッピング辞書を作成 (例: "1" -> screen_dict)
         screen_fac_map = {}

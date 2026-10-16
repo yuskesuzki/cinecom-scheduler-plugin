@@ -74,8 +74,10 @@ BarWidget {
   readonly property var availableChains: [
     { id: "aeon", nameJa: "イオンシネマ", nameEn: "AEON CINEMA" },
     { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
-    { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" }
+    { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
+    { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" }
   ]
+
 
   function getChainDisplayName(chainId) {
     var cId = chainId || root.selectedChain
@@ -118,18 +120,62 @@ BarWidget {
     showScreenModal = true
   }
 
+  function normalizeScreenText(str) {
+    if (!str) return ""
+    return str.replace(/[！-～]/g, function(c) {
+      return String.fromCharCode(c.charCodeAt(0) - 0xFEE0)
+    }).replace(/　/g, " ").replace(/\s+/g, " ").trim()
+  }
+
+  function extractScreenNumber(str) {
+    var norm = root.normalizeScreenText(str)
+    var m = norm.match(/(?:シアター|screen|スクリーン|cinema|シネマ)\s*(\d+)/i) || norm.match(/\b(\d+)\b/) || norm.match(/(\d+)/)
+    return m ? parseInt(m[1], 10) : null
+  }
+
   function findScreenFacility(screenName) {
-    for (var i = 0; i < allTheaters.length; i++) {
-      if (allTheaters[i].id === selectedTheater && allTheaters[i].facility && allTheaters[i].facility.screens) {
-        var screens = allTheaters[i].facility.screens
-        var numMatch = screenName.match(/\d+/)
-        for (var j = 0; j < screens.length; j++) {
-          var s = screens[j]
-          if (s.name === screenName) return s
-          if (numMatch && s.name.indexOf(numMatch[0]) !== -1) return s
-        }
+    var theaterObj = null
+    for (var i = 0; i < root.allTheaters.length; i++) {
+      if (root.allTheaters[i].id === root.selectedTheater) {
+        theaterObj = root.allTheaters[i]
+        break
       }
     }
+    if (!theaterObj || !theaterObj.facility || !Array.isArray(theaterObj.facility.screens)) {
+      return null
+    }
+
+    var screens = theaterObj.facility.screens
+    var normTarget = root.normalizeScreenText(screenName).toLowerCase()
+    var targetNum = root.extractScreenNumber(screenName)
+
+    // 1. 完全一致・正規化一致
+    for (var j = 0; j < screens.length; j++) {
+      var s = screens[j]
+      var normS = root.normalizeScreenText(s.name).toLowerCase()
+      if (normS === normTarget) return s
+    }
+
+    // 2. スクリーン番号の一致
+    if (targetNum !== null) {
+      for (var j = 0; j < screens.length; j++) {
+        var s = screens[j]
+        var sNum = root.extractScreenNumber(s.name)
+        if (sNum !== null && sNum === targetNum) return s
+      }
+    }
+
+    // 3. 特殊設備キーワード一致 (IMAX, 4DX, BESTIA等)
+    for (var j = 0; j < screens.length; j++) {
+      var s = screens[j]
+      var normS = root.normalizeScreenText(s.name).toLowerCase()
+      if (normTarget.indexOf("imax") !== -1 && normS.indexOf("imax") !== -1) return s
+      if (normTarget.indexOf("4dx") !== -1 && normS.indexOf("4dx") !== -1) return s
+      if (normTarget.indexOf("bestia") !== -1 && normS.indexOf("bestia") !== -1) {
+        if (targetNum === null) return s
+      }
+    }
+
     return null
   }
 
@@ -384,17 +430,15 @@ BarWidget {
     }
   }
 
-  function updateTheatersForCurrentChain() {
-    var list = []
-    if (root.allChains && root.allChains.length > 0) {
-      for (var c = 0; c < root.allChains.length; c++) {
-        if (root.allChains[c].id === root.selectedChain && Array.isArray(root.allChains[c].theaters)) {
-          list = root.allChains[c].theaters
-          break
-        }
-      }
-    }
-    root.allTheaters = list
+  property var chainTheatersCache: ({})
+
+  function getChainJsonPath(chainId) {
+    var cId = chainId || root.selectedChain
+    return String(Qt.resolvedUrl("data/theaters/" + cId + ".json")).replace(/^file:\/\//, "")
+  }
+
+  function applyTheaters(theaters) {
+    root.allTheaters = Array.isArray(theaters) ? theaters : []
     var found = false
     for (var i = 0; i < root.allTheaters.length; i++) {
       if (root.allTheaters[i].id === root.selectedTheater) {
@@ -409,26 +453,65 @@ BarWidget {
     }
   }
 
-  // theaters.json 読み込み用 Process
+  function loadTheatersForChain(chainId) {
+    var cId = chainId || root.selectedChain
+    if (root.chainTheatersCache && root.chainTheatersCache[cId]) {
+      root.applyTheaters(root.chainTheatersCache[cId])
+      return
+    }
+
+    if (loadTheatersProcess.running) {
+      return
+    }
+    loadTheatersProcess.targetChain = cId
+    loadTheatersProcess.command = ["cat", root.getChainJsonPath(cId)]
+    loadTheatersProcess.running = true
+  }
+
+  function updateTheatersForCurrentChain() {
+    root.loadTheatersForChain(root.selectedChain)
+  }
+
+  // theaters/{chain}.json (または data/theaters.json) 読み込み用 Process
   Process {
     id: loadTheatersProcess
     running: false
-    command: ["cat", root.theaterJsonPath]
+    property string targetChain: root.selectedChain
+    command: ["cat", root.getChainJsonPath(root.selectedChain)]
 
     stdout: StdioCollector {
       waitForEnd: true
       onStreamFinished: {
         try {
           var data = JSON.parse(text)
+          var theaters = []
           if (Array.isArray(data)) {
-            root.allChains = [{ id: "aeon", name: "イオンシネマ", theaters: data }]
+            theaters = data
+          } else if (data.theaters && Array.isArray(data.theaters)) {
+            theaters = data.theaters
           } else if (data.chains && Array.isArray(data.chains)) {
-            root.allChains = data.chains
+            // 従来の統合 theaters.json から読み込まれた場合のフォールバック
+            for (var c = 0; c < data.chains.length; c++) {
+              if (data.chains[c].id === loadTheatersProcess.targetChain) {
+                theaters = data.chains[c].theaters || []
+                break
+              }
+            }
           }
-          root.updateTheatersForCurrentChain()
-          console.log("[CinemaPlugin] Loaded " + root.allTheaters.length + " theaters for chain: " + root.selectedChain)
+          var cache = Object.assign({}, root.chainTheatersCache)
+          cache[loadTheatersProcess.targetChain] = theaters
+          root.chainTheatersCache = cache
+          if (root.selectedChain === loadTheatersProcess.targetChain) {
+            root.applyTheaters(theaters)
+          }
+          console.log("[CinemaPlugin] Loaded " + theaters.length + " theaters for chain: " + loadTheatersProcess.targetChain)
         } catch (e) {
-          console.warn("[CinemaPlugin] Error parsing theaters json:", e.message)
+          console.warn("[CinemaPlugin] Error parsing theaters json for chain " + loadTheatersProcess.targetChain + ":", e.message)
+          if (loadTheatersProcess.command[1] !== root.theaterJsonPath) {
+            console.log("[CinemaPlugin] Falling back to unified theaters.json")
+            loadTheatersProcess.command = ["cat", root.theaterJsonPath]
+            loadTheatersProcess.running = true
+          }
         }
       }
     }
@@ -486,7 +569,7 @@ BarWidget {
     root.rawMoviesData = []
     root.selectedMovieFilter = ""
     root.movieFilterDropdownOpen = false
-    root.updateTheatersForCurrentChain()
+    root.loadTheatersForChain(chainId)
     root.persistSettings(root.selectedTheater, undefined, undefined, chainId)
     root.refresh()
   }
@@ -543,7 +626,7 @@ BarWidget {
   }
 
   Component.onCompleted: {
-    loadTheatersProcess.running = true
+    root.loadTheatersForChain(root.selectedChain)
     refresh()
   }
 
@@ -696,6 +779,8 @@ BarWidget {
                 url = "https://hlo.tohotheater.jp/net/schedule/" + encodeURIComponent(root.selectedTheater) + "/TNPI2000J01.do"
               } else if (root.selectedChain === "united") {
                 url = "https://www.unitedcinemas.jp/" + encodeURIComponent(root.selectedTheater) + "/index.html"
+              } else if (root.selectedChain === "sunshine") {
+                url = "https://www.cinemasunshine.co.jp/theater/" + encodeURIComponent(root.selectedTheater) + "/"
               } else {
                 url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
               }
@@ -1317,25 +1402,141 @@ BarWidget {
                       }
                     }
 
-                    // 特殊設備バッジ ("[IMAX]", "[4DX]", "[VIVE AUDIO]", "[Dolby Atmos]", "[THX]")
-                    Repeater {
-                      model: modelData.special_badges || []
+                    // 特殊設備バッジ欄 (1つ以上ある場合は初期状態 "..."、クリックで全表示・再クリックで折りたたみ)
+                    Item {
+                      id: facilityBadgesContainer
+                      visible: Boolean(modelData.special_badges && modelData.special_badges.length > 0)
+                      property bool isExpanded: false
 
-                      delegate: Rectangle {
-                        radius: Style.space(3)
-                        color: Util.alpha(Color.accent, 0.18)
-                        border.color: Util.alpha(Color.accent, 0.5)
-                        border.width: 1
-                        implicitWidth: badgeTxt.implicitWidth + Style.space(6)
+                      implicitHeight: Style.space(20)
+                      implicitWidth: isExpanded ? expandedContainer.implicitWidth : collapsedRow.implicitWidth
+
+                      // 未展開時: 1つ目のバッジ + (2つ以上あれば "..." バッジ)
+                      Row {
+                        id: collapsedRow
+                        visible: !facilityBadgesContainer.isExpanded
+                        spacing: Style.space(4)
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        // 1つ目の設備バッジ
+                        Rectangle {
+                          radius: Style.space(3)
+                          color: ((modelData.special_badges || []).length > 1 && firstHover.containsMouse) ? Util.alpha(Color.accent, 0.3) : Util.alpha(Color.accent, 0.18)
+                          border.color: Util.alpha(Color.accent, 0.5)
+                          border.width: 1
+                          implicitWidth: firstBadgeTxt.implicitWidth + Style.space(6)
+                          implicitHeight: Style.space(18)
+
+                          Text {
+                            id: firstBadgeTxt
+                            anchors.centerIn: parent
+                            text: "[" + (modelData.special_badges ? modelData.special_badges[0] : "") + "]"
+                            color: Color.accent
+                            font.pixelSize: Style.font ? Style.font.caption : 10
+                            font.bold: true
+                          }
+
+                          MouseArea {
+                            id: firstHover
+                            anchors.fill: parent
+                            enabled: (modelData.special_badges || []).length > 1
+                            hoverEnabled: true
+                            cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                            onClicked: function(mouse) {
+                              mouse.accepted = true
+                              facilityBadgesContainer.isExpanded = true
+                            }
+                            onEntered: if (enabled && root.bar) {
+                              var list = (modelData.special_badges || []).join(", ")
+                              root.bar.showTooltip(parent, root.englishMode ? ("Facilities: " + list + " (Click to expand)") : ("設備: " + list + " (クリックで全表示)"))
+                            }
+                            onExited: if (root.bar) root.bar.hideTooltip(parent)
+                          }
+                        }
+
+                        // 2つ以上ある場合の "..." バッジ
+                        Rectangle {
+                          visible: (modelData.special_badges || []).length > 1
+                          radius: Style.space(3)
+                          color: dotHover.containsMouse ? Util.alpha(Color.accent, 0.3) : Util.alpha(Color.accent, 0.18)
+                          border.color: Util.alpha(Color.accent, 0.5)
+                          border.width: 1
+                          implicitWidth: dotTxt.implicitWidth + Style.space(8)
+                          implicitHeight: Style.space(18)
+
+                          Text {
+                            id: dotTxt
+                            anchors.centerIn: parent
+                            text: "..."
+                            color: Color.accent
+                            font.pixelSize: Style.font ? Style.font.caption : 11
+                            font.bold: true
+                          }
+
+                          MouseArea {
+                            id: dotHover
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: function(mouse) {
+                              mouse.accepted = true
+                              facilityBadgesContainer.isExpanded = true
+                            }
+                            onEntered: {
+                              var list = (modelData.special_badges || []).slice(1).join(", ")
+                              if (root.bar) root.bar.showTooltip(parent, root.englishMode ? ("Other facilities: " + list + " (Click to expand)") : ("その他の設備: " + list + " (クリックで全表示)"))
+                            }
+                            onExited: if (root.bar) root.bar.hideTooltip(parent)
+                          }
+                        }
+                      }
+
+                      // 展開時: 全設備バッジ (クリックで折りたたみ)
+                      Item {
+                        id: expandedContainer
+                        visible: facilityBadgesContainer.isExpanded
+                        implicitWidth: expandedRow.implicitWidth
                         implicitHeight: Style.space(18)
+                        anchors.verticalCenter: parent.verticalCenter
 
-                        Text {
-                          id: badgeTxt
-                          anchors.centerIn: parent
-                          text: "[" + modelData + "]"
-                          color: Color.accent
-                          font.pixelSize: Style.font ? Style.font.caption : 10
-                          font.bold: true
+                        Row {
+                          id: expandedRow
+                          spacing: Style.space(4)
+                          anchors.verticalCenter: parent.verticalCenter
+
+                          Repeater {
+                            model: modelData.special_badges || []
+                            delegate: Rectangle {
+                              radius: Style.space(3)
+                              color: expHover.containsMouse ? Util.alpha(Color.accent, 0.3) : Util.alpha(Color.accent, 0.18)
+                              border.color: Util.alpha(Color.accent, 0.5)
+                              border.width: 1
+                              implicitWidth: badgeTxt.implicitWidth + Style.space(6)
+                              implicitHeight: Style.space(18)
+
+                              Text {
+                                id: badgeTxt
+                                anchors.centerIn: parent
+                                text: "[" + modelData + "]"
+                                color: Color.accent
+                                font.pixelSize: Style.font ? Style.font.caption : 10
+                                font.bold: true
+                              }
+                            }
+                          }
+                        }
+
+                        MouseArea {
+                          id: expHover
+                          anchors.fill: parent
+                          hoverEnabled: true
+                          cursorShape: Qt.PointingHandCursor
+                          onClicked: function(mouse) {
+                            mouse.accepted = true
+                            facilityBadgesContainer.isExpanded = false
+                          }
+                          onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? "Click to collapse facilities" : "クリックで設備を折りたたむ")
+                          onExited: if (root.bar) root.bar.hideTooltip(parent)
                         }
                       }
                     }
@@ -1554,8 +1755,48 @@ BarWidget {
                 }
               }
 
+              // 音響情報 (sound) があればバッジ表示
+              Rectangle {
+                visible: Boolean(root.currentScreenFacility && root.currentScreenFacility.sound)
+                radius: Style.space(4)
+                color: Util.alpha(Color.accent, 0.18)
+                border.color: Util.alpha(Color.accent, 0.45)
+                border.width: 1
+                implicitWidth: soundTxt.implicitWidth + Style.space(10)
+                implicitHeight: Style.space(22)
+
+                Text {
+                  id: soundTxt
+                  anchors.centerIn: parent
+                  text: "🔊 " + (root.currentScreenFacility ? (root.currentScreenFacility.sound || "") : "")
+                  color: root.bar ? root.bar.foreground : Color.foreground
+                  font.pixelSize: Style.font ? Style.font.caption : 11
+                  font.bold: true
+                }
+              }
+
+              // スクリーンサイズ (screen_size) があればバッジ表示
+              Rectangle {
+                visible: Boolean(root.currentScreenFacility && root.currentScreenFacility.screen_size)
+                radius: Style.space(4)
+                color: Util.alpha(root.bar ? root.bar.foreground : Color.foreground, 0.08)
+                border.color: Util.alpha(root.bar ? root.bar.foreground : Color.foreground, 0.15)
+                border.width: 1
+                implicitWidth: sizeTxt.implicitWidth + Style.space(10)
+                implicitHeight: Style.space(22)
+
+                Text {
+                  id: sizeTxt
+                  anchors.centerIn: parent
+                  text: "📐 " + (root.currentScreenFacility ? (root.currentScreenFacility.screen_size || "") : "")
+                  color: root.bar ? root.bar.foreground : Color.foreground
+                  font.pixelSize: Style.font ? Style.font.caption : 11
+                  font.bold: true
+                }
+              }
+
               Text {
-                visible: !root.currentScreenFacility || !root.currentScreenFacility.features || root.currentScreenFacility.features.length === 0
+                visible: (!root.currentScreenFacility || !root.currentScreenFacility.features || root.currentScreenFacility.features.length === 0) && (!root.currentScreenFacility || !root.currentScreenFacility.sound)
                 text: root.englishMode ? "Standard Screen (No special equipment)" : "標準設備"
                 color: Util.alpha(root.bar ? root.bar.foreground : Color.foreground, 0.5)
                 font.pixelSize: Style.font ? Style.font.caption : 11

@@ -21,24 +21,39 @@ class BaseCinemaProvider(ABC):
         self._theaters_cache: Optional[Dict[str, dict]] = None
 
     def _load_theaters_master(self) -> Dict[str, dict]:
-        """data/theaters.json から自チェーンの劇場マスタを読み込む"""
+        """data/theaters/{CHAIN_ID}.json (または data/theaters.json) から自チェーンの劇場マスタを読み込む"""
         if self._theaters_cache is not None:
             return self._theaters_cache
 
-        master_path = Path(__file__).resolve().parents[2] / "data" / "theaters.json"
-        if not master_path.exists():
-            self._theaters_cache = {}
-            return self._theaters_cache
+        base_dir = Path(__file__).resolve().parents[2] / "data"
 
-        with master_path.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        for chain in data.get("chains", []):
-            if chain.get("id") == self.CHAIN_ID:
+        # 1. チェーン個別ファイル (data/theaters/{chain_id}.json) を優先読み込み
+        chain_path = base_dir / "theaters" / f"{self.CHAIN_ID}.json"
+        if chain_path.exists():
+            try:
+                with chain_path.open("r", encoding="utf-8") as f:
+                    data = json.load(f)
                 self._theaters_cache = {
-                    t["id"]: t for t in chain.get("theaters", [])
+                    t["id"]: t for t in data.get("theaters", [])
                 }
                 return self._theaters_cache
+            except Exception:
+                pass
+
+        # 2. 従来の統合マスタ (data/theaters.json) から読み込み (フォールバック)
+        master_path = base_dir / "theaters.json"
+        if master_path.exists():
+            try:
+                with master_path.open("r", encoding="utf-8") as f:
+                    data = json.load(f)
+                for chain in data.get("chains", []):
+                    if chain.get("id") == self.CHAIN_ID:
+                        self._theaters_cache = {
+                            t["id"]: t for t in chain.get("theaters", [])
+                        }
+                        return self._theaters_cache
+            except Exception:
+                pass
 
         self._theaters_cache = {}
         return self._theaters_cache

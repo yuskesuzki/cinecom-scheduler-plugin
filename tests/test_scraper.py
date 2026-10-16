@@ -24,6 +24,14 @@ class TestScraperPackage(unittest.TestCase):
             sanitize_identifier("")
         with self.assertRaises(UnsafeUrlError):
             sanitize_identifier("a" * 65)
+        with self.assertRaises(UnsafeUrlError):
+            sanitize_identifier("../etc/passwd")
+        with self.assertRaises(UnsafeUrlError):
+            sanitize_identifier("foo..bar")
+        with self.assertRaises(UnsafeUrlError):
+            sanitize_identifier("--help")
+        with self.assertRaises(UnsafeUrlError):
+            sanitize_identifier(".hidden")
 
     def test_build_safe_url(self):
         url = build_safe_url(
@@ -140,5 +148,52 @@ class TestScraperPackage(unittest.TestCase):
             self.assertEqual(exit_code, 2)
 
 
+    def test_sunshine_provider_registration(self):
+        from scraper.providers.sunshine import CinemaSunshineProvider
+        provider = get_provider("sunshine")
+        self.assertIsInstance(provider, CinemaSunshineProvider)
+        info = provider.get_theater_info("gdcs")
+        self.assertEqual(info.get("name"), "グランドシネマサンシャイン 池袋")
+        self.assertEqual(info.get("smart_theater_no"), "020")
+
+    def test_sunshine_booking_url_safety(self):
+        from scraper.providers.sunshine import CinemaSunshineProvider
+        provider = CinemaSunshineProvider()
+        url = provider.build_booking_url(
+            theater_id="gdcs",
+            event_id="02027649020261016622050",
+        )
+        self.assertEqual(
+            url,
+            "https://transaction.ticket-cinemasunshine.com/projects/sskts-production/purchase/transaction/02027649020261016622050",
+        )
+
+        with self.assertRaises(UnsafeUrlError):
+            provider.build_booking_url("gdcs", "02027649;calc")
+
+    @patch("sys.argv", ["scraper.cli", "--chain", "sunshine", "--theater", "gdcs;malicious"])
+    def test_sunshine_cli_injection_exit_code_2(self):
+        with patch("sys.stderr"):
+            exit_code = scraper.cli.main()
+            self.assertEqual(exit_code, 2)
+
+    def test_special_tags_deduplication(self):
+        from scraper.providers.sunshine import extract_special_tags as extract_sunshine_tags
+        from scraper.providers.toho import extract_special_tags as extract_toho_tags
+
+        sunshine_tags = extract_sunshine_tags("BESTIA", "Dolby Atmos", "ドルビーアトモス")
+        self.assertIn("Dolby Atmos", sunshine_tags)
+        self.assertNotIn("Dolby", sunshine_tags)
+        self.assertIn("BESTIA", sunshine_tags)
+
+        toho_tags = extract_toho_tags("MX4D", "4D", "Dolby Cinema")
+        self.assertIn("Dolby Cinema", toho_tags)
+        self.assertNotIn("Dolby", toho_tags)
+        self.assertIn("MX4D", toho_tags)
+        self.assertNotIn("4D", toho_tags)
+
+
 if __name__ == "__main__":
     unittest.main()
+
+

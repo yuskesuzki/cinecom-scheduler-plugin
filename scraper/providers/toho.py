@@ -36,6 +36,15 @@ def extract_special_tags(*text_sources: Optional[str]) -> List[str]:
     for pattern, label in SPECIAL_TAG_PATTERNS:
         if pattern in combined and label not in tags:
             tags.append(label)
+    # 冗長タグの整理 (例: Dolby Atmos/Cinema がある場合は単なる Dolby/Atmos を除外、MX4D がある場合は 4D を除外)
+    if "Dolby Cinema" in tags or "Dolby Atmos" in tags:
+        if "Dolby" in tags:
+            tags.remove("Dolby")
+        if "Atmos" in tags:
+            tags.remove("Atmos")
+    if "MX4D" in tags or "4DX" in tags:
+        if "4D" in tags:
+            tags.remove("4D")
     return tags
 
 
