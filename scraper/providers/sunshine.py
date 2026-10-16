@@ -1,5 +1,7 @@
 from datetime import date, datetime, timezone, timedelta
 import json
+import re
+import subprocess
 import time
 from typing import List, Dict, Any, Optional
 import urllib.parse
@@ -93,6 +95,127 @@ class CinemaSunshineProvider(BaseCinemaProvider):
 
     def __init__(self, timeout: int = 15):
         super().__init__(timeout=timeout)
+        self._movie_cms_cache: Optional[List[Dict[str, Any]]] = None
+
+    def _clean_movie_title(self, text: str) -> str:
+        """マッチング用に映画タイトルから記号・上映方式・属性等を除去・正規化する"""
+        t = re.sub(r"[\s　]+", "", text)
+        t = re.sub(r"（[^）]+）|\([^\)]+\)|【[^】]+】|\[[^\]]+\]|※.*$", "", t)
+        t = re.sub(
+            r"(IMAX|4DX|BESTIA|Dolby|ATMOS|ScreenX|レーザー|3D|2D|字幕|吹替|通常版|応援上映|リマスター|先行上映)+",
+            "",
+            t,
+            flags=re.IGNORECASE,
+        )
+        return t.lower()
+
+    def _fetch_movie_page_map(self) -> List[Dict[str, Any]]:
+        """
+        公式サイトの Nuxt payload.js から映画CMS ID (例: 2433) とタイトルの一覧を取得する。
+        各要素: {'id': 2433, 'title': '映画タイトル'}
+        """
+        if self._movie_cms_cache is not None:
+            return self._movie_cms_cache
+
+        import shutil
+        if not shutil.which("node"):
+            self._movie_cms_cache = []
+            return []
+
+        try:
+            req = urllib.request.Request(
+                "https://www.cinemasunshine.co.jp/",
+                headers=self.default_headers,
+            )
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                html = resp.read().decode("utf-8")
+
+            m = re.search(r"/_nuxt/static/(\d+)/", html)
+            if not m:
+                self._movie_cms_cache = []
+                return []
+            build_id = m.group(1)
+
+            payload_url = f"https://www.cinemasunshine.co.jp/_nuxt/static/{build_id}/movies/payload.js"
+            req2 = urllib.request.Request(payload_url, headers=self.default_headers)
+            with urllib.request.urlopen(req2, timeout=self.timeout) as resp2:
+                js_content = resp2.read().decode("utf-8")
+
+            node_script = """
+            const vm = require("vm");
+            const fs = require("fs");
+            const js = fs.readFileSync(0, "utf-8");
+            let captured = null;
+            const context = { __NUXT_JSONP__: function(path, obj) { captured = obj; } };
+            vm.createContext(context);
+            vm.runInContext(js, context);
+            const allMovies = (captured && captured.data && captured.data[0]) ? (captured.data[0].allMovies || []) : [];
+            const result = [];
+            for (const m of allMovies) {
+              if (m.id && m.attributes && m.attributes.title) {
+                result.push({ id: m.id, title: m.attributes.title });
+              }
+            }
+            console.log(JSON.stringify(result));
+            """
+            proc = subprocess.run(
+                ["node", "-e", node_script],
+                input=js_content,
+                capture_output=True,
+                text=True,
+                timeout=10,
+            )
+            if proc.returncode == 0 and proc.stdout:
+                parsed = json.loads(proc.stdout)
+                self._movie_cms_cache = parsed
+                return parsed
+        except Exception:
+            pass
+
+        self._movie_cms_cache = []
+        return []
+
+    def get_movie_info_url(self, movie_title: str, theater_id: str) -> Optional[str]:
+        """
+        作品タイトルに対応する公式作品詳細URL (https://www.cinemasunshine.co.jp/movies/{cms_id}/?theater) を構築。
+        見つからない場合は劇場の公式ページをフォールバックとして返す。
+        """
+        safe_theater = sanitize_identifier(theater_id)
+        cms_list = self._fetch_movie_page_map()
+        target_norm = self._clean_movie_title(movie_title)
+
+        matched_id: Optional[int] = None
+        # 1. 完全一致
+        for item in cms_list:
+            if self._clean_movie_title(item.get("title", "")) == target_norm:
+                matched_id = item["id"]
+                break
+
+        # 2. 部分一致 (3文字以上の場合)
+        if matched_id is None and len(target_norm) >= 3:
+            for item in cms_list:
+                item_norm = self._clean_movie_title(item.get("title", ""))
+                if len(item_norm) >= 3 and (target_norm in item_norm or item_norm in target_norm):
+                    matched_id = item["id"]
+                    break
+
+        if matched_id is not None:
+            safe_id = sanitize_identifier(str(matched_id))
+            try:
+                return build_safe_url(
+                    f"https://www.cinemasunshine.co.jp/movies/{safe_id}/",
+                    query_params={"theater": ""},
+                )
+            except UnsafeUrlError:
+                pass
+
+        # フォールバック: 劇場の公式ページ
+        theater_info = self.get_theater_info(safe_theater)
+        raw_url = theater_info.get("url") or f"https://www.cinemasunshine.co.jp/theater/{safe_theater}/"
+        try:
+            return build_safe_url(raw_url)
+        except UnsafeUrlError:
+            return None
 
     def get_smart_theater_no(self, theater_id: str) -> str:
         """劇場マスタから smart_theater_no (例: '020') を取得する"""
@@ -253,12 +376,14 @@ class CinemaSunshineProvider(BaseCinemaProvider):
 
             if screenings and movie_title_ja:
                 screenings.sort(key=lambda s: s.start_time)
+                info_url = self.get_movie_info_url(movie_title_ja, safe_theater)
                 movies.append(
                     MovieSchedule(
                         movie_id=m_id,
                         movie_title=movie_title_ja,
                         screenings=screenings,
                         movie_title_en=movie_title_en if movie_title_en else None,
+                        info_url=info_url,
                     )
                 )
 

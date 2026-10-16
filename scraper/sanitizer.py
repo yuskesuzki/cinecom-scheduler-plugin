@@ -3,16 +3,20 @@ from typing import Dict, Optional, Set, List
 from urllib.parse import urlparse, urlencode, quote, urlunparse
 
 
-# 予約URLとして許可するシネコン公式ドメインのホワイトリスト
+# 予約URL・作品詳細URLとして許可するシネコン公式ドメインのホワイトリスト
 ALLOWED_DOMAINS: Set[str] = {
     "cinema.aeoncinema.com",
     "reserve.aeoncinema.com",
     "login.watatheatre.aeoncinema.com",
     "theater.aeoncinema.com",
+    "www.aeoncinema.com",
     "hlo.tohotheater.jp",
+    "www.tohotheater.jp",
     "www.unitedcinemas.jp",
     "transaction.ticket-cinemasunshine.com",
     "ticket-cinemasunshine.com",
+    "www.cinemasunshine.co.jp",
+    "cinemasunshine.co.jp",
 }
 
 # 制御文字の検出パターン
@@ -60,12 +64,12 @@ def build_safe_url(
     if parsed.hostname not in ALLOWED_DOMAINS:
         raise UnsafeUrlError(f"Domain not in allowlist: {parsed.hostname!r}")
 
-    base_path = parsed.path.rstrip("/")
     if path_segments:
+        base_path = parsed.path.rstrip("/")
         encoded_segments = [quote(str(seg), safe="") for seg in path_segments]
         full_path = f"{base_path}/" + "/".join(encoded_segments)
     else:
-        full_path = base_path or "/"
+        full_path = parsed.path or "/"
 
     encoded_query = urlencode(query_params, doseq=True) if query_params else parsed.query
 

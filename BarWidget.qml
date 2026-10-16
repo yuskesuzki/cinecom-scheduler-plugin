@@ -366,6 +366,7 @@ BarWidget {
           movie_id: m.movie_id || m.id || "",
           title: title,
           movie_title_en: m.movie_title_en || null,
+          info_url: m.info_url || "",
           booking_url: (m.booking_url || (filteredShowtimes[0] ? filteredShowtimes[0].booking_url : "")),
           showtimes: filteredShowtimes
         })
@@ -1305,13 +1306,45 @@ BarWidget {
                   width: parent.width
                   spacing: Style.space(8)
 
-                  Text {
+                  Item {
                     Layout.fillWidth: true
-                    text: root.getMovieDisplayTitle(modelData)
-                    color: root.bar ? root.bar.foreground : Color.foreground
-                    font.pixelSize: Style.font ? Style.font.body : 13
-                    font.bold: true
-                    wrapMode: Text.WordWrap
+                    implicitHeight: movieTitleTxt.implicitHeight
+
+                    Text {
+                      id: movieTitleTxt
+                      anchors.left: parent.left
+                      anchors.right: parent.right
+                      text: root.getMovieDisplayTitle(modelData)
+                      color: (titleHover.containsMouse && Boolean(modelData.info_url)) ? Color.accent : (root.bar ? root.bar.foreground : Color.foreground)
+                      font.pixelSize: Style.font ? Style.font.body : 13
+                      font.bold: true
+                      font.underline: titleHover.containsMouse && Boolean(modelData.info_url)
+                      wrapMode: Text.WordWrap
+                    }
+
+                    MouseArea {
+                      id: titleHover
+                      anchors.fill: parent
+                      hoverEnabled: true
+                      cursorShape: Boolean(modelData.info_url) ? Qt.PointingHandCursor : Qt.ArrowCursor
+                      onClicked: function(mouse) {
+                        if (modelData.info_url) {
+                          mouse.accepted = true
+                          root.openExternalUrl(modelData.info_url)
+                        }
+                      }
+                      onEntered: {
+                        if (modelData.info_url && root.bar) {
+                          var titleName = root.getMovieDisplayTitle(modelData)
+                          root.bar.showTooltip(parent, root.englishMode ? ("Open official details for " + titleName) : ("「" + titleName + "」の作品詳細ページを開く"))
+                        }
+                      }
+                      onExited: {
+                        if (root.bar) {
+                          root.bar.hideTooltip(parent)
+                        }
+                      }
+                    }
                   }
 
                   // 作品ごとのチケット予約ボタン (直近回へリンク)

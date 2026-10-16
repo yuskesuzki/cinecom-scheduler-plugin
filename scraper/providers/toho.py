@@ -111,6 +111,25 @@ class TohoCinemaProvider(BaseCinemaProvider):
         base_url = f"https://hlo.tohotheater.jp/net/ticket/{safe_site}/TNPI2040J03.do"
         return build_safe_url(base_url, query_params=query)
 
+    def build_movie_info_url(self, movie_code: str, theater_id: Optional[str] = None) -> Optional[str]:
+        """TOHOシネマズの作品詳細URL (https://hlo.tohotheater.jp/net/movie/TNPI3060J01.do?sakuhin_cd={mcode}) を生成する"""
+        if movie_code:
+            try:
+                safe_mcode = sanitize_identifier(movie_code)
+                return build_safe_url(
+                    "https://hlo.tohotheater.jp/net/movie/TNPI3060J01.do",
+                    query_params={"sakuhin_cd": safe_mcode},
+                )
+            except UnsafeUrlError:
+                pass
+        if theater_id:
+            try:
+                safe_theater = sanitize_identifier(theater_id)
+                return build_safe_url(f"https://hlo.tohotheater.jp/net/schedule/{safe_theater}/TNPI2000J01.do")
+            except UnsafeUrlError:
+                pass
+        return None
+
     def _fetch_schedule_raw(self, theater_code: str, target_date: date) -> Dict[str, Any]:
         """api2.tohotheater.jp からスケジュールJSONを取得する"""
         safe_code = sanitize_identifier(theater_code)
@@ -235,11 +254,13 @@ class TohoCinemaProvider(BaseCinemaProvider):
 
             if screenings:
                 screenings.sort(key=lambda s: s.start_time)
+                info_url = self.build_movie_info_url(movie_code, safe_theater)
                 movies.append(
                     MovieSchedule(
                         movie_id=movie_code or sanitize_identifier(movie_title[:32]),
                         movie_title=movie_title,
                         screenings=screenings,
+                        info_url=info_url,
                     )
                 )
 

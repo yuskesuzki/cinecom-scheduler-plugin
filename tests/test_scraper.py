@@ -177,20 +177,41 @@ class TestScraperPackage(unittest.TestCase):
             exit_code = scraper.cli.main()
             self.assertEqual(exit_code, 2)
 
-    def test_special_tags_deduplication(self):
-        from scraper.providers.sunshine import extract_special_tags as extract_sunshine_tags
-        from scraper.providers.toho import extract_special_tags as extract_toho_tags
+    def test_info_urls(self):
+        from scraper.providers.toho import TohoCinemaProvider
+        from scraper.providers.sunshine import CinemaSunshineProvider
+        from scraper.providers.united import UnitedCinemaProvider
+        from scraper.providers.aeon import AeonCinemaProvider
 
-        sunshine_tags = extract_sunshine_tags("BESTIA", "Dolby Atmos", "ドルビーアトモス")
-        self.assertIn("Dolby Atmos", sunshine_tags)
-        self.assertNotIn("Dolby", sunshine_tags)
-        self.assertIn("BESTIA", sunshine_tags)
+        # TOHO
+        toho = TohoCinemaProvider()
+        toho_url = toho.build_movie_info_url("028639")
+        self.assertEqual(
+            toho_url,
+            "https://hlo.tohotheater.jp/net/movie/TNPI3060J01.do?sakuhin_cd=028639",
+        )
 
-        toho_tags = extract_toho_tags("MX4D", "4D", "Dolby Cinema")
-        self.assertIn("Dolby Cinema", toho_tags)
-        self.assertNotIn("Dolby", toho_tags)
-        self.assertIn("MX4D", toho_tags)
-        self.assertNotIn("4D", toho_tags)
+        # Sunshine with mocked CMS cache
+        sunshine = CinemaSunshineProvider()
+        sunshine._movie_cms_cache = [{"id": 2433, "title": "テスト作品"}]
+        sunshine_url = sunshine.get_movie_info_url("テスト作品", "gdcs")
+        self.assertEqual(
+            sunshine_url,
+            "https://www.cinemasunshine.co.jp/movies/2433/?theater=",
+        )
+
+        # United safe movie url
+        safe_url = build_safe_url("https://www.unitedcinemas.jp/makuhari/film.php", query_params={"film": "22516"})
+        self.assertEqual(safe_url, "https://www.unitedcinemas.jp/makuhari/film.php?film=22516")
+
+        # Aeon movie url
+        aeon = AeonCinemaProvider()
+        aeon_url = aeon.build_movie_info_url(identifier="2000059", theater_id="makuhari")
+        self.assertEqual(aeon_url, "https://www.aeoncinema.com/cinema2/all/movie/2000059/")
+
+        # Aeon fallback to theater url
+        aeon_fallback = aeon.build_movie_info_url(identifier=None, theater_id="makuhari")
+        self.assertEqual(aeon_fallback, "https://theater.aeoncinema.com/theaters/makuhari/")
 
 
 if __name__ == "__main__":

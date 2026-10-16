@@ -89,6 +89,33 @@ class AeonCinemaProvider(BaseCinemaProvider):
                 params[sanitize_identifier(k)] = str(v)
         return build_safe_url(self.BASE_BOOKING_URL, query_params=params)
 
+    def build_movie_info_url(
+        self,
+        identifier: Optional[str] = None,
+        theater_id: Optional[str] = None,
+    ) -> Optional[str]:
+        """
+        イオンシネマの公式作品詳細URL (https://www.aeoncinema.com/cinema2/all/movie/{identifier}/) を生成する。
+        identifier がない場合は劇場URLをフォールバックとして返す。
+        """
+        if identifier:
+            try:
+                safe_id = sanitize_identifier(str(identifier))
+                return build_safe_url(f"https://www.aeoncinema.com/cinema2/all/movie/{safe_id}/")
+            except UnsafeUrlError:
+                pass
+
+        if theater_id:
+            try:
+                safe_theater = sanitize_identifier(theater_id)
+                theater_info = self.get_theater_info(safe_theater)
+                theater_url = theater_info.get("url") or f"https://theater.aeoncinema.com/theaters/{safe_theater}/"
+                return build_safe_url(theater_url)
+            except UnsafeUrlError:
+                pass
+
+        return None
+
     def _fetch_schedule_raw(self, theater: str) -> Dict[str, Any]:
         safe_theater = sanitize_identifier(theater)
         now_str = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
@@ -203,12 +230,17 @@ class AeonCinemaProvider(BaseCinemaProvider):
 
             screenings.sort(key=lambda s: s.start_time)
 
+            # workPerformed.identifier (例: '2000059') を優先して作品詳細ページURLを生成
+            work_identifier = first_event.get("superEvent", {}).get("workPerformed", {}).get("identifier")
+            info_url = self.build_movie_info_url(identifier=work_identifier, theater_id=safe_theater)
+
             movies.append(
                 MovieSchedule(
                     movie_id=str(movie_id),
                     movie_title=title,
                     screenings=screenings,
                     movie_title_en=title_en,
+                    info_url=info_url,
                 )
             )
 

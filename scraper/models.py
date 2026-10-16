@@ -32,6 +32,7 @@ class MovieSchedule:
     movie_title: str
     screenings: List[Screening] = field(default_factory=list)
     movie_title_en: Optional[str] = None
+    info_url: Optional[str] = None
 
 
 @dataclass

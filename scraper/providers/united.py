@@ -229,11 +229,28 @@ class UnitedCinemaProvider(BaseCinemaProvider):
                     screenings.append(screening)
 
             if screenings:
+                info_url = None
+                if film_m:
+                    try:
+                        safe_film = sanitize_identifier(film_m.group(1))
+                        info_url = build_safe_url(
+                            f"https://www.unitedcinemas.jp/{safe_theater}/film.php",
+                            query_params={"film": safe_film},
+                        )
+                    except UnsafeUrlError:
+                        info_url = None
+                if not info_url:
+                    try:
+                        info_url = build_safe_url(f"https://www.unitedcinemas.jp/{safe_theater}/movie.html")
+                    except UnsafeUrlError:
+                        info_url = None
+
                 movie_schedules.append(
                     MovieSchedule(
                         movie_id=movie_id,
                         movie_title=clean_title,
                         screenings=screenings,
+                        info_url=info_url,
                     )
                 )
 
