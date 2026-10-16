@@ -1,7 +1,6 @@
 from datetime import date, datetime, timezone, timedelta
 import json
 import re
-import subprocess
 import time
 from typing import List, Dict, Any, Optional
 import urllib.parse
@@ -117,11 +116,6 @@ class CinemaSunshineProvider(BaseCinemaProvider):
         if self._movie_cms_cache is not None:
             return self._movie_cms_cache
 
-        import shutil
-        if not shutil.which("node"):
-            self._movie_cms_cache = []
-            return []
-
         try:
             req = urllib.request.Request(
                 "https://www.cinemasunshine.co.jp/",
@@ -141,34 +135,15 @@ class CinemaSunshineProvider(BaseCinemaProvider):
             with urllib.request.urlopen(req2, timeout=self.timeout) as resp2:
                 js_content = resp2.read().decode("utf-8")
 
-            node_script = """
-            const vm = require("vm");
-            const fs = require("fs");
-            const js = fs.readFileSync(0, "utf-8");
-            let captured = null;
-            const context = { __NUXT_JSONP__: function(path, obj) { captured = obj; } };
-            vm.createContext(context);
-            vm.runInContext(js, context);
-            const allMovies = (captured && captured.data && captured.data[0]) ? (captured.data[0].allMovies || []) : [];
-            const result = [];
-            for (const m of allMovies) {
-              if (m.id && m.attributes && m.attributes.title) {
-                result.push({ id: m.id, title: m.attributes.title });
-              }
-            }
-            console.log(JSON.stringify(result));
-            """
-            proc = subprocess.run(
-                ["node", "-e", node_script],
-                input=js_content,
-                capture_output=True,
-                text=True,
-                timeout=10,
-            )
-            if proc.returncode == 0 and proc.stdout:
-                parsed = json.loads(proc.stdout)
-                self._movie_cms_cache = parsed
-                return parsed
+            # 安全な正規表現抽出（外部JSコードを実行せず安全にIDとタイトルをパース）
+            # フォーマット例: {id:2433,attributes:{title:"ストリートファイター／ザ・ムービー",...
+            matches = re.findall(r"id:(\d+),attributes:\{title:\"([^\"]+)\"", js_content)
+            result = []
+            for m_id, title in matches:
+                result.append({"id": int(m_id), "title": title})
+
+            self._movie_cms_cache = result
+            return result
         except Exception:
             pass
 
