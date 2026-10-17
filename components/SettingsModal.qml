@@ -27,7 +27,6 @@ Rectangle {
   signal chainSelected(string chainId)
   signal theaterSelected(string theaterId, string theaterName)
   signal hoursSelected(real hours)
-  signal theaterSearchTextChanged(string text)
   signal closed()
 
   onVisibleChanged: {
@@ -39,7 +38,6 @@ Rectangle {
       })
     } else {
       rootSettingsModal.theaterSearchText = ""
-      rootSettingsModal.theaterSearchTextChanged("")
       rootSettingsModal.chainDropdownOpen = false
     }
   }
@@ -285,9 +283,7 @@ Rectangle {
             horizontalPadding: Style.space(8)
             text: rootSettingsModal.theaterSearchText
             onTextChanged: {
-              var t = text.trim().toLowerCase()
-              rootSettingsModal.theaterSearchText = t
-              rootSettingsModal.theaterSearchTextChanged(t)
+              rootSettingsModal.theaterSearchText = text.trim().toLowerCase()
             }
           }
 
@@ -313,7 +309,6 @@ Rectangle {
               onClicked: {
                 searchInput.text = ""
                 rootSettingsModal.theaterSearchText = ""
-                rootSettingsModal.theaterSearchTextChanged("")
                 searchInput.forceActiveFocus()
               }
             }
