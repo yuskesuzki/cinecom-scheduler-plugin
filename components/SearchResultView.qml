@@ -113,6 +113,7 @@ Column {
 
           Text {
             text: rootSearchResultView.queryTitle ? ("「" + rootSearchResultView.queryTitle + "」") : ""
+            textFormat: Text.PlainText
             color: Color.accent
             font.pixelSize: Style.font ? Style.font.body : 13
             font.bold: true
@@ -122,6 +123,7 @@ Column {
 
           Text {
             text: "• " + rootSearchResultView.queryArea
+            textFormat: Text.PlainText
             color: rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground
             font.pixelSize: Style.font ? Style.font.caption : 11
           }
@@ -145,6 +147,7 @@ Column {
         Text {
           visible: Boolean(rootSearchResultView.queryTheater)
           text: (rootSearchResultView.englishMode ? "Theater filter: " : "劇場絞り込み: ") + rootSearchResultView.queryTheater
+          textFormat: Text.PlainText
           color: Util.alpha(rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground, 0.6)
           font.pixelSize: Style.font ? Style.font.caption : 10
           elide: Text.ElideRight
@@ -204,6 +207,7 @@ Column {
     width: parent.width
     visible: rootSearchResultView.errorMessage !== ""
     text: rootSearchResultView.errorMessage
+    textFormat: Text.PlainText
     color: Color.urgent || "#ff5555"
     wrapMode: Text.WordWrap
     font.pixelSize: Style.font ? Style.font.caption : 12
@@ -324,6 +328,7 @@ Column {
               Text {
                 Layout.fillWidth: true
                 text: modelData.theaterName
+                textFormat: Text.PlainText
                 color: rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground
                 font.pixelSize: Style.font ? Style.font.body : 13
                 font.bold: true
@@ -373,6 +378,7 @@ Column {
                 id: movieTitleCardTxt
                 Layout.fillWidth: true
                 text: modelData.movieTitle
+                textFormat: Text.PlainText
                 color: (movieTitleHover.containsMouse && Boolean(modelData.infoUrl)) ? Color.accent : (rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground)
                 font.pixelSize: Style.font ? Style.font.body : 12
                 font.bold: true
@@ -421,6 +427,7 @@ Column {
                     id: timeTxt
                     anchors.centerIn: parent
                     text: modelData.start_time + " 〜 " + (modelData.end_time || "")
+                    textFormat: Text.PlainText
                     color: rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground
                     font.pixelSize: Style.font ? Style.font.caption : 11
                     font.bold: true
@@ -434,6 +441,7 @@ Column {
 
                   Text {
                     text: modelData.screen_name || ""
+                    textFormat: Text.PlainText
                     color: Util.alpha(rootSearchResultView.bar ? rootSearchResultView.bar.foreground : Color.foreground, 0.8)
                     font.pixelSize: Style.font ? Style.font.caption : 11
                     elide: Text.ElideRight
@@ -455,6 +463,7 @@ Column {
                         id: tagTxt
                         anchors.centerIn: parent
                         text: modelData
+                        textFormat: Text.PlainText
                         color: Color.accent
                         font.pixelSize: Style.font ? Style.font.caption : 9
                         font.bold: true

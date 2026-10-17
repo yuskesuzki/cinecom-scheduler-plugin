@@ -233,10 +233,51 @@ BarWidget {
     return screenName
   }
 
+  // 外部ブラウザ遷移を許可する公式シネコンドメイン一覧 (二重防御)
+  readonly property var allowedCinemaDomains: [
+    "cinema.aeoncinema.com",
+    "reserve.aeoncinema.com",
+    "login.watatheatre.aeoncinema.com",
+    "theater.aeoncinema.com",
+    "www.aeoncinema.com",
+    "hlo.tohotheater.jp",
+    "www.tohotheater.jp",
+    "www.unitedcinemas.jp",
+    "transaction.ticket-cinemasunshine.com",
+    "ticket-cinemasunshine.com",
+    "www.cinemasunshine.co.jp",
+    "cinemasunshine.co.jp"
+  ]
+
   function openExternalUrl(url) {
     if (!url || typeof url !== "string") return
     var trimmed = url.trim()
-    if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) return
+    if (!trimmed.startsWith("https://")) {
+      console.warn("[CinecomScheduler] Blocked unsafe non-https URL:", trimmed)
+      return
+    }
+
+    // ホスト名の抽出
+    var hostMatch = trimmed.match(/^https:\/\/([^\/:]+)/i)
+    if (!hostMatch || !hostMatch[1]) {
+      console.warn("[CinecomScheduler] Blocked malformed URL:", trimmed)
+      return
+    }
+
+    var hostname = hostMatch[1].toLowerCase()
+    var isAllowed = false
+    for (var i = 0; i < root.allowedCinemaDomains.length; i++) {
+      if (root.allowedCinemaDomains[i] === hostname) {
+        isAllowed = true
+        break
+      }
+    }
+
+    if (!isAllowed) {
+      console.warn("[CinecomScheduler] Blocked URL with unauthorized domain:", hostname)
+      return
+    }
+
     Qt.openUrlExternally(trimmed)
   }
 
@@ -318,12 +359,10 @@ BarWidget {
       "-c",
       "import sys; sys.path.insert(0, sys.argv[1]); from scraper.cli import main; sys.exit(main(sys.argv[2:]))",
       root.pluginDirPath,
-      "--chain",
-      root.selectedChain || "aeon",
-      "--theater",
-      root.selectedTheater,
-      "--date",
-      root.getTargetDateString(),
+      "--mode=theater",
+      "--chain=" + (root.selectedChain || "aeon"),
+      "--theater=" + root.selectedTheater,
+      "--date=" + root.getTargetDateString(),
       "--compact"
     ]
   }
@@ -475,30 +514,24 @@ BarWidget {
       "-c",
       "import sys; sys.path.insert(0, sys.argv[1]); from scraper.cli import main; sys.exit(main(sys.argv[2:]))",
       root.pluginDirPath,
-      "--mode",
-      "search",
-      "--title",
-      title,
-      "--area",
-      area,
-      "--date",
-      buildSearchDateString(dateVal),
+      "--mode=search",
+      "--title=" + title,
+      "--area=" + area,
+      "--date=" + buildSearchDateString(dateVal),
       "--compact"
     ]
 
     if (rangeVal === "after") {
-      cmd.push("--after")
-      cmd.push("now")
+      cmd.push("--after=now")
     }
 
     if (theaterVal && theaterVal.trim().length > 0) {
-      cmd.push("--theater")
-      cmd.push(theaterVal.trim())
+      cmd.push("--theater=" + theaterVal.trim())
     }
 
+    // 既に別の検索が実行中の場合は中断して新しい条件で実行
     if (searchProcess.running) {
-      // 実行中なら終了待機
-      return
+      searchProcess.running = false
     }
 
     searchProcess.command = cmd

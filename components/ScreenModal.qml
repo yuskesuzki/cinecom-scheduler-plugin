@@ -63,6 +63,7 @@ Rectangle {
           }
           Text {
             text: rootScreenModal.getScreenDisplayName(rootScreenModal.currentScreenTitle || (rootScreenModal.currentScreenFacility ? rootScreenModal.currentScreenFacility.name : ""))
+            textFormat: Text.PlainText
             color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
             font.pixelSize: Style.font ? Style.font.title : 15
             font.bold: true
@@ -145,6 +146,7 @@ Rectangle {
                 id: featTxt
                 anchors.centerIn: parent
                 text: modelData
+                textFormat: Text.PlainText
                 color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
                 font.pixelSize: Style.font ? Style.font.caption : 11
                 font.bold: true
@@ -166,6 +168,7 @@ Rectangle {
               id: soundTxt
               anchors.centerIn: parent
               text: "🔊 " + (rootScreenModal.currentScreenFacility ? (rootScreenModal.currentScreenFacility.sound || "") : "")
+              textFormat: Text.PlainText
               color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
               font.pixelSize: Style.font ? Style.font.caption : 11
               font.bold: true
@@ -186,6 +189,7 @@ Rectangle {
               id: sizeTxt
               anchors.centerIn: parent
               text: "📐 " + (rootScreenModal.currentScreenFacility ? (rootScreenModal.currentScreenFacility.screen_size || "") : "")
+              textFormat: Text.PlainText
               color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
               font.pixelSize: Style.font ? Style.font.caption : 11
               font.bold: true

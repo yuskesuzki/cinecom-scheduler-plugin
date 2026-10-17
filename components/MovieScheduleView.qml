@@ -400,6 +400,7 @@ Column {
     width: parent.width
     visible: rootScheduleView.errorMessage !== ""
     text: rootScheduleView.errorMessage
+    textFormat: Text.PlainText
     color: Color.urgent || "#ff5555"
     wrapMode: Text.WordWrap
     font.pixelSize: Style.font ? Style.font.caption : 12
@@ -491,6 +492,7 @@ Column {
                   anchors.left: parent.left
                   anchors.right: parent.right
                   text: rootScheduleView.getMovieDisplayTitle(modelData)
+                  textFormat: Text.PlainText
                   color: (titleHover.containsMouse && Boolean(modelData.info_url)) ? Color.accent : (rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground)
                   font.pixelSize: Style.font ? Style.font.body : 13
                   font.bold: true
@@ -592,6 +594,7 @@ Column {
                     id: screenTxt
                     anchors.centerIn: parent
                     text: rootScheduleView.getScreenDisplayName(modelData.screen)
+                    textFormat: Text.PlainText
                     color: screenHover.containsMouse ? Color.accent : Util.alpha(rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground, 0.8)
                     font.pixelSize: Style.font ? Style.font.caption : 11
                     font.underline: screenHover.containsMouse
@@ -640,6 +643,7 @@ Column {
                         id: firstBadgeTxt
                         anchors.centerIn: parent
                         text: "[" + (modelData.special_badges ? modelData.special_badges[0] : "") + "]"
+                        textFormat: Text.PlainText
                         color: Color.accent
                         font.pixelSize: Style.font ? Style.font.caption : 10
                         font.bold: true
@@ -727,6 +731,7 @@ Column {
                             id: badgeTxt
                             anchors.centerIn: parent
                             text: "[" + modelData + "]"
+                            textFormat: Text.PlainText
                             color: Color.accent
                             font.pixelSize: Style.font ? Style.font.caption : 10
                             font.bold: true
