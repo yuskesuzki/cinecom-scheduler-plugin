@@ -41,6 +41,20 @@ BarWidget {
   property string selectedMovieFilter: ""
   property bool movieFilterDropdownOpen: false
 
+  // 横断検索関連の状態プロパティ
+  property bool showSearchModal: false
+  property string activeView: "theater" // "theater" or "search"
+  property bool searchLoading: false
+  property string searchErrorMessage: ""
+  property var searchResults: []
+  property var searchParams: ({
+    title: "",
+    area: "東京都",
+    date: "today",
+    range: "after",
+    theater: ""
+  })
+
   readonly property var uniqueMovieTitles: {
     var titles = []
     if (!root.moviesData) return titles
@@ -432,6 +446,109 @@ BarWidget {
     }
   }
 
+  function buildSearchDateString(dateVal) {
+    var target = new Date()
+    if (dateVal === "tomorrow") {
+      target.setDate(target.getDate() + 1)
+    }
+    var y = target.getFullYear()
+    var m = String(target.getMonth() + 1).padStart(2, "0")
+    var d = String(target.getDate()).padStart(2, "0")
+    return y + "-" + m + "-" + d
+  }
+
+  function startCrossTheaterSearch(title, area, dateVal, rangeVal, theaterVal) {
+    searchParams = {
+      title: title,
+      area: area,
+      date: dateVal,
+      range: rangeVal,
+      theater: theaterVal
+    }
+    activeView = "search"
+    searchLoading = true
+    searchErrorMessage = ""
+    searchResults = []
+
+    var cmd = [
+      "python3",
+      "-c",
+      "import sys; sys.path.insert(0, sys.argv[1]); from scraper.cli import main; sys.exit(main(sys.argv[2:]))",
+      root.pluginDirPath,
+      "--mode",
+      "search",
+      "--title",
+      title,
+      "--area",
+      area,
+      "--date",
+      buildSearchDateString(dateVal),
+      "--compact"
+    ]
+
+    if (rangeVal === "after") {
+      cmd.push("--after")
+      cmd.push("now")
+    }
+
+    if (theaterVal && theaterVal.trim().length > 0) {
+      cmd.push("--theater")
+      cmd.push(theaterVal.trim())
+    }
+
+    if (searchProcess.running) {
+      // 実行中なら終了待機
+      return
+    }
+
+    searchProcess.command = cmd
+    searchProcess.running = true
+  }
+
+  // 横断検索実行プロセス
+  Process {
+    id: searchProcess
+    running: false
+
+    stdout: StdioCollector {
+      waitForEnd: true
+      onStreamFinished: {
+        root.searchLoading = false
+        root.searchErrorMessage = ""
+        try {
+          var payload = JSON.parse(text)
+          root.searchResults = payload.screenings || []
+          console.log("[CinecomScheduler] Search finished with " + root.searchResults.length + " screenings.")
+        } catch (e) {
+          console.error("[CinecomScheduler] Search JSON parse error: " + e.message)
+          root.searchErrorMessage = root.englishMode ? "Failed to parse search results" : "検索結果の解析に失敗しました"
+        }
+      }
+    }
+
+    stderr: StdioCollector {
+      waitForEnd: true
+      onStreamFinished: {
+        if (text && text.trim().length > 0) {
+          console.warn("[CinecomScheduler] search stderr:", text.trim())
+          try {
+            var errPayload = JSON.parse(text)
+            if (errPayload.message) {
+              root.searchErrorMessage = errPayload.message
+            }
+          } catch (ignored) {}
+        }
+      }
+    }
+
+    onExited: function(exitCode, exitStatus) {
+      root.searchLoading = false
+      if (exitCode !== 0 && root.searchErrorMessage === "") {
+        root.searchErrorMessage = root.englishMode ? "Search request failed" : "横断検索に失敗しました"
+      }
+    }
+  }
+
   property var chainTheatersCache: ({})
 
   function getChainJsonPath(chainId) {
@@ -677,6 +794,7 @@ BarWidget {
       if (!open) {
         root.showScreenModal = false
         root.showSettingsPanel = false
+        root.showSearchModal = false
       }
     }
 
@@ -795,6 +913,45 @@ BarWidget {
 
         Item { Layout.fillWidth: true }
 
+        // 検索ボタン (横断検索モーダルを開く)
+        Rectangle {
+          radius: Style.space(4)
+          color: root.showSearchModal ? Color.accent : (searchBtnHover.containsMouse ? Util.alpha(Color.accent, 0.2) : Util.alpha(root.bar ? root.bar.foreground : Color.foreground, 0.1))
+          implicitWidth: searchBtnTxt.implicitWidth + Style.space(12)
+          implicitHeight: Style.space(26)
+
+          RowLayout {
+            anchors.centerIn: parent
+            spacing: Style.space(4)
+
+            Text {
+              text: "🔍"
+              font.pixelSize: Style.font ? Style.font.caption : 10
+            }
+
+            Text {
+              id: searchBtnTxt
+              text: root.englishMode ? "Search" : "検索"
+              color: root.showSearchModal ? Color.background : (root.bar ? root.bar.foreground : Color.foreground)
+              font.pixelSize: Style.font ? Style.font.caption : 11
+              font.bold: true
+            }
+          }
+
+          MouseArea {
+            id: searchBtnHover
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: {
+              root.showSettingsPanel = false
+              root.showSearchModal = !root.showSearchModal
+            }
+            onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? "Search movies across cinema chains" : "作品・地域でシネコン横断検索")
+            onExited: if (root.bar) root.bar.hideTooltip(parent)
+          }
+        }
+
         // 言語切替ボタン (JA / EN)
         Rectangle {
           radius: Style.space(4)
@@ -835,7 +992,10 @@ BarWidget {
           MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: root.showSettingsPanel = !root.showSettingsPanel
+            onClicked: {
+              root.showSearchModal = false
+              root.showSettingsPanel = !root.showSettingsPanel
+            }
           }
         }
 
@@ -856,13 +1016,26 @@ BarWidget {
           MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: root.refresh()
+            onClicked: {
+              if (root.activeView === "search" && root.searchParams && root.searchParams.title) {
+                root.startCrossTheaterSearch(
+                  root.searchParams.title,
+                  root.searchParams.area,
+                  root.searchParams.date,
+                  root.searchParams.range,
+                  root.searchParams.theater
+                )
+              } else {
+                root.refresh()
+              }
+            }
           }
         }
       }
 
-      // 2. 上映スケジュール表示ビュー
+      // 2. 上映スケジュール表示ビュー (通常表示モード)
       MovieScheduleView {
+        visible: root.activeView === "theater"
         bar: root.bar
         englishMode: root.englishMode
         selectedDate: root.selectedDate
@@ -895,6 +1068,30 @@ BarWidget {
         }
         onScreenDetailsRequested: function(screenName, facilityData) {
           root.showScreenDetails(screenName, facilityData)
+        }
+      }
+
+      // 3. 作品検索結果表示ビュー (検索結果モード)
+      SearchResultView {
+        visible: root.activeView === "search"
+        bar: root.bar
+        englishMode: root.englishMode
+        loading: root.searchLoading
+        errorMessage: root.searchErrorMessage
+        queryTitle: root.searchParams ? (root.searchParams.title || "") : ""
+        queryArea: root.searchParams ? (root.searchParams.area || "") : ""
+        queryDate: root.searchParams ? (root.searchParams.date || "today") : "today"
+        queryRange: root.searchParams ? (root.searchParams.range || "after") : "after"
+        queryTheater: root.searchParams ? (root.searchParams.theater || "") : ""
+        rawScreenings: root.searchResults
+
+        openExternalUrl: root.openExternalUrl
+
+        onBackToScheduleRequested: {
+          root.activeView = "theater"
+        }
+        onRerunSearchRequested: {
+          root.showSearchModal = true
         }
       }
     }
@@ -936,6 +1133,25 @@ BarWidget {
       onClosed: {
         root.showSettingsPanel = false
         root.chainDropdownOpen = false
+      }
+    }
+
+    // 作品横断検索モーダルポップアップ
+    SearchModal {
+      visible: root.showSearchModal
+      bar: root.bar
+      englishMode: root.englishMode
+      queryTitle: root.searchParams ? (root.searchParams.title || "") : ""
+      queryArea: root.searchParams ? (root.searchParams.area || "東京都") : "東京都"
+      queryDate: root.searchParams ? (root.searchParams.date || "today") : "today"
+      queryRange: root.searchParams ? (root.searchParams.range || "after") : "after"
+      queryTheater: root.searchParams ? (root.searchParams.theater || "") : ""
+
+      onSearchRequested: function(title, area, dateVal, rangeVal, theaterVal) {
+        root.startCrossTheaterSearch(title, area, dateVal, rangeVal, theaterVal)
+      }
+      onClosed: {
+        root.showSearchModal = false
       }
     }
   }
