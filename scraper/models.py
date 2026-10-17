@@ -36,6 +36,22 @@ class MovieSchedule:
 
 
 @dataclass
+class CrossTheaterScreening:
+    """横断検索における1回分の上映枠データ（チェーン・劇場情報付き）"""
+    chain_id: str
+    theater_id: str
+    theater_name: str
+    screen_name: str
+    start_time: str          # "HH:MM" 形式
+    end_time: str            # "HH:MM" 形式
+    seat_status: SeatStatus
+    booking_url: str
+    movie_title: str         # 各劇場での表示タイトル（例: "字幕 バイオハザード"）
+    tags: List[str] = field(default_factory=list)
+    info_url: Optional[str] = None
+
+
+@dataclass
 class TheaterScheduleResponse:
     """QML側へ返すルートJSON構造"""
     chain_id: str
@@ -49,3 +65,20 @@ class TheaterScheduleResponse:
 
     def to_json(self, indent: int = 2) -> str:
         return json.dumps(self.to_dict(), ensure_ascii=False, indent=indent)
+
+
+@dataclass
+class CrossTheaterSearchResponse:
+    """地域×作品名横断検索のルートJSON構造"""
+    query_title: str
+    area: str
+    target_date: str         # "YYYY-MM-DD" 形式
+    total_screenings: int
+    screenings: List[CrossTheaterScreening] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+    def to_json(self, indent: int = 2) -> str:
+        return json.dumps(self.to_dict(), ensure_ascii=False, indent=indent)
+
