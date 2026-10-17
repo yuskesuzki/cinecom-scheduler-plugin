@@ -1163,6 +1163,7 @@ BarWidget {
       onChainSelected: function(chainId) { root.selectChain(chainId) }
       onTheaterSelected: function(theaterId, theaterName) { root.selectTheater(theaterId, theaterName) }
       onHoursSelected: function(hours) { root.setHours(hours) }
+      onTheaterSearchTextChanged: function(text) { root.theaterSearchText = text }
       onClosed: {
         root.showSettingsPanel = false
         root.chainDropdownOpen = false

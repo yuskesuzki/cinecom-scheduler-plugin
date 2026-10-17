@@ -27,6 +27,7 @@ Rectangle {
   signal chainSelected(string chainId)
   signal theaterSelected(string theaterId, string theaterName)
   signal hoursSelected(real hours)
+  signal theaterSearchTextChanged(string text)
   signal closed()
 
   onVisibleChanged: {
@@ -38,6 +39,7 @@ Rectangle {
       })
     } else {
       rootSettingsModal.theaterSearchText = ""
+      rootSettingsModal.theaterSearchTextChanged("")
       rootSettingsModal.chainDropdownOpen = false
     }
   }
@@ -282,7 +284,11 @@ Rectangle {
             verticalPadding: Style.space(4)
             horizontalPadding: Style.space(8)
             text: rootSettingsModal.theaterSearchText
-            onTextChanged: rootSettingsModal.theaterSearchText = text.trim().toLowerCase()
+            onTextChanged: {
+              var t = text.trim().toLowerCase()
+              rootSettingsModal.theaterSearchText = t
+              rootSettingsModal.theaterSearchTextChanged(t)
+            }
           }
 
           Rectangle {
@@ -306,6 +312,8 @@ Rectangle {
               cursorShape: Qt.PointingHandCursor
               onClicked: {
                 searchInput.text = ""
+                rootSettingsModal.theaterSearchText = ""
+                rootSettingsModal.theaterSearchTextChanged("")
                 searchInput.forceActiveFocus()
               }
             }
