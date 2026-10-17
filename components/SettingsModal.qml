@@ -20,7 +20,26 @@ Rectangle {
   property bool chainDropdownOpen: false
   property string theaterSearchText: ""
   property var availableChains: []
-  property var filteredTheaters: []
+  property var allTheaters: []
+
+  readonly property var filteredTheaters: {
+    var list = []
+    var filter = (rootSettingsModal.theaterSearchText || "").trim().toLowerCase()
+    for (var i = 0; i < rootSettingsModal.allTheaters.length; i++) {
+      var t = rootSettingsModal.allTheaters[i]
+      if (!t) continue
+      var areaStr = (t.region || t.area || "").toLowerCase()
+      var nameStr = (t.name || "").toLowerCase()
+      var idStr = (t.id || "").toLowerCase()
+      if (filter === "" ||
+          nameStr.indexOf(filter) !== -1 ||
+          idStr.indexOf(filter) !== -1 ||
+          (areaStr && areaStr.indexOf(filter) !== -1)) {
+        list.push(t)
+      }
+    }
+    return list
+  }
 
   property var getChainDisplayName: function() { return "" }
 
@@ -37,6 +56,9 @@ Rectangle {
         }
       })
     } else {
+      if (typeof searchInput !== "undefined" && searchInput) {
+        searchInput.text = ""
+      }
       rootSettingsModal.theaterSearchText = ""
       rootSettingsModal.chainDropdownOpen = false
     }

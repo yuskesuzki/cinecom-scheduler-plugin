@@ -37,7 +37,6 @@ BarWidget {
   property bool popupOpen: false
   property bool showSettingsPanel: false
   property bool chainDropdownOpen: false
-  property string theaterSearchText: ""
   property string selectedMovieFilter: ""
   property bool movieFilterDropdownOpen: false
 
@@ -102,24 +101,6 @@ BarWidget {
       }
     }
     return root.englishMode ? "Cinema" : "シネコン"
-  }
-  readonly property var filteredTheaters: {
-    var list = []
-    var filter = (root.theaterSearchText || "").trim().toLowerCase()
-    for (var i = 0; i < root.allTheaters.length; i++) {
-      var t = root.allTheaters[i]
-      if (!t) continue
-      var areaStr = (t.region || t.area || "").toLowerCase()
-      var nameStr = (t.name || "").toLowerCase()
-      var idStr = (t.id || "").toLowerCase()
-      if (filter === "" ||
-          nameStr.indexOf(filter) !== -1 ||
-          idStr.indexOf(filter) !== -1 ||
-          (areaStr && areaStr.indexOf(filter) !== -1)) {
-        list.push(t)
-      }
-    }
-    return list
   }
   property bool showScreenModal: false
   property string currentScreenTitle: ""
@@ -282,14 +263,7 @@ BarWidget {
   }
 
   onShowSettingsPanelChanged: {
-    if (showSettingsPanel) {
-      Qt.callLater(function() {
-        if (typeof searchInput !== "undefined" && searchInput) {
-          searchInput.forceActiveFocus()
-        }
-      })
-    } else {
-      theaterSearchText = ""
+    if (!showSettingsPanel) {
       chainDropdownOpen = false
     }
   }
@@ -1154,16 +1128,14 @@ BarWidget {
       withinHours: root.withinHours
       selectedDate: root.selectedDate
       chainDropdownOpen: root.chainDropdownOpen
-      theaterSearchText: root.theaterSearchText
       availableChains: root.availableChains
-      filteredTheaters: root.filteredTheaters
+      allTheaters: root.allTheaters
 
       getChainDisplayName: root.getChainDisplayName
 
       onChainSelected: function(chainId) { root.selectChain(chainId) }
       onTheaterSelected: function(theaterId, theaterName) { root.selectTheater(theaterId, theaterName) }
       onHoursSelected: function(hours) { root.setHours(hours) }
-      onTheaterSearchTextChanged: function(text) { root.theaterSearchText = text }
       onClosed: {
         root.showSettingsPanel = false
         root.chainDropdownOpen = false
