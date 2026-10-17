@@ -163,14 +163,20 @@ def get_theater_prefecture(chain_id: str, theater: dict) -> Optional[str]:
     return None
 
 
-def get_theaters_by_area(area_query: str) -> List[Dict[str, str]]:
+def get_theaters_by_area(
+    area_query: str,
+    theater_query: Optional[str] = None,
+) -> List[Dict[str, str]]:
     """
     指定された地域（都道府県名または地方名）に合致する全チェーンの劇場一覧を返す。
+    theater_query が指定されている場合、劇場の地域名・劇場名・IDであいまい絞り込みを行う。
     戻り値: [{'chain_id': 'toho', 'theater_id': '009', 'theater_name': 'TOHOシネマズ 新宿', 'prefecture': '東京都'}, ...]
     """
     target_prefs = set(resolve_target_prefectures(area_query))
     if not target_prefs:
         return []
+
+    norm_theater_q = theater_query.strip().lower() if theater_query else None
 
     base_dir = Path(__file__).resolve().parents[1] / "data" / "theaters"
     chains = ["aeon", "toho", "united", "sunshine"]
@@ -186,10 +192,20 @@ def get_theaters_by_area(area_query: str) -> List[Dict[str, str]]:
             for t in data.get("theaters", []):
                 pref = get_theater_prefecture(chain_id, t)
                 if pref and pref in target_prefs:
+                    t_name = t.get("name", t["id"])
+                    t_id = t["id"]
+                    # theater_query 絞り込み（劇場名、劇場ID、または地域名に部分一致）
+                    if norm_theater_q:
+                        if (
+                            norm_theater_q not in t_name.lower()
+                            and norm_theater_q not in t_id.lower()
+                        ):
+                            continue
+
                     results.append({
                         "chain_id": chain_id,
-                        "theater_id": t["id"],
-                        "theater_name": t.get("name", t["id"]),
+                        "theater_id": t_id,
+                        "theater_name": t_name,
                         "prefecture": pref,
                     })
         except Exception:

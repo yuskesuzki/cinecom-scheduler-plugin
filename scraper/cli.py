@@ -29,9 +29,11 @@ def main(argv=None) -> int:
         default="aeon",
         help="Cinema chain identifier (default: aeon)",
     )
+    # 劇場指定（単一劇場モード時は必須、検索モード時は地域内の劇場絞り込み用）
     parser.add_argument(
         "--theater",
-        help="Theater identifier or code (e.g., ebetsu). Required in theater mode.",
+        "--theter",
+        help="Theater identifier/name/area filter (e.g. '新宿', '豊洲', 'ebetsu')",
     )
     # 横断検索モード用
     parser.add_argument(
@@ -88,6 +90,7 @@ def main(argv=None) -> int:
                 area=args.area,
                 target_date=args.date,
                 after_time=after_time_str,
+                theater=args.theater,
             )
             print(resp.to_json(indent=indent))
             return 0

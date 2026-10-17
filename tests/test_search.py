@@ -207,17 +207,62 @@ class TestCrossTheaterSearch(unittest.TestCase):
                 "--after", "11:30",
                 "--compact"
             ])
-            self.assertEqual(code, 0)
             mock_search.assert_called_once_with(
                 title="テスト作品",
                 area="東京都",
                 target_date=date.today(),
                 after_time="11:30",
+                theater=None,
             )
             mock_print.assert_called_once()
             output = mock_print.call_args[0][0]
             self.assertIn('"query_title": "テスト作品"', output)
             self.assertIn('"theater_name": "TOHOシネマズ 新宿"', output)
+
+    def test_cli_search_mode_with_theater_filter(self):
+        fake_resp = CrossTheaterSearchResponse(
+            query_title="テスト作品",
+            area="東京都",
+            target_date="2026-10-17",
+            total_screenings=1,
+            screenings=[],
+        )
+        with patch("scraper.search.search_cross_theater", return_value=fake_resp) as mock_search, \
+             patch("builtins.print"):
+            code = scraper.cli.main([
+                "--mode", "search",
+                "--title", "テスト作品",
+                "--area", "東京都",
+                "--theater", "新宿",
+                "--compact"
+            ])
+            self.assertEqual(code, 0)
+            mock_search.assert_called_once_with(
+                title="テスト作品",
+                area="東京都",
+                target_date=date.today(),
+                after_time=None,
+                theater="新宿",
+            )
+
+        # --theter (タイポ許容) でも同じく動作することを検証
+        with patch("scraper.search.search_cross_theater", return_value=fake_resp) as mock_search, \
+             patch("builtins.print"):
+            code = scraper.cli.main([
+                "--mode", "search",
+                "--title", "テスト作品",
+                "--area", "東京都",
+                "--theter", "新宿",
+                "--compact"
+            ])
+            self.assertEqual(code, 0)
+            mock_search.assert_called_once_with(
+                title="テスト作品",
+                area="東京都",
+                target_date=date.today(),
+                after_time=None,
+                theater="新宿",
+            )
 
 
 if __name__ == "__main__":

@@ -63,14 +63,16 @@ def search_cross_theater(
     area: str,
     target_date: date,
     after_time: Optional[str] = None,
+    theater: Optional[str] = None,
     max_workers: int = 12,
     timeout: int = 15,
 ) -> CrossTheaterSearchResponse:
     """
     指定された地域内の全チェーン劇場から、指定作品の上映スケジュールを並行取得して時刻順に集約する。
     after_time が指定されている場合（"HH:MM" 形式）、その時刻以降に開始される上映回のみに絞り込む。
+    theater が指定されている場合、劇場名または地域名で劇場を絞り込む。
     """
-    target_theaters = get_theaters_by_area(area)
+    target_theaters = get_theaters_by_area(area_query=area, theater_query=theater)
     if not target_theaters:
         return CrossTheaterSearchResponse(
             query_title=title,
