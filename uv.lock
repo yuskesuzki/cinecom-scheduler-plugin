@@ -1,8 +1,8 @@
 version = 1
 revision = 3
-requires-python = ">=3.14"
+requires-python = ">=3.9"
 
 [[package]]
-name = "aeoncinema-plugin"
+name = "cinecom-scheduler-plugin"
 version = "0.1.0"
 source = { editable = "." }
