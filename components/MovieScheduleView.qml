@@ -70,10 +70,9 @@ Column {
           onClicked: {
             if (rootScheduleView.selectedDate !== modelData.id) {
               rootScheduleView.selectedDate = modelData.id
-              root.rawMoviesData = []
               rootScheduleView.movieFilterChanged("")
               rootScheduleView.movieFilterDropdownOpen = false
-              root.refresh()
+              rootScheduleView.dateChanged(modelData.id)
             }
           }
         }
@@ -607,7 +606,7 @@ Column {
                     cursorShape: Qt.PointingHandCursor
                     onClicked: function(mouse) {
                       mouse.accepted = true
-                      root.showScreenDetails(modelData.screen, modelData.screen_facility)
+                      rootScheduleView.screenDetailsRequested(modelData.screen, modelData.screen_facility)
                     }
                     onEntered: if (rootScheduleView.bar) rootScheduleView.bar.showTooltip(parent, rootScheduleView.englishMode ? ("Click to view details for " + rootScheduleView.getScreenDisplayName(modelData.screen)) : (modelData.screen + " の設備・座席詳細を表示"))
                     onExited: if (rootScheduleView.bar) rootScheduleView.bar.hideTooltip(parent)
