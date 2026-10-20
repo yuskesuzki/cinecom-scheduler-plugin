@@ -36,6 +36,33 @@ An Omarchy bar widget and lightweight Python scraper for Cinema Complex schedule
 
 ---
 
+## インストールと削除
+
+Omarchy プラグイン管理コマンドで簡単にインストール・アンインストールできます。
+
+### インストール (有効化)
+
+```bash
+omarchy plugin add https://github.com/yuskesuzki/cinecom-scheduler-plugin.git --enable
+```
+
+> [!NOTE]
+> インストール後、バーにウィジェットが自動追加されます。表示されない場合は `omarchy restart shell` を実行してください。
+
+### アップデート
+
+```bash
+omarchy plugin update com.yusuke.cinecom-scheduler
+```
+
+### アンインストール (削除)
+
+```bash
+omarchy plugin remove com.yusuke.cinecom-scheduler
+```
+
+---
+
 ## ディレクトリ構成
 
 ```text

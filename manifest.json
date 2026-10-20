@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Yusuke Suzuki",
   "license": "MIT",
-  "description": "シネコン（イオンシネマ・TOHOシネマズ対応）の上映スケジュール、スクリーン設備情報、座席予約リンクを表示するバーウィジェット",
+  "description": "4大シネコン（イオンシネマ・TOHOシネマズ・ユナイテッド・シネマ・シネマサンシャイン 全229館）の上映スケジュール、スクリーン設備情報、座席予約リンクを表示するバーウィジェット",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Cinecom Scheduler",
-    "description": "シネコン上映スケジュール・直近作品確認ウィジェット（イオンシネマ / TOHOシネマズ）",
+    "description": "シネコン上映スケジュール・直近作品確認ウィジェット（イオンシネマ / TOHOシネマズ / ユナイテッド・シネマ / シネマサンシャイン）",
     "category": "Media",
     "allowMultiple": false,
     "defaultSection": "right",
@@ -29,7 +29,7 @@
         "key": "chain",
         "type": "string",
         "label": "系列ID / Chain ID",
-        "description": "シネコン系列 (aeon, toho)",
+        "description": "シネコン系列 (aeon, toho, united, sunshine)",
         "defaultValue": "aeon"
       },
       {
