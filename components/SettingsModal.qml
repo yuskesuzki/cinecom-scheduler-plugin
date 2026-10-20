@@ -181,6 +181,7 @@ Rectangle {
             Text {
               Layout.fillWidth: true
               text: rootSettingsModal.getChainDisplayName()
+              textFormat: Text.PlainText
               color: rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground
               font.pixelSize: Style.font ? Style.font.caption : 12
               font.bold: true
@@ -247,6 +248,7 @@ Rectangle {
                   Text {
                     Layout.fillWidth: true
                     text: rootSettingsModal.englishMode ? modelData.nameEn : modelData.nameJa
+                    textFormat: Text.PlainText
                     color: chainOptionItem.isSelected
                       ? Color.background
                       : (rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground)
@@ -372,6 +374,7 @@ Rectangle {
                   id: chipLabel
                   anchors.centerIn: parent
                   text: modelData.name
+                  textFormat: Text.PlainText
                   color: theaterChip.isSelected ? Color.background : (rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground)
                   font.pixelSize: Style.font ? Style.font.caption : 11
                 }

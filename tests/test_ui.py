@@ -257,6 +257,37 @@ ShellRoot {
         self.assertIn("[TEST_SEARCH_RESULT_VIEW_SUCCESS]", output)
         self.assertNotIn("Failed to load configuration", output)
 
+    def test_movie_schedule_view_text_format_security(self):
+        """MovieScheduleView および各 QML コンポーネント内の動的 Text 要素に PlainText が設定されていることを静的検証"""
+        import re
+
+        files_to_check = [
+            os.path.join(self.plugin_dir, "BarWidget.qml"),
+            os.path.join(self.components_dir, "MovieScheduleView.qml"),
+            os.path.join(self.components_dir, "ScreenModal.qml"),
+            os.path.join(self.components_dir, "SearchModal.qml"),
+            os.path.join(self.components_dir, "SearchResultView.qml"),
+            os.path.join(self.components_dir, "SettingsModal.qml"),
+        ]
+
+        # 特に MovieScheduleView.qml の movie-filter ラベル
+        with open(os.path.join(self.components_dir, "MovieScheduleView.qml"), encoding="utf-8") as f:
+            movie_view_content = f.read()
+
+        # 1. フィルター選択ボタン内の Text
+        self.assertRegex(
+            movie_view_content,
+            r'Text\s*\{[^}]*Layout\.fillWidth:\s*true[^}]*textFormat:\s*Text\.PlainText[^}]*rootScheduleView\.selectedMovieFilter',
+            "Movie filter label must enforce Text.PlainText"
+        )
+
+        # 2. フィルター選択肢ドロップダウン内の Text
+        self.assertRegex(
+            movie_view_content,
+            r'Text\s*\{[^}]*Layout\.fillWidth:\s*true[^}]*textFormat:\s*Text\.PlainText[^}]*text:\s*modelData',
+            "Movie filter dropdown option must enforce Text.PlainText"
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

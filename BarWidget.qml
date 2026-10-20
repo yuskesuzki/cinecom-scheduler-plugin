@@ -832,6 +832,7 @@ BarWidget {
             }
             Text {
               text: root.getChainDisplayName()
+              textFormat: Text.PlainText
               color: root.bar ? root.bar.foreground : Color.foreground
               font.pixelSize: Style.font ? Style.font.title : 16
               font.bold: true
@@ -851,6 +852,7 @@ BarWidget {
                 Text {
                   id: theaterLabel
                   text: root.theaterShortName
+                  textFormat: Text.PlainText
                   color: root.showSettingsPanel ? Color.background : (root.bar ? root.bar.foreground : Color.foreground)
                   font.pixelSize: Style.font ? Style.font.caption : 11
                   font.bold: true

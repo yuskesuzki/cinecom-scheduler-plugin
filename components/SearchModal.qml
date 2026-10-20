@@ -277,6 +277,7 @@ Rectangle {
             Text {
               Layout.fillWidth: true
               text: rootSearchModal.queryArea || (rootSearchModal.englishMode ? "Select region" : "地域を選択")
+              textFormat: Text.PlainText
               color: rootSearchModal.bar ? rootSearchModal.bar.foreground : Color.foreground
               font.pixelSize: Style.font ? Style.font.caption : 12
               font.bold: true
@@ -346,6 +347,7 @@ Rectangle {
                     Text {
                       Layout.fillWidth: true
                       text: modelData
+                      textFormat: Text.PlainText
                       color: areaOptionItem.isSelected
                         ? Color.background
                         : (rootSearchModal.bar ? rootSearchModal.bar.foreground : Color.foreground)

@@ -231,6 +231,7 @@ Rectangle {
               var total = (rootScreenModal.currentScreenFacility && rootScreenModal.currentScreenFacility.total_seats) ? rootScreenModal.currentScreenFacility.total_seats : "-"
               return rootScreenModal.englishMode ? ("Total: " + total + " seats") : ("総座席数: " + total + "席")
             }
+            textFormat: Text.PlainText
             color: Color.accent
             font.pixelSize: Style.font ? Style.font.caption : 11
             font.bold: true
@@ -257,6 +258,7 @@ Rectangle {
 
                 Text {
                   text: modelData.type
+                  textFormat: Text.PlainText
                   color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
                   font.pixelSize: Style.font ? Style.font.caption : 11
                 }
@@ -265,6 +267,7 @@ Rectangle {
 
                 Text {
                   text: modelData.count + (rootScreenModal.englishMode ? " seats" : " 席")
+                  textFormat: Text.PlainText
                   color: rootScreenModal.bar ? rootScreenModal.bar.foreground : Color.foreground
                   font.pixelSize: Style.font ? Style.font.caption : 11
                   font.bold: true

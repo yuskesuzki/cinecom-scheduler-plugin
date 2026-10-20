@@ -198,6 +198,7 @@ Column {
 
         Text {
           Layout.fillWidth: true
+          textFormat: Text.PlainText
           text: {
             if (rootScheduleView.selectedMovieFilter === "") {
               return rootScheduleView.englishMode
@@ -309,6 +310,7 @@ Column {
 
               Text {
                 Layout.fillWidth: true
+                textFormat: Text.PlainText
                 text: rootScheduleView.englishMode ? ("All Movies (" + rootScheduleView.moviesData.length + ")") : ("すべての作品 (" + rootScheduleView.moviesData.length + "本)")
                 color: allMoviesOption.isSelected ? Color.background : (rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground)
                 font.pixelSize: Style.font ? Style.font.caption : 11
@@ -361,6 +363,7 @@ Column {
 
                 Text {
                   Layout.fillWidth: true
+                  textFormat: Text.PlainText
                   text: modelData
                   color: movieOptionItem.isSelected ? Color.background : (rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground)
                   font.pixelSize: Style.font ? Style.font.caption : 11
@@ -449,6 +452,7 @@ Column {
               return rootScheduleView.englishMode ? "No upcoming showtimes within window" : "直近の上映作品はありません"
             }
           }
+          textFormat: Text.PlainText
           color: Util.alpha(rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground, 0.6)
           font.pixelSize: Style.font ? Style.font.body : 12
         }
@@ -576,6 +580,7 @@ Column {
                     id: timeTxt
                     anchors.centerIn: parent
                     text: modelData.start_time + " 〜 " + modelData.end_time
+                    textFormat: Text.PlainText
                     color: rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground
                     font.pixelSize: Style.font ? Style.font.caption : 11
                     font.bold: true
@@ -785,6 +790,7 @@ Column {
                       if (st === "unsold") return rootScheduleView.englishMode ? "- Unsold" : "- 販売前"
                       return ""
                     }
+                    textFormat: Text.PlainText
                     color: rootScheduleView.bar ? rootScheduleView.bar.foreground : Color.foreground
                     font.pixelSize: Style.font ? Style.font.caption : 10
                   }
