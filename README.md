@@ -1,14 +1,18 @@
 # Cinecom Scheduler / Omarchy Plugin (シネコン上映スケジュールプラグイン)
 
-![Cinecom Scheduler Screenshot](assets/screenshot1.png)
-
 An Omarchy bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, **United Cinemas**, & **Cinema Sunshine**).
 
 イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場、計229劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
 
-![Cinecom Scheduler Screenshot](assets/screenshot2.png)
-![Cinecom Scheduler Screenshot](assets/screenshot3.png)
- 
+## Preview
+
+![Cinecom Scheduler Preview](preview.png)
+
+<p align="center">
+  <img src="assets/screenshot2.png" width="48%" alt="Screen details modal" />
+  <img src="assets/screenshot3.png" width="48%" alt="Settings modal" />
+</p>
+
 ---
 
 ## 主な特徴
