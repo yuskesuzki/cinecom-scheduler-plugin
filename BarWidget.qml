@@ -91,7 +91,8 @@ BarWidget {
     { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
     { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
     { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" },
-    { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" }
+    { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" },
+    { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly" }
   ]
 
 
@@ -163,12 +164,14 @@ BarWidget {
       }
     }
 
-    // 3. 特殊設備キーワード一致 (IMAX, 4DX, BESTIA等)
+    // 3. 特殊設備キーワード一致 (IMAX, 4DX, BESTIA, Dolby Cinema, プラチナ等)
     for (var j = 0; j < screens.length; j++) {
       var s = screens[j]
       var normS = root.normalizeScreenText(s.name).toLowerCase()
       if (normTarget.indexOf("imax") !== -1 && normS.indexOf("imax") !== -1) return s
       if (normTarget.indexOf("4dx") !== -1 && normS.indexOf("4dx") !== -1) return s
+      if ((normTarget.indexOf("dolby cinema") !== -1 || normTarget.indexOf("dolbycinema") !== -1) && normS.indexOf("dolby cinema") !== -1) return s
+      if (normTarget.indexOf("プラチナ") !== -1 && normS.indexOf("プラチナ") !== -1) return s
       if (normTarget.indexOf("bestia") !== -1 && normS.indexOf("bestia") !== -1) {
         if (targetNum === null) return s
       }
@@ -237,7 +240,11 @@ BarWidget {
     "tjoy.jp",
     "tjoy.co.jp",
     "109cinemas.net",
-    "cinema.109cinemas.net"
+    "cinema.109cinemas.net",
+    "www.smt-cinema.com",
+    "smt-cinema.com",
+    "memberlogin.smart.smt-cinema.jp",
+    "ticket.smt-cinema.com"
   ]
 
   function openExternalUrl(url) {
@@ -924,6 +931,8 @@ BarWidget {
                 url = "https://tjoy.jp/" + encodeURIComponent(root.selectedTheater)
               } else if (root.selectedChain === "109cinemas") {
                 url = "https://109cinemas.net/" + encodeURIComponent(root.selectedTheater) + "/"
+              } else if (root.selectedChain === "smt") {
+                url = "https://www.smt-cinema.com/site/" + encodeURIComponent(root.selectedTheater) + "/"
               } else {
                 url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
               }

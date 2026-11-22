@@ -357,6 +357,56 @@ ShellRoot {
         self.assertIn("[TEST_109CINEMAS_UI_SUCCESS]", output)
         self.assertNotIn("Failed to load configuration", output)
 
+    def test_search_result_view_smt_label(self):
+        """SearchResultView.qml が MOVIX・ピカデリー (smt) に対して日英ともに MOVIX を返すことを検証"""
+        qml = """import QtQuick
+import Quickshell
+import "./components"
+
+ShellRoot {
+  Scope {
+    SearchResultView {
+      id: view
+      englishMode: false
+      rawScreenings: [
+        {
+          chain_id: "smt",
+          theater_id: "shinjuku",
+          theater_name: "新宿ピカデリー",
+          movie_title: "テスト映画",
+          screen_name: "シアター1",
+          start_time: "12:00",
+          end_time: "14:00",
+          seat_status: "available",
+          booking_url: "https://memberlogin.smart.smt-cinema.jp/purchase/guest?eventId=abc123"
+        }
+      ]
+
+      Component.onCompleted: {
+        var groups = view.groupedTheaters;
+        if (groups.length !== 1 || groups[0].chainId !== "smt") {
+          console.log("[TEST_FAIL] Expected 1 smt group");
+          return;
+        }
+        if (view.getChainLabel("smt") !== "MOVIX") {
+          console.log("[TEST_FAIL] Expected Japanese label MOVIX, got: " + view.getChainLabel("smt"));
+          return;
+        }
+        view.englishMode = true;
+        if (view.getChainLabel("smt") !== "MOVIX") {
+          console.log("[TEST_FAIL] Expected English label MOVIX, got: " + view.getChainLabel("smt"));
+          return;
+        }
+        console.log("[TEST_SMT_UI_SUCCESS]");
+      }
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml)
+        self.assertIn("[TEST_SMT_UI_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+
     def test_movie_schedule_view_text_format_security(self):
         """MovieScheduleView および各 QML コンポーネント内の動的 Text 要素に PlainText が設定されていることを静的検証"""
         import re

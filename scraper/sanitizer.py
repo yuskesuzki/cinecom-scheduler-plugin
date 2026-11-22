@@ -21,6 +21,10 @@ ALLOWED_DOMAINS: Set[str] = {
     "tjoy.co.jp",
     "109cinemas.net",
     "cinema.109cinemas.net",
+    "www.smt-cinema.com",
+    "smt-cinema.com",
+    "memberlogin.smart.smt-cinema.jp",
+    "ticket.smt-cinema.com",
 }
 
 # 制御文字の検出パターン

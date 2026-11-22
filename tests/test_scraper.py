@@ -547,6 +547,244 @@ class TestScraperPackage(unittest.TestCase):
         # コメント内 4DXScreen による偽タグが混入しないこと
         self.assertEqual(s.tags, [])
 
+    def test_smt_provider_registration_and_cli_security(self):
+        from unittest.mock import patch
+        from scraper.providers import get_provider
+        from scraper.providers.smt import SmtCinemaProvider
+        from scraper.cli import main as cli_main
+
+        provider = get_provider("smt")
+        self.assertIsInstance(provider, SmtCinemaProvider)
+        self.assertEqual(provider.CHAIN_ID, "smt")
+
+        # 不正なシアターID文字列が CLI 境界で終了コード 2 で拒否されること
+        with patch("sys.argv", ["scraper.cli", "--chain", "smt", "--theater", "shinjuku;malicious"]):
+            with patch("sys.stderr"):
+                exit_code = cli_main()
+                self.assertEqual(exit_code, 2)
+
+    def test_smt_helpers(self):
+        from scraper.providers.smt import (
+            clean_smt_movie_title,
+            extract_special_tags,
+            map_smt_seat_status,
+            normalize_smt_screen_name,
+        )
+
+        # タイトルの本編時間表記のみ除去
+        self.assertEqual(
+            clean_smt_movie_title("MET LV 26‐27｢ﾓｰﾂｧﾙﾄ≪ｺｼﾞ･ﾌｧﾝ･ﾄｩｯﾃ≫｣（本編：231分）"),
+            "MET LV 26‐27｢ﾓｰﾂｧﾙﾄ≪ｺｼﾞ･ﾌｧﾝ･ﾄｩｯﾃ≫｣",
+        )
+        self.assertEqual(clean_smt_movie_title("テスト映画 (本編:95分)"), "テスト映画")
+
+        # スクリーン名正規化
+        self.assertEqual(normalize_smt_screen_name("シアター５"), "シアター5")
+        self.assertEqual(normalize_smt_screen_name("DOLBY CINEMA [4階]"), "Dolby Cinema")
+        self.assertEqual(normalize_smt_screen_name("DolbyCinema"), "Dolby Cinema")
+        self.assertEqual(normalize_smt_screen_name("シアター"), "シアター")
+        self.assertEqual(normalize_smt_screen_name("プラチナ"), "プラチナ")
+
+        # 特殊設備タグ抽出（対象外除外・重複なし）
+        self.assertEqual(
+            extract_special_tags(
+                "【DolbyCinema字幕】マイケル",
+                "特別興行 NEW LAST バリアフリー 2D",
+                "DolbyCinema",
+                "レイトショー 特別料金 吹替",
+            ),
+            ["Dolby Cinema"],
+        )
+        self.assertEqual(
+            extract_special_tags("テスト【IMAXレーザー3D】", "Dolby Atmos 爆音 轟音"),
+            ["IMAXレーザー", "Dolby Atmos", "爆音", "轟音", "3D"],
+        )
+        self.assertEqual(
+            extract_special_tags("作品", "ULTRA 4DX MX4D ScreenX"),
+            ["ULTRA 4DX", "MX4D", "ScreenX"],
+        )
+
+        # 座席ステータス変換
+        self.assertEqual(map_smt_seat_status("sheet ok", "◎余裕あり"), SeatStatus.AVAILABLE)
+        self.assertEqual(map_smt_seat_status("sheet few", "△残りわずか"), SeatStatus.FEW)
+        self.assertEqual(map_smt_seat_status("sheet ng", "×販売終了"), SeatStatus.UNSOLD)
+        self.assertEqual(map_smt_seat_status("sheet ng", "×満席"), SeatStatus.FULL)
+        self.assertEqual(map_smt_seat_status("sheet ng", "売切"), SeatStatus.FULL)
+        self.assertEqual(map_smt_seat_status("sheet before", "－販売前"), SeatStatus.UNSOLD)
+
+    def test_parse_smt_schedule_html_smart_theater(self):
+        from scraper.providers.smt import SmtCinemaProvider, parse_smt_schedule_html
+
+        html = """
+        <section class="daily" data-smart-theater="1">
+          <section class="49425 T0032612">
+            <div class="list">
+              <div class="movieTitle">
+                <div class="inner clearfix">
+                  <h2>
+                    テスト映画Ａ（本編：135分）
+                    <span class="enLabel">Test Movie A</span>
+                  </h2>
+                  <p class="tag">
+                    <span>特別興行</span>
+                    <span class="new">NEW</span>
+                    <span class="last">LAST</span>
+                    <span>バリアフリー</span>
+                  </p>
+                </div>
+              </div>
+              <div class="theaterList clearfix">
+                <div class="image matchHeight">
+                  <p class="detailLink">
+                    <a href="/site/shinjuku/movie/detail/?cinemaid=T0032612&mo=49425&type=0">作品詳細</a>
+                  </p>
+                </div>
+                <div class="select matchHeight clearfix">
+                  <div class="block few">
+                    <h3><a href="javascript:void(0)" class="T1051S05">シアター５</a></h3>
+                    <div class="inner few" id="0_1051_49425_20261122_6afadfd3d0c12b3a11ab044d_05_0" data-event-id="6afadfd3d0c12b3a11ab044d">
+                      <p class="time"><span>8:05～</span> 10:20</p>
+                      <p class="text"><span class="sheet few">△残りわずか</span> レイトショー</p>
+                    </div>
+                  </div>
+                  <div class="block ok">
+                    <h3><a href="javascript:void(0)">プラチナ</a></h3>
+                    <div class="inner ok" id="0_1051_49425_20261122_6afadfd3d0c12b3a11ab044e_01_1" data-event-id="6afadfd3d0c12b3a11ab044e">
+                      <p class="time"><span>13:00～</span> 15:15</p>
+                      <p class="text"><span class="sheet ok">◎余裕あり</span> 特別料金</p>
+                    </div>
+                  </div>
+                  <div class="block ng">
+                    <h3><a href="javascript:void(0)">DolbyCinema</a></h3>
+                    <div class="inner ng" id="0_1051_49425_20261122_6afadfd3d0c12b3a11ab044f_11_0" data-event-id="6afadfd3d0c12b3a11ab044f">
+                      <p class="time"><span>18:00～</span> 20:15</p>
+                      <p class="text"><span class="sheet ng">×販売終了</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        """
+        provider = SmtCinemaProvider()
+        movies = parse_smt_schedule_html(
+            html=html,
+            theater_slug="shinjuku",
+            theater_code="1051",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.movie_id, "49425")
+        self.assertEqual(m.movie_title, "テスト映画Ａ")
+        self.assertEqual(m.movie_title_en, "Test Movie A")
+        self.assertEqual(
+            m.info_url,
+            "https://www.smt-cinema.com/site/shinjuku/movie/detail/?cinemaid=T0032612&mo=49425&type=0",
+        )
+        self.assertEqual(len(m.screenings), 3)
+
+        s0, s1, s2 = m.screenings
+        self.assertEqual(s0.screen_name, "シアター5")
+        self.assertEqual(s0.start_time, "08:05")
+        self.assertEqual(s0.end_time, "10:20")
+        self.assertEqual(s0.seat_status, SeatStatus.FEW)
+        self.assertEqual(
+            s0.booking_url,
+            "https://memberlogin.smart.smt-cinema.jp/purchase/guest?eventId=6afadfd3d0c12b3a11ab044d",
+        )
+        self.assertEqual(s0.tags, [])
+
+        self.assertEqual(s1.screen_name, "プラチナ")
+        self.assertEqual(s1.seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(
+            s1.booking_url,
+            "https://memberlogin.smart.smt-cinema.jp/purchase/guest?eventId=6afadfd3d0c12b3a11ab044e",
+        )
+
+        self.assertEqual(s2.screen_name, "Dolby Cinema")
+        self.assertEqual(s2.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s2.booking_url, "")
+        self.assertEqual(s2.tags, ["Dolby Cinema"])
+
+    def test_parse_smt_schedule_html_legacy_theater_and_404(self):
+        from datetime import date
+        from unittest.mock import patch
+        import urllib.error
+        from scraper.providers.smt import SmtCinemaProvider, parse_smt_schedule_html
+
+        html = """
+        <section class="daily">
+          <section class="49480 A0004792">
+            <div class="list">
+              <div class="movieTitle">
+                <div class="inner clearfix">
+                  <h2>【DolbyCinema字幕】テスト映画Ｂ（本編：128分）</h2>
+                  <p class="tag"><span>特別興行</span></p>
+                </div>
+              </div>
+              <div class="theaterList clearfix">
+                <div class="image matchHeight">
+                  <p class="detailLink"><a href="/site/marunouchi/movie/detail/?cinemaid=A0004792&mo=49480&type=0">作品詳細</a></p>
+                </div>
+                <div class="select matchHeight clearfix">
+                  <div class="block ok">
+                    <h3><a href="javascript:void(0)" class="T1052S03">Dolby Cinema</a></h3>
+                    <div class="inner ok" id="0_1052_49480_20261122_4_03_0">
+                      <p class="time"><span>17:55～</span> 20:03</p>
+                      <p class="text"><span class="sheet ok">◎余裕あり</span></p>
+                    </div>
+                  </div>
+                  <div class="block ng">
+                    <h3><a href="javascript:void(0)" class="T1052S01">シアター１</a></h3>
+                    <div class="inner ng" id="0_1052_49480_20261122_5_01_0">
+                      <p class="time"><span>20:30～</span> 22:38</p>
+                      <p class="text"><span class="sheet ng">×満席</span></p>
+                    </div>
+                  </div>
+                  <div class="block before">
+                    <h3><a href="javascript:void(0)" class="T1052S02">シアター２</a></h3>
+                    <div class="inner before" id="0_1052_49480_20261122_6_02_0">
+                      <p class="time"><span>21:00～</span> 23:08</p>
+                      <p class="text"><span class="sheet before">－販売前</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        """
+        provider = SmtCinemaProvider()
+        movies = parse_smt_schedule_html(
+            html=html,
+            theater_slug="marunouchi",
+            theater_code="1052",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.movie_title, "【DolbyCinema字幕】テスト映画Ｂ")
+        self.assertEqual(len(m.screenings), 3)
+        s_ok, s_full, s_before = m.screenings
+        self.assertEqual(
+            s_ok.booking_url,
+            "https://ticket.smt-cinema.com/ticket/f0100.do?th=1052&mo=49480&sd=20261122&pe=4&sc=03&fl=0",
+        )
+        self.assertEqual(s_ok.tags, ["Dolby Cinema"])
+        self.assertEqual(s_full.seat_status, SeatStatus.FULL)
+        self.assertEqual(s_full.booking_url, "")
+        self.assertEqual(s_before.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s_before.booking_url, "")
+
+        # 404時は空リストを返すこと
+        http_404 = urllib.error.HTTPError("https://www.smt-cinema.com/404", 404, "Not Found", {}, None)
+        with patch("urllib.request.urlopen", side_effect=http_404):
+            self.assertEqual(provider.fetch_movies("marunouchi", date(2026, 12, 31)), [])
+
     def test_info_urls(self):
         from scraper.providers.toho import TohoCinemaProvider
         from scraper.providers.sunshine import CinemaSunshineProvider
@@ -554,6 +792,7 @@ class TestScraperPackage(unittest.TestCase):
         from scraper.providers.aeon import AeonCinemaProvider
         from scraper.providers.tjoy import TJoyCinemaProvider
         from scraper.providers.cinemas109 import Cinemas109Provider
+        from scraper.providers.smt import SmtCinemaProvider
 
         # TOHO
         toho = TohoCinemaProvider()
@@ -609,6 +848,17 @@ class TestScraperPackage(unittest.TestCase):
         self.assertEqual(
             c109.build_movie_info_url("https://x.gd/J1ok2", "kiba"),
             "https://109cinemas.net/kiba/",
+        )
+
+        # SMT movie url & fallback
+        smt = SmtCinemaProvider()
+        self.assertEqual(
+            smt.build_movie_info_url("/site/shinjuku/movie/detail/?cinemaid=T0032612&mo=49425&type=0", "shinjuku"),
+            "https://www.smt-cinema.com/site/shinjuku/movie/detail/?cinemaid=T0032612&mo=49425&type=0",
+        )
+        self.assertEqual(
+            smt.build_movie_info_url("https://evil.example.com/phishing", "shinjuku"),
+            "https://www.smt-cinema.com/site/shinjuku/",
         )
 
 

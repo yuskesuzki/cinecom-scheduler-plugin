@@ -36032,6 +36032,2665 @@
           }
         }
       ]
+    },
+    {
+      "id": "smt",
+      "name": "MOVIX・ピカデリー",
+      "theaters": [
+        {
+          "id": "sendai",
+          "code": "1017",
+          "name": "MOVIX仙台",
+          "region": "宮城県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/sendai/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 124,
+                "seats": {
+                  "一般座席": 124,
+                  "車椅子席": 2,
+                  "合計": 124
+                },
+                "screen_size": "7.18m × 3.88m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 169,
+                "seats": {
+                  "一般座席": 169,
+                  "車椅子席": 2,
+                  "合計": 169
+                },
+                "screen_size": "13.17m × 5.52m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 225,
+                "seats": {
+                  "一般座席": 225,
+                  "車椅子席": 2,
+                  "合計": 225
+                },
+                "screen_size": "13.25m × 5.55m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "9.87m × 4.86m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 373,
+                "seats": {
+                  "一般座席": 373,
+                  "車椅子席": 2,
+                  "合計": 373
+                },
+                "screen_size": "11.12m × 4.69m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "一般座席": 164,
+                  "車椅子席": 2,
+                  "合計": 164
+                },
+                "screen_size": "11.00m × 5.84m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 278,
+                "seats": {
+                  "一般座席": 278,
+                  "車椅子席": 2,
+                  "合計": 278
+                },
+                "screen_size": "11.70m × 4.74m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 155,
+                "seats": {
+                  "一般座席": 155,
+                  "車椅子席": 2,
+                  "合計": 155
+                },
+                "screen_size": "12.20m × 4.50m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 104,
+                "seats": {
+                  "一般座席": 104,
+                  "車椅子席": 2,
+                  "合計": 104
+                },
+                "screen_size": "7.81m × 4.54m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "一般座席": 119,
+                  "車椅子席": 2,
+                  "合計": 119
+                },
+                "screen_size": "9.96m × 4.50m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "marunouchi",
+          "code": "1052",
+          "name": "丸の内ピカデリー",
+          "region": "東京都",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/marunouchi/facility.html",
+            "screens": [
+              {
+                "name": "丸の内ピカデリー1",
+                "features": [],
+                "total_seats": 623,
+                "seats": {
+                  "一般座席": 623,
+                  "車椅子席": 2,
+                  "合計": 623
+                },
+                "screen_size": "15.60m × 6.53m"
+              },
+              {
+                "name": "丸の内ピカデリー2",
+                "features": [],
+                "total_seats": 434,
+                "seats": {
+                  "一般座席": 434,
+                  "車椅子席": 2,
+                  "合計": 434
+                },
+                "screen_size": "16.00m × 6.70m"
+              },
+              {
+                "name": "Dolby Cinema",
+                "features": [
+                  "Dolby Cinema"
+                ],
+                "total_seats": 255,
+                "seats": {
+                  "一般座席": 255,
+                  "車椅子席": 2,
+                  "合計": 255
+                },
+                "screen_size": "15m × 7.13m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shinjuku",
+          "code": "1051",
+          "name": "新宿ピカデリー",
+          "region": "東京都",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/shinjuku/facility.html",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 563,
+                "seats": {
+                  "一般座席": 563,
+                  "車椅子席": 2,
+                  "合計": 563
+                },
+                "screen_size": "17.20m × 7.20m"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 288,
+                "seats": {
+                  "一般座席": 288,
+                  "車椅子席": 2,
+                  "合計": 288
+                },
+                "screen_size": "13.00m × 5.50m"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 274,
+                "seats": {
+                  "一般座席": 274,
+                  "車椅子席": 2,
+                  "合計": 274
+                },
+                "screen_size": "12.80m × 5.30m"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "一般座席": 119,
+                  "車椅子席": 2,
+                  "合計": 119
+                },
+                "screen_size": "8.40m × 4.60m"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [],
+                "total_seats": 147,
+                "seats": {
+                  "一般座席": 147,
+                  "車椅子席": 2,
+                  "合計": 147
+                },
+                "screen_size": "9.00m × 4.80m"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 232,
+                "seats": {
+                  "一般座席": 232,
+                  "車椅子席": 2,
+                  "合計": 232
+                },
+                "screen_size": "10.80m × 4.50m"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "一般座席": 119,
+                  "車椅子席": 2,
+                  "合計": 119
+                },
+                "screen_size": "7.90m × 3.30m"
+              },
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 147,
+                "seats": {
+                  "一般座席": 147,
+                  "車椅子席": 2,
+                  "合計": 147
+                },
+                "screen_size": "8.90m × 3.70m"
+              },
+              {
+                "name": "スクリーン9",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "一般座席": 119,
+                  "車椅子席": 2,
+                  "合計": 119
+                },
+                "screen_size": "8.00m × 3.30m"
+              },
+              {
+                "name": "スクリーン10",
+                "features": [],
+                "total_seats": 107,
+                "seats": {
+                  "一般座席": 107,
+                  "車椅子席": 2,
+                  "合計": 107
+                },
+                "screen_size": "7.90m × 3.30m"
+              },
+              {
+                "name": "プラチナシート",
+                "features": [
+                  "プラチナ"
+                ],
+                "total_seats": 21,
+                "seats": {
+                  "一般座席": 21,
+                  "車椅子席": 1,
+                  "合計": 21
+                },
+                "screen_size": "スクリーン1と同様"
+              },
+              {
+                "name": "プラチナルーム",
+                "features": [
+                  "プラチナ"
+                ],
+                "total_seats": 4,
+                "seats": {
+                  "プラチナルーム(室)": 2,
+                  "定員": 4,
+                  "合計": 4
+                },
+                "screen_size": "スクリーン1と同様"
+              },
+              {
+                "name": "プラチナ",
+                "features": [
+                  "プラチナ"
+                ],
+                "total_seats": 25,
+                "seats": {
+                  "プラチナシート": 21,
+                  "車椅子席": 1,
+                  "プラチナルーム(室)": 2,
+                  "合計": 25
+                },
+                "screen_size": "スクリーン1と同様"
+              }
+            ]
+          }
+        },
+        {
+          "id": "togeki",
+          "code": "1050",
+          "name": "東劇",
+          "region": "東京都",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/togeki/facility.html",
+            "screens": [
+              {
+                "name": "シアター",
+                "features": [],
+                "total_seats": 397,
+                "seats": {
+                  "一般座席": 397,
+                  "車椅子席": 2,
+                  "合計": 397
+                },
+                "screen_size": "10.57m × 4.50m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tsukuba",
+          "code": "1030",
+          "name": "MOVIXつくば",
+          "region": "茨城県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/tsukuba/facility.html",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 187,
+                "seats": {
+                  "一般座席": 187,
+                  "車椅子席": 2,
+                  "合計": 187
+                },
+                "screen_size": "11.80m × 4.90m"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 166,
+                "seats": {
+                  "一般座席": 166,
+                  "車椅子席": 2,
+                  "合計": 166
+                },
+                "screen_size": "10.30m × 4.20m"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 146,
+                "seats": {
+                  "一般座席": 146,
+                  "車椅子席": 2,
+                  "合計": 146
+                },
+                "screen_size": "9.10m × 4.90m"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 214,
+                "seats": {
+                  "一般座席": 214,
+                  "車椅子席": 2,
+                  "合計": 214
+                },
+                "screen_size": "12.80m × 5.40m"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [],
+                "total_seats": 98,
+                "seats": {
+                  "一般座席": 98,
+                  "車椅子席": 2,
+                  "合計": 98
+                },
+                "screen_size": "6.70m × 3.60m"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 98,
+                "seats": {
+                  "一般座席": 98,
+                  "車椅子席": 2,
+                  "合計": 98
+                },
+                "screen_size": "6.70m × 3.60m"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 141,
+                "seats": {
+                  "一般座席": 141,
+                  "車椅子席": 2,
+                  "合計": 141
+                },
+                "screen_size": "9.80m × 5.30m"
+              },
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "一般座席": 111,
+                  "車椅子席": 2,
+                  "合計": 111
+                },
+                "screen_size": "9.00m × 4.90m"
+              },
+              {
+                "name": "スクリーン9",
+                "features": [],
+                "total_seats": 471,
+                "seats": {
+                  "一般座席": 471,
+                  "車椅子席": 3,
+                  "合計": 471
+                },
+                "screen_size": "17.30m × 7.20m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "utsunomiya",
+          "code": "1020",
+          "name": "MOVIX宇都宮",
+          "region": "栃木県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/utsunomiya/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 152,
+                "seats": {
+                  "一般座席": 152,
+                  "車椅子席": 2,
+                  "合計": 152
+                },
+                "screen_size": "10.40m × 5.20m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 152,
+                "seats": {
+                  "一般座席": 152,
+                  "車椅子席": 2,
+                  "合計": 152
+                },
+                "screen_size": "10.40m × 5.20m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 140,
+                "seats": {
+                  "一般座席": 140,
+                  "車椅子席": 2,
+                  "合計": 140
+                },
+                "screen_size": "9.40m × 5.08m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 121,
+                "seats": {
+                  "一般座席": 121,
+                  "車椅子席": 2,
+                  "合計": 121
+                },
+                "screen_size": "8.40m × 4.54m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 110,
+                "seats": {
+                  "一般座席": 110,
+                  "車椅子席": 2,
+                  "合計": 110
+                },
+                "screen_size": "8.30m × 4.38m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 167,
+                "seats": {
+                  "一般座席": 167,
+                  "車椅子席": 2,
+                  "合計": 167
+                },
+                "screen_size": "9.40m × 4.88m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 311,
+                "seats": {
+                  "一般座席": 311,
+                  "車椅子席": 4,
+                  "合計": 311
+                },
+                "screen_size": "14.20m × 5.95m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 504,
+                "seats": {
+                  "一般座席": 504,
+                  "車椅子席": 4,
+                  "合計": 504
+                },
+                "screen_size": "18.98m × 7.95m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 225,
+                "seats": {
+                  "一般座席": 225,
+                  "車椅子席": 4,
+                  "合計": 225
+                },
+                "screen_size": "12.40m × 6.15m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 128,
+                "seats": {
+                  "一般座席": 128,
+                  "車椅子席": 2,
+                  "合計": 128
+                },
+                "screen_size": "9.40m × 4.65m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "isesaki",
+          "code": "1033",
+          "name": "MOVIX伊勢崎",
+          "region": "群馬県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/isesaki/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 113,
+                "seats": {
+                  "一般座席": 113,
+                  "車椅子席": 2,
+                  "合計": 113
+                },
+                "screen_size": "7.90m × 4.30m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 132,
+                "seats": {
+                  "一般座席": 132,
+                  "車椅子席": 2,
+                  "合計": 132
+                },
+                "screen_size": "9.00m × 4.90m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 132,
+                "seats": {
+                  "一般座席": 132,
+                  "車椅子席": 2,
+                  "合計": 132
+                },
+                "screen_size": "9.00m × 4.90m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 113,
+                "seats": {
+                  "一般座席": 113,
+                  "車椅子席": 2,
+                  "合計": 113
+                },
+                "screen_size": "7.90m × 4.27m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 214,
+                "seats": {
+                  "一般座席": 214,
+                  "車椅子席": 2,
+                  "合計": 214
+                },
+                "screen_size": "10.36m × 5.60m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "6.70m × 3.60m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 430,
+                "seats": {
+                  "一般座席": 430,
+                  "車椅子席": 2,
+                  "合計": 430
+                },
+                "screen_size": "19.10m × 7.99m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 270,
+                "seats": {
+                  "一般座席": 270,
+                  "車椅子席": 2,
+                  "合計": 270
+                },
+                "screen_size": "16.30m × 6.82m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 119,
+                "seats": {
+                  "一般座席": 119,
+                  "車椅子席": 2,
+                  "合計": 119
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "一般座席": 120,
+                  "車椅子席": 2,
+                  "合計": 120
+                },
+                "screen_size": "8.30m × 4.50m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "saitama",
+          "code": "1022",
+          "name": "MOVIXさいたま",
+          "region": "埼玉県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/saitama/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 339,
+                "seats": {
+                  "一般座席": 339,
+                  "車椅子席": 2,
+                  "合計": 339
+                },
+                "screen_size": "15.03m × 6.30m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 179,
+                "seats": {
+                  "一般座席": 179,
+                  "車椅子席": 2,
+                  "合計": 179
+                },
+                "screen_size": "11.60m × 5.00m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 169,
+                "seats": {
+                  "一般座席": 169,
+                  "車椅子席": 2,
+                  "合計": 169
+                },
+                "screen_size": "10.90m × 4.85m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "一般座席": 120,
+                  "車椅子席": 2,
+                  "合計": 120
+                },
+                "screen_size": "8.30m × 4.48m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 2,
+                  "合計": 117
+                },
+                "screen_size": "8.04m × 4.35m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 2,
+                  "合計": 117
+                },
+                "screen_size": "8.04m × 4.35m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 2,
+                  "合計": 117
+                },
+                "screen_size": "8.04m × 4.35m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 133,
+                "seats": {
+                  "一般座席": 133,
+                  "車椅子席": 2,
+                  "合計": 133
+                },
+                "screen_size": "9.27m × 5.00m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 161,
+                "seats": {
+                  "一般座席": 161,
+                  "車椅子席": 2,
+                  "合計": 161
+                },
+                "screen_size": "9.90m × 5.35m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 297,
+                "seats": {
+                  "一般座席": 297,
+                  "車椅子席": 2,
+                  "合計": 297
+                },
+                "screen_size": "14.40m × 6.03m"
+              },
+              {
+                "name": "Dolby Cinema",
+                "features": [
+                  "Dolby Cinema"
+                ],
+                "total_seats": 292,
+                "seats": {
+                  "一般座席": 292,
+                  "車椅子席": 2,
+                  "合計": 292
+                },
+                "screen_size": "13.92m×5.80m"
+              },
+              {
+                "name": "シアター12",
+                "features": [],
+                "total_seats": 502,
+                "seats": {
+                  "一般座席": 502,
+                  "車椅子席": 4,
+                  "合計": 502
+                },
+                "screen_size": "18.60m × 7.79m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kawaguchi",
+          "code": "1024",
+          "name": "MOVIX川口",
+          "region": "埼玉県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kawaguchi/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 427,
+                "seats": {
+                  "一般座席": 427,
+                  "車椅子席": 3,
+                  "合計": 427
+                },
+                "screen_size": "17.40m × 7.30m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 240,
+                "seats": {
+                  "一般座席": 240,
+                  "車椅子席": 2,
+                  "合計": 240
+                },
+                "screen_size": "12.05m × 5.05m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 250,
+                "seats": {
+                  "一般座席": 250,
+                  "車椅子席": 2,
+                  "合計": 250
+                },
+                "screen_size": "12.05m × 5.05m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 141,
+                "seats": {
+                  "一般座席": 141,
+                  "車椅子席": 2,
+                  "合計": 141
+                },
+                "screen_size": "8.20m × 4.43m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 210,
+                "seats": {
+                  "一般座席": 210,
+                  "車椅子席": 2,
+                  "合計": 210
+                },
+                "screen_size": "12.90m × 5.40m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 210,
+                "seats": {
+                  "一般座席": 210,
+                  "車椅子席": 2,
+                  "合計": 210
+                },
+                "screen_size": "12.90m × 5.40m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 167,
+                "seats": {
+                  "一般座席": 167,
+                  "車椅子席": 2,
+                  "合計": 167
+                },
+                "screen_size": "10.40m × 4.40m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 178,
+                "seats": {
+                  "一般座席": 178,
+                  "車椅子席": 2,
+                  "合計": 178
+                },
+                "screen_size": "10.60m × 4.44m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 127,
+                "seats": {
+                  "一般座席": 127,
+                  "車椅子席": 2,
+                  "合計": 127
+                },
+                "screen_size": "8.40m × 4.50m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kashiwanoha",
+          "code": "1028",
+          "name": "MOVIX柏の葉",
+          "region": "千葉県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kashiwanoha/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "一般座席": 105,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 363,
+                "seats": {
+                  "一般座席": 363,
+                  "車椅子席": 3,
+                  "合計": 363
+                },
+                "screen_size": "13.40m × 5.60m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 141,
+                "seats": {
+                  "一般座席": 141,
+                  "車椅子席": 2,
+                  "合計": 141
+                },
+                "screen_size": "10.40m × 4.30m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "一般座席": 105,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "一般座席": 105,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "6.90m × 3.70m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "一般座席": 105,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 95,
+                "seats": {
+                  "一般座席": 95,
+                  "車椅子席": 2,
+                  "合計": 95
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 223,
+                "seats": {
+                  "一般座席": 223,
+                  "車椅子席": 2,
+                  "合計": 223
+                },
+                "screen_size": "9.90m × 5.30m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 294,
+                "seats": {
+                  "一般座席": 294,
+                  "車椅子席": 2,
+                  "合計": 294
+                },
+                "screen_size": "11.10m × 6.00m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 473,
+                "seats": {
+                  "一般座席": 473,
+                  "車椅子席": 3,
+                  "合計": 473
+                },
+                "screen_size": "14.00m × 5.90m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kameari",
+          "code": "1025",
+          "name": "MOVIX亀有",
+          "region": "東京都",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kameari/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 149,
+                "seats": {
+                  "一般座席": 149,
+                  "車椅子席": 2,
+                  "合計": 149
+                },
+                "screen_size": "10.20m × 4.27m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 139,
+                "seats": {
+                  "一般座席": 139,
+                  "車椅子席": 2,
+                  "合計": 139
+                },
+                "screen_size": "8.60m × 4.64m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 150,
+                "seats": {
+                  "一般座席": 150,
+                  "車椅子席": 2,
+                  "合計": 150
+                },
+                "screen_size": "9.00m × 4.86m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 172
+                },
+                "screen_size": "9.10m × 4.91m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 172
+                },
+                "screen_size": "9.10m × 4.91m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 227,
+                "seats": {
+                  "一般座席": 227,
+                  "車椅子席": 2,
+                  "合計": 227
+                },
+                "screen_size": "12.00m × 5.02m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 139,
+                "seats": {
+                  "一般座席": 139,
+                  "車椅子席": 2,
+                  "合計": 139
+                },
+                "screen_size": "9.60m × 5.18m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 234,
+                "seats": {
+                  "一般座席": 234,
+                  "車椅子席": 2,
+                  "合計": 234
+                },
+                "screen_size": "10.10m × 5.45m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 305,
+                "seats": {
+                  "一般座席": 305,
+                  "車椅子席": 2,
+                  "合計": 305
+                },
+                "screen_size": "11.70m × 6.22m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 460,
+                "seats": {
+                  "一般座席": 460,
+                  "車椅子席": 3,
+                  "合計": 460
+                },
+                "screen_size": "17.90m × 7.49m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "akishima",
+          "code": "1026",
+          "name": "MOVIX昭島",
+          "region": "東京都",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/akishima/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 382,
+                "seats": {
+                  "一般座席": 382,
+                  "車椅子席": 3,
+                  "合計": 382
+                },
+                "screen_size": "13.80m × 5.80m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 495,
+                "seats": {
+                  "一般座席": 495,
+                  "車椅子席": 3,
+                  "合計": 495
+                },
+                "screen_size": "17.10m × 7.10m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "一般座席": 130,
+                  "車椅子席": 2,
+                  "合計": 130
+                },
+                "screen_size": "7.70m × 4.20m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "一般座席": 130,
+                  "車椅子席": 2,
+                  "合計": 130
+                },
+                "screen_size": "7.70m × 4.20m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 234,
+                "seats": {
+                  "一般座席": 234,
+                  "車椅子席": 2,
+                  "合計": 234
+                },
+                "screen_size": "11.20m × 5.10m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 208,
+                "seats": {
+                  "一般座席": 208,
+                  "車椅子席": 2,
+                  "合計": 208
+                },
+                "screen_size": "10.00m × 5.40m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "一般座席": 130,
+                  "車椅子席": 2,
+                  "合計": 130
+                },
+                "screen_size": "7.70m × 4.20m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 127,
+                "seats": {
+                  "一般座席": 127,
+                  "車椅子席": 2,
+                  "合計": 127
+                },
+                "screen_size": "8.10m × 4.40m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 163,
+                "seats": {
+                  "一般座席": 163,
+                  "車椅子席": 2,
+                  "合計": 163
+                },
+                "screen_size": "9.50m × 5.20m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 196,
+                "seats": {
+                  "一般座席": 196,
+                  "車椅子席": 2,
+                  "合計": 196
+                },
+                "screen_size": "10.80m × 4.50m"
+              },
+              {
+                "name": "シアター11",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 2,
+                  "合計": 117
+                },
+                "screen_size": "7.70m × 4.10m"
+              },
+              {
+                "name": "シアター12",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 2,
+                  "合計": 117
+                },
+                "screen_size": "7.70m × 4.10m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hashimoto",
+          "code": "1021",
+          "name": "MOVIX橋本",
+          "region": "神奈川県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/hashimoto/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 131,
+                "seats": {
+                  "一般座席": 131,
+                  "車椅子席": 2,
+                  "合計": 131
+                },
+                "screen_size": "9.10m × 4.90m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 131,
+                "seats": {
+                  "一般座席": 131,
+                  "車椅子席": 2,
+                  "合計": 131
+                },
+                "screen_size": "9.10m × 4.90m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 265,
+                "seats": {
+                  "一般座席": 265,
+                  "車椅子席": 2,
+                  "合計": 265
+                },
+                "screen_size": "10.00m × 4.20m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 112,
+                "seats": {
+                  "一般座席": 112,
+                  "車椅子席": 2,
+                  "合計": 112
+                },
+                "screen_size": "7.60m × 4.10m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "一般座席": 164,
+                  "車椅子席": 2,
+                  "合計": 164
+                },
+                "screen_size": "8.00m × 4.30m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "一般座席": 164,
+                  "車椅子席": 2,
+                  "合計": 164
+                },
+                "screen_size": "8.00m × 4.30m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 112,
+                "seats": {
+                  "一般座席": 112,
+                  "車椅子席": 2,
+                  "合計": 112
+                },
+                "screen_size": "7.60m × 4.10m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 408,
+                "seats": {
+                  "一般座席": 408,
+                  "車椅子席": 2,
+                  "合計": 408
+                },
+                "screen_size": "11.70m × 4.80m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 225,
+                "seats": {
+                  "一般座席": 225,
+                  "車椅子席": 2,
+                  "合計": 225
+                },
+                "screen_size": "11.30m × 4.70m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shimizu",
+          "code": "1015",
+          "name": "MOVIX清水",
+          "region": "静岡県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/shimizu/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 225,
+                "seats": {
+                  "一般座席": 225,
+                  "車椅子席": 4,
+                  "合計": 225
+                },
+                "screen_size": "11.70m × 4.90m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 191,
+                "seats": {
+                  "一般座席": 191,
+                  "車椅子席": 4,
+                  "合計": 191
+                },
+                "screen_size": "9.73m × 4.30m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 422,
+                "seats": {
+                  "一般座席": 422,
+                  "車椅子席": 4,
+                  "合計": 422
+                },
+                "screen_size": "13.57m × 6.19m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 169,
+                "seats": {
+                  "一般座席": 169,
+                  "車椅子席": 4,
+                  "合計": 169
+                },
+                "screen_size": "9.40m × 3.97m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 256,
+                "seats": {
+                  "一般座席": 256,
+                  "車椅子席": 4,
+                  "合計": 256
+                },
+                "screen_size": "12.55m × 5.28m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 166,
+                "seats": {
+                  "一般座席": 166,
+                  "車椅子席": 4,
+                  "合計": 166
+                },
+                "screen_size": "9.09m × 3.87m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 4,
+                  "合計": 172
+                },
+                "screen_size": "9.14m × 3.89m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 143,
+                "seats": {
+                  "一般座席": 143,
+                  "車椅子席": 4,
+                  "合計": 143
+                },
+                "screen_size": "9.92m × 4.06m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 206,
+                "seats": {
+                  "一般座席": 206,
+                  "車椅子席": 2,
+                  "合計": 206
+                },
+                "screen_size": "10.01m × 5.47m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "miyoshi",
+          "code": "1016",
+          "name": "MOVIX三好",
+          "region": "愛知県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/miyoshi/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 332,
+                "seats": {
+                  "一般座席": 332,
+                  "車椅子席": 2,
+                  "合計": 332
+                },
+                "screen_size": "14.70m × 6.15m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 110,
+                "seats": {
+                  "一般座席": 110,
+                  "車椅子席": 2,
+                  "合計": 110
+                },
+                "screen_size": "8.45m × 4.40m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 110,
+                "seats": {
+                  "一般座席": 110,
+                  "車椅子席": 2,
+                  "合計": 110
+                },
+                "screen_size": "8.45m × 4.40m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 124,
+                "seats": {
+                  "一般座席": 124,
+                  "車椅子席": 2,
+                  "合計": 124
+                },
+                "screen_size": "7.75m × 4.19m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 124,
+                "seats": {
+                  "一般座席": 124,
+                  "車椅子席": 2,
+                  "合計": 124
+                },
+                "screen_size": "7.75m × 4.19m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 104,
+                "seats": {
+                  "一般座席": 104,
+                  "車椅子席": 2,
+                  "合計": 104
+                },
+                "screen_size": "7.70m × 4.00m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 92,
+                "seats": {
+                  "一般座席": 92,
+                  "車椅子席": 2,
+                  "合計": 92
+                },
+                "screen_size": "7.75m × 3.96m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 104,
+                "seats": {
+                  "一般座席": 104,
+                  "車椅子席": 2,
+                  "合計": 104
+                },
+                "screen_size": "7.70m × 4.00m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 228,
+                "seats": {
+                  "一般座席": 228,
+                  "車椅子席": 2,
+                  "合計": 228
+                },
+                "screen_size": "10.20m × 4.80m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 519,
+                "seats": {
+                  "一般座席": 519,
+                  "車椅子席": 3,
+                  "合計": 519
+                },
+                "screen_size": "18.90m × 7.75m"
+              },
+              {
+                "name": "シアター11",
+                "features": [],
+                "total_seats": 155,
+                "seats": {
+                  "一般座席": 155,
+                  "車椅子席": 2,
+                  "合計": 155
+                },
+                "screen_size": "9.50m × 4.65m"
+              },
+              {
+                "name": "シアター12",
+                "features": [],
+                "total_seats": 201,
+                "seats": {
+                  "一般座席": 201,
+                  "車椅子席": 2,
+                  "合計": 201
+                },
+                "screen_size": "12.30m × 5.20m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "yao",
+          "code": "1029",
+          "name": "MOVIX八尾",
+          "region": "大阪府",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/yao/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 318,
+                "seats": {
+                  "一般座席": 318,
+                  "車椅子席": 3,
+                  "合計": 318
+                },
+                "screen_size": "14.80m × 6.20m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 449,
+                "seats": {
+                  "一般座席": 449,
+                  "車椅子席": 3,
+                  "合計": 449
+                },
+                "screen_size": "16.70m × 7.00m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 260,
+                "seats": {
+                  "一般座席": 260,
+                  "車椅子席": 2,
+                  "合計": 260
+                },
+                "screen_size": "11.20m × 6.10m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "6.90m × 3.70m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 178,
+                "seats": {
+                  "一般座席": 178,
+                  "車椅子席": 2,
+                  "合計": 178
+                },
+                "screen_size": "9.80m × 4.50m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 208,
+                "seats": {
+                  "一般座席": 208,
+                  "車椅子席": 2,
+                  "合計": 208
+                },
+                "screen_size": "12.00m × 5.70m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 217,
+                "seats": {
+                  "一般座席": 217,
+                  "車椅子席": 2,
+                  "合計": 217
+                },
+                "screen_size": "10.50m × 5.70m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 217,
+                "seats": {
+                  "一般座席": 217,
+                  "車椅子席": 2,
+                  "合計": 217
+                },
+                "screen_size": "10.50m × 5.70m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター11",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "合計": 106
+                },
+                "screen_size": "6.80m × 3.70m"
+              },
+              {
+                "name": "シアター12",
+                "features": [],
+                "total_seats": 153,
+                "seats": {
+                  "一般座席": 153,
+                  "車椅子席": 2,
+                  "合計": 153
+                },
+                "screen_size": "8.80m × 4.80m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "amagasaki",
+          "code": "1031",
+          "name": "MOVIXあまがさき",
+          "region": "兵庫県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/amagasaki/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 87,
+                "seats": {
+                  "一般座席": 87,
+                  "車椅子席": 2,
+                  "合計": 87
+                },
+                "screen_size": "6.50m × 3.50m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 116,
+                "seats": {
+                  "一般座席": 116,
+                  "車椅子席": 2,
+                  "合計": 116
+                },
+                "screen_size": "8.00m × 4.30m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 154,
+                "seats": {
+                  "一般座席": 154,
+                  "車椅子席": 2,
+                  "合計": 154
+                },
+                "screen_size": "10.30m × 4.30m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 94,
+                "seats": {
+                  "一般座席": 94,
+                  "車椅子席": 2,
+                  "合計": 94
+                },
+                "screen_size": "8.00m × 4.30m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 207,
+                "seats": {
+                  "一般座席": 207,
+                  "車椅子席": 2,
+                  "合計": 207
+                },
+                "screen_size": "12.20m × 5.00m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 426,
+                "seats": {
+                  "一般座席": 426,
+                  "車椅子席": 2,
+                  "合計": 426
+                },
+                "screen_size": "15.70m × 6.50m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 182,
+                "seats": {
+                  "一般座席": 182,
+                  "車椅子席": 2,
+                  "合計": 182
+                },
+                "screen_size": "9.40m × 5.10m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 108,
+                "seats": {
+                  "一般座席": 108,
+                  "車椅子席": 2,
+                  "合計": 108
+                },
+                "screen_size": "7.70m × 4.20m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 172
+                },
+                "screen_size": "9.60m × 5.20m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 172
+                },
+                "screen_size": "9.60m × 5.20m"
+              },
+              {
+                "name": "シアター11",
+                "features": [],
+                "total_seats": 312,
+                "seats": {
+                  "一般座席": 312,
+                  "車椅子席": 2,
+                  "合計": 312
+                },
+                "screen_size": "15.00m × 6.20m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kyoto",
+          "code": "1032",
+          "name": "MOVIX京都",
+          "region": "京都府",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kyoto/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 151,
+                "seats": {
+                  "一般座席": 151,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 151
+                },
+                "screen_size": "8.93m × 4.34m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 144,
+                "seats": {
+                  "一般座席": 144,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 144
+                },
+                "screen_size": "9.50m × 4.00m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 367,
+                "seats": {
+                  "一般座席": 367,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 367
+                },
+                "screen_size": "14.50m × 6.07m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 151,
+                "seats": {
+                  "一般座席": 151,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 151
+                },
+                "screen_size": "8.80m × 3.55m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 144,
+                "seats": {
+                  "一般座席": 144,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 144
+                },
+                "screen_size": "9.30m × 3.90m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 140,
+                "seats": {
+                  "一般座席": 140,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 140
+                },
+                "screen_size": "8.80m × 3.65m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 144,
+                "seats": {
+                  "一般座席": 144,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 7,
+                  "合計": 144
+                },
+                "screen_size": "8.40m × 3.50m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 3,
+                  "合計": 89
+                },
+                "screen_size": "7.60m × 3.31m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 3,
+                  "合計": 89
+                },
+                "screen_size": "7.63m × 3.35m"
+              },
+              {
+                "name": "Dolby Cinema",
+                "features": [
+                  "Dolby Cinema"
+                ],
+                "total_seats": 306,
+                "seats": {
+                  "一般座席": 306,
+                  "車椅子席": 4,
+                  "合計": 306
+                },
+                "screen_size": "12.38m × 5.18m"
+              },
+              {
+                "name": "シアター11",
+                "features": [],
+                "total_seats": 140,
+                "seats": {
+                  "一般座席": 140,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 3,
+                  "合計": 140
+                },
+                "screen_size": "9.00m × 3.77m"
+              },
+              {
+                "name": "シアター12",
+                "features": [],
+                "total_seats": 155,
+                "seats": {
+                  "一般座席": 155,
+                  "車椅子席": 2,
+                  "ペアシート(組)": 4,
+                  "合計": 155
+                },
+                "screen_size": "9.22m × 3.86m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kurashiki",
+          "code": "1014",
+          "name": "MOVIX倉敷",
+          "region": "岡山県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kurashiki/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 172,
+                "seats": {
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 172
+                },
+                "screen_size": "11.88m × 4.98m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2,
+                  "合計": 171
+                },
+                "screen_size": "11.70m × 4.90m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2,
+                  "合計": 171
+                },
+                "screen_size": "11.58m × 4.85m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2,
+                  "合計": 171
+                },
+                "screen_size": "12.00m × 5.25m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 1,
+                  "合計": 106
+                },
+                "screen_size": "7.53m × 3.65m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 386,
+                "seats": {
+                  "一般座席": 386,
+                  "車椅子席": 3,
+                  "合計": 386
+                },
+                "screen_size": "16.34m × 6.85m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "一般座席": 88,
+                  "車椅子席": 2,
+                  "合計": 88
+                },
+                "screen_size": "8.04m × 4.35m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "一般座席": 88,
+                  "車椅子席": 2,
+                  "合計": 88
+                },
+                "screen_size": "8.04m × 4.35m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 88,
+                "seats": {
+                  "一般座席": 88,
+                  "車椅子席": 2,
+                  "合計": 88
+                },
+                "screen_size": "7.90m × 4.27m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 261,
+                "seats": {
+                  "一般座席": 261,
+                  "車椅子席": 4,
+                  "合計": 261
+                },
+                "screen_size": "13.08m × 5.91m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hiezu",
+          "code": "1012",
+          "name": "MOVIX日吉津",
+          "region": "鳥取県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/hiezu/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 310,
+                "seats": {
+                  "一般座席": 310,
+                  "車椅子席": 3,
+                  "合計": 310
+                },
+                "screen_size": "13.42m × 5.62m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 259,
+                "seats": {
+                  "一般座席": 259,
+                  "車椅子席": 3,
+                  "合計": 259
+                },
+                "screen_size": "12.48m × 5.23m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 273,
+                "seats": {
+                  "一般座席": 273,
+                  "車椅子席": 3,
+                  "合計": 273
+                },
+                "screen_size": "12.48m × 5.23m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 236,
+                "seats": {
+                  "一般座席": 236,
+                  "車椅子席": 3,
+                  "合計": 236
+                },
+                "screen_size": "11.24m × 4.92m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "一般座席": 114,
+                  "車椅子席": 2,
+                  "合計": 114
+                },
+                "screen_size": "8.35m × 3.88m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 114,
+                "seats": {
+                  "一般座席": 114,
+                  "車椅子席": 2,
+                  "合計": 114
+                },
+                "screen_size": "8.35m × 3.88m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hiroshima",
+          "code": "1035",
+          "name": "MOVIX広島駅",
+          "region": "広島県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/hiroshima/facility.html",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 130,
+                "seats": {
+                  "一般座席": 130,
+                  "車椅子席": 2,
+                  "合計": 130
+                },
+                "screen_size": "10.73m × 5.80m"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 341,
+                "seats": {
+                  "一般座席": 341,
+                  "車椅子席": 4,
+                  "合計": 341
+                },
+                "screen_size": "18.80m × 7.87m"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 78,
+                "seats": {
+                  "一般座席": 78,
+                  "車椅子席": 2,
+                  "合計": 78
+                },
+                "screen_size": "7.215m × 3.90m"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 78,
+                "seats": {
+                  "一般座席": 78,
+                  "車椅子席": 2,
+                  "合計": 78
+                },
+                "screen_size": "7.215m × 3.90m"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [],
+                "total_seats": 197,
+                "seats": {
+                  "一般座席": 197,
+                  "車椅子席": 2,
+                  "合計": 197
+                },
+                "screen_size": "14.95m × 6.26m"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 78,
+                "seats": {
+                  "一般座席": 78,
+                  "車椅子席": 2,
+                  "合計": 78
+                },
+                "screen_size": "7.215m × 3.90m"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 145,
+                "seats": {
+                  "一般座席": 145,
+                  "車椅子席": 2,
+                  "合計": 145
+                },
+                "screen_size": "10.36m × 5.60m"
+              },
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 225,
+                "seats": {
+                  "一般座席": 225,
+                  "車椅子席": 2,
+                  "合計": 225
+                },
+                "screen_size": "14.40m × 6.03m"
+              },
+              {
+                "name": "スクリーン9",
+                "features": [],
+                "total_seats": 115,
+                "seats": {
+                  "一般座席": 115,
+                  "車椅子席": 2,
+                  "合計": 115
+                },
+                "screen_size": "8.54m × 4.61m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shunan",
+          "code": "1011",
+          "name": "MOVIX周南",
+          "region": "山口県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/shunan/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 212,
+                "seats": {
+                  "一般座席": 212,
+                  "車椅子席": 2,
+                  "合計": 212
+                },
+                "screen_size": "11.41m × 4.78m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 212,
+                "seats": {
+                  "一般座席": 212,
+                  "車椅子席": 2,
+                  "合計": 212
+                },
+                "screen_size": "11.41m × 4.78m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 176,
+                "seats": {
+                  "一般座席": 176,
+                  "車椅子席": 2,
+                  "合計": 176
+                },
+                "screen_size": "9.56m × 5.16m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 176,
+                "seats": {
+                  "一般座席": 176,
+                  "車椅子席": 2,
+                  "合計": 176
+                },
+                "screen_size": "9.56m × 5.16m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 161,
+                "seats": {
+                  "一般座席": 161,
+                  "車椅子席": 2,
+                  "合計": 161
+                },
+                "screen_size": "9.56m × 5.16m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 161,
+                "seats": {
+                  "一般座席": 161,
+                  "車椅子席": 2,
+                  "合計": 161
+                },
+                "screen_size": "9.56m × 5.16m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 452,
+                "seats": {
+                  "一般座席": 452,
+                  "車椅子席": 2,
+                  "合計": 452
+                },
+                "screen_size": "16.48m × 7.25m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kumamoto",
+          "code": "1034",
+          "name": "熊本ピカデリー",
+          "region": "熊本県",
+          "facility": {
+            "url": "https://www.smt-cinema.com/site/kumamoto/facility.html",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 182,
+                "seats": {
+                  "一般座席": 182,
+                  "車椅子席": 2,
+                  "合計": 182
+                },
+                "screen_size": "13.7m × 6.5m"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 298,
+                "seats": {
+                  "一般座席": 298,
+                  "車椅子席": 2,
+                  "合計": 298
+                },
+                "screen_size": "15.5m × 6.5m"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 74,
+                "seats": {
+                  "一般座席": 74,
+                  "車椅子席": 2,
+                  "合計": 74
+                },
+                "screen_size": "7.4m × 4.0m"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "一般座席": 85,
+                  "車椅子席": 2,
+                  "合計": 85
+                },
+                "screen_size": "6.1m × 3.3m"
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 115,
+                "seats": {
+                  "一般座席": 115,
+                  "車椅子席": 2,
+                  "合計": 115
+                },
+                "screen_size": "8.6m × 4.6m"
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "一般座席": 105,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "9.7m × 4.4m"
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 98,
+                "seats": {
+                  "一般座席": 98,
+                  "車椅子席": 2,
+                  "合計": 98
+                },
+                "screen_size": "9.2m × 4.4m"
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "一般座席": 111,
+                  "車椅子席": 2,
+                  "合計": 111
+                },
+                "screen_size": "10.0m × 4.4m"
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 2,
+                  "合計": 89
+                },
+                "screen_size": "8.6m × 4.4m"
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 159,
+                "seats": {
+                  "一般座席": 159,
+                  "車椅子席": 2,
+                  "合計": 159
+                },
+                "screen_size": "13.2m × 6.0m"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

@@ -35,6 +35,12 @@
       "name": "109シネマズ",
       "theaters_count": 19,
       "file": "data/theaters/109cinemas.json"
+    },
+    {
+      "id": "smt",
+      "name": "MOVIX・ピカデリー",
+      "theaters_count": 23,
+      "file": "data/theaters/smt.json"
     }
   ]
 }
