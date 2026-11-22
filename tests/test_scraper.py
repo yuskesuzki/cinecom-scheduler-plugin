@@ -861,6 +861,110 @@ class TestScraperPackage(unittest.TestCase):
             "https://www.smt-cinema.com/site/shinjuku/",
         )
 
+    def test_parse_aeon_facility_html_cleaned_schema(self):
+        """fetch_theaters.parse_aeon_facility_html がクリーンなスキーマとスクリーン名・サイズを抽出することを検証"""
+        import importlib.util
+        from pathlib import Path
+
+        script_path = (
+            Path(__file__).resolve().parents[1]
+            / ".agents"
+            / "skills"
+            / "update-theaters"
+            / "scripts"
+            / "fetch_theaters.py"
+        )
+        spec = importlib.util.spec_from_file_location("fetch_theaters_mod", script_path)
+        mod = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(mod)
+
+        sample_html = """
+        <section id="facility">
+          <div class="p-facility__block">
+            <p class="p-facility__name">トリプルエアシールド</p>
+            <p class="p-facility__lead">説明文</p>
+          </div>
+        </section>
+        <section id="screen">
+          <div class="p-facility__screenList c-accordion">
+            <label class="c-accordion__header"><input type="checkbox">
+              <span class="c-accordion__label">1スクリーン<small>(10.8m×6.0m)</small></span>
+            </label>
+            <div class="c-accordion__body">
+              <span data-chip="デジタル 7.1ch">デジタル 7.1ch</span>
+              <span data-chip="トリプルエアシールド">トリプルエアシールド</span>
+              <a data-modal="modal_seat_1">座席表</a>
+              <div class="p-facility__table">
+                <p>座席数</p>
+                <table>
+                  <tr><th>通常座席</th><td>154席</td></tr>
+                  <tr><th>車椅子用スペース</th><td>2席</td></tr>
+                  <tr><th>合 計</th><td>156席</td></tr>
+                </table>
+              </div>
+              <div class="p-facility__table">
+                <p>スペック詳細</p>
+                <table>
+                  <tr><th>ステージスピーカー</th><td>JBL C222</td></tr>
+                  <tr><th>プロセッサー</th><td>QSC DCP300</td></tr>
+                </table>
+              </div>
+            </div>
+          </section>
+          <div data-modal="modal_seat_1"><img src="/uploads/theaters/seatmap/1033/01.gif"></div>
+        </section>
+        """
+        result = mod.parse_aeon_facility_html(sample_html, "itabashi")
+        self.assertEqual(set(result.keys()), {"screens"})
+        self.assertEqual(len(result["screens"]), 1)
+
+        scr = result["screens"][0]
+        self.assertEqual(scr["name"], "1スクリーン")
+        self.assertEqual(scr.get("screen_size"), "10.8m×6.0m")
+        self.assertEqual(scr["features"], ["デジタル 7.1ch"])
+        self.assertEqual(scr["total_seats"], 156)
+        self.assertEqual(scr["seats"], {"通常座席": 154, "車椅子用スペース": 2})
+        self.assertEqual(
+            scr.get("seat_map_url"),
+            "https://theater.aeoncinema.com/uploads/theaters/seatmap/1033/01.gif",
+        )
+
+    def test_aeon_theaters_json_schema_cleanliness(self):
+        """data/theaters/aeon.json と data/theaters.json がスリム化・整合性要件を満たすことを検証"""
+        from pathlib import Path
+
+        data_dir = Path(__file__).resolve().parents[1] / "data"
+        with (data_dir / "theaters" / "aeon.json").open("r", encoding="utf-8") as f:
+            aeon = json.load(f)
+        with (data_dir / "theaters.json").open("r", encoding="utf-8") as f:
+            master = json.load(f)
+
+        theaters = aeon.get("theaters", [])
+        self.assertGreaterEqual(len(theaters), 95)
+
+        forbidden_t_keys = {"theater_id", "code", "url"}
+        forbidden_f_keys = {"url", "theater_services"}
+
+        for t in theaters:
+            self.assertFalse(forbidden_t_keys & set(t.keys()), f"Forbidden theater keys in {t.get('id')}")
+            self.assertTrue(t.get("area"), f"Missing area in {t.get('id')}")
+            fac = t.get("facility")
+            self.assertIsInstance(fac, dict, f"Missing facility in {t.get('id')}")
+            self.assertFalse(forbidden_f_keys & set(fac.keys()), f"Forbidden facility keys in {t.get('id')}")
+            screens = fac.get("screens") or []
+            self.assertGreater(len(screens), 0, f"Empty screens in {t.get('id')}")
+            for s in screens:
+                self.assertTrue(s.get("name"), f"Empty screen name in {t.get('id')}")
+                self.assertNotIn("トリプルエアシールド", s.get("features") or [])
+                seats = s.get("seats") or {}
+                for k, v in seats.items():
+                    self.assertNotIn(k, ("合 計", "合計"))
+                    self.assertIsInstance(v, int, f"Non-int seat entry {k}={v} in {t.get('id')}")
+
+        master_aeon = next((c for c in master.get("chains", []) if c.get("id") == "aeon"), None)
+        self.assertEqual(master_aeon, aeon)
+
 
 if __name__ == "__main__":
     unittest.main()

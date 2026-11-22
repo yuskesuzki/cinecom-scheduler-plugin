@@ -142,7 +142,7 @@ cinecom-scheduler-plugin/
 │           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
 │           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
 │           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば)
-├── tests/                     # ユニットテスト (全58テスト完備)
+├── tests/                     # ユニットテスト (全60テスト完備)
 │   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト
