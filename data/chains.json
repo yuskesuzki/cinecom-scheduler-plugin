@@ -23,6 +23,12 @@
       "name": "シネマサンシャイン",
       "theaters_count": 16,
       "file": "data/theaters/sunshine.json"
+    },
+    {
+      "id": "tjoy",
+      "name": "T・ジョイ",
+      "theaters_count": 20,
+      "file": "data/theaters/tjoy.json"
     }
   ]
 }

@@ -4,12 +4,14 @@ from .aeon import AeonCinemaProvider
 from .toho import TohoCinemaProvider
 from .united import UnitedCinemaProvider
 from .sunshine import CinemaSunshineProvider
+from .tjoy import TJoyCinemaProvider
 
 PROVIDER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
     "aeon": AeonCinemaProvider,
     "toho": TohoCinemaProvider,
     "united": UnitedCinemaProvider,
     "sunshine": CinemaSunshineProvider,
+    "tjoy": TJoyCinemaProvider,
 }
 
 

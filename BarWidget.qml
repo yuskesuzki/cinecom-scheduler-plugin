@@ -89,7 +89,8 @@ BarWidget {
     { id: "aeon", nameJa: "イオンシネマ", nameEn: "AEON CINEMA" },
     { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
     { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
-    { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" }
+    { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
+    { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" }
   ]
 
 
@@ -196,11 +197,15 @@ BarWidget {
 
   function toEnglishScreen(screenName) {
     if (!screenName) return ""
-    var m = screenName.match(/スクリーン\s*(\d+)/)
+    var norm = root.normalizeScreenText(screenName)
+    var m = norm.match(/スクリーン\s*(\d+)/)
     if (m) {
       return "Screen " + m[1]
     }
-    if (screenName.indexOf("未定") !== -1) {
+    if (/シアター\s*\d+/.test(norm)) {
+      return norm.replace(/シアター\s*(\d+)/, "Theater $1")
+    }
+    if (norm.indexOf("未定") !== -1) {
       return "TBD"
     }
     return screenName
@@ -227,7 +232,9 @@ BarWidget {
     "transaction.ticket-cinemasunshine.com",
     "ticket-cinemasunshine.com",
     "www.cinemasunshine.co.jp",
-    "cinemasunshine.co.jp"
+    "cinemasunshine.co.jp",
+    "tjoy.jp",
+    "tjoy.co.jp"
   ]
 
   function openExternalUrl(url) {
@@ -910,6 +917,8 @@ BarWidget {
                 url = "https://www.unitedcinemas.jp/" + encodeURIComponent(root.selectedTheater) + "/index.html"
               } else if (root.selectedChain === "sunshine") {
                 url = "https://www.cinemasunshine.co.jp/theater/" + encodeURIComponent(root.selectedTheater) + "/"
+              } else if (root.selectedChain === "tjoy") {
+                url = "https://tjoy.jp/" + encodeURIComponent(root.selectedTheater)
               } else {
                 url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
               }

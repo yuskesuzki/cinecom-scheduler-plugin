@@ -257,6 +257,56 @@ ShellRoot {
         self.assertIn("[TEST_SEARCH_RESULT_VIEW_SUCCESS]", output)
         self.assertNotIn("Failed to load configuration", output)
 
+    def test_search_result_view_tjoy_label(self):
+        """SearchResultView で T・ジョイのグルーピングと日英チェーンラベル表示を検証"""
+        qml = """import QtQuick
+import Quickshell
+import "./components"
+
+ShellRoot {
+  Scope {
+    SearchResultView {
+      id: view
+      englishMode: false
+      rawScreenings: [
+        {
+          chain_id: "tjoy",
+          theater_id: "shinjuku_wald9",
+          theater_name: "新宿バルト9",
+          movie_title: "テスト映画",
+          screen_name: "シアター6",
+          start_time: "12:00",
+          end_time: "14:00",
+          seat_status: "available",
+          booking_url: "https://tjoy.jp/shinjuku_wald9/reservation/index/1/2/6/2026-11-23?type=film"
+        }
+      ]
+    }
+
+    Component.onCompleted: {
+      var groups = view.groupedTheaters;
+      if (groups.length !== 1 || groups[0].chainId !== "tjoy") {
+        console.log("[TEST_FAIL] Expected 1 tjoy group");
+        return;
+      }
+      if (view.getChainLabel("tjoy") !== "T・ジョイ") {
+        console.log("[TEST_FAIL] Expected Japanese label T・ジョイ, got: " + view.getChainLabel("tjoy"));
+        return;
+      }
+      view.englishMode = true;
+      if (view.getChainLabel("tjoy") !== "T-JOY") {
+        console.log("[TEST_FAIL] Expected English label T-JOY, got: " + view.getChainLabel("tjoy"));
+        return;
+      }
+      console.log("[TEST_TJOY_UI_SUCCESS]");
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml)
+        self.assertIn("[TEST_TJOY_UI_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+
     def test_movie_schedule_view_text_format_security(self):
         """MovieScheduleView および各 QML コンポーネント内の動的 Text 要素に PlainText が設定されていることを静的検証"""
         import re

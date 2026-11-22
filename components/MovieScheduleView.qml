@@ -555,7 +555,7 @@ Column {
                     mouse.accepted = true
                     rootScheduleView.openExternalUrl(modelData.booking_url)
                   }
-                  onEntered: if (rootScheduleView.bar) rootScheduleView.bar.showTooltip(parent, rootScheduleView.englishMode ? "Book ticket on official Watatheatre site" : "ワタシアター予約購入ページを開く")
+                  onEntered: if (rootScheduleView.bar) rootScheduleView.bar.showTooltip(parent, rootScheduleView.englishMode ? "Open official ticket booking page" : "公式予約購入ページを開く")
                   onExited: if (rootScheduleView.bar) rootScheduleView.bar.hideTooltip(parent)
                 }
               }

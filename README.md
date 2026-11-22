@@ -1,10 +1,10 @@
 # Cinecom Scheduler
 
-A native Omarchy / Quickshell bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, **United Cinemas**, & **Cinema Sunshine**).
+A native Omarchy / Quickshell bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, **United Cinemas**, **Cinema Sunshine**, & **T-JOY**).
 
 Plugin ID: `com.yusuke.cinecom-scheduler`.
 
-イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場、計229劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
+イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場）、T・ジョイ（全国20劇場、計249劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
 
 ## Preview
 
@@ -18,7 +18,7 @@ Plugin ID: `com.yusuke.cinecom-scheduler`.
 ## Usage
 
 - **バーウィジェット**: クリックで上映スケジュールパネルを開きます。外側をクリックするか再度クリックで閉じます。
-- **系列・劇場の切り替え**: パネル上部の劇場名または「⚙」アイコンをクリックして設定モーダルを開き、4大シネコン系列（イオン / TOHO / ユナイテッド / サンシャイン）および全国229劇場をインクリメンタル検索で切り替え可能です。
+- **系列・劇場の切り替え**: パネル上部の劇場名または「⚙」アイコンをクリックして設定モーダルを開き、5大シネコン系列（イオン / TOHO / ユナイテッド / サンシャイン / T・ジョイ）および全国249劇場をインクリメンタル検索で切り替え可能です。
 - **直近上映 / 終日表示**: 今日の上映について、直近指定時間（1h, 2h, 3h, 5h）以内の絞り込み表示と、1日の全上映を時系列で確認できる終日表示をワンクリックで切り替えられます。
 - **明日の上映確認**: 「明日」タブを選択することで、翌日の全上映回を即座に確認できます。
 - **作品絞り込み**: 閲覧中の劇場で上映されている作品名ドロップダウンから特定の作品のみを抽出できます。
@@ -69,11 +69,12 @@ omarchy plugin validate .
 
 ## 主な特徴
 
-- **4大シネコン系列対応（Providerアーキテクチャ）**:
+- **5大シネコン系列対応（Providerアーキテクチャ）**:
   - 🍿 **イオンシネマ**（全99劇場）: 残席数、アップグレードシート・設備情報、公式作品・予約リンク
   - 🎬 **TOHOシネマズ**（全74劇場）: 空席ステータス（◎空席あり / △残少 / ✕満席）、TCX・轟音・IMAX設備、公式作品・予約リンク
   - 🎟️ **ユナイテッド・シネマ**（全40劇場）: 空席ステータス、4DX・IMAX・ScreenXタグ、公式作品・購入リンク
   - ☀️ **シネマサンシャイン**（全16劇場）: 空席ステータス、IMAXレーザー・BESTIA・4DX設備、公式作品・購入リンク
+  - 🎥 **T・ジョイ**（全20劇場）: 空席ステータス、Dolby Cinema・Dolby Atmos・IMAXレーザー・ScreenX・MX4D・T-LEX設備、公式作品・購入リンク
 - **地域×作品名のシネコン横断上映検索**:
   - 都道府県（例: `東京都`）やエリアと作品名を指定して、複数系列の劇場上映回をタイムライン形式（上映開始時刻順）で一括比較。
   - 劇場名での絞り込み（`--theater`）や、指定時刻・現在時刻以降の絞り込み（`--after now`）にも対応。
@@ -105,9 +106,9 @@ cinecom-scheduler-plugin/
 │   ├── SearchResultView.qml   # 横断検索結果タイムライン表示ビュー
 │   └── SettingsModal.qml      # 系列・劇場・時間範囲設定モーダル
 ├── data/
-│   ├── chains.json            # 系列定義 (aeon, toho, united, sunshine)
-│   ├── theaters.json          # 全シネコン統合劇場マスタ (計229館)
-│   └── theaters/              # 系列別劇場マスタ (aeon, toho, united, sunshine)
+│   ├── chains.json            # 系列定義 (aeon, toho, united, sunshine, tjoy)
+│   ├── theaters.json          # 全シネコン統合劇場マスタ (計249館)
+│   └── theaters/              # 系列別劇場マスタ (aeon, toho, united, sunshine, tjoy)
 ├── scraper/                   # バックエンド Python パッケージ
 │   ├── __init__.py
 │   ├── area.py                # 都道府県・地方エリア正規化マッパー
@@ -120,6 +121,7 @@ cinecom-scheduler-plugin/
 │       ├── base.py            # BaseCinemaProvider (基底クラス)
 │       ├── aeon.py            # AeonCinemaProvider
 │       ├── sunshine.py        # CinemaSunshineProvider
+│       ├── tjoy.py            # TJoyCinemaProvider
 │       ├── toho.py            # TohoCinemaProvider
 │       └── united.py          # UnitedCinemaProvider
 ├── tests/                     # ユニットテスト (全30テスト完備)
@@ -171,6 +173,15 @@ python3 -m scraper.cli --chain sunshine --theater gdcs
 
 # シネマサンシャイン 平和島
 python3 -m scraper.cli --chain sunshine --theater heiwajima --date 2026-10-20
+```
+
+#### T・ジョイ
+```bash
+# 新宿バルト9
+python3 -m scraper.cli --chain tjoy --theater shinjuku_wald9
+
+# T・ジョイ横浜
+python3 -m scraper.cli --chain tjoy --theater t-joy_yokohama --date 2026-10-20
 ```
 
 ---
