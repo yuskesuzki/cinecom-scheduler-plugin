@@ -345,12 +345,215 @@ class TestScraperPackage(unittest.TestCase):
         self.assertNotIn("吹替", m1.screenings[0].tags)
         self.assertNotIn("2D", m1.screenings[0].tags)
 
+    def test_109cinemas_provider_registration(self):
+        from scraper.providers.cinemas109 import Cinemas109Provider
+        provider = get_provider("109cinemas")
+        self.assertIsInstance(provider, Cinemas109Provider)
+        kiba = provider.get_theater_info("kiba")
+        self.assertEqual(kiba.get("name"), "109シネマズ木場")
+        self.assertEqual(kiba.get("theater_code"), "20")
+        shinjuku = provider.get_theater_info("premiumshinjuku")
+        self.assertEqual(shinjuku.get("name"), "109シネマズプレミアム新宿")
+        self.assertEqual(shinjuku.get("theater_code"), "X1")
+
+    def test_109cinemas_booking_url_safety(self):
+        from scraper.providers.cinemas109 import Cinemas109Provider
+        provider = Cinemas109Provider()
+        raw = "https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53555&amp;tsc=20&amp;tssc=20&amp;ymd=2026-11-22&amp;cs=&amp;stt=1505"
+        safe_url = provider._build_safe_booking_url(raw)
+        self.assertTrue(safe_url.startswith("https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?"))
+        self.assertIn("ttc=53555", safe_url)
+        self.assertIn("cs=", safe_url)
+
+        self.assertEqual(provider._build_safe_booking_url("javascript:alert(1)"), "")
+        self.assertEqual(
+            provider._build_safe_booking_url("https://evil.com/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53555"),
+            "",
+        )
+        with self.assertRaises(UnsafeUrlError):
+            provider.build_booking_url("20", "53555;calc")
+
+    @patch("sys.argv", ["scraper.cli", "--chain", "109cinemas", "--theater", "kiba;malicious"])
+    def test_109cinemas_cli_injection_exit_code_2(self):
+        with patch("sys.stderr"):
+            exit_code = scraper.cli.main()
+            self.assertEqual(exit_code, 2)
+
+    def test_109cinemas_parse_regular_and_grandexe(self):
+        from scraper.providers.cinemas109 import Cinemas109Provider
+
+        # 通常館HTML: </li> 閉じタグ省略、複数 <ul>（シアター7 + グランドEXE）、全ステータス、外部短縮URL
+        sample_html = """
+        <article id="m2879278" class="mg53555 imax">
+          <header>
+            <a href="https://109cinemas.net/movies/5764.html" target="_top">
+              <h2>魔法使いの夜[IMAXレーザー][字幕][ODS]</h2>
+              <p lang="en">WITCH ON THE HOLY NIGHT</p>
+            </a>
+          </header>
+          <ul class="timetable">
+            <li class="theatre">
+              <a href="/futakotamagawa/seat/theater-7.gif">シアター<span class="theatre-num">7</span></a>
+              IMAXレーザー SAION
+              <br><small>130分</small>
+            <li class=""><time class="start">9:10</time>~<time class="end">11:30</time>
+              <div class="close">販売終了</div>
+            <li class="check_date">
+              <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53557&amp;tsc=T1&amp;tssc=T7&amp;ymd=2026-11-22&amp;cs=&amp;stt=1505">
+                <time class="start">15:05</time>~<time class="end">17:25</time>
+                <div class="available">購入</div>
+              </a>
+            <li class="check_date">
+              <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53557&amp;tsc=T1&amp;tssc=T7&amp;ymd=2026-11-22&amp;cs=&amp;stt=2050">
+                <time class="start">20:50</time>~<time class="end">23:10</time>
+                <span class="late">[L]</span>
+                <div class="remaining">残りわずか</div>
+              </a>
+          </ul>
+          <ul class="timetable">
+            <li class="theatre">
+              <a href="/futakotamagawa/seat/theater-grandexe.gif"><span class="theatre-num long-name">グランドEXE</span></a>
+              IMAXレーザー
+            <li class="check_date">
+              <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53557&amp;tsc=T1&amp;tssc=T8&amp;ymd=2026-11-22&amp;cs=&amp;stt=1505">
+                <time class="start">15:05</time>~<time class="end">17:25</time>
+                <div class="member">会員先行</div>
+              </a>
+            <li class="">
+              <time class="start">22:00</time>~<time class="end">24:20</time>
+              <div class="soldout">売り切れ</div>
+          </ul>
+        </article>
+        <article id="m9990001" class="mg99901">
+          <header>
+            <a href="https://x.gd/J1ok2" target="_top">
+              <h2>キッズイベント映画[2D]</h2>
+            </a>
+          </header>
+          <ul class="timetable">
+            <li class="theatre">
+              <a href="/futakotamagawa/seat/theater-10.gif">シアター<span class="theatre-num">10</span></a>
+              ULTRA 4DX KIDS CINEMA
+            <li class="check_date">
+              <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=99901&amp;tsc=T1&amp;tssc=T10&amp;ymd=2026-11-22&amp;cs=&amp;stt=1100">
+                <time class="start">11:00</time>~<time class="end">12:30</time>
+                <div class="presale">先行販売</div>
+              </a>
+            <li class="">
+              <time class="start">14:00</time>~<time class="end">15:30</time>
+              <div class="others">販売開始前</div>
+          </ul>
+        </article>
+        """
+
+        provider = Cinemas109Provider()
+        with patch.object(provider, "_fetch_schedule_html", return_value=sample_html):
+            movies = provider.fetch_movies("futakotamagawa", date(2026, 11, 22))
+
+        self.assertEqual(len(movies), 2)
+
+        m0 = movies[0]
+        self.assertEqual(m0.movie_id, "2879278")
+        self.assertEqual(m0.movie_title, "魔法使いの夜[IMAXレーザー][字幕][ODS]")
+        self.assertEqual(m0.movie_title_en, "WITCH ON THE HOLY NIGHT")
+        self.assertEqual(m0.info_url, "https://109cinemas.net/movies/5764.html")
+        self.assertEqual(len(m0.screenings), 5)
+
+        # 時刻ゼロ埋め、グランドEXE枠の保持、各ステータス
+        self.assertEqual(m0.screenings[0].start_time, "09:10")
+        self.assertEqual(m0.screenings[0].screen_name, "シアター7")
+        self.assertEqual(m0.screenings[0].seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(m0.screenings[0].tags, ["IMAXレーザー", "SAION"])
+
+        # 15:05 は シアター7 と グランドEXE の2枠が存在すること
+        slots_1505 = [s for s in m0.screenings if s.start_time == "15:05"]
+        self.assertEqual(len(slots_1505), 2)
+        self.assertEqual(slots_1505[0].screen_name, "グランドEXE")
+        self.assertEqual(slots_1505[0].seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(slots_1505[0].event_id, "53557_T8_1505")
+        self.assertEqual(slots_1505[1].screen_name, "シアター7")
+        self.assertEqual(slots_1505[1].seat_status, SeatStatus.AVAILABLE)
+
+        self.assertEqual(m0.screenings[3].seat_status, SeatStatus.FEW)
+        self.assertEqual(m0.screenings[4].seat_status, SeatStatus.FULL)
+        self.assertEqual(m0.screenings[4].booking_url, "")
+
+        # 外部短縮URL拒否 & フォールバック、ULTRA 4DX / KIDS CINEMA、presale / others
+        m1 = movies[1]
+        self.assertEqual(m1.info_url, "https://109cinemas.net/futakotamagawa/")
+        self.assertEqual(m1.screenings[0].seat_status, SeatStatus.FEW)
+        self.assertEqual(m1.screenings[0].tags, ["ULTRA 4DX", "KIDS CINEMA"])
+        self.assertEqual(m1.screenings[1].seat_status, SeatStatus.UNSOLD)
+
+    def test_109cinemas_parse_premium_shinjuku(self):
+        from scraper.providers.cinemas109 import Cinemas109Provider
+
+        # プレミアム新宿HTML: HTMLコメント内 4DXScreen の偽タグ混入、.seets / .a_seet / .s_seet の3重構造、24時超え
+        sample_html = """
+        <article id="m2877260" data-film-id="2877260" class="mg53555 53555">
+          <header>
+            <a href="/premiumshinjuku/movies.html?id=5764" target="_top">
+              <h2>魔法使いの夜</h2>
+              <p lang="en">WITCH ON THE HOLY NIGHT</p>
+            </a>
+          </header>
+          <ul class="timetable" data-screen-name="theater-2">
+            <li class="theatre">
+              <a class="screen-img" href="/premiumshinjuku/seat/theater-2.gif">THEATER
+                <span class="theatre-num">2</span>
+              </a>
+              <!-- <a href="/premiumshinjuku/seat/screen-7.png">シアター<span>7</span></a>4DXScreen<br> -->
+              2D
+              <br><small>130min</small>
+            </li>
+            <li class="check_date" data-date="202611222425">
+              <span class="seets">
+                <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53555&amp;tsc=X1&amp;tssc=X4&amp;ymd=2026-11-22&amp;cs=&amp;stt=2425">
+                  <time class="start">24:25</time>~<time class="end">26:45</time>
+                  <div class="available">購入</div>
+                </a>
+              </span>
+              <span class="a_seet">
+                <a href="https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53555&amp;tsc=X1&amp;tssc=X4&amp;ymd=2026-11-22&amp;cs=&amp;stt=2425">
+                  <time class="start">24:25</time>~<time class="end">26:45</time>
+                  <div class="available">購入</div>
+                </a>
+              </span>
+              <span class="s_seet">
+                <a href="">
+                  <time class="start">24:25</time>~<time class="end">26:45</time>
+                  <div class="soldout">売り切れ</div>
+                </a>
+              </span>
+            </li>
+          </ul>
+        </article>
+        """
+
+        provider = Cinemas109Provider()
+        with patch.object(provider, "_fetch_schedule_html", return_value=sample_html):
+            movies = provider.fetch_movies("premiumshinjuku", date(2026, 11, 22))
+
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.info_url, "https://109cinemas.net/premiumshinjuku/movies.html?id=5764")
+        # a_seet / s_seet が重複しないため 1枠のみ
+        self.assertEqual(len(m.screenings), 1)
+        s = m.screenings[0]
+        self.assertEqual(s.screen_name, "シアター2")
+        self.assertEqual(s.start_time, "24:25")
+        self.assertEqual(s.end_time, "26:45")
+        self.assertEqual(s.seat_status, SeatStatus.AVAILABLE)
+        # コメント内 4DXScreen による偽タグが混入しないこと
+        self.assertEqual(s.tags, [])
+
     def test_info_urls(self):
         from scraper.providers.toho import TohoCinemaProvider
         from scraper.providers.sunshine import CinemaSunshineProvider
         from scraper.providers.united import UnitedCinemaProvider
         from scraper.providers.aeon import AeonCinemaProvider
         from scraper.providers.tjoy import TJoyCinemaProvider
+        from scraper.providers.cinemas109 import Cinemas109Provider
 
         # TOHO
         toho = TohoCinemaProvider()
@@ -391,6 +594,21 @@ class TestScraperPackage(unittest.TestCase):
         self.assertEqual(
             tjoy.build_movie_info_url("shinjuku_wald9", None),
             "https://tjoy.jp/shinjuku_wald9",
+        )
+
+        # 109 Cinemas movie url & fallback
+        c109 = Cinemas109Provider()
+        self.assertEqual(
+            c109.build_movie_info_url("https://109cinemas.net/movies/5764.html", "kiba"),
+            "https://109cinemas.net/movies/5764.html",
+        )
+        self.assertEqual(
+            c109.build_movie_info_url("/premiumshinjuku/movies.html?id=5764", "premiumshinjuku"),
+            "https://109cinemas.net/premiumshinjuku/movies.html?id=5764",
+        )
+        self.assertEqual(
+            c109.build_movie_info_url("https://x.gd/J1ok2", "kiba"),
+            "https://109cinemas.net/kiba/",
         )
 
 

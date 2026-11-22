@@ -19,6 +19,8 @@ ALLOWED_DOMAINS: Set[str] = {
     "cinemasunshine.co.jp",
     "tjoy.jp",
     "tjoy.co.jp",
+    "109cinemas.net",
+    "cinema.109cinemas.net",
 }
 
 # 制御文字の検出パターン

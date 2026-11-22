@@ -307,6 +307,56 @@ ShellRoot {
         self.assertIn("[TEST_TJOY_UI_SUCCESS]", output)
         self.assertNotIn("Failed to load configuration", output)
 
+    def test_search_result_view_109cinemas_label(self):
+        """SearchResultView で 109シネマズのグルーピングと日英チェーンラベル表示を検証"""
+        qml = """import QtQuick
+import Quickshell
+import "./components"
+
+ShellRoot {
+  Scope {
+    SearchResultView {
+      id: view
+      englishMode: false
+      rawScreenings: [
+        {
+          chain_id: "109cinemas",
+          theater_id: "kiba",
+          theater_name: "109シネマズ木場",
+          movie_title: "テスト映画",
+          screen_name: "シアター2",
+          start_time: "12:00",
+          end_time: "14:00",
+          seat_status: "available",
+          booking_url: "https://cinema.109cinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=53555&tsc=20&tssc=20&ymd=2026-11-22&cs=&stt=1200"
+        }
+      ]
+    }
+
+    Component.onCompleted: {
+      var groups = view.groupedTheaters;
+      if (groups.length !== 1 || groups[0].chainId !== "109cinemas") {
+        console.log("[TEST_FAIL] Expected 1 109cinemas group");
+        return;
+      }
+      if (view.getChainLabel("109cinemas") !== "109シネマズ") {
+        console.log("[TEST_FAIL] Expected Japanese label 109シネマズ, got: " + view.getChainLabel("109cinemas"));
+        return;
+      }
+      view.englishMode = true;
+      if (view.getChainLabel("109cinemas") !== "109") {
+        console.log("[TEST_FAIL] Expected English label 109, got: " + view.getChainLabel("109cinemas"));
+        return;
+      }
+      console.log("[TEST_109CINEMAS_UI_SUCCESS]");
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml)
+        self.assertIn("[TEST_109CINEMAS_UI_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+
     def test_movie_schedule_view_text_format_security(self):
         """MovieScheduleView および各 QML コンポーネント内の動的 Text 要素に PlainText が設定されていることを静的検証"""
         import re

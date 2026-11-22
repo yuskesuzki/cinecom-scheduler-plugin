@@ -29,6 +29,12 @@
       "name": "T・ジョイ",
       "theaters_count": 20,
       "file": "data/theaters/tjoy.json"
+    },
+    {
+      "id": "109cinemas",
+      "name": "109シネマズ",
+      "theaters_count": 19,
+      "file": "data/theaters/109cinemas.json"
     }
   ]
 }

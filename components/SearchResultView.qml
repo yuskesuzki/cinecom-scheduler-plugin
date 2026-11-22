@@ -81,6 +81,7 @@ Column {
     if (chainId === "united") return rootSearchResultView.englishMode ? "United" : "ユナイテッド"
     if (chainId === "sunshine") return rootSearchResultView.englishMode ? "Sunshine" : "サンシャイン"
     if (chainId === "tjoy") return rootSearchResultView.englishMode ? "T-JOY" : "T・ジョイ"
+    if (chainId === "109cinemas") return rootSearchResultView.englishMode ? "109" : "109シネマズ"
     return rootSearchResultView.englishMode ? "Aeon" : "イオンシネマ"
   }
 

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Yusuke Suzuki",
   "license": "MIT",
-  "description": "5大シネコン（イオンシネマ・TOHOシネマズ・ユナイテッド・シネマ・シネマサンシャイン・T・ジョイ 全249館）の上映スケジュール、スクリーン設備情報、座席予約リンクを表示するバーウィジェット",
+  "description": "6大シネコン（イオンシネマ・TOHOシネマズ・ユナイテッド・シネマ・シネマサンシャイン・T・ジョイ・109シネマズ 全268館）の上映スケジュール、スクリーン設備情報、座席予約リンクを表示するバーウィジェット",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Cinecom Scheduler",
-    "description": "シネコン上映スケジュール・直近作品確認ウィジェット（イオンシネマ / TOHOシネマズ / ユナイテッド・シネマ / シネマサンシャイン / T・ジョイ）",
+    "description": "シネコン上映スケジュール・直近作品確認ウィジェット（イオンシネマ / TOHOシネマズ / ユナイテッド・シネマ / シネマサンシャイン / T・ジョイ / 109シネマズ）",
     "category": "Media",
     "allowMultiple": false,
     "defaultSection": "right",
@@ -29,7 +29,7 @@
         "key": "chain",
         "type": "string",
         "label": "系列ID / Chain ID",
-        "description": "シネコン系列 (aeon, toho, united, sunshine, tjoy)",
+        "description": "シネコン系列 (aeon, toho, united, sunshine, tjoy, 109cinemas)",
         "defaultValue": "aeon"
       },
       {

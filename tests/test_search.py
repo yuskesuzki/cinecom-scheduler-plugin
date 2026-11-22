@@ -46,12 +46,13 @@ class TestCrossTheaterSearch(unittest.TestCase):
         theaters = get_theaters_by_area("東京都")
         self.assertGreater(len(theaters), 0)
         chains = {t["chain_id"] for t in theaters}
-        # 東京都には aeon, toho, united, sunshine, tjoy の5チェーン全てが存在する
+        # 東京都には aeon, toho, united, sunshine, tjoy, 109cinemas の6チェーン全てが存在する
         self.assertIn("aeon", chains)
         self.assertIn("toho", chains)
         self.assertIn("united", chains)
         self.assertIn("sunshine", chains)
         self.assertIn("tjoy", chains)
+        self.assertIn("109cinemas", chains)
         for t in theaters:
             self.assertEqual(t["prefecture"], "東京都")
 
@@ -59,6 +60,12 @@ class TestCrossTheaterSearch(unittest.TestCase):
         kyoto_theaters = get_theaters_by_area("京都府")
         self.assertTrue(
             any(t["chain_id"] == "tjoy" and t["theater_id"] == "t-joy_kyoto" for t in kyoto_theaters)
+        )
+
+        # 神奈川県に 109シネマズ港北 が含まれること
+        kanagawa_theaters = get_theaters_by_area("神奈川県")
+        self.assertTrue(
+            any(t["chain_id"] == "109cinemas" and t["theater_id"] == "kohoku" for t in kanagawa_theaters)
         )
 
     def test_clean_query_title(self):

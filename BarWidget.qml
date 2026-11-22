@@ -90,7 +90,8 @@ BarWidget {
     { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
     { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
     { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
-    { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" }
+    { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" },
+    { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" }
   ]
 
 
@@ -234,7 +235,9 @@ BarWidget {
     "www.cinemasunshine.co.jp",
     "cinemasunshine.co.jp",
     "tjoy.jp",
-    "tjoy.co.jp"
+    "tjoy.co.jp",
+    "109cinemas.net",
+    "cinema.109cinemas.net"
   ]
 
   function openExternalUrl(url) {
@@ -919,6 +922,8 @@ BarWidget {
                 url = "https://www.cinemasunshine.co.jp/theater/" + encodeURIComponent(root.selectedTheater) + "/"
               } else if (root.selectedChain === "tjoy") {
                 url = "https://tjoy.jp/" + encodeURIComponent(root.selectedTheater)
+              } else if (root.selectedChain === "109cinemas") {
+                url = "https://109cinemas.net/" + encodeURIComponent(root.selectedTheater) + "/"
               } else {
                 url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
               }
