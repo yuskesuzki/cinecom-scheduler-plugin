@@ -41,6 +41,12 @@
       "name": "MOVIX・ピカデリー",
       "theaters_count": 23,
       "file": "data/theaters/smt.json"
+    },
+    {
+      "id": "other",
+      "name": "共同経営・その他",
+      "theaters_count": 3,
+      "file": "data/theaters/other.json"
     }
   ]
 }

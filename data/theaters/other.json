@@ -1,0 +1,449 @@
+{
+  "id": "other",
+  "name": "共同経営・その他",
+  "theaters": [
+    {
+      "id": "oscc",
+      "code": "1071",
+      "name": "大阪ステーションシティシネマ",
+      "region": "大阪府",
+      "adapter": "smt_legacy",
+      "base_url": "https://www.osakastationcitycinema.com",
+      "ticket_host": "ticket.osakastationcitycinema.com",
+      "site_slug": "oscc",
+      "official_url": "https://www.osakastationcitycinema.com/site/oscc/",
+      "facility": {
+        "url": "https://www.osakastationcitycinema.com/site/oscc/facility.html",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 502,
+            "seats": {
+              "一般座席": 502,
+              "車椅子席": 3,
+              "合計": 502
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map1.html"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 312,
+            "seats": {
+              "一般座席": 312,
+              "車椅子席": 2,
+              "合計": 312
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map2.html"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 286,
+            "seats": {
+              "一般座席": 286,
+              "車椅子席": 2,
+              "合計": 286
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map3.html"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 309,
+            "seats": {
+              "一般座席": 309,
+              "車椅子席": 2,
+              "合計": 309
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map4.html"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "車椅子席": 2,
+              "合計": 113
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map5.html"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "車椅子席": 2,
+              "合計": 113
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map6.html"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "車椅子席": 2,
+              "合計": 113
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map7.html"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "車椅子席": 2,
+              "合計": 113
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map8.html"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 225,
+            "seats": {
+              "一般座席": 225,
+              "車椅子席": 2,
+              "合計": 225
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map9.html"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 163,
+            "seats": {
+              "一般座席": 163,
+              "車椅子席": 2,
+              "合計": 163
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map10.html"
+          },
+          {
+            "name": "スクリーン11",
+            "features": [],
+            "total_seats": 174,
+            "seats": {
+              "一般座席": 174,
+              "車椅子席": 2,
+              "合計": 174
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map11.html"
+          },
+          {
+            "name": "スクリーン12",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "seat_map_url": "https://www.osakastationcitycinema.com/site/oscc/map12.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "namba",
+      "code": "1070",
+      "name": "なんばパークスシネマ",
+      "region": "大阪府",
+      "adapter": "smt_legacy",
+      "base_url": "https://www.parkscinema.com",
+      "ticket_host": "ticket.parkscinema.com",
+      "site_slug": "namba",
+      "official_url": "https://www.parkscinema.com/site/namba/",
+      "facility": {
+        "url": "https://www.parkscinema.com/site/namba/facility.html",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 133,
+            "seats": {
+              "一般座席": 133,
+              "車椅子席": 2,
+              "合計": 133
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map1.html"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 118,
+            "seats": {
+              "一般座席": 118,
+              "車椅子席": 2,
+              "合計": 118
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map2.html"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 118,
+            "seats": {
+              "一般座席": 118,
+              "車椅子席": 2,
+              "合計": 118
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map3.html"
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 203,
+            "seats": {
+              "一般座席": 203,
+              "車椅子席": 2,
+              "合計": 203
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map4.html"
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 229,
+            "seats": {
+              "一般座席": 229,
+              "車椅子席": 2,
+              "合計": 229
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map5.html"
+          },
+          {
+            "name": "シアター6",
+            "features": [],
+            "total_seats": 217,
+            "seats": {
+              "一般座席": 217,
+              "車椅子席": 2,
+              "合計": 217
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map6.html"
+          },
+          {
+            "name": "シアター7",
+            "features": [],
+            "total_seats": 402,
+            "seats": {
+              "一般座席": 402,
+              "車椅子席": 3,
+              "合計": 402
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map7.html"
+          },
+          {
+            "name": "シアター8",
+            "features": [],
+            "total_seats": 199,
+            "seats": {
+              "一般座席": 199,
+              "車椅子席": 2,
+              "合計": 199
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map8.html"
+          },
+          {
+            "name": "シアター9",
+            "features": [],
+            "total_seats": 111,
+            "seats": {
+              "一般座席": 111,
+              "車椅子席": 2,
+              "合計": 111
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map9.html"
+          },
+          {
+            "name": "シアター10",
+            "features": [],
+            "total_seats": 273,
+            "seats": {
+              "一般座席": 273,
+              "車椅子席": 2,
+              "合計": 273
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map10.html"
+          },
+          {
+            "name": "シアター11",
+            "features": [],
+            "total_seats": 161,
+            "seats": {
+              "一般座席": 161,
+              "車椅子席": 2,
+              "合計": 161
+            },
+            "seat_map_url": "https://www.parkscinema.com/site/namba/map11.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sapporo_cf",
+      "code": "1",
+      "name": "札幌シネマフロンティア",
+      "region": "北海道",
+      "adapter": "cinema_frontier",
+      "base_url": "https://www.cinemafrontier.net",
+      "official_url": "https://www.cinemafrontier.net/cgi-bin/pc/index.cgi",
+      "facility": {
+        "url": "https://www.cinemafrontier.net/cgi-bin/pc/showfile.cgi?tgttmp=theater/index",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 160,
+            "seats": {
+              "一般座席": 160,
+              "車椅子席": 1,
+              "合計": 160
+            },
+            "screen_size": "11.12m × 4.74m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 121,
+            "seats": {
+              "一般座席": 121,
+              "車椅子席": 1,
+              "合計": 121
+            },
+            "screen_size": "8.76m × 4.57m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 259,
+            "seats": {
+              "一般座席": 259,
+              "車椅子席": 1,
+              "合計": 259
+            },
+            "screen_size": "13.02m × 5.57m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 111,
+            "seats": {
+              "一般座席": 111,
+              "車椅子席": 1,
+              "合計": 111
+            },
+            "screen_size": "9.01m × 4.83m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 541,
+            "seats": {
+              "一般座席": 541,
+              "車椅子席": 4,
+              "合計": 541
+            },
+            "screen_size": "20.09m × 8.32m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 172,
+            "seats": {
+              "一般座席": 172,
+              "車椅子席": 1,
+              "合計": 172
+            },
+            "screen_size": "10.61m × 4.55m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 191,
+            "seats": {
+              "一般座席": 191,
+              "車椅子席": 1,
+              "合計": 191
+            },
+            "screen_size": "12.01m × 5.00m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 455,
+            "seats": {
+              "一般座席": 455,
+              "車椅子席": 4,
+              "合計": 455
+            },
+            "screen_size": "16.35m × 6.95m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 168,
+            "seats": {
+              "一般座席": 168,
+              "車椅子席": 1,
+              "合計": 168
+            },
+            "screen_size": "10.62m × 4.92m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 2,
+              "合計": 112
+            },
+            "screen_size": "9.21m × 4.83m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン11",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 1,
+              "合計": 92
+            },
+            "screen_size": "8.90m × 4.58m",
+            "sound": "デジタル5.1ch"
+          },
+          {
+            "name": "スクリーン12",
+            "features": [],
+            "total_seats": 323,
+            "seats": {
+              "一般座席": 323,
+              "車椅子席": 2,
+              "合計": 323
+            },
+            "screen_size": "15.81m × 6.44m",
+            "sound": "デジタル5.1ch"
+          }
+        ]
+      }
+    }
+  ]
+}

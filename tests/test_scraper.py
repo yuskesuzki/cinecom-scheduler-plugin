@@ -861,6 +861,290 @@ class TestScraperPackage(unittest.TestCase):
             "https://www.smt-cinema.com/site/shinjuku/",
         )
 
+        # Other (Joint) movie url & fallback
+        from scraper.providers.other import OtherCinemaProvider
+        other = OtherCinemaProvider()
+        self.assertEqual(
+            other.build_movie_info_url("oscc", "https://www.osakastationcitycinema.com/site/oscc/detail.html?cinemaid=A0004785"),
+            "https://www.osakastationcitycinema.com/site/oscc/detail.html?cinemaid=A0004785",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("namba", "https://evil.example.com/bad"),
+            "https://www.parkscinema.com/site/namba/",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("sapporo_cf", "/cgi-bin/pc/ttl/det.cgi?ttc=55406"),
+            "https://www.cinemafrontier.net/cgi-bin/pc/ttl/det.cgi?ttc=55406",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("sapporo_cf", "https://evil.example.com/bad"),
+            "https://www.cinemafrontier.net/cgi-bin/pc/index.cgi",
+        )
+
+    def test_other_provider_registration_and_cli_security(self):
+        from unittest.mock import patch
+        from scraper.providers import get_provider
+        from scraper.providers.other import OtherCinemaProvider
+        from scraper.cli import main as cli_main
+
+        provider = get_provider("other")
+        self.assertIsInstance(provider, OtherCinemaProvider)
+        self.assertEqual(provider.CHAIN_ID, "other")
+
+        with patch("sys.argv", ["scraper.cli", "--chain", "other", "--theater", "oscc;malicious"]):
+            with patch("sys.stderr"):
+                exit_code = cli_main()
+                self.assertEqual(exit_code, 2)
+
+    def test_other_helpers(self):
+        from scraper.providers.other import (
+            clean_cinema_frontier_title,
+            map_cinema_frontier_seat_status,
+            map_smt_legacy_seat_status,
+            normalize_cinema_frontier_screen_name,
+        )
+
+        self.assertEqual(
+            clean_cinema_frontier_title("[字幕]アザー・マミー[R15+]<span>R15+</span>"),
+            "[字幕]アザー・マミー[R15+]",
+        )
+        self.assertEqual(
+            clean_cinema_frontier_title("呪いのスマホ（PG12）<span>PG12</span>"),
+            "呪いのスマホ（PG12）",
+        )
+        self.assertEqual(normalize_cinema_frontier_screen_name("スクリーン０５"), "スクリーン5")
+        self.assertEqual(normalize_cinema_frontier_screen_name("スクリーン１０"), "スクリーン10")
+
+        self.assertEqual(map_smt_legacy_seat_status("01.png", "余裕あり"), SeatStatus.AVAILABLE)
+        self.assertEqual(map_smt_legacy_seat_status("02.png", "残りわずか"), SeatStatus.FEW)
+        self.assertEqual(map_smt_legacy_seat_status("03.png", "販売終了"), SeatStatus.UNSOLD)
+        self.assertEqual(map_smt_legacy_seat_status("04.png", "販売前"), SeatStatus.UNSOLD)
+        self.assertEqual(map_smt_legacy_seat_status("03.png", "満席"), SeatStatus.FULL)
+
+        self.assertEqual(map_cinema_frontier_seat_status("item status1", "購入する"), SeatStatus.AVAILABLE)
+        self.assertEqual(map_cinema_frontier_seat_status("item status2", "購入する"), SeatStatus.FEW)
+        self.assertEqual(map_cinema_frontier_seat_status("item status3", "販売終了"), SeatStatus.UNSOLD)
+        self.assertEqual(map_cinema_frontier_seat_status("item status4", "窓口販売のみ"), SeatStatus.UNSOLD)
+        self.assertEqual(map_cinema_frontier_seat_status("item status3", "満席"), SeatStatus.FULL)
+
+    def test_parse_smt_legacy_schedule_html(self):
+        from datetime import date
+        from unittest.mock import patch
+        import io
+        import urllib.error
+        from scraper.providers.other import OtherCinemaProvider, parse_smt_legacy_schedule_html
+
+        oscc_html = """
+        <div class="scheduleBox">
+          <div class="MvTtl clearfix">
+            <div class="MovieTitle1">
+              <h2><a href="https://www.osakastationcitycinema.com/site/oscc/detail.html?cinemaid=T0032222&type=0100&screendate=20261122">テスト映画【Dolby Atmos】</a><span><img src="../../images/icon/txt04.gif" alt="NEW"></span></h2>
+            </div>
+            <div class="totalTime"><p>（本編：100分）</p></div>
+          </div>
+          <table>
+            <tr>
+              <th rowspan="100"><a href="https://www.osakastationcitycinema.com/site/oscc/detail.html?cinemaid=T0032222">img</a></th>
+              <td>
+                <p>スクリーン１</p>
+                <table><tr><td><img src="../../images/icon/03.png" alt="販売終了"></td><td><span class="strong fontXL">9:10</span><br>～11:00</td></tr></table>
+              </td>
+              <td onclick="var win = window.open('https://ticket.osakastationcitycinema.com/ticket/f0100.do?th=1071&mo=49424&sd=20261122&pe=4&sc=11&fl=0', 'purchase');win.focus();">
+                <p>スクリーン１１</p>
+                <table><tr><td><img src="../../images/icon/02.png" alt="残りわずか"></td><td><span class="strong fontXL">13:30</span><br>～15:20</td></tr></table>
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+        """
+        provider = OtherCinemaProvider()
+        movies = parse_smt_legacy_schedule_html(
+            html=oscc_html,
+            theater_id="oscc",
+            base_url="https://www.osakastationcitycinema.com",
+            ticket_host="ticket.osakastationcitycinema.com",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.movie_id, "T0032222")
+        self.assertEqual(len(m.screenings), 2)
+        s0, s1 = m.screenings
+        self.assertEqual(s0.screen_name, "スクリーン1")
+        self.assertEqual(s0.start_time, "09:10")
+        self.assertEqual(s0.end_time, "11:00")
+        self.assertEqual(s0.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s0.booking_url, "")
+        self.assertEqual(s0.tags, ["Dolby Atmos"])
+        self.assertEqual(s1.screen_name, "スクリーン11")
+        self.assertEqual(s1.seat_status, SeatStatus.FEW)
+        self.assertEqual(
+            s1.booking_url,
+            "https://ticket.osakastationcitycinema.com/ticket/f0100.do?th=1071&mo=49424&sd=20261122&pe=4&sc=11&fl=0",
+        )
+
+        namba_html = """
+        <div class="scheduleBox">
+          <div class="MvTtl clearfix">
+            <div class="MovieTitle1">
+              <h2><a href="https://www.parkscinema.com/site/namba/detail.html?cinemaid=T0032379">テスト映画C</a></h2>
+            </div>
+          </div>
+          <table>
+            <tr>
+              <th rowspan="100">img</th>
+              <td onclick="var win = window.open('https://ticket.parkscinema.com/ticket/f0100.do?th=1070&mo=49440&sd=20261122&pe=4&sc=09&fl=0', 'purchase');">
+                <p>シアター９</p>
+                <table><tr><td><img src="../../images/icon/01.png" alt="余裕あり"></td><td><span>15:35</span>～17:40</td></tr></table>
+              </td>
+              <td>
+                <p>シアター１</p>
+                <table><tr><td><img src="../../images/icon/04.png" alt="販売前"></td><td><span>19:00</span>～21:05</td></tr></table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        """
+        n_movies = parse_smt_legacy_schedule_html(
+            html=namba_html,
+            theater_id="namba",
+            base_url="https://www.parkscinema.com",
+            ticket_host="ticket.parkscinema.com",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(n_movies), 1)
+        ns0, ns1 = n_movies[0].screenings
+        self.assertEqual(ns0.screen_name, "シアター9")
+        self.assertEqual(ns0.seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(
+            ns0.booking_url,
+            "https://ticket.parkscinema.com/ticket/f0100.do?th=1070&mo=49440&sd=20261122&pe=4&sc=09&fl=0",
+        )
+        self.assertEqual(ns1.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(ns1.booking_url, "")
+
+        # 404時は空リスト
+        http_404 = urllib.error.HTTPError("https://www.osakastationcitycinema.com/404", 404, "Not Found", {}, io.BytesIO(b""))
+        try:
+            with patch("urllib.request.urlopen", side_effect=http_404):
+                self.assertEqual(provider.fetch_movies("oscc", date(2026, 12, 31)), [])
+        finally:
+            http_404.close()
+
+    def test_parse_cinema_frontier_schedule_html(self):
+        from scraper.providers.other import OtherCinemaProvider, parse_cinema_frontier_schedule_html
+
+        cf_html = """
+        <div class="sc-item clearfix">
+          <div class="sc-item-head clearfix">
+            <h3 class="title">[字幕]テスト作品D[R15+]<span>R15+</span></h3>
+            <h4 class="en-title">[Sub]Test Film D</h4>
+            <a href="/cgi-bin/pc/ttl/det.cgi?ttc=55407" class="link">作品詳細</a>
+          </div>
+          <div class="sc-item-body clearfix">
+            <div class="items clearfix">
+              <div class="item status3">
+                <p class="time">9:00<span>〜11:00</span></p>
+                <p class="screen">スクリーン０５</p>
+                <p class="status"><span class="icon"></span>販売終了</p>
+              </div>
+              <a href="https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&amp;tsc=1&amp;tssc=8&amp;ymd=2026-11-22&amp;cs=5" class="item status1">
+                <p class="time">12:00<span>〜14:00</span></p>
+                <p class="screen">スクリーン０８</p>
+                <p class="status"><span class="icon"></span>購入する</p>
+              </a>
+              <a href="https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&amp;tsc=1&amp;tssc=7&amp;ymd=2026-11-22&amp;cs=4" class="item status2">
+                <p class="time">15:45<span>〜17:45</span></p>
+                <p class="screen">スクリーン０７</p>
+                <p class="status"><span class="icon"></span>購入する</p>
+              </a>
+              <div class="item status4">
+                <p class="time">19:00<span>〜21:00</span></p>
+                <p class="screen">スクリーン０１</p>
+                <p class="status"><span class="icon"></span>窓口販売のみ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        """
+        provider = OtherCinemaProvider()
+        movies = parse_cinema_frontier_schedule_html(
+            html=cf_html,
+            theater_id="sapporo_cf",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.movie_id, "55407")
+        self.assertEqual(m.movie_title, "[字幕]テスト作品D[R15+]")
+        self.assertEqual(m.movie_title_en, "[Sub]Test Film D")
+        self.assertEqual(m.info_url, "https://www.cinemafrontier.net/cgi-bin/pc/ttl/det.cgi?ttc=55407")
+        self.assertEqual(len(m.screenings), 4)
+
+        s0, s1, s2, s3 = m.screenings
+        self.assertEqual(s0.start_time, "09:00")
+        self.assertEqual(s0.screen_name, "スクリーン5")
+        self.assertEqual(s0.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s0.booking_url, "")
+        self.assertEqual(s0.tags, [])
+
+        self.assertEqual(s1.screen_name, "スクリーン8")
+        self.assertEqual(s1.seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(
+            s1.booking_url,
+            "https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&tsc=1&tssc=8&ymd=2026-11-22&cs=5",
+        )
+
+        self.assertEqual(s2.screen_name, "スクリーン7")
+        self.assertEqual(s2.seat_status, SeatStatus.FEW)
+        self.assertTrue(s2.booking_url.startswith("https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?"))
+
+        self.assertEqual(s3.screen_name, "スクリーン1")
+        self.assertEqual(s3.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s3.booking_url, "")
+
+        # 未公開日（sc-item 0件）時は空リスト
+        empty_html = '<div class="contents"><h2 class="sc-head"><span>2026</span> 12/22 <span>(火)</span></h2></div>'
+        self.assertEqual(
+            parse_cinema_frontier_schedule_html(empty_html, "sapporo_cf", provider.build_booking_url),
+            [],
+        )
+
+        # status1 の <a class="item status1"> のみ1枠で sc-item-body 内に他の div.item が無いケース（ハイフン境界誤爆防止）
+        single_a_html = """
+        <div class="sc-item clearfix">
+          <div class="sc-item-head clearfix">
+            <h3 class="title">単独販売中テスト<span></span></h3>
+            <a href="/cgi-bin/pc/ttl/det.cgi?ttc=55407" class="link">作品詳細</a>
+          </div>
+          <div class="sc-item-body clearfix">
+            <div class="items clearfix">
+              <a href="https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&amp;tsc=1&amp;tssc=8&amp;ymd=2026-11-22&amp;cs=5" class="item status1">
+                <p class="time">16:00<span>〜19:15</span></p>
+                <p class="screen">スクリーン０８</p>
+                <p class="status"><span class="icon"></span>購入する</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        """
+        single_movies = parse_cinema_frontier_schedule_html(
+            html=single_a_html,
+            theater_id="sapporo_cf",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(single_movies), 1)
+        self.assertEqual(len(single_movies[0].screenings), 1)
+        self.assertEqual(
+            single_movies[0].screenings[0].booking_url,
+            "https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&tsc=1&tssc=8&ymd=2026-11-22&cs=5",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

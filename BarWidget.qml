@@ -92,7 +92,8 @@ BarWidget {
     { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
     { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" },
     { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" },
-    { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly" }
+    { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly" },
+    { id: "other", nameJa: "共同経営・その他", nameEn: "Joint / Other" }
   ]
 
 
@@ -132,14 +133,17 @@ BarWidget {
     return m ? parseInt(m[1], 10) : null
   }
 
-  function findScreenFacility(screenName) {
-    var theaterObj = null
+  function findCurrentTheater() {
     for (var i = 0; i < root.allTheaters.length; i++) {
       if (root.allTheaters[i].id === root.selectedTheater) {
-        theaterObj = root.allTheaters[i]
-        break
+        return root.allTheaters[i]
       }
     }
+    return null
+  }
+
+  function findScreenFacility(screenName) {
+    var theaterObj = root.findCurrentTheater()
     if (!theaterObj || !theaterObj.facility || !Array.isArray(theaterObj.facility.screens)) {
       return null
     }
@@ -244,7 +248,12 @@ BarWidget {
     "www.smt-cinema.com",
     "smt-cinema.com",
     "memberlogin.smart.smt-cinema.jp",
-    "ticket.smt-cinema.com"
+    "ticket.smt-cinema.com",
+    "www.osakastationcitycinema.com",
+    "ticket.osakastationcitycinema.com",
+    "www.parkscinema.com",
+    "ticket.parkscinema.com",
+    "www.cinemafrontier.net"
   ]
 
   function openExternalUrl(url) {
@@ -920,8 +929,11 @@ BarWidget {
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
             onClicked: {
+              var theaterObj = root.findCurrentTheater()
               var url = ""
-              if (root.selectedChain === "toho") {
+              if (theaterObj && theaterObj.official_url) {
+                url = theaterObj.official_url
+              } else if (root.selectedChain === "toho") {
                 url = "https://hlo.tohotheater.jp/net/schedule/" + encodeURIComponent(root.selectedTheater) + "/TNPI2000J01.do"
               } else if (root.selectedChain === "united") {
                 url = "https://www.unitedcinemas.jp/" + encodeURIComponent(root.selectedTheater) + "/index.html"

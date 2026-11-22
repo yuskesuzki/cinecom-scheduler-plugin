@@ -407,6 +407,56 @@ ShellRoot {
         self.assertIn("[TEST_SMT_UI_SUCCESS]", output)
         self.assertNotIn("Failed to load configuration", output)
 
+    def test_search_result_view_other_label(self):
+        """SearchResultView.qml が 共同経営・その他 (other) に対して日英ラベル（共同 / Joint）を返すことを検証"""
+        qml = """import QtQuick
+import Quickshell
+import "./components"
+
+ShellRoot {
+  Scope {
+    SearchResultView {
+      id: view
+      englishMode: false
+      rawScreenings: [
+        {
+          chain_id: "other",
+          theater_id: "oscc",
+          theater_name: "大阪ステーションシティシネマ",
+          movie_title: "テスト映画",
+          screen_name: "スクリーン1",
+          start_time: "12:00",
+          end_time: "14:00",
+          seat_status: "available",
+          booking_url: "https://ticket.osakastationcitycinema.com/ticket/f0100.do?th=1071&mo=1&sd=20261122&pe=1&sc=01&fl=0"
+        }
+      ]
+
+      Component.onCompleted: {
+        var groups = view.groupedTheaters;
+        if (groups.length !== 1 || groups[0].chainId !== "other") {
+          console.log("[TEST_FAIL] Expected 1 other group");
+          return;
+        }
+        if (view.getChainLabel("other") !== "共同") {
+          console.log("[TEST_FAIL] Expected Japanese label 共同, got: " + view.getChainLabel("other"));
+          return;
+        }
+        view.englishMode = true;
+        if (view.getChainLabel("other") !== "Joint") {
+          console.log("[TEST_FAIL] Expected English label Joint, got: " + view.getChainLabel("other"));
+          return;
+        }
+        console.log("[TEST_OTHER_UI_SUCCESS]");
+      }
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml)
+        self.assertIn("[TEST_OTHER_UI_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+
     def test_movie_schedule_view_text_format_security(self):
         """MovieScheduleView および各 QML コンポーネント内の動的 Text 要素に PlainText が設定されていることを静的検証"""
         import re
