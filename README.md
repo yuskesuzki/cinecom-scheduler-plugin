@@ -122,15 +122,21 @@ cinecom-scheduler-plugin/
 │   └── providers/             # 各シネコン向け Provider
 │       ├── __init__.py        # PROVIDER_REGISTRY
 │       ├── base.py            # BaseCinemaProvider (基底クラス)
+│       ├── html_utils.py      # 共通HTML/テキスト/タグ抽出ユーティリティ
 │       ├── aeon.py            # AeonCinemaProvider
 │       ├── cinemas109.py      # Cinemas109Provider
-│       ├── other.py           # OtherCinemaProvider
 │       ├── smt.py             # SmtCinemaProvider
 │       ├── sunshine.py        # CinemaSunshineProvider
 │       ├── tjoy.py            # TJoyCinemaProvider
 │       ├── toho.py            # TohoCinemaProvider
-│       └── united.py          # UnitedCinemaProvider
-├── tests/                     # ユニットテスト (全52テスト完備)
+│       ├── united.py          # UnitedCinemaProvider
+│       └── other/             # OtherCinemaProvider (Strategy パッケージ)
+│           ├── __init__.py    # STRATEGY_REGISTRY + OtherCinemaProvider
+│           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
+│           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
+│           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば)
+├── tests/                     # ユニットテスト (全57テスト完備)
+│   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト
 │   └── test_ui.py             # UIコンポーネント・構文検証テスト
