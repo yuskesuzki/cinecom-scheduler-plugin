@@ -42,11 +42,17 @@ Rectangle {
   }
 
   property var getChainDisplayName: function() { return "" }
+  readonly property real contentPreferredHeight: settingsModalCol.implicitHeight + Style.space(44)
 
   signal chainSelected(string chainId)
   signal theaterSelected(string theaterId, string theaterName)
   signal hoursSelected(real hours)
   signal closed()
+
+  function close() {
+    rootSettingsModal.chainDropdownOpen = false
+    rootSettingsModal.closed()
+  }
 
   onVisibleChanged: {
     if (visible) {
@@ -65,7 +71,7 @@ Rectangle {
   }
   MouseArea {
     anchors.fill: parent
-    onClicked: rootSettingsModal.closed()
+    onClicked: rootSettingsModal.close()
   }
 
   Rectangle {
@@ -73,6 +79,10 @@ Rectangle {
     anchors.centerIn: parent
     width: Math.min(parent.width - Style.space(24), Style.space(400))
     implicitHeight: settingsModalCol.implicitHeight + Style.space(28)
+    height: (parent && parent.height > Style.space(64))
+      ? Math.min(implicitHeight, parent.height - Style.space(16))
+      : implicitHeight
+    clip: true
     radius: Style.space(8)
     color: (typeof Color.surface !== "undefined" && Color.surface) ? Color.surface : (rootSettingsModal.bar ? rootSettingsModal.bar.background : Color.background)
     border.color: Util.alpha(rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground, 0.18)
@@ -84,13 +94,25 @@ Rectangle {
       onClicked: function(mouse) { mouse.accepted = true }
     }
 
-    Column {
-      id: settingsModalCol
-      anchors.top: parent.top
-      anchors.left: parent.left
-      anchors.right: parent.right
+    Flickable {
+      id: settingsCardFlickable
+      anchors.fill: parent
       anchors.margins: Style.space(14)
-      spacing: Style.space(12)
+      contentWidth: width
+      contentHeight: settingsModalCol.implicitHeight
+      clip: true
+      boundsBehavior: Flickable.StopAtBounds
+      flickableDirection: Flickable.VerticalFlick
+      interactive: contentHeight > height
+
+      ScrollBar.vertical: ScrollBar {
+        policy: settingsCardFlickable.contentHeight > settingsCardFlickable.height ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+      }
+
+      Column {
+        id: settingsModalCol
+        width: parent.width
+        spacing: Style.space(12)
 
       // 1. ヘッダー: タイトル & ✕閉じるボタン
       RowLayout {
@@ -131,10 +153,7 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            onClicked: {
-              rootSettingsModal.showSettingsPanel = false
-              rootSettingsModal.chainDropdownOpen = false
-            }
+            onClicked: rootSettingsModal.close()
           }
         }
       }
@@ -215,64 +234,80 @@ Rectangle {
           color: (typeof Color.surface !== "undefined" && Color.surface) ? Color.surface : (rootSettingsModal.bar ? rootSettingsModal.bar.background : Color.background)
           border.color: Util.alpha(rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground, 0.2)
           border.width: 1
-          implicitHeight: chainOptionsCol.implicitHeight + Style.space(4)
+          implicitHeight: Math.min(Style.space(156), chainOptionsCol.implicitHeight + Style.space(4))
+          clip: true
 
-          Column {
-            id: chainOptionsCol
-            width: parent.width
-            anchors.top: parent.top
+          Flickable {
+            id: chainDropdownFlickable
+            anchors.fill: parent
             anchors.topMargin: Style.space(2)
-            spacing: 0
+            anchors.bottomMargin: Style.space(2)
+            contentWidth: width
+            contentHeight: chainOptionsCol.implicitHeight
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            flickableDirection: Flickable.VerticalFlick
+            interactive: contentHeight > height
 
-            Repeater {
-              model: rootSettingsModal.availableChains
+            ScrollBar.vertical: ScrollBar {
+              policy: chainDropdownFlickable.contentHeight > chainDropdownFlickable.height ? ScrollBar.AlwaysOn : ScrollBar.AsNeeded
+            }
 
-              delegate: Rectangle {
-                id: chainOptionItem
-                width: parent.width
-                implicitHeight: Style.space(28)
-                radius: Style.space(3)
-                property bool isSelected: rootSettingsModal.selectedChain === modelData.id
-                color: {
-                  if (isSelected) return Color.accent
-                  if (optionHover.containsMouse) return Util.alpha(rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground, 0.08)
-                  return "transparent"
-                }
+            Column {
+              id: chainOptionsCol
+              width: parent.width
+              spacing: 0
 
-                RowLayout {
-                  anchors.fill: parent
-                  anchors.leftMargin: Style.space(10)
-                  anchors.rightMargin: Style.space(10)
-                  spacing: Style.space(6)
+              Repeater {
+                model: rootSettingsModal.availableChains
 
-                  Text {
-                    Layout.fillWidth: true
-                    text: rootSettingsModal.englishMode ? modelData.nameEn : modelData.nameJa
-                    textFormat: Text.PlainText
-                    color: chainOptionItem.isSelected
-                      ? Color.background
-                      : (rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground)
-                    font.pixelSize: Style.font ? Style.font.caption : 11
-                    font.bold: chainOptionItem.isSelected
+                delegate: Rectangle {
+                  id: chainOptionItem
+                  width: chainOptionsCol.width
+                  implicitHeight: Style.space(28)
+                  radius: Style.space(3)
+                  property bool isSelected: rootSettingsModal.selectedChain === modelData.id
+                  color: {
+                    if (isSelected) return Color.accent
+                    if (optionHover.containsMouse) return Util.alpha(rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground, 0.08)
+                    return "transparent"
                   }
 
-                  Text {
-                    visible: chainOptionItem.isSelected
-                    text: "✓"
-                    color: Color.background
-                    font.pixelSize: Style.font ? Style.font.caption : 11
-                    font.bold: true
-                  }
-                }
+                  RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: Style.space(10)
+                    anchors.rightMargin: Style.space(10)
+                    spacing: Style.space(6)
 
-                MouseArea {
-                  id: optionHover
-                  anchors.fill: parent
-                  hoverEnabled: true
-                  cursorShape: Qt.PointingHandCursor
-                  onClicked: {
-                    rootSettingsModal.chainDropdownOpen = false
-                    rootSettingsModal.chainSelected(modelData.id)
+                    Text {
+                      Layout.fillWidth: true
+                      text: rootSettingsModal.englishMode ? modelData.nameEn : modelData.nameJa
+                      textFormat: Text.PlainText
+                      color: chainOptionItem.isSelected
+                        ? Color.background
+                        : (rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground)
+                      font.pixelSize: Style.font ? Style.font.caption : 11
+                      font.bold: chainOptionItem.isSelected
+                    }
+
+                    Text {
+                      visible: chainOptionItem.isSelected
+                      text: "✓"
+                      color: Color.background
+                      font.pixelSize: Style.font ? Style.font.caption : 11
+                      font.bold: true
+                    }
+                  }
+
+                  MouseArea {
+                    id: optionHover
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                      rootSettingsModal.chainDropdownOpen = false
+                      rootSettingsModal.chainSelected(modelData.id)
+                    }
                   }
                 }
               }
@@ -434,6 +469,7 @@ Rectangle {
         text: rootSettingsModal.englishMode ? "✓ Settings are automatically saved" : "✓ 設定は自動的に保持・保存されます"
         color: Util.alpha(rootSettingsModal.bar ? rootSettingsModal.bar.foreground : Color.foreground, 0.5)
         font.pixelSize: Style.font ? Style.font.caption : 10
+      }
       }
     }
   }

@@ -53,8 +53,15 @@ Omarchy Quattro および Python 3（標準ライブラリのみ）で動作し�
 
 ```sh
 omarchy plugin add https://github.com/yuskesuzki/cinecom-scheduler-plugin.git --enable
+omarchy plugin update com.yusuke.cinecom-scheduler
 omarchy plugin disable com.yusuke.cinecom-scheduler
 omarchy plugin remove com.yusuke.cinecom-scheduler
+```
+
+プラグインの更新や再追加後に新しいシネコン系列や UI の変更が反映されない場合は、実行中の `omarchy-shell` に QML キャッシュが残っていることがあるため、以下のコマンドでシェルを再起動してください。
+
+```sh
+omarchy-restart-shell
 ```
 
 プラグインの削除によってユーザー固有の他の設定ファイルが破損・変更されることはありません。
@@ -135,7 +142,7 @@ cinecom-scheduler-plugin/
 │           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
 │           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
 │           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば)
-├── tests/                     # ユニットテスト (全57テスト完備)
+├── tests/                     # ユニットテスト (全58テスト完備)
 │   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト

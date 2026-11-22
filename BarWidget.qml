@@ -818,7 +818,16 @@ BarWidget {
     owner: root
     open: root.popupOpen
     contentWidth: popup.fittedContentWidth(Style.space(440))
-    contentHeight: popup.fittedContentHeight(mainColumn.implicitHeight, Style.space(580))
+    readonly property real activeModalHeight: {
+      if (root.showSettingsPanel) return settingsModal.contentPreferredHeight
+      if (root.showSearchModal) return searchModal.contentPreferredHeight
+      if (root.showScreenModal) return screenModal.contentPreferredHeight
+      return 0
+    }
+    contentHeight: popup.fittedContentHeight(
+      Math.max(mainColumn.implicitHeight, activeModalHeight),
+      Math.max(Style.space(580), activeModalHeight + (popup.verticalContentInset || Style.space(32)))
+    )
 
     onOpenChanged: {
       if (root.popupOpen !== open) {
@@ -1142,6 +1151,7 @@ BarWidget {
 
     // スクリーン設備詳細モーダル
     ScreenModal {
+      id: screenModal
       visible: root.showScreenModal
       bar: root.bar
       englishMode: root.englishMode
@@ -1157,6 +1167,7 @@ BarWidget {
 
     // 設定モーダルポップアップ
     SettingsModal {
+      id: settingsModal
       visible: root.showSettingsPanel
       bar: root.bar
       englishMode: root.englishMode
@@ -1181,6 +1192,7 @@ BarWidget {
 
     // 作品横断検索モーダルポップアップ
     SearchModal {
+      id: searchModal
       visible: root.showSearchModal
       bar: root.bar
       englishMode: root.englishMode

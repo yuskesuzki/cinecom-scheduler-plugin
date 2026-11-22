@@ -38,6 +38,7 @@ Rectangle {
 
   signal searchRequested(string title, string area, string dateVal, string rangeVal, string theaterVal)
   signal closed()
+  readonly property real contentPreferredHeight: searchModalCol.implicitHeight + Style.space(44)
 
   function executeSearch() {
     var trimmedTitle = queryTitle.trim()

@@ -18,7 +18,12 @@ class TestQuickShellUIComponents(unittest.TestCase):
         cls.plugin_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         cls.components_dir = os.path.join(cls.plugin_dir, "components")
 
-    def run_qml_test(self, qml_body: str, timeout_sec: float = 3.0) -> str:
+    def run_qml_test(
+        self,
+        qml_body: str,
+        timeout_sec: float = 3.0,
+        env_overrides: dict | None = None,
+    ) -> str:
         """
         Quickshell のサンドボックスを作成し、qml_body を含む shell.qml を実行してログ出力を返します。
         """
@@ -38,12 +43,17 @@ class TestQuickShellUIComponents(unittest.TestCase):
             with open(test_qml_path, "w", encoding="utf-8") as f:
                 f.write(qml_body)
 
+            env = os.environ.copy()
+            if env_overrides:
+                env.update(env_overrides)
+
             # quickshell を実行して出力をキャプチャ (タイムアウトで安全に停止)
             proc = subprocess.Popen(
                 ["quickshell", "-p", test_qml_path],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
+                env=env,
             )
             try:
                 out, err = proc.communicate(timeout=timeout_sec)
@@ -487,6 +497,119 @@ ShellRoot {
             r'Text\s*\{[^}]*Layout\.fillWidth:\s*true[^}]*textFormat:\s*Text\.PlainText[^}]*text:\s*modelData',
             "Movie filter dropdown option must enforce Text.PlainText"
         )
+
+    def test_settings_modal_close_and_chain_dropdown(self):
+        """SettingsModal の閉じる処理と系列ドロップダウンの高さ上限・スクロール対応を検証"""
+        settings_qml_path = os.path.join(self.components_dir, "SettingsModal.qml")
+        with open(settings_qml_path, encoding="utf-8") as f:
+            settings_content = f.read()
+
+        self.assertNotIn("showSettingsPanel", settings_content)
+        self.assertIn("chainDropdownFlickable", settings_content)
+
+        qml = """import QtQuick
+import Quickshell
+import "./components"
+
+ShellRoot {
+  FloatingWindow {
+    id: testWindow
+    implicitWidth: 440
+    implicitHeight: 600
+    visible: true
+    property int closedCount: 0
+    property real closedHeight: 0
+    property real open8Height: 0
+
+    SettingsModal {
+      id: modal
+      visible: true
+      bar: ({ foreground: "#ffffff", background: "#111111" })
+      availableChains: [
+        { id: "aeon", nameJa: "イオンシネマ", nameEn: "AEON CINEMA" },
+        { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
+        { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
+        { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
+        { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" },
+        { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" },
+        { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly" },
+        { id: "other", nameJa: "共同経営・その他", nameEn: "Joint / Other" }
+      ]
+      onClosed: testWindow.closedCount += 1
+    }
+
+    Timer {
+      id: step1Timer
+      interval: 100
+      running: true
+      repeat: false
+      onTriggered: {
+        testWindow.closedHeight = modal.contentPreferredHeight;
+        if (testWindow.closedHeight <= 200) {
+          console.log("[TEST_FAIL] Expected realistic closedHeight > 200, got " + testWindow.closedHeight);
+          Qt.quit();
+          return;
+        }
+        modal.chainDropdownOpen = true;
+        step2Timer.start();
+      }
+    }
+
+    Timer {
+      id: step2Timer
+      interval: 100
+      repeat: false
+      onTriggered: {
+        testWindow.open8Height = modal.contentPreferredHeight;
+        if (!(testWindow.open8Height > testWindow.closedHeight)) {
+          console.log("[TEST_FAIL] Expected open8Height > closedHeight, got " + testWindow.open8Height + " vs " + testWindow.closedHeight);
+          Qt.quit();
+          return;
+        }
+
+        var manyChains = [];
+        for (var i = 0; i < 20; i++) {
+          manyChains.push({ id: "chain_" + i, nameJa: "系列" + i, nameEn: "Chain " + i });
+        }
+        modal.availableChains = manyChains;
+        step3Timer.start();
+      }
+    }
+
+    Timer {
+      id: step3Timer
+      interval: 100
+      repeat: false
+      onTriggered: {
+        var open20Height = modal.contentPreferredHeight;
+        if (Math.abs(open20Height - testWindow.open8Height) > 0.5) {
+          console.log("[TEST_FAIL] Expected dropdown height to stay capped: 8=" + testWindow.open8Height + ", 20=" + open20Height);
+          Qt.quit();
+          return;
+        }
+
+        modal.close();
+        if (testWindow.closedCount !== 1 || modal.chainDropdownOpen !== false) {
+          console.log("[TEST_FAIL] Expected close() to emit closed once and collapse dropdown");
+          Qt.quit();
+          return;
+        }
+
+        console.log("[TEST_SETTINGS_DROPDOWN_SUCCESS]");
+        Qt.quit();
+      }
+    }
+  }
+}
+"""
+        output = self.run_qml_test(
+            qml,
+            timeout_sec=5.0,
+            env_overrides={"QT_QPA_PLATFORM": "offscreen"},
+        )
+        self.assertIn("[TEST_SETTINGS_DROPDOWN_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+        self.assertNotIn("Binding loop detected", output)
 
 
 if __name__ == "__main__":

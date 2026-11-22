@@ -21,6 +21,7 @@ Rectangle {
   property var openExternalUrl: function(url) {}
 
   signal closed()
+  readonly property real contentPreferredHeight: modalColumn.implicitHeight + Style.space(44)
 
   MouseArea {
     anchors.fill: parent
