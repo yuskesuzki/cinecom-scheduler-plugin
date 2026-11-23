@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
 import qs.Ui
+import "CinemaUtils.js" as CinemaUtils
 
 Column {
   id: rootSearchResultView
@@ -77,14 +78,7 @@ Column {
 
   // チェーン表示名のヘルパー
   function getChainLabel(chainId) {
-    if (chainId === "toho") return rootSearchResultView.englishMode ? "TOHO" : "TOHOシネマズ"
-    if (chainId === "united") return rootSearchResultView.englishMode ? "United" : "ユナイテッド"
-    if (chainId === "sunshine") return rootSearchResultView.englishMode ? "Sunshine" : "サンシャイン"
-    if (chainId === "tjoy") return rootSearchResultView.englishMode ? "T-JOY" : "T・ジョイ"
-    if (chainId === "109cinemas") return rootSearchResultView.englishMode ? "109" : "109シネマズ"
-    if (chainId === "smt") return "MOVIX"
-    if (chainId === "other") return rootSearchResultView.englishMode ? "Joint" : "共同"
-    return rootSearchResultView.englishMode ? "Aeon" : "イオンシネマ"
+    return CinemaUtils.getChainBadgeLabel(chainId, rootSearchResultView.englishMode)
   }
 
   // 1. 検索情報バー & 通常表示に戻るボタン

@@ -6,6 +6,7 @@ import Quickshell.Io
 import qs.Commons
 import qs.Ui
 import "components"
+import "components/CinemaUtils.js" as CinemaUtils
 
 BarWidget {
   id: root
@@ -54,57 +55,14 @@ BarWidget {
     theater: ""
   })
 
-  readonly property var uniqueMovieTitles: {
-    var titles = []
-    if (!root.moviesData) return titles
-    for (var i = 0; i < root.moviesData.length; i++) {
-      var t = root.getMovieDisplayTitle(root.moviesData[i])
-      if (t && titles.indexOf(t) === -1) {
-        titles.push(t)
-      }
-    }
-    titles.sort(function(a, b) {
-      return a.localeCompare(b, root.englishMode ? "en" : "ja")
-    })
-    return titles
-  }
+  readonly property var uniqueMovieTitles: CinemaUtils.extractUniqueMovieTitles(root.moviesData, root.englishMode)
 
-  readonly property var filteredMovies: {
-    if (!root.moviesData) return []
-    if (!root.selectedMovieFilter || root.selectedMovieFilter === "") {
-      return root.moviesData
-    }
-    var list = []
-    for (var i = 0; i < root.moviesData.length; i++) {
-      var m = root.moviesData[i]
-      var t = root.getMovieDisplayTitle(m)
-      if (t === root.selectedMovieFilter || m.title === root.selectedMovieFilter) {
-        list.push(m)
-      }
-    }
-    return list
-  }
+  readonly property var filteredMovies: CinemaUtils.filterMoviesByTitle(root.moviesData, root.selectedMovieFilter, root.englishMode)
 
-  readonly property var availableChains: [
-    { id: "aeon", nameJa: "イオンシネマ", nameEn: "AEON CINEMA" },
-    { id: "toho", nameJa: "TOHOシネマズ", nameEn: "TOHO CINEMAS" },
-    { id: "united", nameJa: "ユナイテッド・シネマ", nameEn: "UNITED CINEMAS" },
-    { id: "sunshine", nameJa: "シネマサンシャイン", nameEn: "CINEMA SUNSHINE" },
-    { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY" },
-    { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS" },
-    { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly" },
-    { id: "other", nameJa: "共同経営・その他", nameEn: "Joint / Other" }
-  ]
-
+  readonly property var availableChains: CinemaUtils.AVAILABLE_CHAINS
 
   function getChainDisplayName(chainId) {
-    var cId = chainId || root.selectedChain
-    for (var i = 0; i < root.availableChains.length; i++) {
-      if (root.availableChains[i].id === cId) {
-        return root.englishMode ? root.availableChains[i].nameEn : root.availableChains[i].nameJa
-      }
-    }
-    return root.englishMode ? "Cinema" : "シネコン"
+    return CinemaUtils.getChainDisplayName(chainId || root.selectedChain, root.englishMode)
   }
   property bool showScreenModal: false
   property string currentScreenTitle: ""
@@ -121,171 +79,53 @@ BarWidget {
   }
 
   function normalizeScreenText(str) {
-    if (!str) return ""
-    return str.replace(/[！-～]/g, function(c) {
-      return String.fromCharCode(c.charCodeAt(0) - 0xFEE0)
-    }).replace(/　/g, " ").replace(/\s+/g, " ").trim()
+    return CinemaUtils.normalizeScreenText(str)
   }
 
   function extractScreenNumber(str) {
-    var norm = root.normalizeScreenText(str)
-    var m = norm.match(/(?:シアター|screen|スクリーン|cinema|シネマ)\s*(\d+)/i) || norm.match(/\b(\d+)\b/) || norm.match(/(\d+)/)
-    return m ? parseInt(m[1], 10) : null
+    return CinemaUtils.extractScreenNumber(str)
   }
 
   function findCurrentTheater() {
-    for (var i = 0; i < root.allTheaters.length; i++) {
-      if (root.allTheaters[i].id === root.selectedTheater) {
-        return root.allTheaters[i]
-      }
-    }
-    return null
+    return CinemaUtils.findTheaterById(root.allTheaters, root.selectedTheater)
   }
 
   function findScreenFacility(screenName) {
-    var theaterObj = root.findCurrentTheater()
-    if (!theaterObj || !theaterObj.facility || !Array.isArray(theaterObj.facility.screens)) {
-      return null
-    }
-
-    var screens = theaterObj.facility.screens
-    var normTarget = root.normalizeScreenText(screenName).toLowerCase()
-    var targetNum = root.extractScreenNumber(screenName)
-
-    // 1. 完全一致・正規化一致
-    for (var j = 0; j < screens.length; j++) {
-      var s = screens[j]
-      var normS = root.normalizeScreenText(s.name).toLowerCase()
-      if (normS === normTarget) return s
-    }
-
-    // 2. スクリーン番号の一致
-    if (targetNum !== null) {
-      for (var j = 0; j < screens.length; j++) {
-        var s = screens[j]
-        var sNum = root.extractScreenNumber(s.name)
-        if (sNum !== null && sNum === targetNum) return s
-      }
-    }
-
-    // 3. 特殊設備キーワード一致 (IMAX, 4DX, BESTIA, Dolby Cinema, プラチナ等)
-    for (var j = 0; j < screens.length; j++) {
-      var s = screens[j]
-      var normS = root.normalizeScreenText(s.name).toLowerCase()
-      if (normTarget.indexOf("imax") !== -1 && normS.indexOf("imax") !== -1) return s
-      if (normTarget.indexOf("4dx") !== -1 && normS.indexOf("4dx") !== -1) return s
-      if ((normTarget.indexOf("dolby cinema") !== -1 || normTarget.indexOf("dolbycinema") !== -1) && normS.indexOf("dolby cinema") !== -1) return s
-      if (normTarget.indexOf("プラチナ") !== -1 && normS.indexOf("プラチナ") !== -1) return s
-      if (normTarget.indexOf("bestia") !== -1 && normS.indexOf("bestia") !== -1) {
-        if (targetNum === null) return s
-      }
-    }
-
-    return null
+    return CinemaUtils.findScreenFacility(root.findCurrentTheater(), screenName)
   }
 
   function getSeatRows(seatsObj) {
-    if (!seatsObj) return []
-    var rows = []
-    for (var k in seatsObj) {
-      if (k !== "合 計" && k !== "合計" && k !== "total" && k !== "Total") {
-        rows.push({ type: k, count: seatsObj[k] })
-      }
-    }
-    return rows
+    return CinemaUtils.getSeatRows(seatsObj)
   }
 
   function getMovieDisplayTitle(movie) {
-    if (!movie) return ""
-    if (root.englishMode && movie.movie_title_en) {
-      return movie.movie_title_en
-    }
-    return movie.title || ""
+    return CinemaUtils.getMovieDisplayTitle(movie, root.englishMode)
   }
 
   function toEnglishScreen(screenName) {
-    if (!screenName) return ""
-    var norm = root.normalizeScreenText(screenName)
-    var m = norm.match(/スクリーン\s*(\d+)/)
-    if (m) {
-      return "Screen " + m[1]
-    }
-    if (/シアター\s*\d+/.test(norm)) {
-      return norm.replace(/シアター\s*(\d+)/, "Theater $1")
-    }
-    if (norm.indexOf("未定") !== -1) {
-      return "TBD"
-    }
-    return screenName
+    return CinemaUtils.toEnglishScreen(screenName)
   }
 
   function getScreenDisplayName(screenName) {
-    if (!screenName) return ""
-    if (root.englishMode) {
-      return toEnglishScreen(screenName)
-    }
-    return screenName
+    return CinemaUtils.getScreenDisplayName(screenName, root.englishMode)
   }
 
   // 外部ブラウザ遷移を許可する公式シネコンドメイン一覧 (二重防御)
-  readonly property var allowedCinemaDomains: [
-    "cinema.aeoncinema.com",
-    "reserve.aeoncinema.com",
-    "login.watatheatre.aeoncinema.com",
-    "theater.aeoncinema.com",
-    "www.aeoncinema.com",
-    "hlo.tohotheater.jp",
-    "www.tohotheater.jp",
-    "www.unitedcinemas.jp",
-    "transaction.ticket-cinemasunshine.com",
-    "ticket-cinemasunshine.com",
-    "www.cinemasunshine.co.jp",
-    "cinemasunshine.co.jp",
-    "tjoy.jp",
-    "tjoy.co.jp",
-    "109cinemas.net",
-    "cinema.109cinemas.net",
-    "www.smt-cinema.com",
-    "smt-cinema.com",
-    "memberlogin.smart.smt-cinema.jp",
-    "ticket.smt-cinema.com",
-    "www.osakastationcitycinema.com",
-    "ticket.osakastationcitycinema.com",
-    "www.parkscinema.com",
-    "ticket.parkscinema.com",
-    "www.cinemafrontier.net"
-  ]
+  readonly property var allowedCinemaDomains: CinemaUtils.ALLOWED_CINEMA_DOMAINS
 
   function openExternalUrl(url) {
-    if (!url || typeof url !== "string") return
-    var trimmed = url.trim()
-    if (!trimmed.startsWith("https://")) {
-      console.warn("[CinecomScheduler] Blocked unsafe non-https URL:", trimmed)
-      return
-    }
-
-    // ホスト名の抽出
-    var hostMatch = trimmed.match(/^https:\/\/([^\/:]+)/i)
-    if (!hostMatch || !hostMatch[1]) {
-      console.warn("[CinecomScheduler] Blocked malformed URL:", trimmed)
-      return
-    }
-
-    var hostname = hostMatch[1].toLowerCase()
-    var isAllowed = false
-    for (var i = 0; i < root.allowedCinemaDomains.length; i++) {
-      if (root.allowedCinemaDomains[i] === hostname) {
-        isAllowed = true
-        break
+    var res = CinemaUtils.validateExternalUrl(url)
+    if (!res.ok) {
+      if (res.reason === "non_https") {
+        console.warn("[CinecomScheduler] Blocked unsafe non-https URL:", res.value)
+      } else if (res.reason === "malformed") {
+        console.warn("[CinecomScheduler] Blocked malformed URL:", res.value)
+      } else if (res.reason === "unauthorized_domain") {
+        console.warn("[CinecomScheduler] Blocked URL with unauthorized domain:", res.value)
       }
-    }
-
-    if (!isAllowed) {
-      console.warn("[CinecomScheduler] Blocked URL with unauthorized domain:", hostname)
       return
     }
-
-    Qt.openUrlExternally(trimmed)
+    Qt.openUrlExternally(res.url)
   }
 
   onShowSettingsPanelChanged: {
@@ -319,38 +159,11 @@ BarWidget {
   }
 
   function getTargetDateString() {
-    var target = new Date()
-    if (root.selectedDate === "tomorrow") {
-      target.setDate(target.getDate() + 1)
-    } else if (root.selectedDate === "yesterday") {
-      target.setDate(target.getDate() - 1)
-    }
-    var y = target.getFullYear()
-    var m = String(target.getMonth() + 1).padStart(2, "0")
-    var d = String(target.getDate()).padStart(2, "0")
-    return y + "-" + m + "-" + d
+    return CinemaUtils.formatDateIso(root.selectedDate)
   }
 
   function getTargetDateFormatted() {
-    var target = new Date()
-    if (root.selectedDate === "tomorrow") {
-      target.setDate(target.getDate() + 1)
-    } else if (root.selectedDate === "yesterday") {
-      target.setDate(target.getDate() - 1)
-    }
-    var y = target.getFullYear()
-    var m = String(target.getMonth() + 1).padStart(2, "0")
-    var d = String(target.getDate()).padStart(2, "0")
-
-    if (root.englishMode) {
-      var daysEn = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-      var dayNameEn = daysEn[target.getDay()]
-      return y + "-" + m + "-" + d + " (" + dayNameEn + ")"
-    } else {
-      var daysJa = ["日", "月", "火", "水", "木", "金", "土"]
-      var dayNameJa = daysJa[target.getDay()]
-      return y + "年" + m + "月" + d + "日(" + dayNameJa + ")"
-    }
+    return CinemaUtils.formatDateDisplay(root.selectedDate, root.englishMode)
   }
 
   function buildFetchCommand() {
@@ -368,72 +181,12 @@ BarWidget {
   }
 
   function applyMovieFilter() {
-    var rawMovies = root.rawMoviesData || []
-    var normalizedMovies = []
-
-    // 現在時刻と抽出時間枠（今日の場合）
-    var now = new Date()
-    var currentMinutes = now.getHours() * 60 + now.getMinutes()
-    var maxMinutes = currentMinutes + Math.round(root.withinHours * 60)
-
-    for (var i = 0; i < rawMovies.length; i++) {
-      var m = rawMovies[i]
-      var title = m.movie_title || m.title || ""
-      var screenings = m.screenings || m.showtimes || []
-      var filteredShowtimes = []
-
-      for (var j = 0; j < screenings.length; j++) {
-        var s = screenings[j]
-        var startTime = s.start_time || ""
-        var endTime = s.end_time || ""
-        var screenName = s.screen_name || s.screen || ""
-        var tags = s.tags || s.special_badges || []
-        var seatStatus = s.seat_status || "unknown"
-        var bookingUrl = s.booking_url || ""
-
-        // "today" かつ showAllDayToday でないときは withinHours 時間以内の上映枠にフィルタリング
-        if (root.selectedDate === "today" && !root.showAllDayToday && startTime) {
-          var parts = startTime.split(":")
-          if (parts.length === 2) {
-            var startMinutes = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10)
-            if (startMinutes < currentMinutes || startMinutes > maxMinutes) {
-              continue
-            }
-          }
-        }
-
-        filteredShowtimes.push({
-          start_time: startTime,
-          end_time: endTime,
-          screen: screenName,
-          special_badges: tags,
-          seat_status: seatStatus,
-          booking_url: bookingUrl,
-          remaining_seats: s.remaining_seats !== undefined ? s.remaining_seats : null,
-          total_seats: s.total_seats !== undefined ? s.total_seats : null,
-          screen_facility: s.screen_facility || root.findScreenFacility(screenName)
-        })
-      }
-
-      if (filteredShowtimes.length > 0) {
-        normalizedMovies.push({
-          movie_id: m.movie_id || m.id || "",
-          title: title,
-          movie_title_en: m.movie_title_en || null,
-          info_url: m.info_url || "",
-          booking_url: (m.booking_url || (filteredShowtimes[0] ? filteredShowtimes[0].booking_url : "")),
-          showtimes: filteredShowtimes
-        })
-      }
-    }
-
-    normalizedMovies.sort(function(a, b) {
-      var timeA = (a.showtimes && a.showtimes.length > 0) ? a.showtimes[0].start_time : "99:99"
-      var timeB = (b.showtimes && b.showtimes.length > 0) ? b.showtimes[0].start_time : "99:99"
-      if (timeA !== timeB) return timeA.localeCompare(timeB)
-      return (a.title || "").localeCompare(b.title || "")
+    root.moviesData = CinemaUtils.normalizeAndFilterMovies(root.rawMoviesData, {
+      selectedDate: root.selectedDate,
+      showAllDayToday: root.showAllDayToday,
+      withinHours: root.withinHours,
+      theaterObj: root.findCurrentTheater()
     })
-    root.moviesData = normalizedMovies
   }
 
   // 劇場データの読み込み (Process)
@@ -486,14 +239,7 @@ BarWidget {
   }
 
   function buildSearchDateString(dateVal) {
-    var target = new Date()
-    if (dateVal === "tomorrow") {
-      target.setDate(target.getDate() + 1)
-    }
-    var y = target.getFullYear()
-    var m = String(target.getMonth() + 1).padStart(2, "0")
-    var d = String(target.getDate()).padStart(2, "0")
-    return y + "-" + m + "-" + d
+    return CinemaUtils.formatDateIso(dateVal)
   }
 
   function startCrossTheaterSearch(title, area, dateVal, rangeVal, theaterVal) {
@@ -938,26 +684,13 @@ BarWidget {
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
             onClicked: {
-              var theaterObj = root.findCurrentTheater()
-              var url = ""
-              if (theaterObj && theaterObj.official_url) {
-                url = theaterObj.official_url
-              } else if (root.selectedChain === "toho") {
-                url = "https://hlo.tohotheater.jp/net/schedule/" + encodeURIComponent(root.selectedTheater) + "/TNPI2000J01.do"
-              } else if (root.selectedChain === "united") {
-                url = "https://www.unitedcinemas.jp/" + encodeURIComponent(root.selectedTheater) + "/index.html"
-              } else if (root.selectedChain === "sunshine") {
-                url = "https://www.cinemasunshine.co.jp/theater/" + encodeURIComponent(root.selectedTheater) + "/"
-              } else if (root.selectedChain === "tjoy") {
-                url = "https://tjoy.jp/" + encodeURIComponent(root.selectedTheater)
-              } else if (root.selectedChain === "109cinemas") {
-                url = "https://109cinemas.net/" + encodeURIComponent(root.selectedTheater) + "/"
-              } else if (root.selectedChain === "smt") {
-                url = "https://www.smt-cinema.com/site/" + encodeURIComponent(root.selectedTheater) + "/"
-              } else {
-                url = "https://theater.aeoncinema.com/theaters/" + encodeURIComponent(root.selectedTheater) + "/"
-              }
-              root.openExternalUrl(url)
+              root.openExternalUrl(
+                CinemaUtils.buildTheaterHomepageUrl(
+                  root.selectedChain,
+                  root.selectedTheater,
+                  root.findCurrentTheater()
+                )
+              )
             }
             onEntered: if (root.bar) root.bar.showTooltip(parent, root.englishMode ? "Open theater homepage" : (root.theaterDisplayName + " の公式ホームページを開く"))
             onExited: if (root.bar) root.bar.hideTooltip(parent)

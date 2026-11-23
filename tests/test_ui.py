@@ -611,6 +611,252 @@ ShellRoot {
         self.assertNotIn("Failed to load configuration", output)
         self.assertNotIn("Binding loop detected", output)
 
+    def test_cinema_utils_pure_logic(self):
+        """components/CinemaUtils.js の純粋JSロジック・URL検証・フィルタリングを検証"""
+        qml = """import QtQuick
+import Quickshell
+import "./components/CinemaUtils.js" as CinemaUtils
+
+ShellRoot {
+  Scope {
+    Component.onCompleted: {
+      // 1. チェーン定義と表示名・短縮バッジ
+      if (CinemaUtils.AVAILABLE_CHAINS.length !== 8) {
+        console.log("[TEST_FAIL] Expected 8 chains, got " + CinemaUtils.AVAILABLE_CHAINS.length);
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainDisplayName("tjoy", false) !== "T・ジョイ" || CinemaUtils.getChainDisplayName("tjoy", true) !== "T-JOY") {
+        console.log("[TEST_FAIL] getChainDisplayName mismatch for tjoy");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainDisplayName("unknown", false) !== "シネコン" || CinemaUtils.getChainDisplayName("unknown", true) !== "Cinema") {
+        console.log("[TEST_FAIL] getChainDisplayName fallback mismatch");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainBadgeLabel("united", false) !== "ユナイテッド" || CinemaUtils.getChainBadgeLabel("united", true) !== "United") {
+        console.log("[TEST_FAIL] getChainBadgeLabel mismatch for united");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainBadgeLabel("unknown", false) !== "イオンシネマ" || CinemaUtils.getChainBadgeLabel("unknown", true) !== "Aeon") {
+        console.log("[TEST_FAIL] getChainBadgeLabel fallback mismatch");
+        Qt.quit();
+        return;
+      }
+
+      // 2. スクリーン名正規化・番号抽出・英訳
+      if (CinemaUtils.normalizeScreenText("　ＳＣＲＥＥＮ　１２  ") !== "SCREEN 12") {
+        console.log("[TEST_FAIL] normalizeScreenText mismatch");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.extractScreenNumber("スクリーン１") !== 1 || CinemaUtils.extractScreenNumber("SCREEN 12") !== 12 || CinemaUtils.extractScreenNumber("IMAX") !== null) {
+        console.log("[TEST_FAIL] extractScreenNumber mismatch");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.toEnglishScreen("スクリーン7") !== "Screen 7" || CinemaUtils.toEnglishScreen("シアター３") !== "Theater 3" || CinemaUtils.getScreenDisplayName("未定", true) !== "TBD") {
+        console.log("[TEST_FAIL] toEnglishScreen / getScreenDisplayName mismatch");
+        Qt.quit();
+        return;
+      }
+
+      // 3. 設備照合 (完全一致 / 番号一致 / キーワード一致)
+      var theater = {
+        id: "shinjuku",
+        facility: {
+          screens: [
+            { name: "1スクリーン", features: [] },
+            { name: "IMAXシアター", features: ["IMAX"] },
+            { name: "ドルビーシネマ (Dolby Cinema)", features: ["Dolby Cinema"] },
+            { name: "プラチナスクリーン", features: ["プラチナ"] }
+          ]
+        }
+      };
+      if (CinemaUtils.findScreenFacility(theater, "１スクリーン").name !== "1スクリーン") {
+        console.log("[TEST_FAIL] Exact normalized screen match failed");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.findScreenFacility(theater, "スクリーン1").name !== "1スクリーン") {
+        console.log("[TEST_FAIL] Number screen match failed");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.findScreenFacility(theater, "IMAXレーザー").name !== "IMAXシアター") {
+        console.log("[TEST_FAIL] IMAX keyword match failed");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.findScreenFacility(theater, "DolbyCinema").name !== "ドルビーシネマ (Dolby Cinema)") {
+        console.log("[TEST_FAIL] Dolby Cinema keyword match failed");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.findScreenFacility(theater, "プラチナシート").name !== "プラチナスクリーン") {
+        console.log("[TEST_FAIL] Platinum keyword match failed");
+        Qt.quit();
+        return;
+      }
+
+      // 4. 座席行整形
+      var seatRows = CinemaUtils.getSeatRows({ "通常座席": 100, "車椅子用スペース": 2, "合 計": 102, "合計": 102, "total": 102, "Total": 102 });
+      if (seatRows.length !== 2 || seatRows[0].type !== "通常座席" || seatRows[1].count !== 2) {
+        console.log("[TEST_FAIL] getSeatRows mismatch");
+        Qt.quit();
+        return;
+      }
+
+      // 5. URL検証と公式ホームページURL構築
+      var validUrl = CinemaUtils.validateExternalUrl("  https://HLO.TOHOTHEATER.JP/net/schedule/009/TNPI2000J01.do ");
+      if (!validUrl.ok || validUrl.hostname !== "hlo.tohotheater.jp") {
+        console.log("[TEST_FAIL] Valid https URL rejected");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.validateExternalUrl("http://hlo.tohotheater.jp/").reason !== "non_https") {
+        console.log("[TEST_FAIL] http URL should fail with non_https");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.validateExternalUrl("https://evil.example.com/").reason !== "unauthorized_domain") {
+        console.log("[TEST_FAIL] Unauthorized domain should fail");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.validateExternalUrl("https:///missing-host").reason !== "malformed") {
+        console.log("[TEST_FAIL] Malformed URL should fail");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.buildTheaterHomepageUrl("other", "oscc", { official_url: "https://www.osakastationcitycinema.com/" }) !== "https://www.osakastationcitycinema.com/") {
+        console.log("[TEST_FAIL] official_url priority failed");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.buildTheaterHomepageUrl("toho", "009", null) !== "https://hlo.tohotheater.jp/net/schedule/009/TNPI2000J01.do" ||
+          CinemaUtils.buildTheaterHomepageUrl("tjoy", "shinjuku_wald9", null) !== "https://tjoy.jp/shinjuku_wald9" ||
+          CinemaUtils.buildTheaterHomepageUrl("smt", "shinjuku", null) !== "https://www.smt-cinema.com/site/shinjuku/" ||
+          CinemaUtils.buildTheaterHomepageUrl("aeon", "ebetsu", null) !== "https://theater.aeoncinema.com/theaters/ebetsu/") {
+        console.log("[TEST_FAIL] buildTheaterHomepageUrl template mismatch");
+        Qt.quit();
+        return;
+      }
+
+      // 6. 日付計算 (2026-11-23 Mon 10:00 固定)
+      var baseDate = new Date(2026, 10, 23, 10, 0, 0);
+      if (CinemaUtils.formatDateIso("yesterday", baseDate) !== "2026-11-22" ||
+          CinemaUtils.formatDateIso("today", baseDate) !== "2026-11-23" ||
+          CinemaUtils.formatDateIso("tomorrow", baseDate) !== "2026-11-24") {
+        console.log("[TEST_FAIL] formatDateIso mismatch");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.formatDateDisplay("today", false, baseDate) !== "2026年11月23日(月)" ||
+          CinemaUtils.formatDateDisplay("tomorrow", true, baseDate) !== "2026-11-24 (Tue)") {
+        console.log("[TEST_FAIL] formatDateDisplay mismatch");
+        Qt.quit();
+        return;
+      }
+
+      // 7. 映画データ正規化・時間フィルタリング・タイトル抽出
+      var rawMovies = [
+        {
+          movie_id: "m2",
+          movie_title: "映画B",
+          movie_title_en: "Movie B",
+          screenings: [
+            { start_time: "09:30", end_time: "11:30", screen_name: "1スクリーン", booking_url: "https://example.invalid/past" },
+            { start_time: "14:00", end_time: "16:00", screen_name: "1スクリーン", booking_url: "https://example.invalid/late" }
+          ]
+        },
+        {
+          movie_id: "m1",
+          movie_title: "映画A",
+          movie_title_en: "Movie A",
+          screenings: [
+            { start_time: "11:00", end_time: "13:00", screen_name: "IMAXレーザー", booking_url: "https://example.invalid/near" }
+          ]
+        }
+      ];
+      var filteredToday = CinemaUtils.normalizeAndFilterMovies(rawMovies, {
+        selectedDate: "today",
+        showAllDayToday: false,
+        withinHours: 3,
+        theaterObj: theater,
+        now: baseDate
+      });
+      if (filteredToday.length !== 1 || filteredToday[0].movie_id !== "m1" ||
+          filteredToday[0].showtimes[0].screen_facility.name !== "IMAXシアター") {
+        console.log("[TEST_FAIL] normalizeAndFilterMovies today window mismatch");
+        Qt.quit();
+        return;
+      }
+      var allDay = CinemaUtils.normalizeAndFilterMovies(rawMovies, {
+        selectedDate: "today",
+        showAllDayToday: true,
+        withinHours: 3,
+        theaterObj: theater,
+        now: baseDate
+      });
+      if (allDay.length !== 2 || allDay[0].movie_id !== "m2" || allDay[1].movie_id !== "m1") {
+        console.log("[TEST_FAIL] normalizeAndFilterMovies allDay sort mismatch");
+        Qt.quit();
+        return;
+      }
+      var titlesEn = CinemaUtils.extractUniqueMovieTitles(allDay, true);
+      if (titlesEn.length !== 2 || titlesEn[0] !== "Movie A" || titlesEn[1] !== "Movie B") {
+        console.log("[TEST_FAIL] extractUniqueMovieTitles mismatch");
+        Qt.quit();
+        return;
+      }
+      var byTitle = CinemaUtils.filterMoviesByTitle(allDay, "Movie A", true);
+      if (byTitle.length !== 1 || byTitle[0].movie_id !== "m1") {
+        console.log("[TEST_FAIL] filterMoviesByTitle mismatch");
+        Qt.quit();
+        return;
+      }
+
+      console.log("[TEST_CINEMA_UTILS_SUCCESS]");
+      Qt.quit();
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml, timeout_sec=4.0)
+        self.assertIn("[TEST_CINEMA_UTILS_SUCCESS]", output)
+        self.assertNotIn("Failed to load configuration", output)
+
+    def test_allowed_domains_parity_with_python_sanitizer(self):
+        """CinemaUtils.js の ALLOWED_CINEMA_DOMAINS が scraper/sanitizer.py の ALLOWED_DOMAINS と完全一致することを検証"""
+        from scraper.sanitizer import ALLOWED_DOMAINS
+
+        qml = """import QtQuick
+import Quickshell
+import "./components/CinemaUtils.js" as CinemaUtils
+
+ShellRoot {
+  Scope {
+    Component.onCompleted: {
+      console.log("DOMAINS_JSON=" + JSON.stringify(CinemaUtils.ALLOWED_CINEMA_DOMAINS));
+      Qt.quit();
+    }
+  }
+}
+"""
+        output = self.run_qml_test(qml, timeout_sec=4.0)
+        self.assertIn("DOMAINS_JSON=", output)
+        json_line = next(
+            line for line in output.splitlines() if "DOMAINS_JSON=" in line
+        )
+        raw_json = json_line.split("DOMAINS_JSON=", 1)[1].strip()
+        qml_domains = json.loads(raw_json)
+        self.assertEqual(set(qml_domains), ALLOWED_DOMAINS)
+        self.assertEqual(len(qml_domains), len(ALLOWED_DOMAINS))
+
 
 if __name__ == "__main__":
     unittest.main()

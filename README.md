@@ -109,7 +109,8 @@ omarchy plugin validate .
 cinecom-scheduler-plugin/
 ├── BarWidget.qml              # Omarchy 用 UI ウィジェット (QML)
 ├── manifest.json              # Omarchy プラグイン定義
-├── components/                # 分割された QML コンポーネント群
+├── components/                # 分割された QML コンポーネント・共通JS群
+│   ├── CinemaUtils.js         # 共通定数・純粋JSユーティリティ (.pragma library)
 │   ├── MovieScheduleView.qml  # 単一劇場スケジュール表示ビュー
 │   ├── ScreenModal.qml        # スクリーン設備・座席詳細モーダル
 │   ├── SearchModal.qml        # 作品×地域横断検索モーダル
@@ -142,7 +143,7 @@ cinecom-scheduler-plugin/
 │           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
 │           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
 │           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば)
-├── tests/                     # ユニットテスト (全60テスト完備)
+├── tests/                     # ユニットテスト (全62テスト完備)
 │   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト
