@@ -1,10 +1,10 @@
 # Cinecom Scheduler
 
-A native Omarchy / Quickshell bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, **United Cinemas**, **Cinema Sunshine**, **T-JOY**, **109 Cinemas**, **MOVIX / Piccadilly**, **Korona World**, **TTCG**, & **Joint / Other**).
+A native Omarchy / Quickshell bar widget and lightweight Python scraper for Cinema Complex schedules, screen facilities, and seat bookings across Japan (**Aeon Cinema**, **TOHO Cinemas**, **United Cinemas**, **Cinema Sunshine**, **T-JOY**, **109 Cinemas**, **MOVIX / Piccadilly**, **Korona World**, **TTCG**, **US Cinemas**, **Forum Cinema Network**, **kino cinéma**, & **Joint / Other**).
 
 Plugin ID: `com.yusuke.cinecom-scheduler`.
 
-イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場）、T・ジョイ（全国20劇場）、109シネマズ（全国19劇場）、MOVIX・ピカデリー（全国23劇場）、コロナワールド（全国11劇場）、テアトルシネマグループ（6劇場）、共同経営・その他（大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア・ミッドランドスクエア シネマ/2・OSシネマズ2館の7劇場、計315劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX / odessa 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
+イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場）、T・ジョイ（全国20劇場）、109シネマズ（全国19劇場）、MOVIX・ピカデリー（全国23劇場）、コロナワールド（全国11劇場）、テアトルシネマグループ（6劇場）、USシネマ・千葉劇場（6劇場）、フォーラムシネマネットワーク（7劇場）、キノシネマ（6劇場）、共同経営・その他（大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア・ミッドランドスクエア シネマ/2・OSシネマズ2館の7劇場、計334劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX / ADMIX / odessa 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
 
 ## Preview
 
@@ -18,7 +18,7 @@ Plugin ID: `com.yusuke.cinecom-scheduler`.
 ## Usage
 
 - **バーウィジェット**: クリックで上映スケジュールパネルを開きます。外側をクリックするか再度クリックで閉じます。
-- **系列・劇場の切り替え**: パネル上部の劇場名または「⚙」アイコンをクリックして設定モーダルを開き、10系列（イオン / TOHO / ユナイテッド / サンシャイン / T・ジョイ / 109シネマズ / MOVIX・ピカデリー / コロナワールド / テアトルシネマグループ / 共同経営・その他）および全国315劇場をインクリメンタル検索で切り替え可能です。
+- **系列・劇場の切り替え**: パネル上部の劇場名または「⚙」アイコンをクリックして設定モーダルを開き、13系列（イオン / TOHO / ユナイテッド / サンシャイン / T・ジョイ / 109シネマズ / MOVIX・ピカデリー / コロナワールド / テアトルシネマグループ / USシネマ・千葉劇場 / フォーラムシネマネットワーク / キノシネマ / 共同経営・その他）および全国334劇場をインクリメンタル検索で切り替え可能です。
 - **直近上映 / 終日表示**: 今日の上映について、直近指定時間（1h, 2h, 3h, 5h）以内の絞り込み表示と、1日の全上映を時系列で確認できる終日表示をワンクリックで切り替えられます。
 - **明日の上映確認**: 「明日」タブを選択することで、翌日の全上映回を即座に確認できます。
 - **作品絞り込み**: 閲覧中の劇場で上映されている作品名ドロップダウンから特定の作品のみを抽出できます。
@@ -76,7 +76,7 @@ omarchy plugin validate .
 
 ## 主な特徴
 
-- **10系列対応（Providerアーキテクチャ）**:
+- **13系列対応（Providerアーキテクチャ）**:
   - 🍿 **イオンシネマ**（全99劇場）: 残席数、アップグレードシート・設備情報、公式作品・予約リンク
   - 🎬 **TOHOシネマズ**（全74劇場）: 空席ステータス（◎空席あり / △残少 / ✕満席）、TCX・轟音・IMAX設備、公式作品・予約リンク
   - 🎟️ **ユナイテッド・シネマ**（全40劇場）: 空席ステータス、4DX・IMAX・ScreenXタグ、公式作品・購入リンク
@@ -86,6 +86,9 @@ omarchy plugin validate .
   - 🎬 **MOVIX・ピカデリー（SMT）**（全23劇場）: 空席ステータス、Dolby Cinema・プラチナシート等、Smart/レガシー両購入リンク
   - 🎡 **コロナワールド**（全11劇場）: 残席状況（◎余裕あり / △残少 / ✕満席）、4DX・IMAXレーザー設備、公式予約リンク
   - 🎭 **テアトルシネマグループ（TTCG）**（6劇場）: 空席ステータス（ネット購入 / 窓口販売 / 満席）、odessa音響・シアター設備、公式予約リンク
+  - 🎥 **USシネマ・千葉劇場**（6劇場）: 空席アイコン判定（○ / △ / ✕ / 販売対象外）、IMAX・4DX・ADMIX (Dolby Atmos)設備、cinema-ticket予約リンク
+  - 🎞️ **フォーラムシネマネットワーク**（7劇場）: 盛岡・山形・ソラリス・東根・仙台・福島・那須塩原のスケジュール、スマートシアター予約リンク
+  - 🎬 **キノシネマ**（6劇場）: みなとみらい・立川・新宿・心斎橋・神戸国際・天神のスケジュール、eigaland予約リンク
   - 🏛️ **共同経営・その他**（7劇場: 大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア・ミッドランドスクエア シネマ / 2・OSシネマズミント神戸 / 神戸ハーバーランド）: 共同経営・独立系劇場のスケジュール、設備情報、購入リンク
 - **地域×作品名のシネコン横断上映検索**:
   - 都道府県（例: `東京都`）やエリアと作品名を指定して、複数系列の劇場上映回をタイムライン形式（上映開始時刻順）で一括比較。
@@ -119,9 +122,9 @@ cinecom-scheduler-plugin/
 │   ├── SearchResultView.qml   # 横断検索結果タイムライン表示ビュー
 │   └── SettingsModal.qml      # 系列・劇場・時間範囲設定モーダル
 ├── data/
-│   ├── chains.json            # 系列定義 (aeon, toho, united, sunshine, tjoy, 109cinemas, smt, korona, ttcg, other)
-│   ├── theaters.json          # 全シネコン統合劇場マスタ (計315館)
-│   └── theaters/              # 系列別劇場マスタ (aeon, toho, united, sunshine, tjoy, 109cinemas, smt, korona, ttcg, other)
+│   ├── chains.json            # 系列定義 (aeon..kinocinema, other 全13系列)
+│   ├── theaters.json          # 全シネコン統合劇場マスタ (計334館)
+│   └── theaters/              # 系列別劇場マスタ (全13系列)
 ├── scraper/                   # バックエンド Python パッケージ
 │   ├── __init__.py
 │   ├── area.py                # 都道府県・地方エリア正規化マッパー
@@ -135,6 +138,8 @@ cinecom-scheduler-plugin/
 │       ├── html_utils.py      # 共通HTML/テキスト/タグ抽出ユーティリティ
 │       ├── aeon.py            # AeonCinemaProvider
 │       ├── cinemas109.py      # Cinemas109Provider
+│       ├── forum.py           # ForumCinemaProvider
+│       ├── kinocinema.py      # KinoCinemaProvider
 │       ├── korona.py          # KoronaCinemaProvider
 │       ├── smt.py             # SmtCinemaProvider
 │       ├── sunshine.py        # CinemaSunshineProvider
@@ -142,15 +147,17 @@ cinecom-scheduler-plugin/
 │       ├── toho.py            # TohoCinemaProvider
 │       ├── ttcg.py            # TtcgCinemaProvider
 │       ├── united.py          # UnitedCinemaProvider
+│       ├── uscinemas.py       # UsCinemasProvider
 │       └── other/             # OtherCinemaProvider (Strategy パッケージ)
 │           ├── __init__.py    # STRATEGY_REGISTRY + OtherCinemaProvider
 │           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
 │           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
 │           ├── oscinemas.py   # OSシネマズ Strategy
 │           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば・ミッドランド)
-├── tests/                     # ユニットテスト (全75テスト完備)
+├── tests/                     # ユニットテスト (全86テスト完備)
 │   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_phase2_scrapers.py # コロナワールド・TTCGテスト
+│   ├── test_phase3_scrapers.py # USシネマ・フォーラム・キノシネマテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト
 │   └── test_ui.py             # UIコンポーネント・構文検証テスト
@@ -244,6 +251,33 @@ python3 -m scraper.cli --chain ttcg --theater theatre_shinjuku
 
 # テアトル梅田
 python3 -m scraper.cli --chain ttcg --theater ttcg_umeda --date 2026-11-23
+```
+
+#### USシネマ・千葉劇場
+```bash
+# USシネマ木更津
+python3 -m scraper.cli --chain uscinemas --theater kisarazu
+
+# 千葉劇場
+python3 -m scraper.cli --chain uscinemas --theater chibagekijo --date 2026-11-24
+```
+
+#### フォーラムシネマネットワーク
+```bash
+# フォーラム仙台
+python3 -m scraper.cli --chain forum --theater sendai
+
+# ソラリス (山形)
+python3 -m scraper.cli --chain forum --theater solaris --date 2026-11-24
+```
+
+#### キノシネマ
+```bash
+# kino cinéma新宿
+python3 -m scraper.cli --chain kinocinema --theater shinjuku
+
+# kino cinéma横浜みなとみらい
+python3 -m scraper.cli --chain kinocinema --theater minatomirai --date 2026-11-24
 ```
 
 #### 共同経営・その他

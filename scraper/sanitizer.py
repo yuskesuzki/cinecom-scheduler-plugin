@@ -43,6 +43,12 @@ ALLOWED_DOMAINS: Set[str] = {
     "ttcg-omori.cineticket.jp",
     "ttcg-umeda.cineticket.jp",
     "ttcg-kobe.cineticket.jp",
+    "uscinemas.jp",
+    "cinema-ticket.jp",
+    "forum-movie.net",
+    "login.member.forum-movie.net",
+    "kinocinema.jp",
+    "app.eigaland.com",
 }
 
 # 制御文字の検出パターン

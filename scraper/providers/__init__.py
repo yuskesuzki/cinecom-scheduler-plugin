@@ -9,6 +9,9 @@ from .cinemas109 import Cinemas109Provider
 from .smt import SmtCinemaProvider
 from .korona import KoronaCinemaProvider
 from .ttcg import TtcgCinemaProvider
+from .uscinemas import UsCinemasProvider
+from .forum import ForumCinemaProvider
+from .kinocinema import KinoCinemaProvider
 from .other import OtherCinemaProvider
 
 PROVIDER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
@@ -21,6 +24,9 @@ PROVIDER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
     "smt": SmtCinemaProvider,
     "korona": KoronaCinemaProvider,
     "ttcg": TtcgCinemaProvider,
+    "uscinemas": UsCinemasProvider,
+    "forum": ForumCinemaProvider,
+    "kinocinema": KinoCinemaProvider,
     "other": OtherCinemaProvider,
 }
 

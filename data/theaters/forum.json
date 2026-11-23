@@ -1,0 +1,549 @@
+{
+  "id": "forum",
+  "name": "フォーラムシネマネットワーク",
+  "theaters": [
+    {
+      "id": "morioka",
+      "site_slug": "morioka",
+      "name": "フォーラム盛岡",
+      "prefecture": "岩手県",
+      "official_url": "https://forum-movie.net/morioka",
+      "facility": {
+        "url": "https://forum-movie.net/morioka/facility",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 99,
+            "seats": {
+              "一般座席": 99,
+              "合計": 99
+            }
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 136,
+            "seats": {
+              "一般座席": 136,
+              "合計": 136
+            }
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 124,
+            "seats": {
+              "一般座席": 124,
+              "合計": 124
+            }
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 79,
+            "seats": {
+              "一般座席": 79,
+              "合計": 79
+            }
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 182,
+            "seats": {
+              "一般座席": 182,
+              "合計": 182
+            }
+          },
+          {
+            "name": "シアター6",
+            "features": [],
+            "total_seats": 182,
+            "seats": {
+              "一般座席": 182,
+              "合計": 182
+            }
+          },
+          {
+            "name": "シアター7",
+            "features": [],
+            "total_seats": 152,
+            "seats": {
+              "一般座席": 152,
+              "合計": 152
+            }
+          },
+          {
+            "name": "シアター8",
+            "features": [
+              "Dolby ATOMS"
+            ],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 2,
+              "合計": 103
+            }
+          },
+          {
+            "name": "シアター9",
+            "features": [],
+            "total_seats": 42,
+            "seats": {
+              "一般座席": 42,
+              "車椅子席": 1,
+              "合計": 42
+            }
+          },
+          {
+            "name": "シアター10",
+            "features": [],
+            "total_seats": 48,
+            "seats": {
+              "一般座席": 48,
+              "車椅子席": 1,
+              "合計": 48
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "yamagata",
+      "site_slug": "yamagata",
+      "name": "フォーラム山形",
+      "prefecture": "山形県",
+      "official_url": "https://forum-movie.net/yamagata",
+      "theater_id": "4",
+      "facility": {
+        "url": "https://forum-movie.net/yamagata/facility",
+        "screens": [
+          {
+            "name": "フォーラム1",
+            "features": [],
+            "total_seats": 65,
+            "seats": {
+              "一般座席": 65,
+              "合計": 65
+            }
+          },
+          {
+            "name": "フォーラム2",
+            "features": [],
+            "total_seats": 40,
+            "seats": {
+              "一般座席": 40,
+              "合計": 40
+            }
+          },
+          {
+            "name": "フォーラム3",
+            "features": [],
+            "total_seats": 162,
+            "seats": {
+              "一般座席": 162,
+              "合計": 162
+            }
+          },
+          {
+            "name": "フォーラム4",
+            "features": [],
+            "total_seats": 98,
+            "seats": {
+              "一般座席": 98,
+              "合計": 98
+            }
+          },
+          {
+            "name": "フォーラム5",
+            "features": [],
+            "total_seats": 200,
+            "seats": {
+              "一般座席": 200,
+              "合計": 200
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "solaris",
+      "site_slug": "yamagata",
+      "name": "ソラリス",
+      "prefecture": "山形県",
+      "official_url": "https://forum-movie.net/yamagata",
+      "theater_id": "5",
+      "facility": {
+        "url": "https://forum-movie.net/yamagata/facility",
+        "screens": [
+          {
+            "name": "ソラリス1",
+            "features": [
+              "CHRISTIE® Real laser™ 4K対応"
+            ],
+            "total_seats": 248,
+            "seats": {
+              "一般座席": 248,
+              "車椅子席": 3,
+              "合計": 248
+            }
+          },
+          {
+            "name": "ソラリス2",
+            "features": [],
+            "total_seats": 137,
+            "seats": {
+              "一般座席": 137,
+              "車椅子席": 2,
+              "合計": 137
+            }
+          },
+          {
+            "name": "ソラリス3",
+            "features": [],
+            "total_seats": 137,
+            "seats": {
+              "一般座席": 137,
+              "車椅子席": 2,
+              "合計": 137
+            }
+          },
+          {
+            "name": "ソラリス4",
+            "features": [],
+            "total_seats": 54,
+            "seats": {
+              "一般座席": 54,
+              "車椅子席": 2,
+              "合計": 54
+            }
+          },
+          {
+            "name": "ソラリス5",
+            "features": [],
+            "total_seats": 69,
+            "seats": {
+              "一般座席": 69,
+              "車椅子席": 2,
+              "合計": 69
+            }
+          },
+          {
+            "name": "ソラリス6",
+            "features": [],
+            "total_seats": 49,
+            "seats": {
+              "一般座席": 49,
+              "車椅子席": 1,
+              "合計": 49
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "higashine",
+      "site_slug": "higashine",
+      "name": "フォーラム東根",
+      "prefecture": "山形県",
+      "official_url": "https://forum-movie.net/higashine",
+      "facility": {
+        "url": "https://forum-movie.net/higashine/facility",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 247,
+            "seats": {
+              "一般座席": 247,
+              "車椅子席": 2,
+              "合計": 247
+            }
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 148,
+            "seats": {
+              "一般座席": 148,
+              "車椅子席": 2,
+              "合計": 148
+            }
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 148,
+            "seats": {
+              "一般座席": 148,
+              "車椅子席": 2,
+              "合計": 148
+            }
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 117,
+            "seats": {
+              "一般座席": 117,
+              "車椅子席": 1,
+              "合計": 117
+            }
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 117,
+            "seats": {
+              "一般座席": 117,
+              "車椅子席": 1,
+              "合計": 117
+            }
+          },
+          {
+            "name": "シアター6",
+            "features": [],
+            "total_seats": 81,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 1,
+              "合計": 81
+            }
+          },
+          {
+            "name": "シアター7",
+            "features": [],
+            "total_seats": 81,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 1,
+              "合計": 81
+            }
+          },
+          {
+            "name": "シアター8",
+            "features": [],
+            "total_seats": 81,
+            "seats": {
+              "一般座席": 81,
+              "車椅子席": 1,
+              "合計": 81
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "sendai",
+      "site_slug": "sendai",
+      "name": "フォーラム仙台",
+      "prefecture": "宮城県",
+      "official_url": "https://forum-movie.net/sendai",
+      "facility": {
+        "url": "https://forum-movie.net/sendai/facility",
+        "screens": [
+          {
+            "name": "フォーラム1",
+            "features": [],
+            "total_seats": 40,
+            "seats": {
+              "一般座席": 40,
+              "車椅子席": 1,
+              "合計": 40
+            }
+          },
+          {
+            "name": "フォーラム2",
+            "features": [],
+            "total_seats": 54,
+            "seats": {
+              "一般座席": 54,
+              "車椅子席": 1,
+              "合計": 54
+            }
+          },
+          {
+            "name": "フォーラム3",
+            "features": [],
+            "total_seats": 96,
+            "seats": {
+              "一般座席": 96,
+              "車椅子席": 1,
+              "合計": 96
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "fukushima",
+      "site_slug": "fukushima",
+      "name": "フォーラム福島",
+      "prefecture": "福島県",
+      "official_url": "https://forum-movie.net/fukushima",
+      "facility": {
+        "url": "https://forum-movie.net/fukushima/facility",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 138,
+            "seats": {
+              "一般座席": 138,
+              "合計": 138
+            }
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 80,
+            "seats": {
+              "一般座席": 80,
+              "合計": 80
+            }
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 121,
+            "seats": {
+              "一般座席": 121,
+              "合計": 121
+            }
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 66,
+            "seats": {
+              "一般座席": 66,
+              "合計": 66
+            }
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 132,
+              "合計": 132
+            }
+          },
+          {
+            "name": "シアター6",
+            "features": [],
+            "total_seats": 84,
+            "seats": {
+              "一般座席": 84,
+              "合計": 84
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nasushiobara",
+      "site_slug": "nasushiobara",
+      "name": "フォーラム那須塩原",
+      "prefecture": "栃木県",
+      "official_url": "https://forum-movie.net/nasushiobara",
+      "facility": {
+        "url": "https://forum-movie.net/nasushiobara/facility",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 296,
+            "seats": {
+              "一般座席": 296,
+              "車椅子席": 2,
+              "合計": 296
+            }
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 212,
+            "seats": {
+              "一般座席": 212,
+              "車椅子席": 2,
+              "合計": 212
+            }
+          },
+          {
+            "name": "シアター3",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            }
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 160,
+            "seats": {
+              "一般座席": 160,
+              "車椅子席": 2,
+              "合計": 160
+            }
+          },
+          {
+            "name": "シアター5",
+            "features": [],
+            "total_seats": 160,
+            "seats": {
+              "一般座席": 160,
+              "車椅子席": 2,
+              "合計": 160
+            }
+          },
+          {
+            "name": "シアター6",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 1,
+              "合計": 89
+            }
+          },
+          {
+            "name": "シアター7",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 1,
+              "合計": 89
+            }
+          },
+          {
+            "name": "シアター8",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 1,
+              "合計": 89
+            }
+          },
+          {
+            "name": "シアター9",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 1,
+              "合計": 89
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

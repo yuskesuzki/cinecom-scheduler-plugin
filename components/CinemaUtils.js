@@ -11,6 +11,9 @@ var AVAILABLE_CHAINS = [
   { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly", badgeJa: "MOVIX", badgeEn: "MOVIX" },
   { id: "korona", nameJa: "コロナワールド", nameEn: "KORONA WORLD", badgeJa: "コロナ", badgeEn: "Korona" },
   { id: "ttcg", nameJa: "テアトルシネマグループ", nameEn: "TTCG", badgeJa: "テアトル", badgeEn: "TTCG" },
+  { id: "uscinemas", nameJa: "USシネマ・千葉劇場", nameEn: "US CINEMAS", badgeJa: "USシネマ", badgeEn: "US Cinemas" },
+  { id: "forum", nameJa: "フォーラムシネマネットワーク", nameEn: "FORUM CINEMA", badgeJa: "フォーラム", badgeEn: "Forum" },
+  { id: "kinocinema", nameJa: "キノシネマ", nameEn: "kino cinéma", badgeJa: "キノシネマ", badgeEn: "kino cinéma" },
   { id: "other", nameJa: "共同経営・その他", nameEn: "Joint / Other", badgeJa: "共同", badgeEn: "Joint" }
 ];
 
@@ -53,7 +56,13 @@ var ALLOWED_CINEMA_DOMAINS = [
   "ttcg-shinjuku.cineticket.jp",
   "ttcg-omori.cineticket.jp",
   "ttcg-umeda.cineticket.jp",
-  "ttcg-kobe.cineticket.jp"
+  "ttcg-kobe.cineticket.jp",
+  "uscinemas.jp",
+  "cinema-ticket.jp",
+  "forum-movie.net",
+  "login.member.forum-movie.net",
+  "kinocinema.jp",
+  "app.eigaland.com"
 ];
 
 function findChainEntry(chainId) {
@@ -109,6 +118,16 @@ function buildTheaterHomepageUrl(chainId, theaterId, theaterObj) {
   }
   if (chainId === "ttcg") {
     return "https://ttcg.jp/" + encoded + "/";
+  }
+  if (chainId === "uscinemas") {
+    return "https://uscinemas.jp/category/" + encoded + "/";
+  }
+  if (chainId === "forum") {
+    var forumSlug = (theaterId === "solaris") ? "yamagata" : encoded;
+    return "https://forum-movie.net/" + forumSlug;
+  }
+  if (chainId === "kinocinema") {
+    return "https://kinocinema.jp/" + encoded + "/";
   }
   return "https://theater.aeoncinema.com/theaters/" + encoded + "/";
 }

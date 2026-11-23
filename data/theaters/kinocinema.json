@@ -1,0 +1,293 @@
+{
+  "id": "kinocinema",
+  "name": "キノシネマ",
+  "theaters": [
+    {
+      "id": "minatomirai",
+      "name": "kino cinéma横浜みなとみらい",
+      "prefecture": "神奈川県",
+      "official_url": "https://kinocinema.jp/minatomirai/",
+      "facility": {
+        "url": "https://kinocinema.jp/minatomirai/about/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 55,
+            "seats": {
+              "一般座席": 55,
+              "車椅子席": 2,
+              "合計": 55
+            },
+            "screen_size": "VV 4.0×2.1 / CS 5.2×2.1",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/8545ff0edd563bf03e8e37decf65bf5b75d3e9e1.jpg"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 111,
+            "seats": {
+              "一般座席": 111,
+              "車椅子席": 2,
+              "合計": 111
+            },
+            "screen_size": "VV 4.8×2.6 / CS 6.2×2.6",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/805ea085356652cea8771838e372bcbfa214c8d2.jpg"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 111,
+            "seats": {
+              "一般座席": 111,
+              "車椅子席": 2,
+              "合計": 111
+            },
+            "screen_size": "VV 4.8×2.6 / CS 6.2×2.6",
+            "sound": "リニアPCM 7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/56b791d6bf6b2c5ea5b981ed1fa627c799c92d95.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tachikawa",
+      "name": "kino cinéma立川髙島屋S.C.館",
+      "prefecture": "東京都",
+      "official_url": "https://kinocinema.jp/tachikawa/",
+      "facility": {
+        "url": "https://kinocinema.jp/tachikawa/about/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 2,
+              "合計": 89
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/21c54c1a75da26a394a86940588e7cc1ed3bd150.jpg"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 89,
+            "seats": {
+              "一般座席": 89,
+              "車椅子席": 2,
+              "合計": 89
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/845467efec38d3dd887e2fe61105e1510034d2d0.jpg"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 27,
+            "seats": {
+              "一般座席": 27,
+              "車椅子席": 2,
+              "合計": 27
+            },
+            "screen_size": "VV 3.5×1.9 / CS 4.5×1.9",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/55aaaa5c9a22d8def25d586564a49ca4151c7689.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shinjuku",
+      "name": "kino cinéma新宿",
+      "prefecture": "東京都",
+      "official_url": "https://kinocinema.jp/shinjuku/",
+      "facility": {
+        "url": "https://kinocinema.jp/shinjuku/about/",
+        "screens": [
+          {
+            "name": "THEATER 1",
+            "features": [],
+            "total_seats": 294,
+            "seats": {
+              "一般座席": 294,
+              "車椅子席": 2,
+              "合計": 294
+            },
+            "screen_size": "VV 7×3.8 / CS 9.1×3.8",
+            "sound": "リニアPCM7.1ch、アメリカDolby社製シネマサウンドプロセッサ「CP950」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/594eb5eed022e945a8d2dcb0cdd5096b25493d47.jpg"
+          },
+          {
+            "name": "THEATER 2",
+            "features": [],
+            "total_seats": 53,
+            "seats": {
+              "一般座席": 53,
+              "車椅子席": 1,
+              "合計": 53
+            },
+            "screen_size": "VV 2.7×1.5 / CS 2.7×1.1",
+            "sound": "リニアPCM7.1ch、フランスTorinov社製シネマサウンドプロセッサ「OvationII」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/ca1a697de8744af088bc46691be8db94288cbca1.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shinsaibashi",
+      "name": "kino cinéma心斎橋",
+      "prefecture": "大阪府",
+      "official_url": "https://kinocinema.jp/shinsaibashi/",
+      "facility": {
+        "url": "https://kinocinema.jp/shinsaibashi/about/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 1,
+              "合計": 104
+            },
+            "screen_size": "5.9×3.1 単位:m / 7.3×3.1 単位:m",
+            "sound": "5.1ch",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/07a6aa0b2c2f194c64ec2ead9896845362ef9fba.jpg"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 1,
+              "合計": 103
+            },
+            "screen_size": "5.7×3.1 単位:m / 7.1×3.1 単位:m",
+            "sound": "7.1ch",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/e85383df06370ac1906e1f45b6062ac10dbcabf0.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kobekokusai",
+      "name": "kino cinéma神戸国際",
+      "prefecture": "兵庫県",
+      "official_url": "https://kinocinema.jp/kobekokusai/",
+      "facility": {
+        "url": "https://kinocinema.jp/kobekokusai/about/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 120,
+            "seats": {
+              "一般座席": 120,
+              "車椅子席": 1,
+              "合計": 120
+            },
+            "screen_size": "VV 4.7x2.5 / CS 5.9x2.5",
+            "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/93754f01bc4acf34b255feaf2343e22daece4685.jpg"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 152,
+            "seats": {
+              "一般座席": 152,
+              "車椅子席": 1,
+              "合計": 152
+            },
+            "screen_size": "VV 4.7x2.5 / CS 5.9x2.5",
+            "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/163ac1ec5f6ff39a5251160dfeab1d3428268170.jpg"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 99,
+            "seats": {
+              "一般座席": 99,
+              "車椅子席": 1,
+              "合計": 99
+            },
+            "screen_size": "VV 4.2x2.2 / CS 5.2x2.2",
+            "sound": "QSC社製プロセッサー:DCP300",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/35224019a1e7a909971802258bce4bd3220aaf59.jpg"
+          },
+          {
+            "name": "シアター4",
+            "features": [],
+            "total_seats": 145,
+            "seats": {
+              "一般座席": 145,
+              "車椅子席": 1,
+              "合計": 145
+            },
+            "screen_size": "VV 4.4x2.3 / CS 5.6x2.3",
+            "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/64568543642ca152e6b54f3be8d1a993306f2219.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tenjin",
+      "name": "kino cinéma天神",
+      "prefecture": "福岡県",
+      "official_url": "https://kinocinema.jp/tenjin/",
+      "facility": {
+        "url": "https://kinocinema.jp/tenjin/about/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 85,
+              "車椅子席": 2,
+              "合計": 85
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/f52db50d1fb1a81a14e4cf563b3f81dc1436339c.jpg"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 85,
+              "車椅子席": 2,
+              "合計": 85
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/6064e6ac8ab382d677999c804c1cdbab2a79aaef.jpg"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 85,
+              "車椅子席": 2,
+              "合計": 85
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+            "seat_map_url": "https://kinocinema.jp/upload/seating_charts/b4bec1df825364d7dbe69fc50c28c93389be5145.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -621,8 +621,8 @@ ShellRoot {
   Scope {
     Component.onCompleted: {
       // 1. チェーン定義と表示名・短縮バッジ
-      if (CinemaUtils.AVAILABLE_CHAINS.length !== 10) {
-        console.log("[TEST_FAIL] Expected 10 chains, got " + CinemaUtils.AVAILABLE_CHAINS.length);
+      if (CinemaUtils.AVAILABLE_CHAINS.length !== 13) {
+        console.log("[TEST_FAIL] Expected 13 chains, got " + CinemaUtils.AVAILABLE_CHAINS.length);
         Qt.quit();
         return;
       }
@@ -641,6 +641,13 @@ ShellRoot {
         Qt.quit();
         return;
       }
+      if (CinemaUtils.getChainDisplayName("uscinemas", false) !== "USシネマ・千葉劇場" || CinemaUtils.getChainDisplayName("uscinemas", true) !== "US CINEMAS" ||
+          CinemaUtils.getChainDisplayName("forum", false) !== "フォーラムシネマネットワーク" || CinemaUtils.getChainDisplayName("forum", true) !== "FORUM CINEMA" ||
+          CinemaUtils.getChainDisplayName("kinocinema", false) !== "キノシネマ" || CinemaUtils.getChainDisplayName("kinocinema", true) !== "kino cinéma") {
+        console.log("[TEST_FAIL] getChainDisplayName mismatch for Phase 3 chains");
+        Qt.quit();
+        return;
+      }
       if (CinemaUtils.getChainDisplayName("unknown", false) !== "シネコン" || CinemaUtils.getChainDisplayName("unknown", true) !== "Cinema") {
         console.log("[TEST_FAIL] getChainDisplayName fallback mismatch");
         Qt.quit();
@@ -652,8 +659,11 @@ ShellRoot {
         return;
       }
       if (CinemaUtils.getChainBadgeLabel("korona", false) !== "コロナ" || CinemaUtils.getChainBadgeLabel("korona", true) !== "Korona" ||
-          CinemaUtils.getChainBadgeLabel("ttcg", false) !== "テアトル" || CinemaUtils.getChainBadgeLabel("ttcg", true) !== "TTCG") {
-        console.log("[TEST_FAIL] getChainBadgeLabel mismatch for korona/ttcg");
+          CinemaUtils.getChainBadgeLabel("ttcg", false) !== "テアトル" || CinemaUtils.getChainBadgeLabel("ttcg", true) !== "TTCG" ||
+          CinemaUtils.getChainBadgeLabel("uscinemas", false) !== "USシネマ" || CinemaUtils.getChainBadgeLabel("uscinemas", true) !== "US Cinemas" ||
+          CinemaUtils.getChainBadgeLabel("forum", false) !== "フォーラム" || CinemaUtils.getChainBadgeLabel("forum", true) !== "Forum" ||
+          CinemaUtils.getChainBadgeLabel("kinocinema", false) !== "キノシネマ" || CinemaUtils.getChainBadgeLabel("kinocinema", true) !== "kino cinéma") {
+        console.log("[TEST_FAIL] getChainBadgeLabel mismatch for Phase 2/3 chains");
         Qt.quit();
         return;
       }
@@ -758,6 +768,10 @@ ShellRoot {
           CinemaUtils.buildTheaterHomepageUrl("smt", "shinjuku", null) !== "https://www.smt-cinema.com/site/shinjuku/" ||
           CinemaUtils.buildTheaterHomepageUrl("korona", "kom", null) !== "https://cinema.korona.co.jp/theaters/kom/" ||
           CinemaUtils.buildTheaterHomepageUrl("ttcg", "theatre_shinjuku", null) !== "https://ttcg.jp/theatre_shinjuku/" ||
+          CinemaUtils.buildTheaterHomepageUrl("uscinemas", "kisarazu", null) !== "https://uscinemas.jp/category/kisarazu/" ||
+          CinemaUtils.buildTheaterHomepageUrl("forum", "sendai", null) !== "https://forum-movie.net/sendai" ||
+          CinemaUtils.buildTheaterHomepageUrl("forum", "solaris", null) !== "https://forum-movie.net/yamagata" ||
+          CinemaUtils.buildTheaterHomepageUrl("kinocinema", "shinjuku", null) !== "https://kinocinema.jp/shinjuku/" ||
           CinemaUtils.buildTheaterHomepageUrl("aeon", "ebetsu", null) !== "https://theater.aeoncinema.com/theaters/ebetsu/") {
         console.log("[TEST_FAIL] buildTheaterHomepageUrl template mismatch");
         Qt.quit();

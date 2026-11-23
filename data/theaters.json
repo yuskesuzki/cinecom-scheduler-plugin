@@ -35424,6 +35424,1517 @@
       ]
     },
     {
+      "id": "uscinemas",
+      "name": "USシネマ・千葉劇場",
+      "theaters": [
+        {
+          "id": "kisarazu",
+          "name": "USシネマ木更津",
+          "prefecture": "千葉県",
+          "official_url": "https://uscinemas.jp/category/kisarazu/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 347,
+                "seats": {
+                  "一般座席": 347,
+                  "車椅子席": 3,
+                  "合計": 347
+                },
+                "screen_size": "15.9×8.2",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター1.png"
+              },
+              {
+                "name": "シネマ2",
+                "features": [],
+                "total_seats": 102,
+                "seats": {
+                  "一般座席": 102,
+                  "車椅子席": 2,
+                  "合計": 102
+                },
+                "screen_size": "6.9×3.75",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター2.png"
+              },
+              {
+                "name": "シネマ3",
+                "features": [],
+                "total_seats": 347,
+                "seats": {
+                  "一般座席": 347,
+                  "車椅子席": 3,
+                  "合計": 347
+                },
+                "screen_size": "15.9×8.2",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター3.png"
+              },
+              {
+                "name": "ADMIX",
+                "features": [
+                  "ADMIX",
+                  "Dolby Atmos"
+                ],
+                "total_seats": 389,
+                "seats": {
+                  "一般座席": 389,
+                  "車椅子席": 3,
+                  "合計": 389
+                },
+                "screen_size": "18.9×8.2",
+                "sound": "DOLBY ATMOS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/ADMIX.png"
+              },
+              {
+                "name": "シネマ5",
+                "features": [],
+                "total_seats": 102,
+                "seats": {
+                  "一般座席": 102,
+                  "車椅子席": 2,
+                  "合計": 102
+                },
+                "screen_size": "6.9×3.75",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター5.png"
+              },
+              {
+                "name": "シネマ6",
+                "features": [],
+                "total_seats": 276,
+                "seats": {
+                  "一般座席": 276,
+                  "車椅子席": 2,
+                  "合計": 276
+                },
+                "screen_size": "12.9×7.0",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター6.png"
+              },
+              {
+                "name": "シネマ7",
+                "features": [],
+                "total_seats": 66,
+                "seats": {
+                  "一般座席": 66,
+                  "車椅子席": 1,
+                  "合計": 66
+                },
+                "screen_size": "6.9×3.75",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター7.png"
+              },
+              {
+                "name": "シネマ8",
+                "features": [],
+                "total_seats": 84,
+                "seats": {
+                  "一般座席": 84,
+                  "車椅子席": 1,
+                  "合計": 84
+                },
+                "screen_size": "6.9×3.75",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター8.png"
+              },
+              {
+                "name": "シネマ9",
+                "features": [],
+                "total_seats": 126,
+                "seats": {
+                  "一般座席": 126,
+                  "車椅子席": 2,
+                  "合計": 126
+                },
+                "screen_size": "9.9×5.35",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/シアター9.png"
+              },
+              {
+                "name": "4DX",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 100,
+                "seats": {
+                  "一般座席": 100,
+                  "合計": 100
+                },
+                "screen_size": "10.25×5.55",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2024/07/4DX.png"
+              }
+            ]
+          }
+        },
+        {
+          "id": "chiharadai",
+          "name": "USシネマちはら台",
+          "prefecture": "千葉県",
+          "official_url": "https://uscinemas.jp/category/chiharadai/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 267,
+                "seats": {
+                  "一般座席": 265,
+                  "車椅子席": 2,
+                  "合計": 267
+                },
+                "screen_size": "12.6×6.6"
+              },
+              {
+                "name": "シネマ2",
+                "features": [],
+                "total_seats": 290,
+                "seats": {
+                  "一般座席": 288,
+                  "車椅子席": 2,
+                  "合計": 290
+                },
+                "screen_size": "13.8×5.8"
+              },
+              {
+                "name": "シネマ3",
+                "features": [
+                  "IMAX"
+                ],
+                "total_seats": 330,
+                "seats": {
+                  "一般座席": 327,
+                  "車椅子席": 3,
+                  "合計": 330
+                }
+              },
+              {
+                "name": "4DX",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "一般座席": 112,
+                  "合計": 112
+                },
+                "screen_size": "11.5×6.0"
+              },
+              {
+                "name": "シネマ5",
+                "features": [],
+                "total_seats": 142,
+                "seats": {
+                  "一般座席": 140,
+                  "車椅子席": 2,
+                  "合計": 142
+                },
+                "screen_size": "9.0×4.8"
+              },
+              {
+                "name": "シネマ6",
+                "features": [],
+                "total_seats": 165,
+                "seats": {
+                  "一般座席": 163,
+                  "車椅子席": 2,
+                  "合計": 165
+                },
+                "screen_size": "10.5×5.7"
+              },
+              {
+                "name": "シネマ7",
+                "features": [],
+                "total_seats": 131,
+                "seats": {
+                  "一般座席": 129,
+                  "車椅子席": 2,
+                  "合計": 131
+                },
+                "screen_size": "8.5×4.6"
+              },
+              {
+                "name": "シネマ8",
+                "features": [],
+                "total_seats": 290,
+                "seats": {
+                  "一般座席": 288,
+                  "車椅子席": 2,
+                  "合計": 290
+                },
+                "screen_size": "10.2×5.5"
+              },
+              {
+                "name": "シネマ9",
+                "features": [],
+                "total_seats": 131,
+                "seats": {
+                  "一般座席": 129,
+                  "車椅子席": 2,
+                  "合計": 131
+                },
+                "screen_size": "8.0×4.3"
+              },
+              {
+                "name": "シネマ10",
+                "features": [],
+                "total_seats": 94,
+                "seats": {
+                  "一般座席": 92,
+                  "車椅子席": 2,
+                  "合計": 94
+                },
+                "screen_size": "8.0×4.3"
+              }
+            ]
+          }
+        },
+        {
+          "id": "chiban",
+          "name": "USシネマ千葉ニュータウン",
+          "prefecture": "千葉県",
+          "official_url": "https://uscinemas.jp/category/chiban/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 178,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 178
+                },
+                "screen_size": "4.00m×9.50m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema1.pdf"
+              },
+              {
+                "name": "シネマ2",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 99,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "3.20m×7.70m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema2.pdf"
+              },
+              {
+                "name": "シネマ3",
+                "features": [],
+                "total_seats": 178,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 172,
+                  "車椅子席": 2,
+                  "合計": 178
+                },
+                "screen_size": "4.00m×9.50m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema3.pdf"
+              },
+              {
+                "name": "4DX",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 128,
+                "seats": {
+                  "一般座席": 128,
+                  "合計": 128
+                },
+                "screen_size": "6.10m×11.28m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema4.pdf"
+              },
+              {
+                "name": "シネマ5",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 99,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "3.20m×7.70m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema5.pdf"
+              },
+              {
+                "name": "シネマ6",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 99,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "3.20m×7.70m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema6.pdf"
+              },
+              {
+                "name": "シネマ7",
+                "features": [],
+                "total_seats": 434,
+                "seats": {
+                  "ペアシート": 16,
+                  "プレミアシート": 24,
+                  "一般座席": 392,
+                  "車椅子席": 2,
+                  "合計": 434
+                },
+                "screen_size": "7.20m×17.50m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema7.pdf"
+              },
+              {
+                "name": "シネマ8",
+                "features": [],
+                "total_seats": 286,
+                "seats": {
+                  "ペアシート": 16,
+                  "一般座席": 268,
+                  "車椅子席": 2,
+                  "合計": 286
+                },
+                "screen_size": "5.70m×13.60m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema8.pdf"
+              },
+              {
+                "name": "シネマ9",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 99,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "3.20m×7.70m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema9.pdf"
+              },
+              {
+                "name": "シネマ10",
+                "features": [],
+                "total_seats": 105,
+                "seats": {
+                  "ペアシート": 4,
+                  "一般座席": 99,
+                  "車椅子席": 2,
+                  "合計": 105
+                },
+                "screen_size": "3.20m×7.70m",
+                "sound": "Digital 5.1ch",
+                "seat_map_url": "https://uscinemas.jp/wp-content/themes/cinemax_bootstrap/images/cinema10.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "id": "chibagekijo",
+          "name": "千葉劇場",
+          "prefecture": "千葉県",
+          "official_url": "https://uscinemas.jp/category/chibagekijo/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 110,
+                "seats": {
+                  "一般座席": 110,
+                  "合計": 110
+                },
+                "sound": "SR"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tsukuba",
+          "name": "USシネマつくば",
+          "prefecture": "茨城県",
+          "official_url": "https://uscinemas.jp/category/tsukuba/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "一般座席": 84,
+                  "車椅子席": 1,
+                  "合計": 85
+                },
+                "screen_size": "ビスタサイズ:3.55m×6.60m シネスコサイズ:2.80m×6.60m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター1つくば.png"
+              },
+              {
+                "name": "シネマ2",
+                "features": [],
+                "total_seats": 96,
+                "seats": {
+                  "一般座席": 95,
+                  "車椅子席": 1,
+                  "合計": 96
+                },
+                "screen_size": "ビスタサイズ:4.00m×7.40m シネスコサイズ:3.15m×7.40m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター2つくば.png"
+              },
+              {
+                "name": "シネマ3",
+                "features": [],
+                "total_seats": 96,
+                "seats": {
+                  "一般座席": 95,
+                  "車椅子席": 1,
+                  "合計": 96
+                },
+                "screen_size": "ビスタサイズ:4.00m×7.40m シネスコサイズ:3.15m×7.40m",
+                "sound": "SRD/SRD‐EX/DTS"
+              },
+              {
+                "name": "4DX",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 96,
+                "seats": {
+                  "一般座席": 96,
+                  "合計": 96
+                },
+                "screen_size": "ビスタサイズ:5.95m×11.00m シネスコサイズ:4.95m×12.80m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター4DXつくば.png"
+              },
+              {
+                "name": "シネマ5",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "一般座席": 162,
+                  "車椅子席": 2,
+                  "合計": 164
+                },
+                "screen_size": "ビスタサイズ:5.95m×11.00m シネスコサイズ:4.95m×11.60m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター5つくば.png"
+              },
+              {
+                "name": "シネマ6",
+                "features": [],
+                "total_seats": 164,
+                "seats": {
+                  "一般座席": 162,
+                  "車椅子席": 2,
+                  "合計": 164
+                },
+                "screen_size": "ビスタサイズ:5.95m×11.60m シネスコサイズ:4.95m×11.60m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター6つくば.png"
+              },
+              {
+                "name": "シネマ7",
+                "features": [],
+                "total_seats": 142,
+                "seats": {
+                  "一般座席": 140,
+                  "車椅子席": 2,
+                  "合計": 142
+                },
+                "screen_size": "ビスタサイズ:5.60m×10.40m シネスコサイズ:4.40m×10.40m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター7つくば.png"
+              },
+              {
+                "name": "シネマ8",
+                "features": [],
+                "total_seats": 96,
+                "seats": {
+                  "一般座席": 95,
+                  "車椅子席": 1,
+                  "合計": 96
+                },
+                "screen_size": "ビスタサイズ4.00m×7.40m シネスコサイズ:3.15m×7.40m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター8つくば.png"
+              },
+              {
+                "name": "シネマ9",
+                "features": [],
+                "total_seats": 372,
+                "seats": {
+                  "一般座席": 369,
+                  "車椅子席": 3,
+                  "合計": 372
+                },
+                "screen_size": "ビスタサイズ:8.60m×16.00m シネスコサイズ:6.80m×16.00m",
+                "sound": "SRD/SRD‐EX/DTS",
+                "seat_map_url": "https://uscinemas.jp/wp-content/uploads/2014/04/シアター9つくば.png"
+              },
+              {
+                "name": "ADMIX",
+                "features": [
+                  "ADMIX"
+                ],
+                "total_seats": 344,
+                "seats": {
+                  "一般座席": 341,
+                  "車椅子席": 3,
+                  "合計": 344
+                },
+                "screen_size": "ビスタサイズ:8.60m×16.00m シネスコサイズ:6.80m×16.00m",
+                "sound": "SRD/SRD‐EX/DTS"
+              }
+            ]
+          }
+        },
+        {
+          "id": "palnalnashiki",
+          "name": "USシネマパルナ稲敷",
+          "prefecture": "茨城県",
+          "official_url": "https://uscinemas.jp/category/palnalnashiki/",
+          "facility": {
+            "url": "https://uscinemas.jp/theater-guide/",
+            "screens": [
+              {
+                "name": "シネマ1",
+                "features": [],
+                "total_seats": 209,
+                "seats": {
+                  "一般座席": 209,
+                  "車椅子席": 1,
+                  "合計": 209
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "シネマ2",
+                "features": [],
+                "total_seats": 113,
+                "seats": {
+                  "一般座席": 113,
+                  "車椅子席": 1,
+                  "合計": 113
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "シネマ3",
+                "features": [],
+                "total_seats": 100,
+                "seats": {
+                  "一般座席": 100,
+                  "車椅子席": 1,
+                  "合計": 100
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "4DX",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 84,
+                "seats": {
+                  "一般座席": 84,
+                  "合計": 84
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "シネマ5",
+                "features": [],
+                "total_seats": 74,
+                "seats": {
+                  "一般座席": 74,
+                  "車椅子席": 1,
+                  "合計": 74
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "シネマ6",
+                "features": [],
+                "total_seats": 93,
+                "seats": {
+                  "一般座席": 93,
+                  "車椅子席": 1,
+                  "合計": 93
+                },
+                "sound": "デジタル5.1ch"
+              },
+              {
+                "name": "シネマ7",
+                "features": [],
+                "total_seats": 413,
+                "seats": {
+                  "一般座席": 413,
+                  "車椅子席": 2,
+                  "合計": 413
+                },
+                "sound": "デジタル5.1ch"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "forum",
+      "name": "フォーラムシネマネットワーク",
+      "theaters": [
+        {
+          "id": "morioka",
+          "site_slug": "morioka",
+          "name": "フォーラム盛岡",
+          "prefecture": "岩手県",
+          "official_url": "https://forum-movie.net/morioka",
+          "facility": {
+            "url": "https://forum-movie.net/morioka/facility",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 99,
+                "seats": {
+                  "一般座席": 99,
+                  "合計": 99
+                }
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 136,
+                "seats": {
+                  "一般座席": 136,
+                  "合計": 136
+                }
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 124,
+                "seats": {
+                  "一般座席": 124,
+                  "合計": 124
+                }
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 79,
+                "seats": {
+                  "一般座席": 79,
+                  "合計": 79
+                }
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 182,
+                "seats": {
+                  "一般座席": 182,
+                  "合計": 182
+                }
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 182,
+                "seats": {
+                  "一般座席": 182,
+                  "合計": 182
+                }
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 152,
+                "seats": {
+                  "一般座席": 152,
+                  "合計": 152
+                }
+              },
+              {
+                "name": "シアター8",
+                "features": [
+                  "Dolby ATOMS"
+                ],
+                "total_seats": 103,
+                "seats": {
+                  "一般座席": 103,
+                  "車椅子席": 2,
+                  "合計": 103
+                }
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 42,
+                "seats": {
+                  "一般座席": 42,
+                  "車椅子席": 1,
+                  "合計": 42
+                }
+              },
+              {
+                "name": "シアター10",
+                "features": [],
+                "total_seats": 48,
+                "seats": {
+                  "一般座席": 48,
+                  "車椅子席": 1,
+                  "合計": 48
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "yamagata",
+          "site_slug": "yamagata",
+          "name": "フォーラム山形",
+          "prefecture": "山形県",
+          "official_url": "https://forum-movie.net/yamagata",
+          "theater_id": "4",
+          "facility": {
+            "url": "https://forum-movie.net/yamagata/facility",
+            "screens": [
+              {
+                "name": "フォーラム1",
+                "features": [],
+                "total_seats": 65,
+                "seats": {
+                  "一般座席": 65,
+                  "合計": 65
+                }
+              },
+              {
+                "name": "フォーラム2",
+                "features": [],
+                "total_seats": 40,
+                "seats": {
+                  "一般座席": 40,
+                  "合計": 40
+                }
+              },
+              {
+                "name": "フォーラム3",
+                "features": [],
+                "total_seats": 162,
+                "seats": {
+                  "一般座席": 162,
+                  "合計": 162
+                }
+              },
+              {
+                "name": "フォーラム4",
+                "features": [],
+                "total_seats": 98,
+                "seats": {
+                  "一般座席": 98,
+                  "合計": 98
+                }
+              },
+              {
+                "name": "フォーラム5",
+                "features": [],
+                "total_seats": 200,
+                "seats": {
+                  "一般座席": 200,
+                  "合計": 200
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "solaris",
+          "site_slug": "yamagata",
+          "name": "ソラリス",
+          "prefecture": "山形県",
+          "official_url": "https://forum-movie.net/yamagata",
+          "theater_id": "5",
+          "facility": {
+            "url": "https://forum-movie.net/yamagata/facility",
+            "screens": [
+              {
+                "name": "ソラリス1",
+                "features": [
+                  "CHRISTIE® Real laser™ 4K対応"
+                ],
+                "total_seats": 248,
+                "seats": {
+                  "一般座席": 248,
+                  "車椅子席": 3,
+                  "合計": 248
+                }
+              },
+              {
+                "name": "ソラリス2",
+                "features": [],
+                "total_seats": 137,
+                "seats": {
+                  "一般座席": 137,
+                  "車椅子席": 2,
+                  "合計": 137
+                }
+              },
+              {
+                "name": "ソラリス3",
+                "features": [],
+                "total_seats": 137,
+                "seats": {
+                  "一般座席": 137,
+                  "車椅子席": 2,
+                  "合計": 137
+                }
+              },
+              {
+                "name": "ソラリス4",
+                "features": [],
+                "total_seats": 54,
+                "seats": {
+                  "一般座席": 54,
+                  "車椅子席": 2,
+                  "合計": 54
+                }
+              },
+              {
+                "name": "ソラリス5",
+                "features": [],
+                "total_seats": 69,
+                "seats": {
+                  "一般座席": 69,
+                  "車椅子席": 2,
+                  "合計": 69
+                }
+              },
+              {
+                "name": "ソラリス6",
+                "features": [],
+                "total_seats": 49,
+                "seats": {
+                  "一般座席": 49,
+                  "車椅子席": 1,
+                  "合計": 49
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "higashine",
+          "site_slug": "higashine",
+          "name": "フォーラム東根",
+          "prefecture": "山形県",
+          "official_url": "https://forum-movie.net/higashine",
+          "facility": {
+            "url": "https://forum-movie.net/higashine/facility",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 247,
+                "seats": {
+                  "一般座席": 247,
+                  "車椅子席": 2,
+                  "合計": 247
+                }
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 148,
+                "seats": {
+                  "一般座席": 148,
+                  "車椅子席": 2,
+                  "合計": 148
+                }
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 148,
+                "seats": {
+                  "一般座席": 148,
+                  "車椅子席": 2,
+                  "合計": 148
+                }
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 1,
+                  "合計": 117
+                }
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 117,
+                "seats": {
+                  "一般座席": 117,
+                  "車椅子席": 1,
+                  "合計": 117
+                }
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 81,
+                "seats": {
+                  "一般座席": 81,
+                  "車椅子席": 1,
+                  "合計": 81
+                }
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 81,
+                "seats": {
+                  "一般座席": 81,
+                  "車椅子席": 1,
+                  "合計": 81
+                }
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 81,
+                "seats": {
+                  "一般座席": 81,
+                  "車椅子席": 1,
+                  "合計": 81
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "sendai",
+          "site_slug": "sendai",
+          "name": "フォーラム仙台",
+          "prefecture": "宮城県",
+          "official_url": "https://forum-movie.net/sendai",
+          "facility": {
+            "url": "https://forum-movie.net/sendai/facility",
+            "screens": [
+              {
+                "name": "フォーラム1",
+                "features": [],
+                "total_seats": 40,
+                "seats": {
+                  "一般座席": 40,
+                  "車椅子席": 1,
+                  "合計": 40
+                }
+              },
+              {
+                "name": "フォーラム2",
+                "features": [],
+                "total_seats": 54,
+                "seats": {
+                  "一般座席": 54,
+                  "車椅子席": 1,
+                  "合計": 54
+                }
+              },
+              {
+                "name": "フォーラム3",
+                "features": [],
+                "total_seats": 96,
+                "seats": {
+                  "一般座席": 96,
+                  "車椅子席": 1,
+                  "合計": 96
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "fukushima",
+          "site_slug": "fukushima",
+          "name": "フォーラム福島",
+          "prefecture": "福島県",
+          "official_url": "https://forum-movie.net/fukushima",
+          "facility": {
+            "url": "https://forum-movie.net/fukushima/facility",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 138,
+                "seats": {
+                  "一般座席": 138,
+                  "合計": 138
+                }
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 80,
+                "seats": {
+                  "一般座席": 80,
+                  "合計": 80
+                }
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 121,
+                "seats": {
+                  "一般座席": 121,
+                  "合計": 121
+                }
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 66,
+                "seats": {
+                  "一般座席": 66,
+                  "合計": 66
+                }
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 132,
+                "seats": {
+                  "一般座席": 132,
+                  "合計": 132
+                }
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 84,
+                "seats": {
+                  "一般座席": 84,
+                  "合計": 84
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "nasushiobara",
+          "site_slug": "nasushiobara",
+          "name": "フォーラム那須塩原",
+          "prefecture": "栃木県",
+          "official_url": "https://forum-movie.net/nasushiobara",
+          "facility": {
+            "url": "https://forum-movie.net/nasushiobara/facility",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 296,
+                "seats": {
+                  "一般座席": 296,
+                  "車椅子席": 2,
+                  "合計": 296
+                }
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 212,
+                "seats": {
+                  "一般座席": 212,
+                  "車椅子席": 2,
+                  "合計": 212
+                }
+              },
+              {
+                "name": "シアター3",
+                "features": [
+                  "4DX"
+                ],
+                "total_seats": 112,
+                "seats": {
+                  "一般座席": 112,
+                  "合計": 112
+                }
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 160,
+                "seats": {
+                  "一般座席": 160,
+                  "車椅子席": 2,
+                  "合計": 160
+                }
+              },
+              {
+                "name": "シアター5",
+                "features": [],
+                "total_seats": 160,
+                "seats": {
+                  "一般座席": 160,
+                  "車椅子席": 2,
+                  "合計": 160
+                }
+              },
+              {
+                "name": "シアター6",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 1,
+                  "合計": 89
+                }
+              },
+              {
+                "name": "シアター7",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 1,
+                  "合計": 89
+                }
+              },
+              {
+                "name": "シアター8",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 1,
+                  "合計": 89
+                }
+              },
+              {
+                "name": "シアター9",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 1,
+                  "合計": 89
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "kinocinema",
+      "name": "キノシネマ",
+      "theaters": [
+        {
+          "id": "minatomirai",
+          "name": "kino cinéma横浜みなとみらい",
+          "prefecture": "神奈川県",
+          "official_url": "https://kinocinema.jp/minatomirai/",
+          "facility": {
+            "url": "https://kinocinema.jp/minatomirai/about/",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 55,
+                "seats": {
+                  "一般座席": 55,
+                  "車椅子席": 2,
+                  "合計": 55
+                },
+                "screen_size": "VV 4.0×2.1 / CS 5.2×2.1",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/8545ff0edd563bf03e8e37decf65bf5b75d3e9e1.jpg"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "一般座席": 111,
+                  "車椅子席": 2,
+                  "合計": 111
+                },
+                "screen_size": "VV 4.8×2.6 / CS 6.2×2.6",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/805ea085356652cea8771838e372bcbfa214c8d2.jpg"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "一般座席": 111,
+                  "車椅子席": 2,
+                  "合計": 111
+                },
+                "screen_size": "VV 4.8×2.6 / CS 6.2×2.6",
+                "sound": "リニアPCM 7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/56b791d6bf6b2c5ea5b981ed1fa627c799c92d95.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tachikawa",
+          "name": "kino cinéma立川髙島屋S.C.館",
+          "prefecture": "東京都",
+          "official_url": "https://kinocinema.jp/tachikawa/",
+          "facility": {
+            "url": "https://kinocinema.jp/tachikawa/about/",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 2,
+                  "合計": 89
+                },
+                "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/21c54c1a75da26a394a86940588e7cc1ed3bd150.jpg"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 89,
+                "seats": {
+                  "一般座席": 89,
+                  "車椅子席": 2,
+                  "合計": 89
+                },
+                "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/845467efec38d3dd887e2fe61105e1510034d2d0.jpg"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 27,
+                "seats": {
+                  "一般座席": 27,
+                  "車椅子席": 2,
+                  "合計": 27
+                },
+                "screen_size": "VV 3.5×1.9 / CS 4.5×1.9",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/55aaaa5c9a22d8def25d586564a49ca4151c7689.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shinjuku",
+          "name": "kino cinéma新宿",
+          "prefecture": "東京都",
+          "official_url": "https://kinocinema.jp/shinjuku/",
+          "facility": {
+            "url": "https://kinocinema.jp/shinjuku/about/",
+            "screens": [
+              {
+                "name": "THEATER 1",
+                "features": [],
+                "total_seats": 294,
+                "seats": {
+                  "一般座席": 294,
+                  "車椅子席": 2,
+                  "合計": 294
+                },
+                "screen_size": "VV 7×3.8 / CS 9.1×3.8",
+                "sound": "リニアPCM7.1ch、アメリカDolby社製シネマサウンドプロセッサ「CP950」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/594eb5eed022e945a8d2dcb0cdd5096b25493d47.jpg"
+              },
+              {
+                "name": "THEATER 2",
+                "features": [],
+                "total_seats": 53,
+                "seats": {
+                  "一般座席": 53,
+                  "車椅子席": 1,
+                  "合計": 53
+                },
+                "screen_size": "VV 2.7×1.5 / CS 2.7×1.1",
+                "sound": "リニアPCM7.1ch、フランスTorinov社製シネマサウンドプロセッサ「OvationII」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/ca1a697de8744af088bc46691be8db94288cbca1.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shinsaibashi",
+          "name": "kino cinéma心斎橋",
+          "prefecture": "大阪府",
+          "official_url": "https://kinocinema.jp/shinsaibashi/",
+          "facility": {
+            "url": "https://kinocinema.jp/shinsaibashi/about/",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 104,
+                "seats": {
+                  "一般座席": 104,
+                  "車椅子席": 1,
+                  "合計": 104
+                },
+                "screen_size": "5.9×3.1 単位:m / 7.3×3.1 単位:m",
+                "sound": "5.1ch",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/07a6aa0b2c2f194c64ec2ead9896845362ef9fba.jpg"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 103,
+                "seats": {
+                  "一般座席": 103,
+                  "車椅子席": 1,
+                  "合計": 103
+                },
+                "screen_size": "5.7×3.1 単位:m / 7.1×3.1 単位:m",
+                "sound": "7.1ch",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/e85383df06370ac1906e1f45b6062ac10dbcabf0.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kobekokusai",
+          "name": "kino cinéma神戸国際",
+          "prefecture": "兵庫県",
+          "official_url": "https://kinocinema.jp/kobekokusai/",
+          "facility": {
+            "url": "https://kinocinema.jp/kobekokusai/about/",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "一般座席": 120,
+                  "車椅子席": 1,
+                  "合計": 120
+                },
+                "screen_size": "VV 4.7x2.5 / CS 5.9x2.5",
+                "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/93754f01bc4acf34b255feaf2343e22daece4685.jpg"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 152,
+                "seats": {
+                  "一般座席": 152,
+                  "車椅子席": 1,
+                  "合計": 152
+                },
+                "screen_size": "VV 4.7x2.5 / CS 5.9x2.5",
+                "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/163ac1ec5f6ff39a5251160dfeab1d3428268170.jpg"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 99,
+                "seats": {
+                  "一般座席": 99,
+                  "車椅子席": 1,
+                  "合計": 99
+                },
+                "screen_size": "VV 4.2x2.2 / CS 5.2x2.2",
+                "sound": "QSC社製プロセッサー:DCP300",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/35224019a1e7a909971802258bce4bd3220aaf59.jpg"
+              },
+              {
+                "name": "シアター4",
+                "features": [],
+                "total_seats": 145,
+                "seats": {
+                  "一般座席": 145,
+                  "車椅子席": 1,
+                  "合計": 145
+                },
+                "screen_size": "VV 4.4x2.3 / CS 5.6x2.3",
+                "sound": "リニアPCM5.1ch、QSC社製プロセッサー:DCP300",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/64568543642ca152e6b54f3be8d1a993306f2219.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tenjin",
+          "name": "kino cinéma天神",
+          "prefecture": "福岡県",
+          "official_url": "https://kinocinema.jp/tenjin/",
+          "facility": {
+            "url": "https://kinocinema.jp/tenjin/about/",
+            "screens": [
+              {
+                "name": "シアター1",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "一般座席": 85,
+                  "車椅子席": 2,
+                  "合計": 85
+                },
+                "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/f52db50d1fb1a81a14e4cf563b3f81dc1436339c.jpg"
+              },
+              {
+                "name": "シアター2",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "一般座席": 85,
+                  "車椅子席": 2,
+                  "合計": 85
+                },
+                "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/6064e6ac8ab382d677999c804c1cdbab2a79aaef.jpg"
+              },
+              {
+                "name": "シアター3",
+                "features": [],
+                "total_seats": 85,
+                "seats": {
+                  "一般座席": 85,
+                  "車椅子席": 2,
+                  "合計": 85
+                },
+                "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+                "sound": "リニアPCM7.1ch、フランス TRINNOV社製 シネマサウンドプロセッサー「OVATION2」",
+                "seat_map_url": "https://kinocinema.jp/upload/seating_charts/b4bec1df825364d7dbe69fc50c28c93389be5145.jpg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "id": "other",
       "name": "共同経営・その他",
       "theaters": [

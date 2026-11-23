@@ -55,6 +55,24 @@
       "file": "data/theaters/ttcg.json"
     },
     {
+      "id": "uscinemas",
+      "name": "USシネマ・千葉劇場",
+      "theaters_count": 6,
+      "file": "data/theaters/uscinemas.json"
+    },
+    {
+      "id": "forum",
+      "name": "フォーラムシネマネットワーク",
+      "theaters_count": 7,
+      "file": "data/theaters/forum.json"
+    },
+    {
+      "id": "kinocinema",
+      "name": "キノシネマ",
+      "theaters_count": 6,
+      "file": "data/theaters/kinocinema.json"
+    },
+    {
       "id": "other",
       "name": "共同経営・その他",
       "theaters_count": 7,

@@ -129,10 +129,55 @@ class TestCrossTheaterSearch(unittest.TestCase):
             any(t["chain_id"] == "ttcg" and t["theater_id"] == "human_shibuya" for t in tokyo_theaters)
         )
 
-        # 大阪府に テアトル梅田 (ttcg) が含まれること
+        # 大阪府に テアトル梅田 (ttcg) と kino cinéma心斎橋 (kinocinema) が含まれること
         osaka_theaters = get_theaters_by_area("大阪府")
         self.assertTrue(
             any(t["chain_id"] == "ttcg" and t["theater_id"] == "ttcg_umeda" for t in osaka_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "kinocinema" and t["theater_id"] == "shinsaibashi" for t in osaka_theaters)
+        )
+
+        # 千葉県・茨城県に USシネマ・千葉劇場 (uscinemas) が含まれること
+        chiba_theaters = get_theaters_by_area("千葉県")
+        self.assertTrue(
+            any(t["chain_id"] == "uscinemas" and t["theater_id"] == "kisarazu" for t in chiba_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "uscinemas" and t["theater_id"] == "chibagekijo" for t in chiba_theaters)
+        )
+        ibaraki_theaters = get_theaters_by_area("茨城県")
+        self.assertTrue(
+            any(t["chain_id"] == "uscinemas" and t["theater_id"] == "tsukuba" for t in ibaraki_theaters)
+        )
+
+        # 宮城県・山形県に フォーラムシネマネットワーク (forum) が含まれること
+        miyagi_theaters = get_theaters_by_area("宮城県")
+        self.assertTrue(
+            any(t["chain_id"] == "forum" and t["theater_id"] == "sendai" for t in miyagi_theaters)
+        )
+        yamagata_theaters = get_theaters_by_area("山形県")
+        self.assertTrue(
+            any(t["chain_id"] == "forum" and t["theater_id"] == "yamagata" for t in yamagata_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "forum" and t["theater_id"] == "solaris" for t in yamagata_theaters)
+        )
+
+        # 東京・神奈川・福岡に キノシネマ (kinocinema) が含まれること
+        self.assertTrue(
+            any(t["chain_id"] == "kinocinema" and t["theater_id"] == "shinjuku" for t in tokyo_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "kinocinema" and t["theater_id"] == "tachikawa" for t in tokyo_theaters)
+        )
+        kanagawa_theaters = get_theaters_by_area("神奈川県")
+        self.assertTrue(
+            any(t["chain_id"] == "kinocinema" and t["theater_id"] == "minatomirai" for t in kanagawa_theaters)
+        )
+        fukuoka_theaters = get_theaters_by_area("福岡県")
+        self.assertTrue(
+            any(t["chain_id"] == "kinocinema" and t["theater_id"] == "tenjin" for t in fukuoka_theaters)
         )
 
     def test_clean_query_title(self):
