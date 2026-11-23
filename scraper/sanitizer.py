@@ -33,6 +33,16 @@ ALLOWED_DOMAINS: Set[str] = {
     "www.midland-sq-cinema.jp",
     "ticket.midlandcinema.jp",
     "www.oscinemas.net",
+    "cinema.korona.co.jp",
+    "login.member.korona.co.jp",
+    "reserve.smart-theater.com",
+    "ttcg.jp",
+    "ttcg-yurakucho.cineticket.jp",
+    "ttcg-shibuya.cineticket.jp",
+    "ttcg-shinjuku.cineticket.jp",
+    "ttcg-omori.cineticket.jp",
+    "ttcg-umeda.cineticket.jp",
+    "ttcg-kobe.cineticket.jp",
 }
 
 # 制御文字の検出パターン

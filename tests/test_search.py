@@ -99,13 +99,40 @@ class TestCrossTheaterSearch(unittest.TestCase):
             any(t["chain_id"] == "other" and t["theater_id"] == "midland_sq2" for t in aichi_theaters)
         )
 
-        # 兵庫県に OSシネマズミント神戸 / 神戸ハーバーランド (other) が含まれること
+        # 兵庫県に OSシネマズミント神戸 / 神戸ハーバーランド (other) と シネ・リーブル神戸 (ttcg) が含まれること
         hyogo_theaters = get_theaters_by_area("兵庫県")
         self.assertTrue(
             any(t["chain_id"] == "other" and t["theater_id"] == "os_mint_kobe" for t in hyogo_theaters)
         )
         self.assertTrue(
             any(t["chain_id"] == "other" and t["theater_id"] == "os_harborland" for t in hyogo_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "ttcg" and t["theater_id"] == "cinelibre_kobe" for t in hyogo_theaters)
+        )
+
+        # 愛知県に コロナワールド (korona) が含まれること
+        aichi_theaters = get_theaters_by_area("愛知県")
+        self.assertTrue(
+            any(t["chain_id"] == "korona" and t["theater_id"] == "kom" for t in aichi_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "korona" and t["theater_id"] == "laa" for t in aichi_theaters)
+        )
+
+        # 東京都に TTCG の劇場が含まれること
+        tokyo_theaters = get_theaters_by_area("東京都")
+        self.assertTrue(
+            any(t["chain_id"] == "ttcg" and t["theater_id"] == "theatre_shinjuku" for t in tokyo_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "ttcg" and t["theater_id"] == "human_shibuya" for t in tokyo_theaters)
+        )
+
+        # 大阪府に テアトル梅田 (ttcg) が含まれること
+        osaka_theaters = get_theaters_by_area("大阪府")
+        self.assertTrue(
+            any(t["chain_id"] == "ttcg" and t["theater_id"] == "ttcg_umeda" for t in osaka_theaters)
         )
 
     def test_clean_query_title(self):

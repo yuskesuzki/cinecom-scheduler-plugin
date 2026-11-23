@@ -9,6 +9,8 @@ var AVAILABLE_CHAINS = [
   { id: "tjoy", nameJa: "T・ジョイ", nameEn: "T-JOY", badgeJa: "T・ジョイ", badgeEn: "T-JOY" },
   { id: "109cinemas", nameJa: "109シネマズ", nameEn: "109 CINEMAS", badgeJa: "109シネマズ", badgeEn: "109" },
   { id: "smt", nameJa: "MOVIX・ピカデリー", nameEn: "MOVIX / Piccadilly", badgeJa: "MOVIX", badgeEn: "MOVIX" },
+  { id: "korona", nameJa: "コロナワールド", nameEn: "KORONA WORLD", badgeJa: "コロナ", badgeEn: "Korona" },
+  { id: "ttcg", nameJa: "テアトルシネマグループ", nameEn: "TTCG", badgeJa: "テアトル", badgeEn: "TTCG" },
   { id: "other", nameJa: "共同経営・その他", nameEn: "Joint / Other", badgeJa: "共同", badgeEn: "Joint" }
 ];
 
@@ -41,7 +43,17 @@ var ALLOWED_CINEMA_DOMAINS = [
   "www.cinemafrontier.net",
   "www.midland-sq-cinema.jp",
   "ticket.midlandcinema.jp",
-  "www.oscinemas.net"
+  "www.oscinemas.net",
+  "cinema.korona.co.jp",
+  "login.member.korona.co.jp",
+  "reserve.smart-theater.com",
+  "ttcg.jp",
+  "ttcg-yurakucho.cineticket.jp",
+  "ttcg-shibuya.cineticket.jp",
+  "ttcg-shinjuku.cineticket.jp",
+  "ttcg-omori.cineticket.jp",
+  "ttcg-umeda.cineticket.jp",
+  "ttcg-kobe.cineticket.jp"
 ];
 
 function findChainEntry(chainId) {
@@ -91,6 +103,12 @@ function buildTheaterHomepageUrl(chainId, theaterId, theaterObj) {
   }
   if (chainId === "smt") {
     return "https://www.smt-cinema.com/site/" + encoded + "/";
+  }
+  if (chainId === "korona") {
+    return "https://cinema.korona.co.jp/theaters/" + encoded + "/";
+  }
+  if (chainId === "ttcg") {
+    return "https://ttcg.jp/" + encoded + "/";
   }
   return "https://theater.aeoncinema.com/theaters/" + encoded + "/";
 }

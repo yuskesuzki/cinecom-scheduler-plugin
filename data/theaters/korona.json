@@ -1,0 +1,1364 @@
+{
+  "id": "korona",
+  "name": "コロナワールド",
+  "theaters": [
+    {
+      "id": "kom",
+      "code": "001",
+      "name": "小牧コロナシネマワールド",
+      "prefecture": "愛知県",
+      "official_url": "https://cinema.korona.co.jp/theaters/kom/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/kom/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 146,
+            "seats": {
+              "一般座席": 146,
+              "合計": 146
+            },
+            "screen_size": "W7.25m×H3.84m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 115,
+            "seats": {
+              "一般座席": 115,
+              "車椅子席": 2,
+              "合計": 115
+            },
+            "screen_size": "W6.64m×H3.49m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 125,
+            "seats": {
+              "一般座席": 125,
+              "車椅子席": 2,
+              "合計": 125
+            },
+            "screen_size": "W6.65m×H3.55m"
+          },
+          {
+            "name": "スクリーン4(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 56,
+            "seats": {
+              "一般座席": 56,
+              "合計": 56
+            },
+            "screen_size": "W6.60m×H3.54m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 78,
+            "seats": {
+              "一般座席": 78,
+              "車椅子席": 2,
+              "合計": 78
+            },
+            "screen_size": "W5.52m×H2.97m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 78,
+            "seats": {
+              "一般座席": 78,
+              "車椅子席": 2,
+              "合計": 78
+            },
+            "screen_size": "W5.45m×H2.94m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 95,
+            "seats": {
+              "一般座席": 95,
+              "車椅子席": 2,
+              "合計": 95
+            },
+            "screen_size": "W5.23m×H3.02m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 80,
+            "seats": {
+              "一般座席": 80,
+              "車椅子席": 2,
+              "合計": 80
+            },
+            "screen_size": "W5.20m×H3.00m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "screen_size": "W5.24m×H3.00m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 83,
+              "車椅子席": 2,
+              "合計": 83
+            },
+            "screen_size": "W5.16m×H3.02m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tok",
+      "code": "004",
+      "name": "豊川コロナシネマワールド",
+      "prefecture": "愛知県",
+      "official_url": "https://cinema.korona.co.jp/theaters/tok/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/tok/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 352,
+            "seats": {
+              "一般座席": 352,
+              "車椅子席": 2,
+              "合計": 352
+            },
+            "screen_size": "W12.55m×H5.30m"
+          },
+          {
+            "name": "スクリーン2(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W13.17m×H5.80m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 110,
+            "seats": {
+              "一般座席": 110,
+              "車椅子席": 1,
+              "合計": 110
+            },
+            "screen_size": "W7.69m×H4.02m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 1,
+              "合計": 92
+            },
+            "screen_size": "W7.83m×H4.27m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 1,
+              "合計": 92
+            },
+            "screen_size": "W6.52m×H3.52m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 110,
+            "seats": {
+              "一般座席": 110,
+              "車椅子席": 1,
+              "合計": 110
+            },
+            "screen_size": "W7.62m×H3.75m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 110,
+            "seats": {
+              "一般座席": 110,
+              "車椅子席": 1,
+              "合計": 110
+            },
+            "screen_size": "W8.10m×H4.33m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 1,
+              "合計": 92
+            },
+            "screen_size": "W8.00m×H4.38m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 1,
+              "合計": 92
+            },
+            "screen_size": "W7.84m×H4.25m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 182,
+            "seats": {
+              "一般座席": 182,
+              "車椅子席": 1,
+              "合計": 182
+            },
+            "screen_size": "W9.40m×H5.01m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nak",
+      "code": "008",
+      "name": "中川コロナシネマワールド",
+      "prefecture": "愛知県",
+      "official_url": "https://cinema.korona.co.jp/theaters/nak/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/nak/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 350,
+            "seats": {
+              "一般座席": 350,
+              "合計": 350
+            },
+            "screen_size": "W12.95m×H5.58m"
+          },
+          {
+            "name": "スクリーン2(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W10.50m×H5.40m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 275,
+            "seats": {
+              "一般座席": 275,
+              "合計": 275
+            },
+            "screen_size": "W9.55m×H5.20m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 132,
+              "車椅子席": 3,
+              "合計": 132
+            },
+            "screen_size": "W5.43m×H2.85m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 62,
+            "seats": {
+              "一般座席": 62,
+              "車椅子席": 3,
+              "合計": 62
+            },
+            "screen_size": "W6.00m×H3.45m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 3,
+              "合計": 112
+            },
+            "screen_size": "W5.62m×H2.79m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 62,
+            "seats": {
+              "一般座席": 62,
+              "車椅子席": 3,
+              "合計": 62
+            },
+            "screen_size": "W6.00m×H3.45m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 83,
+              "車椅子席": 3,
+              "合計": 83
+            },
+            "screen_size": "W5.48m×H3.52m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 201,
+            "seats": {
+              "一般座席": 201,
+              "車椅子席": 3,
+              "合計": 201
+            },
+            "screen_size": "W7.40m×H3.55m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 124,
+            "seats": {
+              "一般座席": 124,
+              "車椅子席": 3,
+              "合計": 124
+            },
+            "screen_size": "W6.30m×H3.42m"
+          },
+          {
+            "name": "スクリーン11",
+            "features": [],
+            "total_seats": 47,
+            "seats": {
+              "一般座席": 47,
+              "車椅子席": 3,
+              "合計": 47
+            },
+            "screen_size": "W5.19m×H3.24m"
+          },
+          {
+            "name": "スクリーン12",
+            "features": [],
+            "total_seats": 47,
+            "seats": {
+              "一般座席": 47,
+              "車椅子席": 3,
+              "合計": 47
+            },
+            "screen_size": "W5.03m×H3.08m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "anj",
+      "code": "009",
+      "name": "安城コロナシネマワールド",
+      "prefecture": "愛知県",
+      "official_url": "https://cinema.korona.co.jp/theaters/anj/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/anj/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 351,
+            "seats": {
+              "一般座席": 351,
+              "車椅子席": 2,
+              "合計": 351
+            },
+            "screen_size": "W12.71m×H5.31m"
+          },
+          {
+            "name": "スクリーン2(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 120,
+            "seats": {
+              "一般座席": 120,
+              "合計": 120
+            },
+            "screen_size": "W14.16m×H6.00m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 139,
+            "seats": {
+              "一般座席": 139,
+              "合計": 139
+            },
+            "screen_size": "W6.83m×H3.86m",
+            "sound": "重震シアター"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 92,
+            "seats": {
+              "一般座席": 92,
+              "車椅子席": 2,
+              "合計": 92
+            },
+            "screen_size": "W6.72m×H3.83m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "screen_size": "W6.42m×H3.66m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 125,
+            "seats": {
+              "一般座席": 125,
+              "車椅子席": 2,
+              "合計": 125
+            },
+            "screen_size": "W5.70m×H3.19m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 151,
+            "seats": {
+              "一般座席": 151,
+              "車椅子席": 2,
+              "合計": 151
+            },
+            "screen_size": "W5.88m×H3.22m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 102,
+            "seats": {
+              "一般座席": 102,
+              "車椅子席": 1,
+              "合計": 102
+            },
+            "screen_size": "W7.10m×H3.75m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "screen_size": "W6.27m×H3.63m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 104,
+            "seats": {
+              "一般座席": 104,
+              "車椅子席": 2,
+              "合計": 104
+            },
+            "screen_size": "W6.38m×H3.62m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fuk",
+      "code": "012",
+      "name": "福井コロナシネマワールド",
+      "prefecture": "福井県",
+      "official_url": "https://cinema.korona.co.jp/theaters/fuk/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/fuk/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 331,
+            "seats": {
+              "一般座席": 331,
+              "合計": 331
+            },
+            "screen_size": "W12.52m×H5.27m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 131,
+            "seats": {
+              "一般座席": 131,
+              "車椅子席": 2,
+              "合計": 131
+            },
+            "screen_size": "W7.52m×H4.42m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 147,
+            "seats": {
+              "一般座席": 147,
+              "車椅子席": 2,
+              "合計": 147
+            },
+            "screen_size": "W8.40m×H4.91m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 149,
+            "seats": {
+              "一般座席": 149,
+              "車椅子席": 2,
+              "合計": 149
+            },
+            "screen_size": "W8.36m×H5.00m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 139,
+            "seats": {
+              "一般座席": 139,
+              "車椅子席": 2,
+              "合計": 139
+            },
+            "screen_size": "W7.87m×H4.70m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 105,
+            "seats": {
+              "一般座席": 105,
+              "車椅子席": 2,
+              "合計": 105
+            },
+            "screen_size": "W7.08m×H3.07m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "screen_size": "W8.52m×H4.57m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 141,
+            "seats": {
+              "一般座席": 141,
+              "車椅子席": 2,
+              "合計": 141
+            },
+            "screen_size": "W7.54m×H4.53m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 114,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "screen_size": "W4.82m×H6.83m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [
+              "Dolby Atmos"
+            ],
+            "total_seats": 200,
+            "seats": {
+              "一般座席": 200,
+              "車椅子席": 2,
+              "合計": 200
+            },
+            "screen_size": "W10.10m×H5.00m",
+            "sound": "DolbyATMOS"
+          }
+        ]
+      }
+    },
+    {
+      "id": "odw",
+      "code": "014",
+      "name": "小田原コロナシネマワールド",
+      "prefecture": "神奈川県",
+      "official_url": "https://cinema.korona.co.jp/theaters/odw/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/odw/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 355,
+            "seats": {
+              "一般座席": 355,
+              "合計": 355
+            },
+            "screen_size": "W12.33m×H5.38m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 130,
+            "seats": {
+              "一般座席": 130,
+              "合計": 130
+            },
+            "screen_size": "W9.03m×H5.04m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 130,
+            "seats": {
+              "一般座席": 130,
+              "合計": 130
+            },
+            "screen_size": "W9.03m×H5.04m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 147,
+            "seats": {
+              "一般座席": 147,
+              "合計": 147
+            },
+            "screen_size": "W10.90m×H4.69m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 147,
+            "seats": {
+              "一般座席": 147,
+              "合計": 147
+            },
+            "screen_size": "W10.90m×H4.69m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 99,
+            "seats": {
+              "一般座席": 99,
+              "合計": 99
+            },
+            "screen_size": "W8.56m×H4.69m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 99,
+            "seats": {
+              "一般座席": 99,
+              "合計": 99
+            },
+            "screen_size": "W8.56m×H4.69m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 99,
+            "seats": {
+              "一般座席": 99,
+              "合計": 99
+            },
+            "screen_size": "W8.28m×H4.56m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 109,
+            "seats": {
+              "一般座席": 109,
+              "合計": 109
+            },
+            "screen_size": "W8.28m×H4.56m"
+          },
+          {
+            "name": "スクリーン10(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W12.28m×H5.25m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ogk",
+      "code": "015",
+      "name": "大垣コロナシネマワールド",
+      "prefecture": "岐阜県",
+      "official_url": "https://cinema.korona.co.jp/theaters/ogk/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/ogk/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 271,
+            "seats": {
+              "一般座席": 271,
+              "合計": 271
+            },
+            "screen_size": "W11.90m×H5.06m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 119,
+            "seats": {
+              "一般座席": 119,
+              "合計": 119
+            },
+            "screen_size": "W8.77m×H4.96m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 101,
+            "seats": {
+              "一般座席": 101,
+              "合計": 101
+            },
+            "screen_size": "W7.81m×H4.47m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 101,
+            "seats": {
+              "一般座席": 101,
+              "合計": 101
+            },
+            "screen_size": "W7.33m×H4.05m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 102,
+            "seats": {
+              "一般座席": 102,
+              "合計": 102
+            },
+            "screen_size": "W7.39m×H4.36m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 102,
+            "seats": {
+              "一般座席": 102,
+              "合計": 102
+            },
+            "screen_size": "W7.33m×H4.37m"
+          },
+          {
+            "name": "スクリーン7(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W14.40m×H6.14m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 207,
+            "seats": {
+              "一般座席": 207,
+              "合計": 207
+            },
+            "screen_size": "W11.31m×H4.81m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 132,
+              "合計": 132
+            },
+            "screen_size": "W8.68m×H4.61m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 132,
+              "合計": 132
+            },
+            "screen_size": "W8.40m×H4.59m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fuy",
+      "code": "017",
+      "name": "福山コロナシネマワールド",
+      "prefecture": "広島県",
+      "official_url": "https://cinema.korona.co.jp/theaters/fuy/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/fuy/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 401,
+            "seats": {
+              "一般座席": 401,
+              "合計": 401
+            },
+            "screen_size": "W13.70m×H5.54m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 313,
+            "seats": {
+              "一般座席": 313,
+              "車椅子席": 2,
+              "合計": 313
+            },
+            "screen_size": "W10.98m×H5.45m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 106,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "screen_size": "W7.86m×H4.22m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 106,
+            "seats": {
+              "一般座席": 106,
+              "車椅子席": 2,
+              "合計": 106
+            },
+            "screen_size": "W8.02m×H4.24m"
+          },
+          {
+            "name": "スクリーン5(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W9.31m×H5.05m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 181,
+            "seats": {
+              "一般座席": 181,
+              "車椅子席": 2,
+              "合計": 181
+            },
+            "screen_size": "W9.60m×H5.00m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 124,
+            "seats": {
+              "一般座席": 124,
+              "車椅子席": 2,
+              "合計": 124
+            },
+            "screen_size": "W9.11m×H4.88m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 2,
+              "合計": 112
+            },
+            "screen_size": "W9.15m×H4.58m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 124,
+            "seats": {
+              "一般座席": 124,
+              "車椅子席": 2,
+              "合計": 124
+            },
+            "screen_size": "W7.70m×H4.30m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 116,
+            "seats": {
+              "一般座席": 116,
+              "車椅子席": 2,
+              "合計": 116
+            },
+            "screen_size": "W8.73m×H4.53m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kok",
+      "code": "018",
+      "name": "小倉コロナシネマワールド",
+      "prefecture": "福岡県",
+      "official_url": "https://cinema.korona.co.jp/theaters/kok/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/kok/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 140,
+            "seats": {
+              "一般座席": 140,
+              "合計": 140
+            },
+            "screen_size": "W10.29m×H5.61m"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 2,
+              "合計": 103
+            },
+            "screen_size": "W7.98m×H4.24m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 2,
+              "合計": 103
+            },
+            "screen_size": "W8.02m×H4.28m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 103,
+            "seats": {
+              "一般座席": 103,
+              "車椅子席": 2,
+              "合計": 103
+            },
+            "screen_size": "W7.00m×H3.77m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 188,
+            "seats": {
+              "一般座席": 188,
+              "車椅子席": 2,
+              "合計": 188
+            },
+            "screen_size": "W9.15m×H5.30m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 188,
+            "seats": {
+              "一般座席": 188,
+              "車椅子席": 2,
+              "合計": 188
+            },
+            "screen_size": "W12.55m×H5.33m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 114,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "screen_size": "W8.34m×H4.41m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 114,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "screen_size": "W8.52m×H4.45m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 114,
+            "seats": {
+              "一般座席": 114,
+              "車椅子席": 2,
+              "合計": 114
+            },
+            "screen_size": "W8.65m×H4.32m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 400,
+            "seats": {
+              "一般座席": 400,
+              "合計": 400
+            },
+            "screen_size": "W14.48m×H6.06m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "knz",
+      "code": "019",
+      "name": "金沢コロナシネマワールド",
+      "prefecture": "石川県",
+      "official_url": "https://cinema.korona.co.jp/theaters/knz/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/knz/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [],
+            "total_seats": 347,
+            "seats": {
+              "一般座席": 347,
+              "車椅子席": 2,
+              "合計": 347
+            },
+            "screen_size": "W12.80m×H5.55m"
+          },
+          {
+            "name": "スクリーン2(4DX)",
+            "features": [
+              "4DX"
+            ],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "合計": 112
+            },
+            "screen_size": "W11.40m×H5.35m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 176,
+            "seats": {
+              "一般座席": 176,
+              "車椅子席": 2,
+              "合計": 176
+            },
+            "screen_size": "W9.75m×H5.06m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.42m×H4.32m"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.44m×H4.33m"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.43m×H4.35m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.39m×H4.37m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.45m×H4.30m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 108,
+            "seats": {
+              "一般座席": 108,
+              "車椅子席": 2,
+              "合計": 108
+            },
+            "screen_size": "W8.37m×H4.37m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 112,
+            "seats": {
+              "一般座席": 112,
+              "車椅子席": 2,
+              "合計": 112
+            },
+            "screen_size": "W8.43m×H4.35m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "laa",
+      "code": "020",
+      "name": "シネマワールド ららぽーと安城",
+      "prefecture": "愛知県",
+      "official_url": "https://cinema.korona.co.jp/theaters/laa/",
+      "facility": {
+        "url": "https://cinema.korona.co.jp/theaters/laa/floor-guide/",
+        "screens": [
+          {
+            "name": "スクリーン1",
+            "features": [
+              "IMAXレーザー"
+            ],
+            "total_seats": 260,
+            "seats": {
+              "一般座席": 260,
+              "車椅子席": 2,
+              "合計": 260
+            },
+            "sound": "IMAX®"
+          },
+          {
+            "name": "スクリーン2",
+            "features": [],
+            "total_seats": 132,
+            "seats": {
+              "一般座席": 132,
+              "車椅子席": 2,
+              "合計": 132
+            },
+            "screen_size": "W10.58m×H5.72m"
+          },
+          {
+            "name": "スクリーン3",
+            "features": [],
+            "total_seats": 174,
+            "seats": {
+              "一般座席": 174,
+              "車椅子席": 2,
+              "合計": 174
+            },
+            "screen_size": "W13.40m×H7.25m"
+          },
+          {
+            "name": "スクリーン4",
+            "features": [
+              "Dolby Atmos"
+            ],
+            "total_seats": 191,
+            "seats": {
+              "一般座席": 191,
+              "車椅子席": 2,
+              "合計": 191
+            },
+            "screen_size": "W14.40m×H7.78m",
+            "sound": "DolbyATMOS"
+          },
+          {
+            "name": "スクリーン5",
+            "features": [],
+            "total_seats": 282,
+            "seats": {
+              "一般座席": 282,
+              "車椅子席": 2,
+              "合計": 282
+            },
+            "screen_size": "W17.00m×H7.25m",
+            "sound": "JBL PREMIUM THEATER"
+          },
+          {
+            "name": "スクリーン6",
+            "features": [],
+            "total_seats": 173,
+            "seats": {
+              "一般座席": 173,
+              "車椅子席": 2,
+              "合計": 173
+            },
+            "screen_size": "W13.24m×H6.29m"
+          },
+          {
+            "name": "スクリーン7",
+            "features": [],
+            "total_seats": 68,
+            "seats": {
+              "一般座席": 68,
+              "車椅子席": 2,
+              "合計": 68
+            },
+            "screen_size": "W5.90m×H3.19m"
+          },
+          {
+            "name": "スクリーン8",
+            "features": [],
+            "total_seats": 68,
+            "seats": {
+              "一般座席": 68,
+              "車椅子席": 2,
+              "合計": 68
+            },
+            "screen_size": "W5.90m×H3.19m"
+          },
+          {
+            "name": "スクリーン9",
+            "features": [],
+            "total_seats": 68,
+            "seats": {
+              "一般座席": 68,
+              "車椅子席": 2,
+              "合計": 68
+            },
+            "screen_size": "W5.90m×H3.19m"
+          },
+          {
+            "name": "スクリーン10",
+            "features": [],
+            "total_seats": 84,
+            "seats": {
+              "一般座席": 84,
+              "車椅子席": 2,
+              "合計": 84
+            },
+            "screen_size": "W7.06m×H3.82m"
+          }
+        ]
+      }
+    }
+  ]
+}

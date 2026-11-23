@@ -150,7 +150,7 @@ def get_theater_prefecture(chain_id: str, theater: dict) -> Optional[str]:
     if chain_id == "sunshine":
         return SUNSHINE_THEATER_PREFECTURES.get(t_id)
 
-    raw = theater.get("region") or theater.get("area") or ""
+    raw = theater.get("prefecture") or theater.get("region") or theater.get("area") or ""
     return normalize_prefecture(raw)
 
 

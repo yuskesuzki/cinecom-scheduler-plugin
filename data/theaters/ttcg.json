@@ -1,0 +1,284 @@
+{
+  "id": "ttcg",
+  "name": "テアトルシネマグループ",
+  "theaters": [
+    {
+      "id": "human_yurakucho",
+      "data_code": "human_yurakucho",
+      "name": "ヒューマントラストシネマ有楽町",
+      "prefecture": "東京都",
+      "ticket_host": "ttcg-yurakucho.cineticket.jp",
+      "official_url": "https://ttcg.jp/human_yurakucho/",
+      "facility": {
+        "url": "https://ttcg.jp/human_yurakucho/theater/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [],
+            "total_seats": 162,
+            "seats": {
+              "一般座席": 162,
+              "合計": 162
+            },
+            "screen_size": "VV 5.9×3.2 / CS 7.6×3.2",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/human_yurakucho-theater-seat-01.png"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 63,
+            "seats": {
+              "一般座席": 63,
+              "合計": 63
+            },
+            "screen_size": "VV 3.5×1.8 / CS 4.0×1.6",
+            "sound": "リニアPCM5.1",
+            "seat_map_url": "https://ttcg.jp/images/human_yurakucho-theater-seat-02.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "human_shibuya",
+      "data_code": "human_shibuya",
+      "name": "ヒューマントラストシネマ渋谷",
+      "prefecture": "東京都",
+      "ticket_host": "ttcg-shibuya.cineticket.jp",
+      "official_url": "https://ttcg.jp/human_shibuya/",
+      "facility": {
+        "url": "https://ttcg.jp/human_shibuya/theater/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [
+              "odessa"
+            ],
+            "total_seats": 200,
+            "seats": {
+              "一般座席": 200,
+              "合計": 200
+            },
+            "screen_size": "VV 4.9×2.6 / CS 6.3×2.6",
+            "sound": "odessa / リニアPCM 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/human_shibuya-theater-seat-01.png"
+          },
+          {
+            "name": "シアター2",
+            "features": [],
+            "total_seats": 173,
+            "seats": {
+              "一般座席": 173,
+              "合計": 173
+            },
+            "screen_size": "VV 5.9×3.2 / CS 5.9×2.5",
+            "sound": "リニアPCM 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/human_shibuya-theater-seat-02.png"
+          },
+          {
+            "name": "シアター3",
+            "features": [],
+            "total_seats": 60,
+            "seats": {
+              "一般座席": 60,
+              "合計": 60
+            },
+            "screen_size": "VV 2.9×1.6 / CS 3.7×1.6",
+            "sound": "リニアPCM 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/human_shibuya-theater-seat-03.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "theatre_shinjuku",
+      "data_code": "theatre_shinjuku",
+      "name": "テアトル新宿",
+      "prefecture": "東京都",
+      "ticket_host": "ttcg-shinjuku.cineticket.jp",
+      "official_url": "https://ttcg.jp/theatre_shinjuku/",
+      "facility": {
+        "url": "https://ttcg.jp/theatre_shinjuku/theater/",
+        "screens": [
+          {
+            "name": "シアター1",
+            "features": [
+              "odessa"
+            ],
+            "total_seats": 218,
+            "seats": {
+              "一般座席": 218,
+              "合計": 218
+            },
+            "screen_size": "VV 7.2×3.9 / CS 9.3×3.9",
+            "sound": "odessa / 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/theatre_shinjuku-theater-seat-01.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cineka_omori",
+      "data_code": "cineka_omori",
+      "name": "キネカ大森",
+      "prefecture": "東京都",
+      "ticket_host": "ttcg-omori.cineticket.jp",
+      "official_url": "https://ttcg.jp/cineka_omori/",
+      "facility": {
+        "url": "https://ttcg.jp/cineka_omori/theater/",
+        "screens": [
+          {
+            "name": "キネカ1",
+            "features": [],
+            "total_seats": 128,
+            "seats": {
+              "一般座席": 128,
+              "合計": 128
+            },
+            "screen_size": "VV 6.1×3.3 / CS 7.6×3.3",
+            "sound": "5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cineka_omori-theater-seat-01.png"
+          },
+          {
+            "name": "キネカ2",
+            "features": [],
+            "total_seats": 68,
+            "seats": {
+              "一般座席": 68,
+              "合計": 68
+            },
+            "screen_size": "VV 4.6×2.5 / CS 5.1×2.3",
+            "sound": "5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cineka_omori-theater-seat-02.png"
+          },
+          {
+            "name": "キネカ3",
+            "features": [],
+            "total_seats": 39,
+            "seats": {
+              "一般座席": 39,
+              "合計": 39
+            },
+            "screen_size": "VV 3.2×1.9 / CS 4.3×1.9",
+            "sound": "5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cineka_omori-theater-seat-03.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ttcg_umeda",
+      "data_code": "cinelibre_umeda",
+      "name": "テアトル梅田",
+      "prefecture": "大阪府",
+      "ticket_host": "ttcg-umeda.cineticket.jp",
+      "official_url": "https://ttcg.jp/ttcg_umeda/",
+      "facility": {
+        "url": "https://ttcg.jp/ttcg_umeda/theater/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [
+              "odessa"
+            ],
+            "total_seats": 122,
+            "seats": {
+              "一般座席": 122,
+              "合計": 122
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "odessa / 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_umeda-theater-seat-01.png"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 95,
+            "seats": {
+              "一般座席": 95,
+              "合計": 95
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_umeda-theater-seat-02.png"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "合計": 113
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_umeda-theater-seat-03.png"
+          },
+          {
+            "name": "シネマ4",
+            "features": [],
+            "total_seats": 113,
+            "seats": {
+              "一般座席": 113,
+              "合計": 113
+            },
+            "screen_size": "VV 4.0×2.2 / CS 5.2×2.2",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_umeda-theater-seat-04.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cinelibre_kobe",
+      "data_code": "cinelibre_kobe",
+      "name": "シネ・リーブル神戸",
+      "prefecture": "兵庫県",
+      "ticket_host": "ttcg-kobe.cineticket.jp",
+      "official_url": "https://ttcg.jp/cinelibre_kobe/",
+      "facility": {
+        "url": "https://ttcg.jp/cinelibre_kobe/theater/",
+        "screens": [
+          {
+            "name": "シネマ1",
+            "features": [
+              "odessa"
+            ],
+            "total_seats": 85,
+            "seats": {
+              "一般座席": 85,
+              "合計": 85
+            },
+            "screen_size": "VV 5.1×2.8 / CS 6.7×2.8",
+            "sound": "odessa / 7.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_kobe-theater-seat-01.png"
+          },
+          {
+            "name": "シネマ2",
+            "features": [],
+            "total_seats": 66,
+            "seats": {
+              "一般座席": 66,
+              "合計": 66
+            },
+            "screen_size": "VV 4.2×2.3 / CS 5.5×2.3",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_kobe-theater-seat-02.png"
+          },
+          {
+            "name": "シネマ3",
+            "features": [],
+            "total_seats": 83,
+            "seats": {
+              "一般座席": 83,
+              "合計": 83
+            },
+            "screen_size": "VV 4.4×2.4 / CS 5.8×2.4",
+            "sound": "リニアPCM 5.1ch",
+            "seat_map_url": "https://ttcg.jp/images/cinelibre_kobe-theater-seat-03.png"
+          }
+        ]
+      }
+    }
+  ]
+}

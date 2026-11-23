@@ -43,6 +43,18 @@
       "file": "data/theaters/smt.json"
     },
     {
+      "id": "korona",
+      "name": "コロナワールド",
+      "theaters_count": 11,
+      "file": "data/theaters/korona.json"
+    },
+    {
+      "id": "ttcg",
+      "name": "テアトルシネマグループ",
+      "theaters_count": 6,
+      "file": "data/theaters/ttcg.json"
+    },
+    {
       "id": "other",
       "name": "共同経営・その他",
       "theaters_count": 7,

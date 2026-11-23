@@ -621,13 +621,23 @@ ShellRoot {
   Scope {
     Component.onCompleted: {
       // 1. チェーン定義と表示名・短縮バッジ
-      if (CinemaUtils.AVAILABLE_CHAINS.length !== 8) {
-        console.log("[TEST_FAIL] Expected 8 chains, got " + CinemaUtils.AVAILABLE_CHAINS.length);
+      if (CinemaUtils.AVAILABLE_CHAINS.length !== 10) {
+        console.log("[TEST_FAIL] Expected 10 chains, got " + CinemaUtils.AVAILABLE_CHAINS.length);
         Qt.quit();
         return;
       }
       if (CinemaUtils.getChainDisplayName("tjoy", false) !== "T・ジョイ" || CinemaUtils.getChainDisplayName("tjoy", true) !== "T-JOY") {
         console.log("[TEST_FAIL] getChainDisplayName mismatch for tjoy");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainDisplayName("korona", false) !== "コロナワールド" || CinemaUtils.getChainDisplayName("korona", true) !== "KORONA WORLD") {
+        console.log("[TEST_FAIL] getChainDisplayName mismatch for korona");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainDisplayName("ttcg", false) !== "テアトルシネマグループ" || CinemaUtils.getChainDisplayName("ttcg", true) !== "TTCG") {
+        console.log("[TEST_FAIL] getChainDisplayName mismatch for ttcg");
         Qt.quit();
         return;
       }
@@ -638,6 +648,12 @@ ShellRoot {
       }
       if (CinemaUtils.getChainBadgeLabel("united", false) !== "ユナイテッド" || CinemaUtils.getChainBadgeLabel("united", true) !== "United") {
         console.log("[TEST_FAIL] getChainBadgeLabel mismatch for united");
+        Qt.quit();
+        return;
+      }
+      if (CinemaUtils.getChainBadgeLabel("korona", false) !== "コロナ" || CinemaUtils.getChainBadgeLabel("korona", true) !== "Korona" ||
+          CinemaUtils.getChainBadgeLabel("ttcg", false) !== "テアトル" || CinemaUtils.getChainBadgeLabel("ttcg", true) !== "TTCG") {
+        console.log("[TEST_FAIL] getChainBadgeLabel mismatch for korona/ttcg");
         Qt.quit();
         return;
       }
@@ -740,6 +756,8 @@ ShellRoot {
       if (CinemaUtils.buildTheaterHomepageUrl("toho", "009", null) !== "https://hlo.tohotheater.jp/net/schedule/009/TNPI2000J01.do" ||
           CinemaUtils.buildTheaterHomepageUrl("tjoy", "shinjuku_wald9", null) !== "https://tjoy.jp/shinjuku_wald9" ||
           CinemaUtils.buildTheaterHomepageUrl("smt", "shinjuku", null) !== "https://www.smt-cinema.com/site/shinjuku/" ||
+          CinemaUtils.buildTheaterHomepageUrl("korona", "kom", null) !== "https://cinema.korona.co.jp/theaters/kom/" ||
+          CinemaUtils.buildTheaterHomepageUrl("ttcg", "theatre_shinjuku", null) !== "https://ttcg.jp/theatre_shinjuku/" ||
           CinemaUtils.buildTheaterHomepageUrl("aeon", "ebetsu", null) !== "https://theater.aeoncinema.com/theaters/ebetsu/") {
         console.log("[TEST_FAIL] buildTheaterHomepageUrl template mismatch");
         Qt.quit();
