@@ -90,6 +90,24 @@ class TestCrossTheaterSearch(unittest.TestCase):
             any(t["chain_id"] == "other" and t["theater_id"] == "sapporo_cf" for t in hokkaido_theaters)
         )
 
+        # 愛知県に ミッドランドスクエア シネマ / 2 (other) が含まれること
+        aichi_theaters = get_theaters_by_area("愛知県")
+        self.assertTrue(
+            any(t["chain_id"] == "other" and t["theater_id"] == "midland_sq" for t in aichi_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "other" and t["theater_id"] == "midland_sq2" for t in aichi_theaters)
+        )
+
+        # 兵庫県に OSシネマズミント神戸 / 神戸ハーバーランド (other) が含まれること
+        hyogo_theaters = get_theaters_by_area("兵庫県")
+        self.assertTrue(
+            any(t["chain_id"] == "other" and t["theater_id"] == "os_mint_kobe" for t in hyogo_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "other" and t["theater_id"] == "os_harborland" for t in hyogo_theaters)
+        )
+
     def test_clean_query_title(self):
         self.assertEqual(clean_query_title("字幕 バイオハザード"), "バイオハザード")
         self.assertEqual(clean_query_title("バイオハザード【字幕】Dolby Atmos / R15+"), "バイオハザード")

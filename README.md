@@ -4,7 +4,7 @@ A native Omarchy / Quickshell bar widget and lightweight Python scraper for Cine
 
 Plugin ID: `com.yusuke.cinecom-scheduler`.
 
-イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場）、T・ジョイ（全国20劇場）、109シネマズ（全国19劇場）、MOVIX・ピカデリー（全国23劇場）、共同経営・その他（大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティアの3劇場、計294劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
+イオンシネマ（全国99劇場）、TOHOシネマズ（全国74劇場）、ユナイテッド・シネマ（全国40劇場）、シネマサンシャイン（全国16劇場）、T・ジョイ（全国20劇場）、109シネマズ（全国19劇場）、MOVIX・ピカデリー（全国23劇場）、共同経営・その他（大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア・ミッドランドスクエア シネマ/2・OSシネマズ2館の7劇場、計298劇場）の上映スケジュール、空席状況、スクリーン設備情報（IMAX / Dolby Atmos / 4DX / ScreenX 等）、座席予約購入リンクを表示する Omarchy デスクトップ向けバーウィジェットおよび Python CLI ツールです。外部依存ライブラリなし（Python 標準ライブラリのみ）で高速・軽量に動作します。
 
 ## Preview
 
@@ -84,7 +84,7 @@ omarchy plugin validate .
   - 🎥 **T・ジョイ**（全20劇場）: 空席ステータス、Dolby Cinema・Dolby Atmos・IMAXレーザー・ScreenX・MX4D・T-LEX設備、公式作品・購入リンク
   - 🎞️ **109シネマズ**（全19劇場）: 空席ステータス、IMAXレーザー・ULTRA 4DX・ScreenX・SAION・KIDS CINEMA設備、公式作品・購入リンク
   - 🎬 **MOVIX・ピカデリー（SMT）**（全23劇場）: 空席ステータス、Dolby Cinema・プラチナシート等、Smart/レガシー両購入リンク
-  - 🏛️ **共同経営・その他**（3劇場: 大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア）: 共同経営・独立系劇場のスケジュール、設備情報、購入リンク
+  - 🏛️ **共同経営・その他**（7劇場: 大阪SCシネマ・なんばパークスシネマ・札幌シネマフロンティア・ミッドランドスクエア シネマ / 2・OSシネマズミント神戸 / 神戸ハーバーランド）: 共同経営・独立系劇場のスケジュール、設備情報、購入リンク
 - **地域×作品名のシネコン横断上映検索**:
   - 都道府県（例: `東京都`）やエリアと作品名を指定して、複数系列の劇場上映回をタイムライン形式（上映開始時刻順）で一括比較。
   - 劇場名での絞り込み（`--theater`）や、指定時刻・現在時刻以降の絞り込み（`--after now`）にも対応。
@@ -118,7 +118,7 @@ cinecom-scheduler-plugin/
 │   └── SettingsModal.qml      # 系列・劇場・時間範囲設定モーダル
 ├── data/
 │   ├── chains.json            # 系列定義 (aeon, toho, united, sunshine, tjoy, 109cinemas, smt, other)
-│   ├── theaters.json          # 全シネコン統合劇場マスタ (計294館)
+│   ├── theaters.json          # 全シネコン統合劇場マスタ (計298館)
 │   └── theaters/              # 系列別劇場マスタ (aeon, toho, united, sunshine, tjoy, 109cinemas, smt, other)
 ├── scraper/                   # バックエンド Python パッケージ
 │   ├── __init__.py
@@ -142,8 +142,9 @@ cinecom-scheduler-plugin/
 │           ├── __init__.py    # STRATEGY_REGISTRY + OtherCinemaProvider
 │           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
 │           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
-│           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば)
-├── tests/                     # ユニットテスト (全62テスト完備)
+│           ├── oscinemas.py   # OSシネマズ Strategy
+│           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば・ミッドランド)
+├── tests/                     # ユニットテスト (全64テスト完備)
 │   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト
 │   ├── test_search.py         # 横断検索・エリアマッパーテスト

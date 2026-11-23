@@ -58,6 +58,19 @@ def normalize_screen_name(raw_name: str) -> str:
     if re.fullmatch(r"dolby\s*cinema", normalized, re.IGNORECASE):
         return "Dolby Cinema"
 
+    normalized = re.sub(
+        r"^sc\s*0*(\d+)\b",
+        r"スクリーン\1",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+    normalized = re.sub(
+        r"dolby\s*cinema",
+        "Dolby Cinema",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+
     m = re.fullmatch(r"(シアター|スクリーン)\s*(\d+)", normalized)
     if m:
         return f"{m.group(1)}{m.group(2)}"

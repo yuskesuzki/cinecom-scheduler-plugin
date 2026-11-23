@@ -38,7 +38,10 @@ var ALLOWED_CINEMA_DOMAINS = [
   "ticket.osakastationcitycinema.com",
   "www.parkscinema.com",
   "ticket.parkscinema.com",
-  "www.cinemafrontier.net"
+  "www.cinemafrontier.net",
+  "www.midland-sq-cinema.jp",
+  "ticket.midlandcinema.jp",
+  "www.oscinemas.net"
 ];
 
 function findChainEntry(chainId) {

@@ -47,6 +47,8 @@ def parse_smt_legacy_schedule_html(
     ticket_host: str,
     booking_url_builder: Callable[[str, str, Optional[Dict[str, str]]], str],
     info_url_builder: Optional[Callable[[str, Optional[str]], str]] = None,
+    screen_min: Optional[int] = None,
+    screen_max: Optional[int] = None,
 ) -> List[MovieSchedule]:
     """
     旧世代SMTテーブル型スケジュールHTML断片（s0100_{code}_{YYYYMMDD}.html）
@@ -123,8 +125,9 @@ def parse_smt_legacy_schedule_html(
             start_time = pad_hhmm(t_m.group(1))
             end_time = pad_hhmm(t_m.group(2))
 
-            p_m = re.search(r"<p\b[^>]*>(.*?)</p>", td_html, re.DOTALL | re.IGNORECASE)
-            screen_name = normalize_screen_name(p_m.group(1) if p_m else "")
+            p_m = re.search(r"<p\b([^>]*)>(.*?)</p>", td_html, re.DOTALL | re.IGNORECASE)
+            p_attrs = p_m.group(1) if p_m else ""
+            screen_name = normalize_screen_name(p_m.group(2) if p_m else "")
 
             img_m = re.search(r"<img\b([^>]*)>", td_html, re.IGNORECASE)
             icon_filename = None
@@ -143,6 +146,7 @@ def parse_smt_legacy_schedule_html(
             onclick_val = get_attr(td_attrs, "onclick")
             booking_url = ""
             event_id = ""
+            sc_param = ""
             if onclick_val:
                 url_m = re.search(r"https://[^\s\"'()]+", onclick_val)
                 if url_m:
@@ -154,6 +158,7 @@ def parse_smt_legacy_schedule_html(
                         qs = urllib.parse.parse_qs(parsed.query)
                         required_keys = ("th", "mo", "sd", "pe", "sc", "fl")
                         params = {k: (qs.get(k) or [""])[0] for k in required_keys}
+                        sc_param = params.get("sc", "")
                         if all(params.values()):
                             event_id = "_".join(params[k] for k in required_keys)
                             if is_purchasable:
@@ -163,6 +168,26 @@ def parse_smt_legacy_schedule_html(
                                     )
                                 except UnsafeUrlError:
                                     booking_url = ""
+
+            if screen_min is not None or screen_max is not None:
+                scr_num: Optional[int] = None
+                if sc_param.isdigit():
+                    scr_num = int(sc_param)
+                else:
+                    num_m = re.search(r"(\d+)", screen_name)
+                    if num_m:
+                        scr_num = int(num_m.group(1))
+                    else:
+                        p_cls = get_attr(p_attrs, "class").lower()
+                        if "screengroup1" in p_cls or "night1" in p_cls:
+                            scr_num = 1
+                        elif "screengroup2" in p_cls or "night2" in p_cls:
+                            scr_num = 8
+
+                if screen_min is not None and (scr_num is None or scr_num < screen_min):
+                    continue
+                if screen_max is not None and (scr_num is None or scr_num > screen_max):
+                    continue
 
             if not event_id:
                 event_id = f"{movie_id}_{slot_idx}_{start_time.replace(':', '')}"
@@ -202,7 +227,7 @@ def parse_smt_legacy_schedule_html(
 
 class SmtLegacyStrategy(BaseOtherStrategy):
     """
-    旧世代SMTテーブル型システム（大阪ステーションシティシネマ・なんばパークスシネマ）向け Strategy。
+    旧世代SMTテーブル型システム（大阪ステーションシティシネマ・なんばパークスシネマ・ミッドランドスクエア シネマ）向け Strategy。
     """
 
     ADAPTER_ID: str = "smt_legacy"
@@ -230,6 +255,7 @@ class SmtLegacyStrategy(BaseOtherStrategy):
     ) -> List[MovieSchedule]:
         theater_id = theater_info["id"]
         base_url = theater_info.get("base_url") or ""
+        schedule_base_url = theater_info.get("schedule_base_url") or base_url
         ticket_host = theater_info.get("ticket_host") or ""
         code = str(theater_info.get("code") or "").strip()
         if not code:
@@ -237,9 +263,13 @@ class SmtLegacyStrategy(BaseOtherStrategy):
 
         safe_code = sanitize_identifier(code)
         date_str = target_date.strftime("%Y%m%d")
+        prefix = str(theater_info.get("schedule_path_prefix") or "schedule/pc").strip("/")
+        prefix_segments = [seg for seg in prefix.split("/") if seg]
+        suffix = str(theater_info.get("schedule_filename_suffix") or "")
+        filename = f"s0100_{safe_code}_{date_str}{suffix}.html"
         url = build_safe_url(
-            base_url,
-            path_segments=["schedule", "pc", f"s0100_{safe_code}_{date_str}.html"],
+            schedule_base_url,
+            path_segments=[*prefix_segments, filename],
         )
         html = self._fetch_html(url, encoding="utf-8", context=theater_id)
         return parse_smt_legacy_schedule_html(
@@ -253,4 +283,6 @@ class SmtLegacyStrategy(BaseOtherStrategy):
             info_url_builder=lambda _tid, href: self.build_movie_info_url(
                 theater_info, href
             ),
+            screen_min=theater_info.get("screen_min"),
+            screen_max=theater_info.get("screen_max"),
         )

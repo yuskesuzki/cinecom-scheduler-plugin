@@ -150,17 +150,8 @@ def get_theater_prefecture(chain_id: str, theater: dict) -> Optional[str]:
     if chain_id == "sunshine":
         return SUNSHINE_THEATER_PREFECTURES.get(t_id)
 
-    # toho / tjoy / 109cinemas / smt / other: 'region' に '東京都' や '大阪府' が入っている
-    if chain_id in ("toho", "tjoy", "109cinemas", "smt", "other"):
-        reg = theater.get("region") or ""
-        return normalize_prefecture(reg)
-
-    # aeon: 'area' に '東京' や '大阪' が入っている
-    if chain_id == "aeon":
-        area = theater.get("area") or ""
-        return normalize_prefecture(area)
-
-    return None
+    raw = theater.get("region") or theater.get("area") or ""
+    return normalize_prefecture(raw)
 
 
 def get_theaters_by_area(
@@ -178,8 +169,10 @@ def get_theaters_by_area(
 
     norm_theater_q = theater_query.strip().lower() if theater_query else None
 
+    from .providers import PROVIDER_REGISTRY
+
     base_dir = Path(__file__).resolve().parents[1] / "data" / "theaters"
-    chains = ["aeon", "toho", "united", "sunshine", "tjoy", "109cinemas", "smt", "other"]
+    chains = list(PROVIDER_REGISTRY.keys())
     results = []
 
     for chain_id in chains:

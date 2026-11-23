@@ -12,6 +12,11 @@ from .cinema_frontier import (
     normalize_cinema_frontier_screen_name,
     parse_cinema_frontier_schedule_html,
 )
+from .oscinemas import (
+    OsCinemasStrategy,
+    map_oscinemas_seat_status,
+    parse_oscinemas_schedule_html,
+)
 from .smt_legacy import (
     SmtLegacyStrategy,
     map_smt_legacy_seat_status,
@@ -21,6 +26,7 @@ from .smt_legacy import (
 STRATEGY_REGISTRY: Dict[str, Type[BaseOtherStrategy]] = {
     SmtLegacyStrategy.ADAPTER_ID: SmtLegacyStrategy,
     CinemaFrontierStrategy.ADAPTER_ID: CinemaFrontierStrategy,
+    OsCinemasStrategy.ADAPTER_ID: OsCinemasStrategy,
 }
 
 
@@ -84,13 +90,16 @@ class OtherCinemaProvider(BaseCinemaProvider):
 __all__ = [
     "BaseOtherStrategy",
     "CinemaFrontierStrategy",
+    "OsCinemasStrategy",
     "OtherCinemaProvider",
     "STRATEGY_REGISTRY",
     "SmtLegacyStrategy",
     "clean_cinema_frontier_title",
     "map_cinema_frontier_seat_status",
+    "map_oscinemas_seat_status",
     "map_smt_legacy_seat_status",
     "normalize_cinema_frontier_screen_name",
     "parse_cinema_frontier_schedule_html",
+    "parse_oscinemas_schedule_html",
     "parse_smt_legacy_schedule_html",
 ]

@@ -34221,6 +34221,460 @@
               }
             ]
           }
+        },
+        {
+          "id": "midland_sq",
+          "code": "0201",
+          "name": "ミッドランドスクエア シネマ",
+          "region": "愛知県",
+          "adapter": "smt_legacy",
+          "base_url": "https://www.midland-sq-cinema.jp",
+          "schedule_base_url": "https://ticket.midlandcinema.jp",
+          "schedule_path_prefix": "schedule/schedule/pc",
+          "schedule_filename_suffix": "-1",
+          "ticket_host": "ticket.midlandcinema.jp",
+          "official_url": "https://ticket.midlandcinema.jp/schedule/ticket/0201/index.html",
+          "screen_min": 1,
+          "screen_max": 7,
+          "facility": {
+            "url": "https://www.midland-sq-cinema.jp/theater/",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 319,
+                "seats": {
+                  "一般座席": 319,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_01.html",
+                "screen_size": "14.3m x 6.0m"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 142,
+                "seats": {
+                  "一般座席": 142,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_02.html",
+                "screen_size": "9.9m x 4.1m"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_03.html",
+                "screen_size": "11.3m x 4.7m"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 132,
+                "seats": {
+                  "一般座席": 132,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_04.html",
+                "screen_size": "9.4m x 3.9m"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [
+                  "Dolby Cinema"
+                ],
+                "total_seats": 163,
+                "seats": {
+                  "一般座席": 163,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_05.html",
+                "screen_size": "11.95m x 5.0m"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 120,
+                "seats": {
+                  "一般座席": 120,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_06.html",
+                "screen_size": "8.3m x 3.4m"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 111,
+                "seats": {
+                  "一般座席": 111,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen1_07.html",
+                "screen_size": "7.8m x 3.2m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "midland_sq2",
+          "code": "0201",
+          "name": "ミッドランドスクエア シネマ2",
+          "region": "愛知県",
+          "adapter": "smt_legacy",
+          "base_url": "https://www.midland-sq-cinema.jp",
+          "schedule_base_url": "https://ticket.midlandcinema.jp",
+          "schedule_path_prefix": "schedule/schedule/pc",
+          "schedule_filename_suffix": "-1",
+          "ticket_host": "ticket.midlandcinema.jp",
+          "official_url": "https://ticket.midlandcinema.jp/schedule/ticket/0201/index.html",
+          "screen_min": 8,
+          "screen_max": 14,
+          "facility": {
+            "url": "https://www.midland-sq-cinema.jp/theater/",
+            "screens": [
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 296,
+                "seats": {
+                  "一般座席": 296,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_01.html",
+                "screen_size": "13.33m x 5.58m"
+              },
+              {
+                "name": "スクリーン9",
+                "features": [
+                  "Dolby Atmos",
+                  "RealD 3D"
+                ],
+                "total_seats": 167,
+                "seats": {
+                  "一般座席": 167,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_02.html",
+                "screen_size": "11.4m x 4.78m"
+              },
+              {
+                "name": "スクリーン10",
+                "features": [
+                  "Dolby Atmos"
+                ],
+                "total_seats": 115,
+                "seats": {
+                  "一般座席": 115,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_03.html",
+                "screen_size": "8.8m x 3.69m"
+              },
+              {
+                "name": "スクリーン11",
+                "features": [],
+                "total_seats": 116,
+                "seats": {
+                  "一般座席": 116,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_04.html",
+                "screen_size": "9.5m x 3.98m"
+              },
+              {
+                "name": "スクリーン12",
+                "features": [],
+                "total_seats": 99,
+                "seats": {
+                  "一般座席": 99,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_05.html",
+                "screen_size": "8.39m x 3.51m"
+              },
+              {
+                "name": "スクリーン13",
+                "features": [],
+                "total_seats": 133,
+                "seats": {
+                  "一般座席": 133,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_06.html",
+                "screen_size": "10.58m x 4.43m"
+              },
+              {
+                "name": "スクリーン14",
+                "features": [],
+                "total_seats": 90,
+                "seats": {
+                  "一般座席": 90,
+                  "車椅子席": 2
+                },
+                "seat_map_url": "https://www.midland-sq-cinema.jp/theater/screen2_07.html",
+                "screen_size": "7.85m x 3.29m"
+              }
+            ]
+          }
+        },
+        {
+          "id": "os_mint_kobe",
+          "code": "21080",
+          "name": "OSシネマズミント神戸",
+          "region": "兵庫県",
+          "adapter": "oscinemas",
+          "base_url": "https://www.oscinemas.net",
+          "official_url": "https://www.oscinemas.net/cgi-bin/pc/site/det.cgi?tsc=21080",
+          "facility": {
+            "url": "https://www.oscinemas.net/cgi-bin/pc/theater/det.cgi?tsc=21080",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 219,
+                "seats": {
+                  "一般座席": 219,
+                  "車椅子席": 2
+                },
+                "screen_size": "4.4×10.6m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen1.jpg"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 308,
+                "seats": {
+                  "一般座席": 308,
+                  "車椅子席": 2
+                },
+                "screen_size": "5.5×13.1m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen2.jpg"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 181,
+                "seats": {
+                  "一般座席": 181,
+                  "車椅子席": 2
+                },
+                "screen_size": "4.1×9.8m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen3.jpg"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 102,
+                "seats": {
+                  "一般座席": 102,
+                  "車椅子席": 2
+                },
+                "screen_size": "3.9×9.5m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen4.jpg"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [],
+                "total_seats": 127,
+                "seats": {
+                  "一般座席": 127,
+                  "車椅子席": 2
+                },
+                "screen_size": "3.9×9.5m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen5.jpg"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 304,
+                "seats": {
+                  "一般座席": 304,
+                  "車椅子席": 2
+                },
+                "screen_size": "5.4×12.9m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen6.jpg"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 189,
+                "seats": {
+                  "一般座席": 189,
+                  "車椅子席": 2
+                },
+                "screen_size": "4.1×9.9m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen7.jpg"
+              },
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 201,
+                "seats": {
+                  "一般座席": 201,
+                  "車椅子席": 2
+                },
+                "screen_size": "4.1×9.8m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/mint/img/screen8.jpg"
+              }
+            ]
+          }
+        },
+        {
+          "id": "os_harborland",
+          "code": "21120",
+          "name": "OSシネマズ神戸ハーバーランド",
+          "region": "兵庫県",
+          "adapter": "oscinemas",
+          "base_url": "https://www.oscinemas.net",
+          "official_url": "https://www.oscinemas.net/cgi-bin/pc/site/det.cgi?tsc=21120",
+          "facility": {
+            "url": "https://www.oscinemas.net/cgi-bin/pc/theater/det.cgi?tsc=21120",
+            "screens": [
+              {
+                "name": "スクリーン1",
+                "features": [],
+                "total_seats": 146,
+                "seats": {
+                  "一般座席": 146,
+                  "車椅子席": 2,
+                  "ペアシート": 4
+                },
+                "screen_size": "4.4×10.4m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen1.jpg"
+              },
+              {
+                "name": "スクリーン2",
+                "features": [],
+                "total_seats": 82,
+                "seats": {
+                  "一般座席": 82,
+                  "車椅子席": 1,
+                  "ペアシート": 4
+                },
+                "screen_size": "2.8×6.6m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen2.jpg"
+              },
+              {
+                "name": "スクリーン3",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2,
+                  "ペアシート": 8
+                },
+                "screen_size": "4.8×11.2m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen3.jpg"
+              },
+              {
+                "name": "スクリーン4",
+                "features": [],
+                "total_seats": 106,
+                "seats": {
+                  "一般座席": 106,
+                  "車椅子席": 2,
+                  "ペアシート": 4
+                },
+                "screen_size": "4.3×10.0m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen4.jpg"
+              },
+              {
+                "name": "スクリーン5",
+                "features": [],
+                "total_seats": 66,
+                "seats": {
+                  "一般座席": 66,
+                  "車椅子席": 1,
+                  "ペアシート": 4
+                },
+                "screen_size": "2.8×6.6m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen5.jpg"
+              },
+              {
+                "name": "スクリーン6",
+                "features": [],
+                "total_seats": 171,
+                "seats": {
+                  "一般座席": 171,
+                  "車椅子席": 2,
+                  "ペアシート": 8
+                },
+                "screen_size": "4.8×11.1m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen6.jpg"
+              },
+              {
+                "name": "スクリーン7",
+                "features": [],
+                "total_seats": 191,
+                "seats": {
+                  "一般座席": 191,
+                  "車椅子席": 2,
+                  "ペアシート": 8
+                },
+                "screen_size": "4.7×10.9m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen7.jpg"
+              },
+              {
+                "name": "スクリーン8",
+                "features": [],
+                "total_seats": 312,
+                "seats": {
+                  "一般座席": 312,
+                  "車椅子席": 2,
+                  "ペアシート": 8
+                },
+                "screen_size": "5.0×11.6m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen8.jpg"
+              },
+              {
+                "name": "スクリーン9",
+                "features": [],
+                "total_seats": 155,
+                "seats": {
+                  "一般座席": 155,
+                  "車椅子席": 2,
+                  "ペアシート": 4
+                },
+                "screen_size": "4.2×9.8m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen9.jpg"
+              },
+              {
+                "name": "スクリーン10",
+                "features": [],
+                "total_seats": 50,
+                "seats": {
+                  "一般座席": 50,
+                  "車椅子席": 1
+                },
+                "screen_size": "2.2×5.3m",
+                "sound": "デジタル 5.1ch/7.1ch",
+                "seat_map_url": "https://www.oscinemas.net/assets/harborland/img/screen10.jpg"
+              }
+            ]
+          }
         }
       ]
     }

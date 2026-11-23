@@ -30,6 +30,9 @@ ALLOWED_DOMAINS: Set[str] = {
     "www.parkscinema.com",
     "ticket.parkscinema.com",
     "www.cinemafrontier.net",
+    "www.midland-sq-cinema.jp",
+    "ticket.midlandcinema.jp",
+    "www.oscinemas.net",
 }
 
 # 制御文字の検出パターン

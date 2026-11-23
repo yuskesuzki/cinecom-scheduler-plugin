@@ -11,13 +11,16 @@ from scraper.providers.other import (
     STRATEGY_REGISTRY,
     BaseOtherStrategy,
     CinemaFrontierStrategy,
+    OsCinemasStrategy,
     OtherCinemaProvider,
     SmtLegacyStrategy,
     clean_cinema_frontier_title,
     map_cinema_frontier_seat_status,
+    map_oscinemas_seat_status,
     map_smt_legacy_seat_status,
     normalize_cinema_frontier_screen_name,
     parse_cinema_frontier_schedule_html,
+    parse_oscinemas_schedule_html,
     parse_smt_legacy_schedule_html,
 )
 
@@ -36,8 +39,10 @@ class TestOtherCinemaProvider(unittest.TestCase):
     def test_strategy_registry_and_dispatch(self):
         self.assertIn("smt_legacy", STRATEGY_REGISTRY)
         self.assertIn("cinema_frontier", STRATEGY_REGISTRY)
+        self.assertIn("oscinemas", STRATEGY_REGISTRY)
         self.assertIs(STRATEGY_REGISTRY["smt_legacy"], SmtLegacyStrategy)
         self.assertIs(STRATEGY_REGISTRY["cinema_frontier"], CinemaFrontierStrategy)
+        self.assertIs(STRATEGY_REGISTRY["oscinemas"], OsCinemasStrategy)
 
         provider = OtherCinemaProvider()
         oscc_info, oscc_strategy = provider._resolve_theater_and_strategy("oscc")
@@ -51,6 +56,19 @@ class TestOtherCinemaProvider(unittest.TestCase):
         cf_info, cf_strategy = provider._resolve_theater_and_strategy("sapporo_cf")
         self.assertEqual(cf_info["adapter"], "cinema_frontier")
         self.assertIsInstance(cf_strategy, CinemaFrontierStrategy)
+
+        m1_info, m1_strategy = provider._resolve_theater_and_strategy("midland_sq")
+        self.assertEqual(m1_info["adapter"], "smt_legacy")
+        self.assertIs(m1_strategy, oscc_strategy)
+
+        m2_info, m2_strategy = provider._resolve_theater_and_strategy("midland_sq2")
+        self.assertEqual(m2_info["adapter"], "smt_legacy")
+        self.assertIs(m2_strategy, oscc_strategy)
+
+        for os_tid in ("os_mint_kobe", "os_harborland"):
+            os_info, os_strategy = provider._resolve_theater_and_strategy(os_tid)
+            self.assertEqual(os_info["adapter"], "oscinemas")
+            self.assertIsInstance(os_strategy, OsCinemasStrategy)
 
     def test_unsupported_adapter_raises_value_error(self):
         provider = OtherCinemaProvider()
@@ -387,6 +405,189 @@ class TestOtherCinemaProvider(unittest.TestCase):
             single_movies[0].screenings[0].booking_url,
             "https://www.cinemafrontier.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=55407&tsc=1&tssc=8&ymd=2026-11-22&cs=5",
         )
+
+    def test_parse_midland_schedule_split_by_building(self):
+        """ミッドランドスクエア シネマ(SC1〜7)とシネマ2(SC8〜14)の分離抽出と施設タグを検証"""
+        provider = OtherCinemaProvider()
+        midland_html = """
+        <div class="scheduleBox">
+          <div class="MvTtl clearfix">
+            <div class="MovieTitle1">
+              <h2>テスト作品E<span><img src="../images/icon/17.gif" alt="DOLBY CINEMA"></span></h2>
+            </div>
+            <div class="totalTime"><p>（本編：120分）</p></div>
+          </div>
+          <table>
+            <tr>
+              <td onclick="var win = window.open('https://ticket.midlandcinema.jp/ticket/f0100.do?th=0201&mo=1001&sd=20261123&pe=1&sc=05&fl=0', 'purchase');win.focus();">
+                <p class="ScreenGroup1 ">Sc5　DolbyCinema</p>
+                <table><tr><td><img src="../images/icon/01.png" alt="余裕あり"></td><td><span>10:30</span><br>～12:30</td></tr></table>
+              </td>
+              <td onclick="var win = window.open('https://ticket.midlandcinema.jp/ticket/f0100.do?th=0201&mo=1001&sd=20261123&pe=2&sc=08&fl=0', 'purchase');win.focus();">
+                <p class="ScreenGroup2 ">スクリーン8【粋】鼓動　sound</p>
+                <table><tr><td><img src="../images/icon/02.png" alt="残りわずか"></td><td><span>14:00</span><br>～16:00</td></tr></table>
+              </td>
+              <td>
+                <p class="night2">スクリーン14</p>
+                <table><tr><td><img src="../images/icon/03.png" alt="販売終了"></td><td><span>19:00</span><br>～21:00</td></tr></table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        """
+
+        m1_movies = parse_smt_legacy_schedule_html(
+            html=midland_html,
+            theater_id="midland_sq",
+            base_url="https://www.midland-sq-cinema.jp",
+            ticket_host="ticket.midlandcinema.jp",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+            screen_min=1,
+            screen_max=7,
+        )
+        self.assertEqual(len(m1_movies), 1)
+        self.assertEqual(len(m1_movies[0].screenings), 1)
+        s1 = m1_movies[0].screenings[0]
+        self.assertEqual(s1.screen_name, "スクリーン5 Dolby Cinema")
+        self.assertIn("Dolby Cinema", s1.tags)
+        self.assertEqual(s1.seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(
+            s1.booking_url,
+            "https://ticket.midlandcinema.jp/ticket/f0100.do?th=0201&mo=1001&sd=20261123&pe=1&sc=05&fl=0",
+        )
+
+        m2_movies = parse_smt_legacy_schedule_html(
+            html=midland_html,
+            theater_id="midland_sq2",
+            base_url="https://www.midland-sq-cinema.jp",
+            ticket_host="ticket.midlandcinema.jp",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+            screen_min=8,
+            screen_max=14,
+        )
+        self.assertEqual(len(m2_movies), 1)
+        self.assertEqual(len(m2_movies[0].screenings), 2)
+        s2_a, s2_b = m2_movies[0].screenings
+        self.assertEqual(s2_a.screen_name, "スクリーン8【粋】鼓動 sound")
+        self.assertEqual(s2_a.seat_status, SeatStatus.FEW)
+        self.assertEqual(
+            s2_a.booking_url,
+            "https://ticket.midlandcinema.jp/ticket/f0100.do?th=0201&mo=1001&sd=20261123&pe=2&sc=08&fl=0",
+        )
+        self.assertEqual(s2_b.screen_name, "スクリーン14")
+        self.assertEqual(s2_b.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s2_b.booking_url, "")
+
+        # fetch_movies のパス組み立て・building 分離（モック）
+        mock_resp = unittest.mock.MagicMock()
+        mock_resp.read.return_value = midland_html.encode("utf-8")
+        mock_resp.__enter__.return_value = mock_resp
+        mock_resp.__exit__.return_value = False
+        with patch("urllib.request.urlopen", return_value=mock_resp) as mock_open:
+            fetched = provider.fetch_movies("midland_sq", date(2026, 11, 23))
+            req_url = mock_open.call_args[0][0].full_url
+            self.assertEqual(
+                req_url,
+                "https://ticket.midlandcinema.jp/schedule/schedule/pc/s0100_0201_20261123-1.html",
+            )
+            self.assertEqual(len(fetched), 1)
+            self.assertEqual(len(fetched[0].screenings), 1)
+
+    def test_parse_oscinemas_schedule_and_strategy(self):
+        """OSシネマズのステータス判定・HTMLパース・予約/作品URL生成・POST EUC-JP取得を検証"""
+        self.assertEqual(map_oscinemas_seat_status("item", ["icon", "circle"]), SeatStatus.AVAILABLE)
+        self.assertEqual(map_oscinemas_seat_status("item", ["icon", "triangle"]), SeatStatus.FEW)
+        self.assertEqual(map_oscinemas_seat_status("item status2", ["icon", "hyphen"]), SeatStatus.UNSOLD)
+        self.assertEqual(map_oscinemas_seat_status("item status4", ["icon"]), SeatStatus.FULL)
+        self.assertEqual(map_oscinemas_seat_status("item", ["icon", "cross"]), SeatStatus.FULL)
+        self.assertEqual(map_oscinemas_seat_status("item", []), SeatStatus.UNKNOWN)
+
+        provider = OtherCinemaProvider()
+        os_html = """
+        <div class="com-head1 clearfix"><h3>2026年11月23日 上映作品一覧</h3></div>
+        <div class="com-item-select1 clearfix">
+          <div class="head">
+            <h3 class="title"><a href="/cgi-bin/pc/ttl/det.cgi?ttc=15917">OSテスト作品F【IMAX】</a></h3>
+          </div>
+          <div class="body">
+            <div class="block1 acc-body-sp1">
+              <a href="/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=15917&amp;tsc=21120&amp;tssc=279&amp;ymd=2026-11-23&amp;cs=1" class="item status2">
+                <div class="ds">
+                  <div class="time">09:20<span class="small">〜11:45</span></div>
+                  <div class="screen">スクリーン９</div>
+                </div>
+                <div class="icons"><span class="icon hyphen"></span></div>
+              </a>
+              <a href="/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=15917&amp;tsc=21120&amp;tssc=279&amp;ymd=2026-11-23&amp;cs=4" class="item">
+                <div class="ds">
+                  <div class="time">14:10<span class="small">〜16:35</span></div>
+                  <div class="screen">スクリーン９</div>
+                </div>
+                <div class="icons"><span class="icon circle"></span></div>
+              </a>
+              <a href="/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=15917&amp;tsc=21120&amp;tssc=279&amp;ymd=2026-11-23&amp;cs=7" class="item status3">
+                <div class="ds">
+                  <div class="time">20:00<span class="small">〜22:25</span></div>
+                  <div class="screen">スクリーン９</div>
+                </div>
+                <div class="icons"><span class="icon triangle"></span><span class="icon moon"></span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        """
+
+        movies = parse_oscinemas_schedule_html(
+            html=os_html,
+            theater_id="os_harborland",
+            booking_url_builder=provider.build_booking_url,
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(len(movies), 1)
+        m = movies[0]
+        self.assertEqual(m.movie_id, "15917")
+        self.assertEqual(m.movie_title, "OSテスト作品F【IMAX】")
+        self.assertEqual(m.info_url, "https://www.oscinemas.net/cgi-bin/pc/ttl/det.cgi?ttc=15917")
+        self.assertEqual(len(m.screenings), 3)
+
+        s0, s1, s2 = m.screenings
+        self.assertEqual(s0.start_time, "09:20")
+        self.assertEqual(s0.screen_name, "スクリーン9")
+        self.assertEqual(s0.seat_status, SeatStatus.UNSOLD)
+        self.assertEqual(s0.booking_url, "")
+        self.assertIn("IMAX", s0.tags)
+
+        self.assertEqual(s1.seat_status, SeatStatus.AVAILABLE)
+        self.assertEqual(
+            s1.booking_url,
+            "https://www.oscinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?ttc=15917&tsc=21120&tssc=279&ymd=2026-11-23&cs=4",
+        )
+        self.assertEqual(s2.seat_status, SeatStatus.FEW)
+        self.assertTrue(s2.booking_url.startswith("https://www.oscinemas.net/cgi-bin/pc/resv/resv_shw_ppt.cgi?"))
+
+        # POST + EUC-JP デコード検証
+        mock_resp = unittest.mock.MagicMock()
+        mock_resp.read.return_value = os_html.encode("euc-jp")
+        mock_resp.__enter__.return_value = mock_resp
+        mock_resp.__exit__.return_value = False
+        with patch("urllib.request.urlopen", return_value=mock_resp) as mock_open:
+            fetched = provider.fetch_movies("os_mint_kobe", date(2026, 11, 23))
+            req_obj = mock_open.call_args[0][0]
+            self.assertEqual(req_obj.full_url, "https://www.oscinemas.net/cgi-bin/api/get-top-schedule.cgi")
+            self.assertEqual(req_obj.data, b"site_c=21080&target_ymd=2026-11-23")
+            self.assertEqual(len(fetched), 1)
+
+        # 404時は空リスト
+        http_404 = urllib.error.HTTPError(
+            "https://www.oscinemas.net/404", 404, "Not Found", {}, io.BytesIO(b"")
+        )
+        try:
+            with patch("urllib.request.urlopen", side_effect=http_404):
+                self.assertEqual(provider.fetch_movies("os_harborland", date(2026, 12, 31)), [])
+        finally:
+            http_404.close()
 
 
 if __name__ == "__main__":
