@@ -14,7 +14,9 @@ from scraper.providers.other import (
     OsCinemasProvider,
     OtherCinemaProvider,
     SmtLegacyProvider,
+    TheaterKinoProvider,
     clean_cinema_frontier_title,
+    expand_theaterkino_dates,
     map_cinema_frontier_seat_status,
     map_oscinemas_seat_status,
     map_smt_legacy_seat_status,
@@ -22,6 +24,8 @@ from scraper.providers.other import (
     parse_cinema_frontier_schedule_html,
     parse_oscinemas_schedule_html,
     parse_smt_legacy_schedule_html,
+    parse_theaterkino_period,
+    parse_theaterkino_schedule_html,
 )
 
 
@@ -40,9 +44,11 @@ class TestOtherCinemaProvider(unittest.TestCase):
         self.assertIn("smt_legacy", ADAPTER_REGISTRY)
         self.assertIn("cinema_frontier", ADAPTER_REGISTRY)
         self.assertIn("oscinemas", ADAPTER_REGISTRY)
+        self.assertIn("theaterkino", ADAPTER_REGISTRY)
         self.assertIs(ADAPTER_REGISTRY["smt_legacy"], SmtLegacyProvider)
         self.assertIs(ADAPTER_REGISTRY["cinema_frontier"], CinemaFrontierProvider)
         self.assertIs(ADAPTER_REGISTRY["oscinemas"], OsCinemasProvider)
+        self.assertIs(ADAPTER_REGISTRY["theaterkino"], TheaterKinoProvider)
         for cls in ADAPTER_REGISTRY.values():
             self.assertTrue(issubclass(cls, BaseCinemaProvider))
 
@@ -71,6 +77,10 @@ class TestOtherCinemaProvider(unittest.TestCase):
             os_info, os_provider = provider._resolve_provider(os_tid)
             self.assertEqual(os_info["adapter"], "oscinemas")
             self.assertIsInstance(os_provider, OsCinemasProvider)
+
+        kino_info, kino_provider = provider._resolve_provider("theaterkino")
+        self.assertEqual(kino_info["adapter"], "theaterkino")
+        self.assertIsInstance(kino_provider, TheaterKinoProvider)
 
     def test_unsupported_adapter_raises_value_error(self):
         provider = OtherCinemaProvider()
@@ -169,10 +179,14 @@ class TestOtherCinemaProvider(unittest.TestCase):
         from scraper.providers.other.smt_legacy import (
             parse_smt_legacy_schedule_html as direct_smt_parse,
         )
+        from scraper.providers.other.theaterkino import (
+            parse_theaterkino_schedule_html as direct_kino_parse,
+        )
 
         self.assertIs(other_pkg.parse_cinema_frontier_schedule_html, direct_cf_parse)
         self.assertIs(other_pkg.parse_oscinemas_schedule_html, direct_os_parse)
         self.assertIs(other_pkg.parse_smt_legacy_schedule_html, direct_smt_parse)
+        self.assertIs(other_pkg.parse_theaterkino_schedule_html, direct_kino_parse)
         for name in other_pkg.__all__:
             self.assertTrue(hasattr(other_pkg, name), f"Missing export: {name}")
         for removed in (
@@ -228,6 +242,18 @@ class TestOtherCinemaProvider(unittest.TestCase):
         self.assertEqual(
             other.build_movie_info_url("sapporo_cf", "https://evil.example.com/bad"),
             "https://www.cinemafrontier.net/cgi-bin/pc/index.cgi",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", "https://www.theaterkino.net/?news=seisyun"),
+            "https://www.theaterkino.net/?news=seisyun",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", "sakuhin.html#buryugeru"),
+            "https://theaterkino.net/tt.html",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", "https://evil.example.com/bad"),
+            "https://theaterkino.net/tt.html",
         )
 
     def test_parse_smt_legacy_schedule_html(self):
@@ -635,6 +661,243 @@ class TestOtherCinemaProvider(unittest.TestCase):
         try:
             with patch("urllib.request.urlopen", side_effect=http_404):
                 self.assertEqual(provider.fetch_movies("os_harborland", date(2026, 12, 31)), [])
+        finally:
+            http_404.close()
+
+    def test_parse_theaterkino_period_and_year_rollover(self):
+        html_nov = '<div id="days"><h2>11/21(土)～11/27(金)</h2></div>'
+        self.assertEqual(
+            parse_theaterkino_period(html_nov, date(2026, 11, 24)),
+            (date(2026, 11, 21), date(2026, 11, 27)),
+        )
+
+        html_year_end = '<div id="days"><h2>１２/２６(土)～１/１(金)</h2></div>'
+        self.assertEqual(
+            parse_theaterkino_period(html_year_end, date(2026, 12, 28)),
+            (date(2026, 12, 26), date(2027, 1, 1)),
+        )
+        self.assertEqual(
+            parse_theaterkino_period(html_year_end, date(2027, 1, 1)),
+            (date(2026, 12, 26), date(2027, 1, 1)),
+        )
+        self.assertIsNone(parse_theaterkino_period("<html><body>no days</body></html>", date(2026, 11, 24)))
+
+    def test_expand_theaterkino_dates(self):
+        self.assertEqual(
+            expand_theaterkino_dates("11/21(土)・24(火)～27(金)", date(2026, 11, 21), date(2026, 11, 27)),
+            {
+                date(2026, 11, 21),
+                date(2026, 11, 24),
+                date(2026, 11, 25),
+                date(2026, 11, 26),
+                date(2026, 11, 27),
+            },
+        )
+        self.assertEqual(
+            expand_theaterkino_dates("11/28(土)～12/1(火)・3(木)", date(2026, 11, 28), date(2026, 12, 4)),
+            {
+                date(2026, 11, 28),
+                date(2026, 11, 29),
+                date(2026, 11, 30),
+                date(2026, 12, 1),
+                date(2026, 12, 3),
+            },
+        )
+        self.assertEqual(
+            expand_theaterkino_dates("11/23(月・祝)", date(2026, 11, 21), date(2026, 11, 27)),
+            {date(2026, 11, 23)},
+        )
+
+    def test_parse_theaterkino_schedule_html_patterns(self):
+        provider = OtherCinemaProvider()
+        kino_html = """
+        <div id="mainl">
+          <div id="days"><h2>11/21(土)～11/27(金)</h2></div>
+
+          <div id="sakuhin">
+            <div id="sakuhinphoto"><a href="sakuhin.html#buryugeru"><img src="2026/a.jpg"></a></div>
+            <div id="sakuhintxt">
+              <p class="ttl">■毎日共通作品</p>
+              <table width="100%">
+                <tr><td width="100%" class="start">9:20</td></tr>
+                <tr><td class="end">(終11:04)</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div id="sakuhin">
+            <div id="sakuhinphoto"><a href="sakuhin.html#buryugeru"><img src="2026/b.jpg"></a></div>
+            <div id="sakuhintxt">
+              <p class="ttl">■複数枠・日付指定作品</p>
+              <table width="100%">
+                <tr>
+                  <td rowspan="2" class="start">11/21(土)・24(火)～27(金)</td>
+                  <td class="start">9:20</td>
+                  <td class="start">17:50</td>
+                </tr>
+                <tr>
+                  <td>(終11:19)</td>
+                  <td>(終19:45/予告2分)</td>
+                </tr>
+              </table>
+              <table width="100%">
+                <tr>
+                  <td rowspan="2" class="start">11/23(月・祝)</td>
+                  <td class="start">上映なし</td>
+                </tr>
+                <tr>
+                  <td>----</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div id="sakuhin">
+            <div id="sakuhinphoto"><a href="sakuhin.html#buryugeru"><img src="2026/c.jpg"></a></div>
+            <div id="sakuhintxt">
+              <p class="ttl">■＜11/23(月・祝)＞<br>『特別上映作品』</p>
+              <table width="100%">
+                <tr>
+                  <td rowspan="2" class="start">11/23(月・祝)</td>
+                  <td class="start">15:50</td>
+                </tr>
+                <tr>
+                  <td>(上映＆トーク終了18:10/予告なし)</td>
+                </tr>
+              </table>
+              <p><a href="https://www.theaterkino.net/?news=seisyun">&gt;&gt;詳細</a></p>
+            </div>
+          </div>
+
+          <div id="sakuhin">
+            <div id="sakuhinphoto"><a href="sakuhin.html#buryugeru"><img src="2026/d.jpg"></a></div>
+            <div id="sakuhintxt">
+              <p class="ttl">■特集上映</p>
+              <table width="100%">
+                <tr>
+                  <td rowspan="2" class="start">11/24(火)</td>
+                  <td rowspan="2" class="start">『パターソン』</td>
+                  <td class="start">19:25</td>
+                </tr>
+                <tr>
+                  <td>(本編・Q＆A終了21:29/予告2分)</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="start">11/23(月)</td>
+                  <td rowspan="2" class="start">上映なし</td>
+                  <td class="start">----</td>
+                </tr>
+                <tr>
+                  <td>----</td>
+                </tr>
+              </table>
+              <p><a href="https://www.theaterkino.net/?news=at_the_bench>&gt;&gt;詳細</a></p>
+            </div>
+          </div>
+        </div>
+        """
+
+        movies_24 = parse_theaterkino_schedule_html(
+            html=kino_html,
+            target_date=date(2026, 11, 24),
+            theater_id="theaterkino",
+            info_url_builder=provider.build_movie_info_url,
+        )
+        titles_24 = [m.movie_title for m in movies_24]
+        self.assertEqual(
+            titles_24,
+            ["毎日共通作品", "複数枠・日付指定作品", "特集上映 『パターソン』"],
+        )
+
+        multi = movies_24[1]
+        self.assertEqual(multi.info_url, "https://theaterkino.net/tt.html")
+        self.assertEqual([(s.start_time, s.end_time) for s in multi.screenings], [("09:20", "11:19"), ("17:50", "19:45")])
+        for s in multi.screenings:
+            self.assertEqual(s.screen_name, "スクリーン未定")
+            self.assertEqual(s.seat_status, SeatStatus.UNKNOWN)
+            self.assertEqual(s.booking_url, "")
+
+        # 閉じクォート欠損のリンクも抽出できること
+        tokushu = movies_24[2]
+        self.assertEqual(tokushu.info_url, "https://www.theaterkino.net/?news=at_the_bench")
+        self.assertEqual(tokushu.screenings[0].end_time, "21:29")
+
+        # 11/23 は「複数枠・日付指定作品」(上映なし) と「特集上映」(上映なし) が除外され、特別上映が含まれること
+        movies_23 = parse_theaterkino_schedule_html(
+            html=kino_html,
+            target_date=date(2026, 11, 23),
+            theater_id="theaterkino",
+            info_url_builder=provider.build_movie_info_url,
+        )
+        self.assertEqual(
+            [m.movie_title for m in movies_23],
+            ["毎日共通作品", "＜11/23(月・祝)＞ 『特別上映作品』"],
+        )
+        self.assertEqual(movies_23[1].info_url, "https://www.theaterkino.net/?news=seisyun")
+        self.assertEqual(movies_23[1].screenings[0].end_time, "18:10")
+
+        # 期間外の日付では空リスト
+        self.assertEqual(
+            parse_theaterkino_schedule_html(
+                html=kino_html,
+                target_date=date(2026, 11, 28),
+                theater_id="theaterkino",
+            ),
+            [],
+        )
+
+    def test_theaterkino_info_url_resolution(self):
+        other = OtherCinemaProvider()
+        self.assertEqual(other.build_booking_url("theaterkino", "ev1"), "")
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", None),
+            "https://theaterkino.net/tt.html",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", "/sakuhin.html"),
+            "https://theaterkino.net/sakuhin.html",
+        )
+        self.assertEqual(
+            other.build_movie_info_url("theaterkino", "https://www.theaterkino.net/?post_type=advance"),
+            "https://www.theaterkino.net/?post_type=advance",
+        )
+
+    def test_theaterkino_fetch_movies_fallback_and_404(self):
+        provider = OtherCinemaProvider()
+        tt_a = '<div id="days"><h2>11/21(土)～11/27(金)</h2></div><div id="sakuhin"><p class="ttl">■今週作品</p><table><tr><td class="start">10:00</td></tr><tr><td>(終11:30)</td></tr></table></div>'
+        tt_b = '<div id="days"><h2>11/14(土)～11/20(金)</h2></div><div id="sakuhin"><p class="ttl">■前週作品</p><table><tr><td class="start">12:00</td></tr><tr><td>(終13:40)</td></tr></table></div>'
+
+        def make_resp(text):
+            r = unittest.mock.MagicMock()
+            r.read.return_value = text.encode("utf-8")
+            r.__enter__.return_value = r
+            r.__exit__.return_value = False
+            return r
+
+        # ttA.html が対象日付に一致したら ttB.html を取得せず即返すこと
+        with patch("urllib.request.urlopen", side_effect=[make_resp(tt_a)]) as mock_open:
+            movies = provider.fetch_movies("theaterkino", date(2026, 11, 24))
+            self.assertEqual(mock_open.call_count, 1)
+            self.assertEqual(mock_open.call_args[0][0].full_url, "https://theaterkino.net/ttA.html")
+            self.assertEqual([m.movie_title for m in movies], ["今週作品"])
+
+        # ttA.html が別期間なら ttB.html を取得して返すこと
+        with patch("urllib.request.urlopen", side_effect=[make_resp(tt_a), make_resp(tt_b)]) as mock_open:
+            movies = provider.fetch_movies("theaterkino", date(2026, 11, 18))
+            self.assertEqual(mock_open.call_count, 2)
+            self.assertEqual(
+                [c[0][0].full_url for c in mock_open.call_args_list],
+                ["https://theaterkino.net/ttA.html", "https://theaterkino.net/ttB.html"],
+            )
+            self.assertEqual([m.movie_title for m in movies], ["前週作品"])
+
+        # 404 や期間外日付時は空リスト
+        http_404 = urllib.error.HTTPError(
+            "https://theaterkino.net/ttA.html", 404, "Not Found", {}, io.BytesIO(b"")
+        )
+        try:
+            with patch("urllib.request.urlopen", side_effect=[http_404, make_resp(tt_b)]):
+                self.assertEqual(provider.fetch_movies("theaterkino", date(2026, 12, 31)), [])
         finally:
             http_404.close()
 

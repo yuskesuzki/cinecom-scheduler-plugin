@@ -898,6 +898,38 @@
           }
         ]
       }
+    },
+    {
+      "id": "theaterkino",
+      "code": "theaterkino",
+      "name": "シアターキノ",
+      "region": "北海道",
+      "adapter": "theaterkino",
+      "base_url": "https://theaterkino.net",
+      "official_url": "https://theaterkino.net/tt.html",
+      "facility": {
+        "url": "https://theaterkino.net/about.html",
+        "screens": [
+          {
+            "name": "A館",
+            "features": [],
+            "total_seats": 63,
+            "seats": {
+              "一般座席": 63
+            },
+            "sound": "ドルビーシネマプロセッサーCP-750 / JBL"
+          },
+          {
+            "name": "B館",
+            "features": [],
+            "total_seats": 100,
+            "seats": {
+              "一般座席": 100
+            },
+            "sound": "ドルビーシネマプロセッサーCP-750 / JBL"
+          }
+        ]
+      }
     }
   ]
 }

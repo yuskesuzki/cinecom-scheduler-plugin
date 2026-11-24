@@ -21,11 +21,18 @@ from .smt_legacy import (
     map_smt_legacy_seat_status,
     parse_smt_legacy_schedule_html,
 )
+from .theaterkino import (
+    TheaterKinoProvider,
+    expand_theaterkino_dates,
+    parse_theaterkino_period,
+    parse_theaterkino_schedule_html,
+)
 
 ADAPTER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
     SmtLegacyProvider.ADAPTER_ID: SmtLegacyProvider,
     CinemaFrontierProvider.ADAPTER_ID: CinemaFrontierProvider,
     OsCinemasProvider.ADAPTER_ID: OsCinemasProvider,
+    TheaterKinoProvider.ADAPTER_ID: TheaterKinoProvider,
 }
 
 
@@ -105,7 +112,9 @@ __all__ = [
     "OsCinemasProvider",
     "OtherCinemaProvider",
     "SmtLegacyProvider",
+    "TheaterKinoProvider",
     "clean_cinema_frontier_title",
+    "expand_theaterkino_dates",
     "map_cinema_frontier_seat_status",
     "map_oscinemas_seat_status",
     "map_smt_legacy_seat_status",
@@ -113,4 +122,6 @@ __all__ = [
     "parse_cinema_frontier_schedule_html",
     "parse_oscinemas_schedule_html",
     "parse_smt_legacy_schedule_html",
+    "parse_theaterkino_period",
+    "parse_theaterkino_schedule_html",
 ]

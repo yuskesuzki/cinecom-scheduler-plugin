@@ -33,6 +33,8 @@ ALLOWED_DOMAINS: Set[str] = {
     "www.midland-sq-cinema.jp",
     "ticket.midlandcinema.jp",
     "www.oscinemas.net",
+    "theaterkino.net",
+    "www.theaterkino.net",
     "cinema.korona.co.jp",
     "login.member.korona.co.jp",
     "reserve.smart-theater.com",

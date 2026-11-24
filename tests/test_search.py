@@ -84,10 +84,13 @@ class TestCrossTheaterSearch(unittest.TestCase):
             any(t["chain_id"] == "other" and t["theater_id"] == "namba" for t in osaka_theaters)
         )
 
-        # 北海道に 札幌シネマフロンティア (other) が含まれること
+        # 北海道に 札幌シネマフロンティア・シアターキノ (other) が含まれること
         hokkaido_theaters = get_theaters_by_area("北海道")
         self.assertTrue(
             any(t["chain_id"] == "other" and t["theater_id"] == "sapporo_cf" for t in hokkaido_theaters)
+        )
+        self.assertTrue(
+            any(t["chain_id"] == "other" and t["theater_id"] == "theaterkino" for t in hokkaido_theaters)
         )
 
         # 愛知県に ミッドランドスクエア シネマ / 2 (other) が含まれること
