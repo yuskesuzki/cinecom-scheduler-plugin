@@ -1,10 +1,11 @@
 from datetime import date
 import re
-from typing import Any, Callable, Dict, List, Optional, Sequence
+from typing import Callable, Dict, List, Optional, Sequence
 import urllib.parse
 
 from ...models import MovieSchedule, Screening, SeatStatus
 from ...sanitizer import UnsafeUrlError, build_safe_url, sanitize_identifier
+from ..base import BaseCinemaProvider
 from ..html_utils import (
     clean_text,
     extract_balanced_elements,
@@ -13,7 +14,6 @@ from ..html_utils import (
     normalize_screen_name,
     pad_hhmm,
 )
-from .base import BaseOtherStrategy
 
 _BOOKING_KEYS = ("ttc", "tsc", "tssc", "ymd", "cs")
 
@@ -207,19 +207,21 @@ def parse_oscinemas_schedule_html(
     return movies
 
 
-class OsCinemasStrategy(BaseOtherStrategy):
+class OsCinemasProvider(BaseCinemaProvider):
     """
-    OSシネマズ（ミント神戸・神戸ハーバーランド）向け Strategy。
+    OSシネマズ（ミント神戸・神戸ハーバーランド）向け Provider。
     """
 
+    CHAIN_ID: str = "other"
     ADAPTER_ID: str = "oscinemas"
 
     def build_booking_url(
         self,
-        theater_info: Dict[str, Any],
+        theater_id: str,
         event_id: str,
         extra_params: Optional[Dict[str, str]] = None,
     ) -> str:
+        theater_info = self.get_theater_info(theater_id)
         base_url = theater_info.get("base_url") or "https://www.oscinemas.net"
         params = dict(extra_params or {})
         if not all(params.get(k) for k in _BOOKING_KEYS):
@@ -236,13 +238,14 @@ class OsCinemasStrategy(BaseOtherStrategy):
         )
 
     def fetch_movies(
-        self, theater_info: Dict[str, Any], target_date: date
+        self, theater_id: str, target_date: date
     ) -> List[MovieSchedule]:
-        theater_id = theater_info["id"]
+        safe_theater = sanitize_identifier(theater_id)
+        theater_info = self.get_theater_info(safe_theater)
         base_url = theater_info.get("base_url") or "https://www.oscinemas.net"
         code = str(theater_info.get("code") or "").strip()
         if not code:
-            raise ValueError(f"Theater '{theater_id}' has no theater code")
+            raise ValueError(f"Theater '{safe_theater}' has no theater code")
 
         safe_code = sanitize_identifier(code)
         api_url = build_safe_url(
@@ -258,34 +261,21 @@ class OsCinemasStrategy(BaseOtherStrategy):
             {"site_c": safe_code, "target_ymd": target_date.isoformat()}
         ).encode("ascii")
 
-        headers = dict(self.default_headers)
-        headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8"
-        headers["X-Requested-With"] = "XMLHttpRequest"
-        headers["Referer"] = referer
-
-        req = urllib.request.Request(api_url, data=post_body, headers=headers)
-        try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                html = resp.read().decode("euc-jp", errors="replace")
-        except urllib.error.HTTPError as e:
-            if e.code == 404:
-                html = ""
-            else:
-                raise RuntimeError(
-                    f"共同経営・その他 スケジュール取得に失敗しました ({theater_id}, HTTP {e.code} {e.reason})"
-                ) from e
-        except Exception as e:
-            raise RuntimeError(
-                f"共同経営・その他 スケジュール取得に失敗しました ({theater_id}): {e}"
-            ) from e
+        html = self._fetch_html(
+            api_url,
+            encoding="euc-jp",
+            context=safe_theater,
+            data=post_body,
+            extra_headers={
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": referer,
+            },
+        )
 
         return parse_oscinemas_schedule_html(
             html=html,
-            theater_id=theater_id,
-            booking_url_builder=lambda _tid, ev, params=None: self.build_booking_url(
-                theater_info, ev, params
-            ),
-            info_url_builder=lambda _tid, href: self.build_movie_info_url(
-                theater_info, href
-            ),
+            theater_id=safe_theater,
+            booking_url_builder=self.build_booking_url,
+            info_url_builder=self.resolve_movie_info_url,
         )

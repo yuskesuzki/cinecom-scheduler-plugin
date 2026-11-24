@@ -148,14 +148,13 @@ cinecom-scheduler-plugin/
 │       ├── ttcg.py            # TtcgCinemaProvider
 │       ├── united.py          # UnitedCinemaProvider
 │       ├── uscinemas.py       # UsCinemasProvider
-│       └── other/             # OtherCinemaProvider (Strategy パッケージ)
-│           ├── __init__.py    # STRATEGY_REGISTRY + OtherCinemaProvider
-│           ├── base.py        # BaseOtherStrategy (Strategy 基底クラス)
-│           ├── cinema_frontier.py # 札幌シネマフロンティア Strategy
-│           ├── oscinemas.py   # OSシネマズ Strategy
-│           └── smt_legacy.py  # 旧SMTテーブル型 Strategy (大阪SC・なんば・ミッドランド)
+│       └── other/             # OtherCinemaProvider (アダプター統合パッケージ)
+│           ├── __init__.py    # ADAPTER_REGISTRY + OtherCinemaProvider
+│           ├── cinema_frontier.py # 札幌シネマフロンティア Provider
+│           ├── oscinemas.py   # OSシネマズ Provider
+│           └── smt_legacy.py  # 旧SMTテーブル型 Provider (大阪SC・なんば・ミッドランド)
 ├── tests/                     # ユニットテスト (全86テスト完備)
-│   ├── test_other_scraper.py  # OtherCinemaProvider・Strategyテスト
+│   ├── test_other_scraper.py  # OtherCinemaProvider・アダプターテスト
 │   ├── test_phase2_scrapers.py # コロナワールド・TTCGテスト
 │   ├── test_phase3_scrapers.py # USシネマ・フォーラム・キノシネマテスト
 │   ├── test_scraper.py        # 各Provider・スクレイパーテスト

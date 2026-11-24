@@ -5,15 +5,15 @@ from unittest.mock import patch
 import urllib.error
 
 import scraper.cli
-from scraper.models import MovieSchedule, SeatStatus
+from scraper.models import MovieSchedule, SeatStatus, TheaterScheduleResponse
 from scraper.providers import get_provider
+from scraper.providers.base import BaseCinemaProvider
 from scraper.providers.other import (
-    STRATEGY_REGISTRY,
-    BaseOtherStrategy,
-    CinemaFrontierStrategy,
-    OsCinemasStrategy,
+    ADAPTER_REGISTRY,
+    CinemaFrontierProvider,
+    OsCinemasProvider,
     OtherCinemaProvider,
-    SmtLegacyStrategy,
+    SmtLegacyProvider,
     clean_cinema_frontier_title,
     map_cinema_frontier_seat_status,
     map_oscinemas_seat_status,
@@ -36,39 +36,41 @@ class TestOtherCinemaProvider(unittest.TestCase):
                 exit_code = scraper.cli.main()
                 self.assertEqual(exit_code, 2)
 
-    def test_strategy_registry_and_dispatch(self):
-        self.assertIn("smt_legacy", STRATEGY_REGISTRY)
-        self.assertIn("cinema_frontier", STRATEGY_REGISTRY)
-        self.assertIn("oscinemas", STRATEGY_REGISTRY)
-        self.assertIs(STRATEGY_REGISTRY["smt_legacy"], SmtLegacyStrategy)
-        self.assertIs(STRATEGY_REGISTRY["cinema_frontier"], CinemaFrontierStrategy)
-        self.assertIs(STRATEGY_REGISTRY["oscinemas"], OsCinemasStrategy)
+    def test_adapter_registry_and_dispatch(self):
+        self.assertIn("smt_legacy", ADAPTER_REGISTRY)
+        self.assertIn("cinema_frontier", ADAPTER_REGISTRY)
+        self.assertIn("oscinemas", ADAPTER_REGISTRY)
+        self.assertIs(ADAPTER_REGISTRY["smt_legacy"], SmtLegacyProvider)
+        self.assertIs(ADAPTER_REGISTRY["cinema_frontier"], CinemaFrontierProvider)
+        self.assertIs(ADAPTER_REGISTRY["oscinemas"], OsCinemasProvider)
+        for cls in ADAPTER_REGISTRY.values():
+            self.assertTrue(issubclass(cls, BaseCinemaProvider))
 
         provider = OtherCinemaProvider()
-        oscc_info, oscc_strategy = provider._resolve_theater_and_strategy("oscc")
+        oscc_info, oscc_provider = provider._resolve_provider("oscc")
         self.assertEqual(oscc_info["adapter"], "smt_legacy")
-        self.assertIsInstance(oscc_strategy, SmtLegacyStrategy)
+        self.assertIsInstance(oscc_provider, SmtLegacyProvider)
 
-        namba_info, namba_strategy = provider._resolve_theater_and_strategy("namba")
+        namba_info, namba_provider = provider._resolve_provider("namba")
         self.assertEqual(namba_info["adapter"], "smt_legacy")
-        self.assertIs(namba_strategy, oscc_strategy)
+        self.assertIs(namba_provider, oscc_provider)
 
-        cf_info, cf_strategy = provider._resolve_theater_and_strategy("sapporo_cf")
+        cf_info, cf_provider = provider._resolve_provider("sapporo_cf")
         self.assertEqual(cf_info["adapter"], "cinema_frontier")
-        self.assertIsInstance(cf_strategy, CinemaFrontierStrategy)
+        self.assertIsInstance(cf_provider, CinemaFrontierProvider)
 
-        m1_info, m1_strategy = provider._resolve_theater_and_strategy("midland_sq")
+        m1_info, m1_provider = provider._resolve_provider("midland_sq")
         self.assertEqual(m1_info["adapter"], "smt_legacy")
-        self.assertIs(m1_strategy, oscc_strategy)
+        self.assertIs(m1_provider, oscc_provider)
 
-        m2_info, m2_strategy = provider._resolve_theater_and_strategy("midland_sq2")
+        m2_info, m2_provider = provider._resolve_provider("midland_sq2")
         self.assertEqual(m2_info["adapter"], "smt_legacy")
-        self.assertIs(m2_strategy, oscc_strategy)
+        self.assertIs(m2_provider, oscc_provider)
 
         for os_tid in ("os_mint_kobe", "os_harborland"):
-            os_info, os_strategy = provider._resolve_theater_and_strategy(os_tid)
+            os_info, os_provider = provider._resolve_provider(os_tid)
             self.assertEqual(os_info["adapter"], "oscinemas")
-            self.assertIsInstance(os_strategy, OsCinemasStrategy)
+            self.assertIsInstance(os_provider, OsCinemasProvider)
 
     def test_unsupported_adapter_raises_value_error(self):
         provider = OtherCinemaProvider()
@@ -83,32 +85,49 @@ class TestOtherCinemaProvider(unittest.TestCase):
                 provider.build_booking_url("unknown_mini", "ev1")
             with self.assertRaises(ValueError):
                 provider.build_movie_info_url("unknown_mini", "/movie/1")
+            with self.assertRaises(ValueError):
+                provider.get_schedule_response("unknown_mini", date(2026, 11, 22))
 
-    def test_base_strategy_default_booking_url_for_non_booking_minitheater(self):
-        class MiniTheaterStrategy(BaseOtherStrategy):
+    def test_base_provider_default_booking_url_for_non_booking_minitheater(self):
+        class MiniTheaterProvider(BaseCinemaProvider):
+            CHAIN_ID = "other"
             ADAPTER_ID = "mini_theater"
 
-            def fetch_movies(self, theater_info, target_date):
+            def fetch_movies(self, theater_id, target_date):
                 return [
                     MovieSchedule(
                         movie_id="mini_1",
                         movie_title="独立系上映作品",
                         screenings=[],
-                        info_url=self.build_movie_info_url(theater_info, "/movies/mini_1"),
+                        info_url=self.resolve_movie_info_url(theater_id, "/movies/mini_1"),
                     )
                 ]
 
+        class CustomResponseMiniProvider(MiniTheaterProvider):
+            def get_schedule_response(self, theater_id, target_date):
+                resp = super().get_schedule_response(theater_id, target_date)
+                return TheaterScheduleResponse(
+                    chain_id=resp.chain_id,
+                    theater_id=resp.theater_id,
+                    theater_name=f"{resp.theater_name}(カスタム)",
+                    target_date=resp.target_date,
+                    movies=resp.movies,
+                )
+
         fake_theater = {
             "id": "sapporo_mini",
+            "name": "札幌ミニシアター",
             "adapter": "mini_theater",
             "base_url": "https://www.cinemafrontier.net",
             "official_url": "https://www.cinemafrontier.net/cgi-bin/pc/index.cgi",
         }
         provider = OtherCinemaProvider(
-            strategy_registry={"mini_theater": MiniTheaterStrategy}
+            adapter_registry={"mini_theater": MiniTheaterProvider}
         )
-        with patch.object(provider, "get_theater_info", return_value=fake_theater):
-            # 予約非対応ミニシアター向け Strategy ではデフォルトが空文字を返すこと
+        with patch.object(
+            provider, "_load_theaters_master", return_value={"sapporo_mini": fake_theater}
+        ):
+            # 予約非対応ミニシアター向け Provider ではデフォルトが空文字を返すこと
             self.assertEqual(provider.build_booking_url("sapporo_mini", "ev1"), "")
             movies = provider.fetch_movies("sapporo_mini", date(2026, 11, 22))
             self.assertEqual(len(movies), 1)
@@ -120,20 +139,50 @@ class TestOtherCinemaProvider(unittest.TestCase):
                 provider.build_movie_info_url("sapporo_mini", "https://evil.example.com/x"),
                 "https://www.cinemafrontier.net/cgi-bin/pc/index.cgi",
             )
+            resp = provider.get_schedule_response("sapporo_mini", date(2026, 11, 22))
+            self.assertEqual(resp.chain_id, "other")
+            self.assertEqual(resp.theater_id, "sapporo_mini")
+            self.assertEqual(resp.theater_name, "札幌ミニシアター")
+            self.assertEqual(len(resp.movies), 1)
 
-    def test_backward_compatible_reexports(self):
+        custom_provider = OtherCinemaProvider(
+            adapter_registry={"mini_theater": CustomResponseMiniProvider}
+        )
+        with patch.object(
+            custom_provider,
+            "_load_theaters_master",
+            return_value={"sapporo_mini": fake_theater},
+        ):
+            custom_resp = custom_provider.get_schedule_response(
+                "sapporo_mini", date(2026, 11, 22)
+            )
+            self.assertEqual(custom_resp.theater_name, "札幌ミニシアター(カスタム)")
+
+    def test_package_reexports(self):
         import scraper.providers.other as other_pkg
         from scraper.providers.other.cinema_frontier import (
             parse_cinema_frontier_schedule_html as direct_cf_parse,
+        )
+        from scraper.providers.other.oscinemas import (
+            parse_oscinemas_schedule_html as direct_os_parse,
         )
         from scraper.providers.other.smt_legacy import (
             parse_smt_legacy_schedule_html as direct_smt_parse,
         )
 
         self.assertIs(other_pkg.parse_cinema_frontier_schedule_html, direct_cf_parse)
+        self.assertIs(other_pkg.parse_oscinemas_schedule_html, direct_os_parse)
         self.assertIs(other_pkg.parse_smt_legacy_schedule_html, direct_smt_parse)
         for name in other_pkg.__all__:
             self.assertTrue(hasattr(other_pkg, name), f"Missing export: {name}")
+        for removed in (
+            "BaseOtherStrategy",
+            "STRATEGY_REGISTRY",
+            "SmtLegacyStrategy",
+            "CinemaFrontierStrategy",
+            "OsCinemasStrategy",
+        ):
+            self.assertFalse(hasattr(other_pkg, removed), f"Unexpected legacy export: {removed}")
 
     def test_other_helpers(self):
         self.assertEqual(

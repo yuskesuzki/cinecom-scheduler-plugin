@@ -1,39 +1,38 @@
 from datetime import date
 from typing import Any, Dict, List, Optional, Tuple, Type
 
-from ...models import MovieSchedule
+from ...models import MovieSchedule, TheaterScheduleResponse
 from ...sanitizer import sanitize_identifier
 from ..base import BaseCinemaProvider
-from .base import BaseOtherStrategy
 from .cinema_frontier import (
-    CinemaFrontierStrategy,
+    CinemaFrontierProvider,
     clean_cinema_frontier_title,
     map_cinema_frontier_seat_status,
     normalize_cinema_frontier_screen_name,
     parse_cinema_frontier_schedule_html,
 )
 from .oscinemas import (
-    OsCinemasStrategy,
+    OsCinemasProvider,
     map_oscinemas_seat_status,
     parse_oscinemas_schedule_html,
 )
 from .smt_legacy import (
-    SmtLegacyStrategy,
+    SmtLegacyProvider,
     map_smt_legacy_seat_status,
     parse_smt_legacy_schedule_html,
 )
 
-STRATEGY_REGISTRY: Dict[str, Type[BaseOtherStrategy]] = {
-    SmtLegacyStrategy.ADAPTER_ID: SmtLegacyStrategy,
-    CinemaFrontierStrategy.ADAPTER_ID: CinemaFrontierStrategy,
-    OsCinemasStrategy.ADAPTER_ID: OsCinemasStrategy,
+ADAPTER_REGISTRY: Dict[str, Type[BaseCinemaProvider]] = {
+    SmtLegacyProvider.ADAPTER_ID: SmtLegacyProvider,
+    CinemaFrontierProvider.ADAPTER_ID: CinemaFrontierProvider,
+    OsCinemasProvider.ADAPTER_ID: OsCinemasProvider,
 }
 
 
 class OtherCinemaProvider(BaseCinemaProvider):
     """
-    共同経営・独立系劇場（other）向け統合 Provider（Strategy パターンの Context）。
-    劇場マスタの 'adapter' 属性に応じて STRATEGY_REGISTRY から適切な Strategy へ委譲する。
+    共同経営・独立系劇場（other）向け統合 Provider。
+    劇場マスタの 'adapter' 属性に応じて ADAPTER_REGISTRY から適切な Provider へ委譲する。
     """
 
     CHAIN_ID: str = "other"
@@ -41,31 +40,38 @@ class OtherCinemaProvider(BaseCinemaProvider):
     def __init__(
         self,
         timeout: int = 15,
-        strategy_registry: Optional[Dict[str, Type[BaseOtherStrategy]]] = None,
+        adapter_registry: Optional[Dict[str, Type[BaseCinemaProvider]]] = None,
     ):
         super().__init__(timeout=timeout)
-        self.strategy_registry: Dict[str, Type[BaseOtherStrategy]] = dict(
-            strategy_registry
-            if strategy_registry is not None
-            else STRATEGY_REGISTRY
+        self.adapter_registry: Dict[str, Type[BaseCinemaProvider]] = dict(
+            adapter_registry
+            if adapter_registry is not None
+            else ADAPTER_REGISTRY
         )
-        self._strategies: Dict[str, BaseOtherStrategy] = {}
+        self._providers: Dict[str, BaseCinemaProvider] = {}
 
-    def _resolve_theater_and_strategy(
+    def _resolve_provider(
         self, theater_id: str
-    ) -> Tuple[Dict[str, Any], BaseOtherStrategy]:
+    ) -> Tuple[Dict[str, Any], BaseCinemaProvider]:
         safe_theater = sanitize_identifier(theater_id)
         info = self.get_theater_info(safe_theater)
         adapter = str(info.get("adapter") or "").strip()
-        strategy_cls = self.strategy_registry.get(adapter)
-        if strategy_cls is None:
+        provider_cls = self.adapter_registry.get(adapter)
+        if provider_cls is None:
             raise ValueError(
                 f"Unsupported adapter '{adapter}' for theater '{safe_theater}'"
             )
 
-        if adapter not in self._strategies:
-            self._strategies[adapter] = strategy_cls(timeout=self.timeout)
-        return info, self._strategies[adapter]
+        if adapter not in self._providers:
+            self._providers[adapter] = provider_cls(timeout=self.timeout)
+        provider = self._providers[adapter]
+        if self._theaters_cache is not None:
+            provider._theaters_cache = self._theaters_cache
+        else:
+            merged = dict(provider._theaters_cache or {})
+            merged[safe_theater] = info
+            provider._theaters_cache = merged
+        return info, provider
 
     def build_booking_url(
         self,
@@ -73,27 +79,32 @@ class OtherCinemaProvider(BaseCinemaProvider):
         event_id: str,
         extra_params: Optional[Dict[str, str]] = None,
     ) -> str:
-        info, strategy = self._resolve_theater_and_strategy(theater_id)
-        return strategy.build_booking_url(info, event_id, extra_params)
+        _, provider = self._resolve_provider(theater_id)
+        return provider.build_booking_url(theater_id, event_id, extra_params)
 
     def build_movie_info_url(
         self, theater_id: str, raw_href: Optional[str]
     ) -> str:
-        info, strategy = self._resolve_theater_and_strategy(theater_id)
-        return strategy.build_movie_info_url(info, raw_href)
+        _, provider = self._resolve_provider(theater_id)
+        return provider.resolve_movie_info_url(theater_id, raw_href)
 
     def fetch_movies(self, theater_id: str, target_date: date) -> List[MovieSchedule]:
-        info, strategy = self._resolve_theater_and_strategy(theater_id)
-        return strategy.fetch_movies(info, target_date)
+        _, provider = self._resolve_provider(theater_id)
+        return provider.fetch_movies(theater_id, target_date)
+
+    def get_schedule_response(
+        self, theater_id: str, target_date: date
+    ) -> TheaterScheduleResponse:
+        _, provider = self._resolve_provider(theater_id)
+        return provider.get_schedule_response(theater_id, target_date)
 
 
 __all__ = [
-    "BaseOtherStrategy",
-    "CinemaFrontierStrategy",
-    "OsCinemasStrategy",
+    "ADAPTER_REGISTRY",
+    "CinemaFrontierProvider",
+    "OsCinemasProvider",
     "OtherCinemaProvider",
-    "STRATEGY_REGISTRY",
-    "SmtLegacyStrategy",
+    "SmtLegacyProvider",
     "clean_cinema_frontier_title",
     "map_cinema_frontier_seat_status",
     "map_oscinemas_seat_status",

@@ -1,10 +1,11 @@
 from datetime import date
 import re
-from typing import Any, Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional
 import urllib.parse
 
 from ...models import MovieSchedule, Screening, SeatStatus
 from ...sanitizer import UnsafeUrlError, build_safe_url, sanitize_identifier
+from ..base import BaseCinemaProvider
 from ..html_utils import (
     clean_text,
     extract_balanced_elements,
@@ -14,7 +15,6 @@ from ..html_utils import (
     pad_hhmm,
     strip_runtime_suffix,
 )
-from .base import BaseOtherStrategy
 
 
 def map_smt_legacy_seat_status(
@@ -225,19 +225,21 @@ def parse_smt_legacy_schedule_html(
     return movies
 
 
-class SmtLegacyStrategy(BaseOtherStrategy):
+class SmtLegacyProvider(BaseCinemaProvider):
     """
-    旧世代SMTテーブル型システム（大阪ステーションシティシネマ・なんばパークスシネマ・ミッドランドスクエア シネマ）向け Strategy。
+    旧世代SMTテーブル型システム（大阪ステーションシティシネマ・なんばパークスシネマ・ミッドランドスクエア シネマ）向け Provider。
     """
 
+    CHAIN_ID: str = "other"
     ADAPTER_ID: str = "smt_legacy"
 
     def build_booking_url(
         self,
-        theater_info: Dict[str, Any],
+        theater_id: str,
         event_id: str,
         extra_params: Optional[Dict[str, str]] = None,
     ) -> str:
+        theater_info = self.get_theater_info(theater_id)
         ticket_host = theater_info.get("ticket_host") or ""
         legacy_keys = ("th", "mo", "sd", "pe", "sc", "fl")
         params = dict(extra_params or {})
@@ -251,15 +253,16 @@ class SmtLegacyStrategy(BaseOtherStrategy):
         return build_safe_url(f"https://{ticket_host}/ticket/f0100.do", query_params=query)
 
     def fetch_movies(
-        self, theater_info: Dict[str, Any], target_date: date
+        self, theater_id: str, target_date: date
     ) -> List[MovieSchedule]:
-        theater_id = theater_info["id"]
+        safe_theater = sanitize_identifier(theater_id)
+        theater_info = self.get_theater_info(safe_theater)
         base_url = theater_info.get("base_url") or ""
         schedule_base_url = theater_info.get("schedule_base_url") or base_url
         ticket_host = theater_info.get("ticket_host") or ""
         code = str(theater_info.get("code") or "").strip()
         if not code:
-            raise ValueError(f"Theater '{theater_id}' has no theater code")
+            raise ValueError(f"Theater '{safe_theater}' has no theater code")
 
         safe_code = sanitize_identifier(code)
         date_str = target_date.strftime("%Y%m%d")
@@ -271,18 +274,14 @@ class SmtLegacyStrategy(BaseOtherStrategy):
             schedule_base_url,
             path_segments=[*prefix_segments, filename],
         )
-        html = self._fetch_html(url, encoding="utf-8", context=theater_id)
+        html = self._fetch_html(url, encoding="utf-8", context=safe_theater)
         return parse_smt_legacy_schedule_html(
             html=html,
-            theater_id=theater_id,
+            theater_id=safe_theater,
             base_url=base_url,
             ticket_host=ticket_host,
-            booking_url_builder=lambda _tid, ev, params=None: self.build_booking_url(
-                theater_info, ev, params
-            ),
-            info_url_builder=lambda _tid, href: self.build_movie_info_url(
-                theater_info, href
-            ),
+            booking_url_builder=self.build_booking_url,
+            info_url_builder=self.resolve_movie_info_url,
             screen_min=theater_info.get("screen_min"),
             screen_max=theater_info.get("screen_max"),
         )

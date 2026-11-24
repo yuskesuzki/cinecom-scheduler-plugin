@@ -1,10 +1,11 @@
 from datetime import date
 import re
-from typing import Any, Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional
 import urllib.parse
 
 from ...models import MovieSchedule, Screening, SeatStatus
 from ...sanitizer import UnsafeUrlError, build_safe_url, sanitize_identifier
+from ..base import BaseCinemaProvider
 from ..html_utils import (
     FULLWIDTH_TRANS,
     clean_text,
@@ -13,7 +14,6 @@ from ..html_utils import (
     get_attr,
     pad_hhmm,
 )
-from .base import BaseOtherStrategy
 
 
 def clean_cinema_frontier_title(raw_h3_html: str) -> str:
@@ -239,17 +239,19 @@ def parse_cinema_frontier_schedule_html(
     return movies
 
 
-class CinemaFrontierStrategy(BaseOtherStrategy):
-    """札幌シネマフロンティア（det.cgi / EUC-JP）向け Strategy。"""
+class CinemaFrontierProvider(BaseCinemaProvider):
+    """札幌シネマフロンティア（det.cgi / EUC-JP）向け Provider。"""
 
+    CHAIN_ID: str = "other"
     ADAPTER_ID: str = "cinema_frontier"
 
     def build_booking_url(
         self,
-        theater_info: Dict[str, Any],
+        theater_id: str,
         event_id: str,
         extra_params: Optional[Dict[str, str]] = None,
     ) -> str:
+        sanitize_identifier(theater_id)
         cf_keys = ("ttc", "tsc", "tssc", "ymd", "cs")
         params = dict(extra_params or {})
         if not all(params.get(k) for k in cf_keys):
@@ -265,12 +267,13 @@ class CinemaFrontierStrategy(BaseOtherStrategy):
         )
 
     def fetch_movies(
-        self, theater_info: Dict[str, Any], target_date: date
+        self, theater_id: str, target_date: date
     ) -> List[MovieSchedule]:
-        theater_id = theater_info["id"]
+        safe_theater = sanitize_identifier(theater_id)
+        theater_info = self.get_theater_info(safe_theater)
         code = str(theater_info.get("code") or "").strip()
         if not code:
-            raise ValueError(f"Theater '{theater_id}' has no theater code")
+            raise ValueError(f"Theater '{safe_theater}' has no theater code")
 
         safe_code = sanitize_identifier(code)
         date_dash = target_date.strftime("%Y-%m-%d")
@@ -278,14 +281,10 @@ class CinemaFrontierStrategy(BaseOtherStrategy):
             "https://www.cinemafrontier.net/cgi-bin/pc/site/det.cgi",
             query_params={"tsc": safe_code, "ymd": date_dash},
         )
-        html = self._fetch_html(url, encoding="euc-jp", context=theater_id)
+        html = self._fetch_html(url, encoding="euc-jp", context=safe_theater)
         return parse_cinema_frontier_schedule_html(
             html=html,
-            theater_id=theater_id,
-            booking_url_builder=lambda _tid, ev, params=None: self.build_booking_url(
-                theater_info, ev, params
-            ),
-            info_url_builder=lambda _tid, href: self.build_movie_info_url(
-                theater_info, href
-            ),
+            theater_id=safe_theater,
+            booking_url_builder=self.build_booking_url,
+            info_url_builder=self.resolve_movie_info_url,
         )
